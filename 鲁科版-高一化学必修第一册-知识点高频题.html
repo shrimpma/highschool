@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>鲁科版高中化学必修第一册 · 知识点 + 高频考题与解析</title>
+<style>
+  :root {
+    --ink: #1c2430;
+    --muted: #5c6b7a;
+    --line: #d4dde6;
+    --bg: #eef2f5;
+    --card: #fff;
+    --accent: #0f5c4c;
+    --accent-soft: #e4f2ee;
+    --blue: #1a4f8b;
+    --blue-soft: #e7eef7;
+    --amber: #9a5b00;
+    --amber-soft: #fff4e5;
+    --rose: #8f1d3a;
+    --rose-soft: #fce8ee;
+    --font: "PingFang SC", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+    --serif: "Source Han Serif SC", "Noto Serif SC", "Songti SC", SimSun, serif;
+    --mono: "JetBrains Mono", Consolas, monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--font); color: var(--ink); background: var(--bg); line-height: 1.7; font-size: 15.5px; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  .topbar {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(15, 40, 36, 0.96); color: #e8f0ee;
+    border-bottom: 1px solid #1e4a40;
+  }
+  .topbar-inner {
+    max-width: 1080px; margin: 0 auto; padding: .7rem 1.1rem;
+    display: flex; flex-wrap: wrap; gap: .6rem; align-items: center;
+  }
+  .brand { font-weight: 700; white-space: nowrap; }
+  .brand small { color: #7ec4b0; font-weight: 500; margin-left: .4rem; font-size: .82em; }
+  .nav { display: flex; flex-wrap: wrap; gap: .25rem; flex: 1; }
+  .nav a {
+    color: #c5d8d2; font-size: .8rem; padding: .2rem .5rem; border-radius: 4px;
+  }
+  .nav a:hover { background: #1e4a40; color: #fff; text-decoration: none; }
+  .badge {
+    background: #0f5c4c; font-size: .75rem; font-weight: 700;
+    padding: .28rem .65rem; border-radius: 999px; white-space: nowrap;
+  }
+
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 1.4rem 1.1rem 3.5rem; }
+
+  .hero {
+    background: linear-gradient(140deg, #0f2824 0%, #163d36 50%, #1a4f8b 100%);
+    color: #eef5f3; border-radius: 12px; padding: 1.9rem 1.6rem; margin-bottom: 1.4rem;
+  }
+  .hero .k { color: #7ec4b0; font-size: .85rem; letter-spacing: .06em; margin-bottom: .5rem; }
+  .hero h1 {
+    font-family: var(--serif); font-size: clamp(1.4rem, 3vw, 1.9rem);
+    line-height: 1.35; margin-bottom: .6rem;
+  }
+  .hero p { color: #b8cdc6; max-width: 48rem; }
+  .chips { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1rem; }
+  .chip {
+    background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.14);
+    padding: .28rem .65rem; border-radius: 5px; font-size: .8rem; color: #d5e6e1;
+  }
+
+  h2 {
+    font-family: var(--serif); font-size: 1.35rem;
+    border-bottom: 2px solid var(--accent); display: inline-block;
+    padding-bottom: .35rem; margin: 1.5rem 0 .9rem;
+  }
+  h3 { font-size: 1.05rem; margin: 0 0 .55rem; color: var(--blue); }
+  .muted { color: var(--muted); font-size: .9rem; }
+  .lead { color: var(--muted); margin-bottom: .9rem; }
+
+  .toc {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: .7rem; margin-bottom: 1rem;
+  }
+  .toc a {
+    display: block; background: var(--card); border: 1px solid var(--line);
+    border-radius: 8px; padding: .8rem .9rem; color: inherit; text-decoration: none;
+  }
+  .toc a:hover { border-color: var(--accent); box-shadow: 0 2px 10px rgba(15,92,76,.08); }
+  .toc .n { font-family: var(--mono); font-size: .72rem; color: var(--accent); font-weight: 700; }
+  .toc .t { font-weight: 700; margin: .15rem 0; }
+  .toc .s { font-size: .8rem; color: var(--muted); }
+
+  .chapter {
+    background: var(--card); border: 1px solid var(--line);
+    border-radius: 10px; padding: 1.2rem 1.25rem; margin-bottom: 1.2rem;
+  }
+  .ch-head {
+    display: flex; flex-wrap: wrap; justify-content: space-between; gap: .6rem;
+    align-items: flex-start; margin-bottom: .8rem;
+    padding-bottom: .7rem; border-bottom: 1px solid var(--line);
+  }
+  .ch-head h2 { margin: 0; border: none; padding: 0; }
+  .ch-tag {
+    background: var(--amber-soft); color: var(--amber);
+    font-size: .75rem; font-weight: 700; padding: .3rem .65rem; border-radius: 999px;
+  }
+
+  .kp {
+    border: 1px solid var(--line); border-radius: 8px;
+    margin: 1rem 0; overflow: hidden; background: #fafbfc;
+  }
+  .kp-head {
+    background: var(--accent-soft); padding: .75rem 1rem;
+    border-bottom: 1px solid #c5ddd5;
+    display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; justify-content: space-between;
+  }
+  .kp-head h3 { margin: 0; color: var(--accent); font-size: 1rem; }
+  .kp-id {
+    font-family: var(--mono); font-size: .72rem; background: var(--accent);
+    color: #fff; padding: .12rem .45rem; border-radius: 3px;
+  }
+  .kp-body { padding: .9rem 1rem 1rem; }
+  .kp-brief {
+    background: #fff; border-left: 3px solid var(--accent);
+    padding: .55rem .8rem; margin-bottom: .85rem; font-size: .92rem;
+  }
+
+  .q {
+    background: #fff; border: 1px solid var(--line);
+    border-radius: 7px; padding: .85rem .95rem; margin: .7rem 0;
+  }
+  .q-meta {
+    display: flex; flex-wrap: wrap; gap: .4rem; align-items: center;
+    margin-bottom: .45rem; font-size: .78rem;
+  }
+  .tag {
+    display: inline-block; font-weight: 700; padding: .1rem .4rem; border-radius: 3px;
+  }
+  .tag-q { background: var(--blue-soft); color: var(--blue); }
+  .tag-hot { background: var(--rose-soft); color: var(--rose); }
+  .tag-type { background: #eef2f5; color: var(--muted); }
+  .q-stem { margin-bottom: .4rem; }
+  .q-opts { padding-left: 1.1rem; margin: .35rem 0; }
+  .q-opts li { margin: .15rem 0; }
+  details {
+    margin-top: .55rem; border-top: 1px dashed var(--line); padding-top: .55rem;
+  }
+  summary {
+    cursor: pointer; color: var(--accent); font-weight: 700; font-size: .9rem;
+    list-style: none; user-select: none;
+  }
+  summary::-webkit-details-marker { display: none; }
+  summary::before { content: "▶ "; font-size: .75em; }
+  details[open] summary::before { content: "▼ "; }
+  .ans {
+    margin-top: .5rem; background: var(--accent-soft);
+    border-radius: 6px; padding: .65rem .8rem;
+  }
+  .ans .label { font-weight: 700; color: var(--accent); margin-bottom: .25rem; }
+  .ans .parse { color: var(--ink); font-size: .92rem; }
+  .ans .parse b { color: var(--blue); }
+
+  .formula {
+    font-family: var(--mono); background: #f3f6f8;
+    border: 1px dashed #b7c5d0; border-radius: 5px;
+    padding: .45rem .7rem; margin: .4rem 0; font-size: .88rem; overflow-x: auto;
+  }
+
+  table { width: 100%; border-collapse: collapse; font-size: .88rem; margin: .5rem 0; }
+  th, td { border: 1px solid var(--line); padding: .45rem .55rem; text-align: left; vertical-align: top; }
+  th { background: #e8eef3; }
+
+  .compare {
+    display: grid; grid-template-columns: 1fr 1fr; gap: .6rem; margin: .6rem 0;
+  }
+  @media (max-width: 700px) {
+    .compare { grid-template-columns: 1fr; }
+    .nav { display: none; }
+  }
+  .box {
+    border: 1px solid var(--line); border-radius: 6px; padding: .7rem .8rem; background: #fff;
+  }
+  .box.a { border-top: 3px solid var(--accent); }
+  .box.b { border-top: 3px solid var(--amber); }
+
+  footer {
+    text-align: center; color: var(--muted); font-size: .82rem;
+    margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--line);
+  }
+
+  .stat-row {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: .6rem; margin: .8rem 0 1rem;
+  }
+  @media (max-width: 640px) { .stat-row { grid-template-columns: 1fr; } }
+  .stat {
+    text-align: center; border-radius: 8px; padding: .9rem .6rem;
+  }
+  .stat .n { font-family: var(--serif); font-size: 1.6rem; font-weight: 700; }
+  .stat .l { font-size: .8rem; margin-top: .15rem; }
+  .stat.s1 { background: var(--accent-soft); color: var(--accent); }
+  .stat.s2 { background: var(--blue-soft); color: var(--blue); }
+  .stat.s3 { background: var(--amber-soft); color: var(--amber); }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">鲁科版 · 化学必修一<small>知识点 + 高频题</small></div>
+    <nav class="nav">
+      <a href="#toc">目录</a>
+      <a href="#ch1">第1章</a>
+      <a href="#ch2">第2章</a>
+      <a href="#ch3">第3章</a>
+      <a href="#map">考点地图</a>
+    </nav>
+    <div class="badge">每点 3 题 · 含解析</div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div class="hero">
+    <div class="k">普通高中教科书 · 山东科技教育出版社（鲁科版 2019）</div>
+    <h1>化学必修第一册<br />知识点梳理 · 高频考题与答案解析</h1>
+    <p>按教材三章拆解高频考点。每个知识点给出要点速记 + <strong style="color:#fff">3 道高频考题</strong>（点击展开答案与解析）。题型贴近高一期中/期末与学业水平常见设问。</p>
+    <div class="chips">
+      <span class="chip">第1章 认识化学科学</span>
+      <span class="chip">第2章 元素与物质世界</span>
+      <span class="chip">第3章 物质的性质与转化</span>
+    </div>
+  </div>
+
+  <div class="stat-row">
+    <div class="stat s1"><div class="n">12</div><div class="l">核心知识点</div></div>
+    <div class="stat s2"><div class="n">36</div><div class="l">高频考题（含解析）</div></div>
+    <div class="stat s3"><div class="n">3</div><div class="l">教材章节全覆盖</div></div>
+  </div>
+
+  <!-- TOC -->
+  <section id="toc">
+    <h2>全书目录</h2>
+    <p class="lead">点击跳转到对应知识点；每点含要点卡片与三道题。</p>
+    <div class="toc">
+      <a href="#kp01"><div class="n">1.1–1.2</div><div class="t">研究物质性质的方法与程序</div><div class="s">观察·实验·分类·比较</div></a>
+      <a href="#kp02"><div class="n">1.3-A</div><div class="t">物质的量与阿伏加德罗常数</div><div class="s">n、Nₐ、微粒数换算</div></a>
+      <a href="#kp03"><div class="n">1.3-B</div><div class="t">摩尔质量与气体摩尔体积</div><div class="s">M、Vₘ、标况计算</div></a>
+      <a href="#kp04"><div class="n">1.3-C</div><div class="t">物质的量浓度</div><div class="s">c=n/V · 稀释配制</div></a>
+      <a href="#kp05"><div class="n">2.1-A</div><div class="t">元素与物质分类</div><div class="s">单质化合物·酸碱盐氧化物</div></a>
+      <a href="#kp06"><div class="n">2.1-B</div><div class="t">分散系与胶体</div><div class="s">丁达尔·聚沉·渗析</div></a>
+      <a href="#kp07"><div class="n">2.2-A</div><div class="t">电解质与电离</div><div class="s">强/弱电解质·电离方程式</div></a>
+      <a href="#kp08"><div class="n">2.2-B</div><div class="t">离子反应与离子方程式</div><div class="s">书写规则·正误判断</div></a>
+      <a href="#kp09"><div class="n">2.3</div><div class="t">氧化还原反应</div><div class="s">升降失得·氧化剂还原剂</div></a>
+      <a href="#kp10"><div class="n">3.1</div><div class="t">铁的多样性</div><div class="s">Fe²⁺/Fe³⁺·转化·检验</div></a>
+      <a href="#kp11"><div class="n">3.2</div><div class="t">硫的转化</div><div class="s">SO₂·浓硫酸·酸雨</div></a>
+      <a href="#kp12"><div class="n">3.3</div><div class="t">氮的循环</div><div class="s">NH₃·NOₓ·硝酸·环境</div></a>
+    </div>
+  </section>
+
+  <!-- ========== CH1 ========== -->
+  <section id="ch1" class="chapter">
+    <div class="ch-head">
+      <div>
+        <h2>第1章 认识化学科学</h2>
+        <p class="muted">第1节 走进化学科学 · 第2节 研究方法与程序 · 第3节 物质的量</p>
+      </div>
+      <span class="ch-tag">计算大户 · 物质的量必拿分</span>
+    </div>
+
+    <!-- KP01 -->
+    <article class="kp" id="kp01">
+      <div class="kp-head">
+        <h3>研究物质性质的方法与程序</h3>
+        <span class="kp-id">KP-01</span>
+      </div>
+      <div class="kp-body">
+        <div class="kp-brief">
+          <strong>要点：</strong>基本方法——观察、实验、分类、比较；基本程序——提出问题→设计实验→实施实验→获得结论→交流讨论。研究物质常从物理性质（颜色、状态、溶解性等）到化学性质（与酸、碱、氧气等反应）。
+        </div>
+
+        <div class="q">
+          <div class="q-meta"><span class="tag tag-q">题1</span><span class="tag tag-hot">高频</span><span class="tag tag-type">选择题</span></div>
+          <div class="q-stem">下列不属于研究物质性质基本方法的是（　）</div>
+          <ol class="q-opts" type="A">
+            <li>观察</li><li>实验</li><li>猜测臆断</li><li>分类与比较</li>
+          </ol>
+          <details>
+            <summary>答案与解析</summary>
+            <div class="ans">
+              <div class="label">答案：C</div>
+              <div class="parse">研究物质性质强调科学方法：观察、实验、分类、比较。猜测臆断不属于科学研究方法。鲁科版教材明确列出四类基本方法。</div>
+            </div>
+          </details>
+        </div>
+
+        <div class="q">
+          <div class="q-meta"><span class="tag tag-q">题2</span><span class="tag tag-hot">高频</span><span class="tag tag-type">选择题</span></div>
+          <div class="q-stem">研究某未知固体样品时，下列程序最合理的是（　）</div>
+          <ol class="q-opts" type="A">
+            <li>直接加热观察 → 下结论</li>
+            <li>提出问题 → 设计并实施实验 → 分析得出结论 → 交流评价</li>
+            <li>先查资料写报告 → 再做实验验证报告</li>
+            <li>只做一次实验就发表结果</li>
+          </ol>
+          <details>
+            <summary>答案与解析</summary>
+            <div class="ans">
+              <div class="label">答案：B</div>
+              <div class="parse">对应教材“研究物质性质的基本程序”。科学探究需有完整环节；单次实验、无设计下结论都不规范。</div>
+            </div>
+          </details>
+        </div>
+
+        <div class="q">
+          <div class="q-meta"><span class="tag tag-q">题3</span><span class="tag tag-type">填空/简答</span></div>
+          <div class="q-stem">研究钠的化学性质时，常将其与水反应。从“比较”的角度看，将钠与钾、锂和水的反应对比，主要目的是什么？</div>
+          <details>
+            <summary>答案与解析</summary>
+            <div class="ans">
+              <div class="label">答案要点</div>
+              <div class="parse">通过同类物质（碱金属）性质比较，归纳递变规律（如金属性：Li&lt;Na&lt;K），认识同一主族元素性质相似性与递变性。比较法用于找异同、建规律。</div>
+            </div>
+          </details>
+        </div>
+      </div>
+    </article>
+
+    <!-- KP02 -->
+    <article class="kp" id="kp02">
+      <div class="kp-head">
+        <h3>物质的量与阿伏加德罗常数</h3>
+        <span class="kp-id">KP-02</span>
+      </div>
+      <div class="kp-body">
+        <div class="kp-brief">
+          <strong>要点：</strong>物质的量 n 是基本物理量，单位 mol。阿伏加德罗常数 Nₐ ≈ 6.02×10²³ mol⁻¹。关系式：<span class="formula">N = n · Nₐ　（微粒数 = 物质的量 × Nₐ）</span>
+          1 mol 任何微粒所含微粒数都约为 Nₐ。注意问的是分子、原子还是电子/质子。
+        </div>
+
+        <div class="q">
+          <div class="q-meta"><span class="tag tag-q">题1</span><span class="tag tag-hot">高频</span><span class="tag tag-type">选择题</span></div>
+          <div class="q-stem">下列说法正确的是（　）</div>
+          <ol class="q-opts" type="A">
+            <li>1 mol 氧约含 6.02×10²³ 个氧分子</li>
+            <li>Nₐ 的数值是精确测定的准确值，无近似</li>
+            <li>0.5 mol H₂O 中约含 1.5 Nₐ 个原子</li>
+            <li>物质的量就是物质的质量</li>
+          </ol>
+          <details>
+            <summary>答案与解析</summary>
+            <div class="ans">
+              <div class="label">答案：C</div>
+              <div class="parse">A：“氧”未指明是 O 还是 O₂，表述不严谨，且通常说 1 mol O₂ 含 Nₐ 个氧分子。B：Nₐ 为约定/实验测定的常量，常用 6.02×10²³ 为近似值。C：0.5 mol H₂O 含 0.5 mol 分子，每个分子 3 个原子 → 1.5 mol 原子 → 1.5 Nₐ 个原子。D：物质的量与质量是不同物理量。</div>
+            </div>
+          </details>
+        </div>
+
+        <div class="q">
+          <div class="q-meta"><span class="tag tag-q">题2</span><span class="tag tag-hot">高频</span><span class="tag tag-type">计算选择</span></div>
+          <div class="q-stem">设 Nₐ 为阿伏加德罗常数的值。下列叙述正确的是（　）</div>
+          <ol class="q-opts" type="A">
+            <li>18 g 水中含有的电子数为 10 Nₐ</li>
+            <li>1 mol Na 变成 Na⁺ 失去的电子数为 Nₐ</li>
+            <li>标准状况下 11.2 L Ne 含有的原子数为 0.5 Nₐ</li>
+            <li>以上都正确</li>
+          </ol>
+          <details>
+            <summary>答案与解析</summary>
+            <div class="ans">
+              <div class="label">答案：D</div>
+              <div class="parse">A：1 mol H₂O 含 10 mol 电子（2×1+8），电子数 10 Nₐ。<br>
+              B：Na 失 1 个电子 → 1 mol e⁻ = Nₐ。<br>
+              C：标况 11.2 L = 0.5 mol Ne（单原子），原子数 0.5 Nₐ。<br>
+              故 A、B、C 均正确，选 D。</div>
+            </div>
+          </details>
+        </div>
+
+        <div class="q">
+          <div class="q-meta"><span class="tag tag-q">题3</span><span class="tag tag-hot">高频</span><span class="tag tag-type">填空</span></div>
+          <div class="q-stem">2.016 g H₂ 中含有氢分子 ______ mol，含氢原子 ______ 个（用 Nₐ 表示），含电子 ______ mol。</div>
+          <details>
+            <summary>答案与解析</summary>
+            <div class="ans">
+              <div class="label">答案：1　；　2Nₐ　；　2</div>
+              <div class="parse">M(H₂)=2.016 g·mol⁻¹，n=2.016/2.016=1 mol 分子；原子 2 mol → 2Nₐ 个；每个 H₂ 含 2 个电子 → 电子 2 mol。</div>
+            </div>
+          </details>
+        </div>
+      </div>
+    </article>
+
+    <!-- KP03 -->
+    <article class="kp" id="kp03">
+      <div class="kp-head">
+        <h3>摩尔质量与气体摩尔体积</h3>
+        <span class="kp-id">KP-03</span>
+      </div>
+      <div class="kp-body">
+        <div class="kp-brief">
+          <strong>要点：</strong>
+          <div class="formula">M = m / n　（单位 g·mol⁻¹，数值上等于相对分子/原子质量）</div>
+          <div class="formula">Vₘ = V / n　标况下气体 Vₘ ≈ 22.4 L·mol⁻¹</div>
+          气体摩尔体积适用于气体；标况指 0℃、101 kPa。同温同压下，气体体积比 = 物质的量之比（阿伏加德罗定律）。
+        </div>
+
+        <div class="q">
+          <div class="q-meta"><span class="tag tag-q">题1</span><span class="tag tag-hot">高频</span><span class="tag tag-type">选择题</span></div>
+          <div class="q-stem">下列说法正确的是（　）</div>
+          <ol class="q-opts" type="A">
+            <li>1 mol 任何气体的体积都是 22.4 L</li>
+            <li>标准状况下，1 mol H₂O 的体积约为 22.4 L</li>
+            <li>标准状况下，22.4 L N₂ 的质量为 28 g</li>
+            <li>摩尔质量的单位是 g</li>
+          </ol>
+          <details>
+            <summary>答案与解析</summary>
+            <div class="ans">
+              <div class="label">答案：C</div>
+              <div class="parse">A 缺“标准状况”。B 标况下水为液体不是气体。C：标况 22.4 L N₂ = 1 mol，m=28 g。D：单位是 g·mol⁻¹。</div>
+            </div>
+          </details>
+        </div>
+
+        <div class="q">
+          <div class="q-meta"><span class="tag tag-q">题2</span><span class="tag tag-hot">高频</span><span class="tag tag-type">计算</span></div>
+          <div class="q-stem">标准状况下，11.2 L CO₂ 的质量是多少？所含氧原子物质的量是多少？</div>
+          <details>
+            <summary>答案与解析</summary>
+            <div class="ans">
+              <div class="label">答案：22 g；1 mol</div>
+              <div class="parse">n(CO₂)=11.2/22.4=0.5 mol；m=0.5×44=22 g。每个 CO₂ 含 2 个 O 原子 → n(O)=1 mol。</div>
+            </div>
+          </details>
+        </div>
+
+        <div class="q">
+          <div class="q-meta"><span class="tag tag-q">题3</span><span class="tag tag-type">选择题</span></div>
+          <div class="q-stem">同温同压下，选项中气体体积最大的是（　）</div>
+          <ol class="q-opts" type="A">
+            <li>2 g H₂</li><li>16 g O₂</li><li>22 g CO₂</li><li>28 g N₂ 与 4 g He 的混合气（同温同压）</li>
+          </ol>
+          <details>
+            <summary>答案与解析</summary>
+            <div class="ans">
+              <div class="label">答案：D</div>
+              <div class="parse">同温同压下 V ∝ n。A：n=1 mol；B：n=0.5 mol；C：n=0.5 mol；D：n(N₂)=1，n(He)=1，共 2 mol，体积最大。</div>
+            </div>
+          </details>
+        </div>
+      </div>
+    </article>
+
+    <!-- KP04 -->
+    <article class="kp" id="kp04">
+      <div class="kp-head">
+        <h3>物质的量浓度</h3>
+        <span class="kp-id">KP-04</span>
+      </div>
+      <div class="kp-body">
+        <div class="kp-brief">
+          <strong>要点：</strong>
+          <div class="formula">c = n / V　（V 为溶液体积，单位 L；c 单位 mol·L⁻¹）</div>
+          稀释定律：c₁V₁ = c₂V₂（溶质物质的量不变）。配制步骤：计算→称量/量取→溶解→移液→洗涤→定容→摇匀。容量瓶不能配制后长期存放，不能用于稀释浓硫酸直接操作容器等。
+        </div>
+
+        <div class="q">
+          <div class="q-meta"><span class="tag tag-q">题1</span><span class="tag tag-hot">高频</span><span class="tag tag-type">选择题</span></div>
+          <div class="q-stem">将 10 mL 1 mol·L⁻¹ CuSO₄ 溶液稀释到 100 mL，稀释后溶液中 Cu²⁺ 的物质的量浓度为（　）</div>
+          <ol class="q-opts" type="A">
+            <li>0.01 mol·L⁻¹</li><li>0.1 mol·L⁻¹</li><li>1 mol·L⁻¹</li><li>10 mol·L⁻¹</li>
+          </ol>
+          <details>
+            <summary>答案与解析</summary>
+            <div class="ans">
+              <div class="label">答案：B</div>
+              <div class="parse">c₁V₁=c₂V₂ → 1×0.01 = c₂×0.1 → c₂=0.1 mol·L⁻¹。CuSO₄ 完全电离，c(Cu²⁺)=c(CuSO₄)。</div>
+            </div>
+          </details>
+        </div>
+
+        <div class="q">
+          <div class="q-meta"><span class="tag tag-q">题2</span><span class="tag tag-hot">高频</span><span class="tag tag-type">实验选择</span></div>
+          <div class="q-stem">用固体 NaOH 配制 500 mL 0.1 mol·L⁻¹ NaOH 溶液，下列操作错误的是（　）</div>
+          <ol class="q-opts" type="A">
+            <li>用托盘天平称取 2.0 g NaOH</li>
+            <li>在烧杯中溶解并冷却后转移到 500 mL 容量瓶</li>
+            <li>定容时俯视刻度线</li>
+            <li>定容后盖塞颠倒摇匀</li>
+          </ol>
+          <details>
+            <summary>答案与解析</summary>
+            <div class="ans">
+              <div class="label">答案：C</div>
+              <div class="parse">m=0.1×0.5×40=2.0 g，A 正确。B、D 正确。俯视刻度线会使加水偏少，浓度偏高，C 错误。</div>
+            </div>
+          </details>
+        </div>
+
+        <div class="q">
+          <div class="q-meta"><span class="tag tag-q">题3</span><span class="tag tag-type">计算</span></div>
+          <div class="q-stem">取出 25 mL 0.2 mol·L⁻¹ Na₂SO₄ 溶液，其中含 Na⁺ 的物质的量是多少？</div>
+          <details>
+            <summary>答案与解析</summary>
+            <div class="ans">
+              <div class="label">答案：0.01 mol</div>
+              <div class="parse">n(Na₂SO₄)=0.2×0.025=0.005 mol；Na₂SO₄ → 2Na⁺，故 n(Na⁺)=0.01 mol。</div>
+            </div>
+          </details>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <!-- ========== CH2 ========== -->
+  <section id="ch2" class="chapter">
+    <div class="ch-head">
+      <div>
+        <h2>第2章 元素与物质世界</h2>
+        <p class="muted">第1节 元素与物质分类 · 第2节 电离与离子反应 · 第3节 氧化还原反应</p>
+      </div>
+      <span class="ch-tag">概念核心章 · 离子方程式+氧化还原必考</span>
+    </div>
+
+    <!-- KP05 -->
+    <article class="kp" id="kp05">
+      <div class="kp-head">
+        <h3>元素与物质分类</h3>
+        <span class="kp-id">KP-05</span>
+      </div>
+      <div class="kp-body">
+        <div class="kp-brief">
+          <strong>要点：</strong>纯净物分单质与化合物；化合物含氧化物、酸、碱、盐等。交叉分类法、树状分类法。注意：氧化物按性质可分酸性、碱性、两性、不成盐氧化物；盐含正盐、酸式盐、碱式盐。
+        </div>
+
+        <div class="q">
+          <div class="q-meta"><span class="tag tag-q">题1</span><span class="tag tag-hot">高频</span><span class="tag tag-type">选择题</span></div>
+          <div class="q-stem">下列物质属于盐的是（　）</div>
+          <ol class="q-opts" type="A">
+            <li>SO₃</li><li>Na₂O</li><li>Cu₂(OH)₂CO₃</li><li>C₂H₅OH</li>
+          </ol>
+          <details>
+            <summary>答案与解析</summary>
+            <div class="ans">
+              <div class="label">答案：C</div>
+              <div class="parse">A 酸性氧化物；B 碱性氧化物；C 碱式盐（孔雀石成分），属于盐；D 乙醇，有机物，不是盐。分类题常考“碱式盐/酸式盐”辨识。</div>
+            </div>
+          </details>
+        </div>
+
+        <div class="q">
+          <div class="q-meta"><span class="tag tag-q">题2</span><span class="tag tag-hot">高频</span><span class="tag tag-type">选择题</span></div>
+          <div class="q-stem">下列物质按“单质—氧化物—酸—碱—盐”顺序排列的是（　）</div>
+          <ol class="q-opts" type="A">
+            <li>Na、Na₂O、HCl、NaOH、NaCl</li>
+            <li>O₂、H₂O、H₂SO₄、CaO、CaSO₄</li>
+            <li>Fe、Fe₂O₃、HNO₃、NH₃·H₂O、NH₄NO₃</li>
+            <li>C、CO₂、H₂CO₃、Na₂CO₃、NaOH</li>
+          </ol>
+          <details>
+            <summary>答案与解析</summary>
+            <div class="ans">
+              <div class="label">答案：A</div>
+              <div class="parse">A 依次为单质、氧化物、酸、碱、盐。B 中 CaO 是氧化物不是碱。C 中 NH₃·H₂O 是碱正确，整体也可，但 NH₃·H₂O 常写为碱；严格对比 A 最标准。D 顺序错（盐与碱颠倒且缺碱位）。以 A 为最佳。</div>
+            </div>
+          </details>
+        </div>
+
+        <div class="q">
+          <div class="q-meta"><span class="tag tag-q">题3</span><span class="tag tag-type">判断</span></div>
+          <div class="q-stem">判断：① 酸式盐一定显酸性；② CO、NO 是不成盐氧化物；③ 烧碱是碱，纯碱是盐。</div>
+          <details>
+            <summary>答案与解析</summary>
+            <div class="ans">
+              <div class="label">答案：①错误　②正确　③正确</div>
+              <div class="parse">① NaHCO₃ 水溶液显碱性，酸式盐不一定显酸性。② CO、NO 不能与水/碱形成对应盐类，称不成盐氧化物。③ NaOH 烧碱（碱），Na₂CO₃ 纯碱（盐）。</div>
+            </div>
+          </details>
+        </div>
+      </div>
+    </article>
+
+    <!-- KP06 -->
+    <article class="kp" id="kp06">
+      <div class="kp-head">
+        <h3>分散系与胶体</h3>
+        <span class="kp-id">KP-06</span>
+      </div>
+      <div class="kp-body">
+        <div class="kp-brief">
+          <strong>要点：</strong>按分散质粒子直径：溶液 &lt;1 nm，胶体 1–100 nm，浊液 &gt;100 nm。胶体特有丁达尔效应；可电泳、聚沉（加热、加电解质、加异电胶体）。提纯胶体用渗析（半透膜）。Fe(OH)₃ 胶体带正电。
+        </div>
+        <div class="compare">
+          <div class="box a"><strong>溶液</strong><br>均一稳定，无丁达尔效应</div>
+          <div class="box b"><strong>胶体</strong><br>较稳定，有丁达尔效应</div>
+        </div>
+
+        <div class="q">
+          <div class="q-meta"><span class="tag tag-q">题1</span><span class="tag tag-hot">高频</span><span class="tag tag-type">选择题</span></div>
+          <div class="q-stem">用光束照射下列分散系，能产生丁达尔效应的是（　）</div>
+          <ol class="q-opts" type="A">
+            <li>硫酸铜溶液</li><li>氯化铁溶液</li><li>氢氧化铁胶体</li><li>泥水</li>
+          </ol>
+          <details>
+            <summary>答案与解析</summary>
+            <div class="ans">
+              <div class="label">答案：C</div>
+              <div class="parse">丁达尔效应是胶体特征。溶液无此效应；泥水是浊液，主要是散射浑浊，一般不作为丁达尔标准答案。</div>
+            </div>
+          </details>
+        </div>
+
+        <div class="q">
+          <div class="q-meta"><span class="tag tag-q">题2</span><span class="tag tag-hot">高频</span><span class="tag tag-type">选择题</span></div>
+          <div class="q-stem">提纯 Fe(OH)₃ 胶体中混有的 FeCl₃，宜采用（　）</div>
+          <ol class="q-opts" type="A">
+            <li>过滤</li><li>蒸发结晶</li><li>渗析</li><li>萃取</li>
+          </ol>
+          <details>
+            <summary>答案与解析</summary>
+            <div class="ans">
+              <div class="label">答案：C</div>
+              <div class="parse">胶体粒子不能透过半透膜，离子可以。渗析可除去胶体中的电解质小分子/离子。过滤无法分开胶体与溶液。</div>
+            </div>
+          </details>
+        </div>
+
+        <div class="q">
+          <div class="q-meta"><span class="tag tag-q">题3</span><span class="tag tag-type">选择题</span></div>
+          <div class="q-stem">向 Fe(OH)₃ 胶体中加入适量 MgSO₄ 溶液，现象是（　）</div>
+          <ol class="q-opts" type="A">
+            <li>无明显变化</li><li>出现红褐色沉淀</li><li>胶体变为蓝色</li><li>立刻产生气体</li>
+          </ol>
+          <details>
+            <summary>答案与解析</summary>
+            <div class="ans">
+              <div class="label">答案：B</div>
+              <div class="parse">电解质使胶体聚沉，Fe(OH)₃ 胶体聚沉得到红褐色沉淀。</div>
+            </div>
+          </details>
+        </div>
+      </div>
+    </article>
+
+    <!-- KP07 -->
+    <article class="kp" id="kp07">
+      <div class="kp-head">
+        <h3>电解质与电离</h3>
+        <span class="kp-id">KP-07</span>
+      </div>
+      <div class="kp-body">
+        <div class="kp-brief">
+          <strong>要点：</strong>电解质：在水溶液中或熔融状态下能导电的化合物。非电解质：在上述条件下都不能导电的化合物（如蔗糖、酒精、多数有机物）。单质、混合物既不是电解质也不是非电解质。强电解质完全电离（强酸强碱多数盐）；弱电解质部分电离（弱酸弱碱、水）。电离方程式：强电用 =，弱电用 ⇌。
+        </div>
+
+        <div class="q">
+          <div class="q-meta"><span class="tag tag-q">题1</span><span class="tag tag-hot">高频</span><span class="tag tag-type">选择题</span></div>
+          <div class="q-stem">下列物质属于电解质的是（　）</div>
+          <ol class="q-opts" type="A">
+            <li>石墨</li><li>盐酸</li><li>固态 NaCl</li><li>氨水</li>
+          </ol>
+          <details>
+            <summary>答案与解析</summary>
+            <div class="ans">
+              <div class="label">答案：C</div>
+              <div class="parse">A 单质；B、D 是混合物。NaCl 是化合物，水溶液/熔融可导电，属电解质（固态不导电不影响归属）。</div>
+            </div>
+          </details>
+        </div>
+
+        <div class="q">
+          <div class="q-meta"><span class="tag tag-q">题2</span><span class="tag tag-hot">高频</span><span class="tag tag-type">选择题</span></div>
+          <div class="q-stem">下列电离方程式书写正确的是（　）</div>
+          <ol class="q-opts" type="A">
+            <li>NaHSO₄ = Na⁺ + HSO₄⁻（水溶液）</li>
+            <li>BaSO₄ ⇌ Ba²⁺ + SO₄²⁻</li>
+            <li>CH₃COOH = H⁺ + CH₃COO⁻</li>
+            <li>NH₃·H₂O = NH₄⁺ + OH⁻</li>
+          </ol>
+          <details>
+            <summary>答案与解析</summary>
+            <div class="ans">
+              <div class="label">答案：A</div>
+              <div class="parse">A：稀溶液中 NaHSO₄ 完全电离出 Na⁺ 与 HSO₄⁻（正确常见写法）。B：BaSO₄ 是强电解质难溶，溶解部分完全电离，应用 = 且常写溶解部分。C、D 弱电解质应用 ⇌。</div>
+            </div>
+          </details>
+        </div>
+
+        <div class="q">
+          <div class="q-meta"><span class="tag tag-q">题3</span><span class="tag tag-type">判断</span></div>
+          <div class="q-stem">液态 HCl 不导电，所以 HCl 是非电解质。该说法是否正确？</div>
+          <details>
+            <summary>答案与解析</summary>
+            <div class="ans">
+              <div class="label">答案：错误</div>
+              <div class="parse">HCl 是共价化合物，液态无自由移动离子故不导电，但溶于水完全电离导电，属于强电解质。判断依据不是“某状态是否导电”，而是化合物在水溶液或熔融时能否导电。</div>
+            </div>
+          </details>
+        </div>
+      </div>
+    </article>
+
+    <!-- KP08 -->
+    <article class="kp" id="kp08">
+      <div class="kp-head">
+        <h3>离子反应与离子方程式</h3>
+        <span class="kp-id">KP-08</span>
+      </div>
+      <div class="kp-body">
+        <div class="kp-brief">
+          <strong>要点：</strong>离子反应实质是某些离子浓度减小（生成沉淀、气体、水或弱电解质等）。书写：写→拆（易溶强电解拆成离子）→删（不变化的离子）→查（原子守恒、电荷守恒）。可溶强酸强碱强盐拆，沉淀、气体、弱电、单质、氧化物不拆。
+        </div>
+
+        <div class="q">
+          <div class="q-meta"><span class="tag tag-q">题1</span><span class="tag tag-hot">高频</span><span class="tag tag-type">选择题</span></div>
+          <div class="q-stem">能用 H⁺ + OH⁻ = H₂O 表示的离子反应是（　）</div>
+          <ol class="q-opts" type="A">
+            <li>醋酸与 NaOH 溶液</li>
+            <li>稀盐酸与 KOH 溶液</li>
+            <li>稀硫酸与 Ba(OH)₂ 溶液</li>
+            <li>稀硝酸与氨水</li>
+          </ol>
+          <details>
+            <summary>答案与解析</summary>
+            <div class="ans">
+              <div class="label">答案：B</div>
+              <div class="parse">A 醋酸弱电不拆。C 还会生成 BaSO₄ 沉淀，离子方程式不同。D 氨水弱碱不拆。B 为强酸强碱稀溶液中和，正是 H⁺+OH⁻=H₂O。</div>
+            </div>
+          </details>
+        </div>
+
+        <div class="q">
+          <div class="q-meta"><span class="tag tag-q">题2</span><span class="tag tag-hot">高频</span><span class="tag tag-type">正误判断</span></div>
+          <div class="q-stem">下列离子方程式正确的是（　）</div>
+          <ol class="q-opts" type="A">
+            <li>铁与稀盐酸：Fe + 2H⁺ = Fe²⁺ + H₂↑</li>
+            <li>碳酸氢钠溶液与过量石灰水：HCO₃⁻ + OH⁻ = CO₃²⁻ + H₂O</li>
+            <li>氯化铵溶液与 NaOH 溶液共热：NH₄⁺ + OH⁻ = NH₃·H₂O</li>
+            <li>Cu 与稀硫酸：Cu + 2H⁺ = Cu²⁺ + H₂↑</li>
+          </ol>
+          <details>
+            <summary>答案与解析</summary>
+            <div class="ans">
+              <div class="label">答案：A</div>
+              <div class="parse">B 过量石灰水时 Ca²⁺、OH⁻ 与 HCO₃⁻ 反应生成 CaCO₃ 沉淀，应为 Ca²⁺+HCO₃⁻+OH⁻=CaCO₃↓+H₂O。C 共热应写 NH₄⁺+OH⁻=NH₃↑+H₂O。D Cu 与稀硫酸不反应。</div>
+            </div>
+          </details>
+        </div>
+
+        <div class="q">
+          <div class="q-meta"><span class="tag tag-q">题3</span><span class="tag tag-hot">高频</span><span class="tag tag-type">写方程式</span></div>
+          <div class="q-stem">写出 Na₂CO₃ 溶液与稀盐酸反应（盐酸不足，只生成 NaHCO₃）及盐酸过量的离子方程式。</div>
+          <details>
+            <summary>答案与解析</summary>
+            <div class="ans">
+              <div class="label">答案</div>
+              <div class="parse">不足：CO₃²⁻ + H⁺ = HCO₃⁻<br>过量：CO₃²⁻ + 2H⁺ = CO₂↑ + H₂O<br>（或分步：先生成 HCO₃⁻，再 HCO₃⁻+H⁺=CO₂↑+H₂O）</div>
+            </div>
+          </details>
+        </div>
+      </div>
+    </article>
+
+    <!-- KP09 -->
+    <article class="kp" id="kp09">
+      <div class="kp-head">
+        <h3>氧化还原反应</h3>
+        <span class="kp-id">KP-09</span>
+      </div>
+      <div class="kp-body">
+        <div class="kp-brief">
+          <strong>要点：</strong>特征——元素化合价升降；本质——电子转移。口诀：<b>升失氧，降得还</b>（化合价升高→失电子→被氧化→是还原剂）。氧化剂得电子、化合价降低；还原剂失电子、化合价升高。同一元素不同价态可归中（歧化相反）。
+        </div>
+        <div class="compare">
+          <div class="box a"><strong>氧化剂</strong><br>得电子 · 价降 · 被还原<br>常见：O₂、Cl₂、HNO₃、KMnO₄、Fe³⁺ 等</div>
+          <div class="box b"><strong>还原剂</strong><br>失电子 · 价升 · 被氧化<br>常见：活泼金属、C、H₂、CO、Fe²⁺、SO₂ 等</div>
+        </div>
+
+        <div class="q">
+          <div class="q-meta"><span class="tag tag-q">题1</span><span class="tag tag-hot">高频</span><span class="tag tag-type">选择题</span></div>
+          <div class="q-stem">反应 2Fe³⁺ + Fe = 3Fe²⁺ 中，下列说法正确的是（　）</div>
+          <ol class="q-opts" type="A">
+            <li>Fe³⁺ 是还原剂</li>
+            <li>Fe 是氧化剂</li>
+            <li>Fe³⁺ 被氧化</li>
+            <li>Fe 被氧化，作还原剂</li>
+          </ol>
+          <details>
+            <summary>答案与解析</summary>
+            <div class="ans">
+              <div class="label">答案：D</div>
+              <div class="parse">Fe：0→+2，升价失电子，被氧化，是还原剂。Fe³⁺：+3→+2，降价得电子，被还原，是氧化剂。</div>
+            </div>
+          </details>
+        </div>
+
+        <div class="q">
+          <div class="q-meta"><span class="tag tag-q">题2</span><span class="tag tag-hot">高频</span><span class="tag tag-type">选择题</span></div>
+          <div class="q-stem">下列反应属于氧化还原反应的是（　）</div>
+          <ol class="q-opts" type="A">
+            <li>CaCO₃ → CaO + CO₂</li>
+            <li>NH₃ + HCl → NH₄Cl</li>
+            <li>2H₂O₂ → 2H₂O + O₂↑</li>
+            <li>NaOH + HCl → NaCl + H₂O</li>
+          </ol>
+          <details>
+            <summary>答案与解析</summary>
+            <div class="ans">
+              <div class="label">答案：C</div>
+              <div class="parse">看化合价是否变化。C 中 O 从 −1 变为 −2 和 0（歧化），是氧化还原。A、B、D 无化合价变化。</div>
+            </div>
+          </details>
+        </div>
+
+        <div class="q">
+          <div class="q-meta"><span class="tag tag-q">题3</span><span class="tag tag-hot">高频</span><span class="tag tag-type">双填</span></div>
+          <div class="q-stem">在反应 Cl₂ + 2NaOH = NaCl + NaClO + H₂O 中，氧化剂是______，还原剂是______；若 1 mol Cl₂ 参加反应，转移电子 ______ mol。</div>
+          <details>
+            <summary>答案与解析</summary>
+            <div class="ans">
+              <div class="label">答案：Cl₂；Cl₂；1</div>
+              <div class="parse">Cl₂ 中部分 Cl：0→−1（NaCl），部分 0→+1（NaClO），既是氧化剂又是还原剂（歧化）。1 mol Cl₂ 中 0.5 mol 升价、0.5 mol 降价，转移 1 mol e⁻。</div>
+            </div>
+          </details>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <!-- ========== CH3 ========== -->
+  <section id="ch3" class="chapter">
+    <div class="ch-head">
+      <div>
+        <h2>第3章 物质的性质与转化</h2>
+        <p class="muted">第1节 铁的多样性 · 第2节 硫的转化 · 第3节 氮的循环</p>
+      </div>
+      <span class="ch-tag">元素化合物主战场 · 转化与现象题高频</span>
+    </div>
+
+    <!-- KP10 -->
+    <article class="kp" id="kp10">
+      <div class="kp-head">
+        <h3>铁的多样性（Fe²⁺ / Fe³⁺ 及转化）</h3>
+        <span class="kp-id">KP-10</span>
+      </div>
+      <div class="kp-body">
+        <div class="kp-brief">
+          <strong>要点：</strong>
+          <table>
+            <tr><th>微粒</th><th>颜色</th><th>关键性质</th><th>检验</th></tr>
+            <tr><td>Fe²⁺</td><td>浅绿</td><td>还原性；碱中先白↓后转灰绿最终红褐</td><td>碱液观察变色；或氧化后用 KSCN</td></tr>
+            <tr><td>Fe³⁺</td><td>黄/棕黄</td><td>氧化性；与 SCN⁻ 显血红色</td><td>KSCN 溶液</td></tr>
+          </table>
+          转化：Fe → Fe²⁺ → Fe³⁺（氧化）；Fe³⁺ + Fe → Fe²⁺。氧化物：FeO、Fe₂O₃、Fe₃O₄；氢氧化物：Fe(OH)₂、Fe(OH)₃。
+        </div>
+
+        <div class="q">
+          <div class="q-meta"><span class="tag tag-q">题1</span><span class="tag tag-hot">高频</span><span class="tag tag-type">选择题</span></div>
+          <div class="q-stem">向某溶液中滴加 KSCN 溶液，不变色；再通入 Cl₂ 后溶液变血红色。原溶液中一定含有（　）</div>
+          <ol class="q-opts" type="A">
+            <li>Fe³⁺</li><li>Fe²⁺</li><li>Fe²⁺ 和 Fe³⁺</li><li>Fe</li>
+          </ol>
+          <details>
+            <summary>答案与解析</summary>
+            <div class="ans">
+              <div class="label">答案：B</div>
+              <div class="parse">开始加 KSCN 不变红 → 无 Fe³⁺（或极少）。通 Cl₂ 后变红 → Fe²⁺ 被氧化为 Fe³⁺。故原溶液含 Fe²⁺。</div>
+            </div>
+          </details>
+        </div>
+
+        <div class="q">
+          <div class="q-meta"><span class="tag tag-q">题2</span><span class="tag tag-hot">高频</span><span class="tag tag-type">现象描述</span></div>
+          <div class="q-stem">向 FeSO₄ 溶液中滴加 NaOH 溶液，写出离子方程式并描述现象。</div>
+          <details>
+            <summary>答案与解析</summary>
+            <div class="ans">
+              <div class="label">答案</div>
+              <div class="parse">Fe²⁺ + 2OH⁻ = Fe(OH)₂↓<br>现象：生成白色沉淀，迅速变为灰绿色，最终变为红褐色（氧化为 Fe(OH)₃）。</div>
+            </div>
+          </details>
+        </div>
+
+        <div class="q">
+          <div class="q-meta"><span class="tag tag-q">题3</span><span class="tag tag-hot">高频</span><span class="tag tag-type">选择题</span></div>
+          <div class="q-stem">下列物质不能将 Fe²⁺ 氧化为 Fe³⁺ 的是（　）</div>
+          <ol class="q-opts" type="A">
+            <li>Cl₂</li><li>H₂O₂（酸性）</li><li>稀盐酸</li><li>酸性 KMnO₄</li>
+          </ol>
+          <details>
+            <summary>答案与解析</summary>
+            <div class="ans">
+              <div class="label">答案：C</div>
+              <div class="parse">稀盐酸还原性酸，与 Fe²⁺ 不发生氧化还原（Fe 可与盐酸生成 Fe²⁺，但 Fe²⁺ 不能被 H⁺ 氧化）。Cl₂、H₂O₂、酸性 KMnO₄ 均可氧化 Fe²⁺。</div>
+            </div>
+          </details>
+        </div>
+      </div>
+    </article>
+
+    <!-- KP11 -->
+    <article class="kp" id="kp11">
+      <div class="kp-head">
+        <h3>硫的转化（硫·二氧化硫·硫酸·酸雨）</h3>
+        <span class="kp-id">KP-11</span>
+      </div>
+      <div class="kp-body">
+        <div class="kp-brief">
+          <strong>要点：</strong>价态线：S(−2) → S(0) → S(+4, SO₂) → S(+6, H₂SO₄)。SO₂：漂白（与有色物质化合，可逆）、还原性（使酸性 KMnO₄、溴水褪色）、氧化性（与 H₂S）、水溶液酸性。浓硫酸：吸水性、脱水性、强氧化性（加热与 Cu、C 反应）。酸雨：主要 pH&lt;5.6，与 SO₂、NOₓ 有关。
+        </div>
+
+        <div class="q">
+          <div class="q-meta"><span class="tag tag-q">题1</span><span class="tag tag-hot">高频</span><span class="tag tag-type">选择题</span></div>
+          <div class="q-stem">下列关于 SO₂ 的叙述错误的是（　）</div>
+          <ol class="q-opts" type="A">
+            <li>能使品红溶液褪色，加热后又恢复红色</li>
+            <li>能使溴水褪色，体现还原性</li>
+            <li>与氢氧化钠溶液反应生成盐和水</li>
+            <li>漂白原理与 Cl₂ 水完全相同</li>
+          </ol>
+          <details>
+            <summary>答案与解析</summary>
+            <div class="ans">
+              <div class="label">答案：D</div>
+              <div class="parse">SO₂ 漂白可逆（化合）；Cl₂ 水漂白因 HClO 强氧化，不可逆（通常不恢复）。A、B、C 正确。</div>
+            </div>
+          </details>
+        </div>
+
+        <div class="q">
+          <div class="q-meta"><span class="tag tag-q">题2</span><span class="tag tag-hot">高频</span><span class="tag tag-type">写方程式</span></div>
+          <div class="q-stem">写出铜与浓硫酸加热反应的化学方程式，并指出氧化剂、还原剂。</div>
+          <details>
+            <summary>答案与解析</summary>
+            <div class="ans">
+              <div class="label">答案</div>
+              <div class="parse">Cu + 2H₂SO₄(浓) △→ CuSO₄ + SO₂↑ + 2H₂O<br>氧化剂：H₂SO₄；还原剂：Cu。体现浓硫酸强氧化性。</div>
+            </div>
+          </details>
+        </div>
+
+        <div class="q">
+          <div class="q-meta"><span class="tag tag-q">题3</span><span class="tag tag-type">选择题</span></div>
+          <div class="q-stem">下列措施不利于防止酸雨的是（　）</div>
+          <ol class="q-opts" type="A">
+            <li>燃煤固硫 / 烟气脱硫</li>
+            <li>开发新能源，减少化石燃料使用</li>
+            <li>将工厂烟囱造得更高，直接排放 SO₂</li>
+            <li>优化发动机燃烧，控制氮氧化物</li>
+          </ol>
+          <details>
+            <summary>答案与解析</summary>
+            <div class="ans">
+              <div class="label">答案：C</div>
+              <div class="parse">烟囱加高只是稀释扩散，不能减少酸性气体总量，不能防止酸雨。脱硫、减排、控 NOₓ 才是正途。</div>
+            </div>
+          </details>
+        </div>
+      </div>
+    </article>
+
+    <!-- KP12 -->
+    <article class="kp" id="kp12">
+      <div class="kp-head">
+        <h3>氮的循环（氨·氮氧化物·硝酸）</h3>
+        <span class="kp-id">KP-12</span>
+      </div>
+      <div class="kp-body">
+        <div class="kp-brief">
+          <strong>要点：</strong>N₂ 稳定（三键）。工业合成氨：N₂+3H₂⇌2NH₃。NH₃：还原性、碱性（与酸反应）、极易溶于水。NO 遇空气变红棕色 NO₂；3NO₂+H₂O=2HNO₃+NO。硝酸：强氧化性，与金属一般不生成 H₂；见光易分解，应避光保存。汽车尾气、硝酸工业与 NOₓ 污染、光化学烟雾相关。
+        </div>
+
+        <div class="q">
+          <div class="q-meta"><span class="tag tag-q">题1</span><span class="tag tag-hot">高频</span><span class="tag tag-type">选择题</span></div>
+          <div class="q-stem">下列气体中，水溶液显碱性的是（　）</div>
+          <ol class="q-opts" type="A">
+            <li>SO₂</li><li>CO₂</li><li>NH₃</li><li>NO₂</li>
+          </ol>
+          <details>
+            <summary>答案与解析</summary>
+            <div class="ans">
+              <div class="label">答案：C</div>
+              <div class="parse">NH₃+H₂O⇌NH₃·H₂O⇌NH₄⁺+OH⁻，显碱性。SO₂、CO₂、NO₂ 水溶液显酸性。</div>
+            </div>
+          </details>
+        </div>
+
+        <div class="q">
+          <div class="q-meta"><span class="tag tag-q">题2</span><span class="tag tag-hot">高频</span><span class="tag tag-type">选择题</span></div>
+          <div class="q-stem">试管中收集一试管 NO，倒立于水槽，通入 O₂ 后液面上升，最终试管仍有气体剩余。下列分析正确的是（　）</div>
+          <ol class="q-opts" type="A">
+            <li>剩余气体一定是 O₂</li>
+            <li>剩余气体一定是 NO</li>
+            <li>若 O₂ 适量，可充满水</li>
+            <li>无论 O₂ 多少，一定有气体剩余</li>
+          </ol>
+          <details>
+            <summary>答案与解析</summary>
+            <div class="ans">
+              <div class="label">答案：C</div>
+              <div class="parse">涉及：2NO+O₂=2NO₂，3NO₂+H₂O=2HNO₃+NO（循环）。总关系可看作 4NO+3O₂+2H₂O=4HNO₃。O₂ 适量时气体可完全转化被吸收；O₂ 过量剩 O₂，不足剩 NO。故 C 正确；A、B、D 绝对化错误。</div>
+            </div>
+          </details>
+        </div>
+
+        <div class="q">
+          <div class="q-meta"><span class="tag tag-q">题3</span><span class="tag tag-hot">高频</span><span class="tag tag-type">写方程式</span></div>
+          <div class="q-stem">写出铜与稀硝酸、铜与浓硝酸反应的化学方程式（不必配平离子式）。</div>
+          <details>
+            <summary>答案与解析</summary>
+            <div class="ans">
+              <div class="label">答案</div>
+              <div class="parse">稀：3Cu + 8HNO₃(稀) = 3Cu(NO₃)₂ + 2NO↑ + 4H₂O<br>浓：Cu + 4HNO₃(浓) = Cu(NO₃)₂ + 2NO₂↑ + 2H₂O<br>均体现硝酸强氧化性，一般不生成 H₂。</div>
+            </div>
+          </details>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <!-- MAP -->
+  <section id="map" class="chapter">
+    <div class="ch-head">
+      <div>
+        <h2>考点地图 · 复习优先级</h2>
+        <p class="muted">按高一常见卷面权重排序，便于安排复习时间</p>
+      </div>
+    </div>
+    <div class="table-wrap" style="overflow-x:auto">
+      <table>
+        <thead>
+          <tr><th>优先级</th><th>知识点</th><th>高频题型</th><th>复习建议</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>★★★★★</td><td>物质的量相关计算</td><td>选择/填空计算</td><td>每天 5 题，公式链滚熟</td></tr>
+          <tr><td>★★★★★</td><td>离子方程式书写与正误</td><td>选择/书写</td><td>归纳“拆与不拆”错例本</td></tr>
+          <tr><td>★★★★★</td><td>氧化还原判断</td><td>选择/填空</td><td>升失氧降得还，天天默写</td></tr>
+          <tr><td>★★★★☆</td><td>Fe²⁺/Fe³⁺ 检验与转化</td><td>实验推断</td><td>现象 + 方程式配对练</td></tr>
+          <tr><td>★★★★☆</td><td>SO₂ / 浓硫酸 / 硝酸</td><td>性质比较</td><td>做对比表：漂白、氧化性</td></tr>
+          <tr><td>★★★☆☆</td><td>胶体 · 电解质</td><td>概念选择</td><td>丁达尔、渗析、强/弱电</td></tr>
+          <tr><td>★★☆☆☆</td><td>研究方法与程序</td><td>选择/简答</td><td>记名词即可，投入少</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="muted" style="margin-top:.8rem">使用方法：先过要点 → 做三道题（先不看答案）→ 对解析改错 → 同型题再找 2 道巩固。</p>
+  </section>
+
+  <footer>
+    <p>教材：鲁科版（山东科技教育出版社）《普通高中教科书·化学》必修第一册（2019）</p>
+    <p style="margin-top:.3rem">12 个核心知识点 · 36 道高频题（含答案解析）· 仅供自学梳理，以教材与教师讲解为准</p>
+  </footer>
+
+</main>
+
+</body>
+</html>
