@@ -264,21 +264,46 @@ footer b{color:var(--navy)}
 @media (prefers-reduced-motion:reduce){
   *{animation:none!important;scroll-behavior:auto!important;transition:none!important}
 }
+@page{size:A4 portrait;margin:14mm 12mm 16mm 12mm}
 @media print{
-  body{background:#fff;font-size:11pt}
-  body::before,.topbar,.hero-actions,.print-btn,.progress-ring{display:none!important}
-  .shell{max-width:none;padding:0}
-  .hero{box-shadow:none;border-radius:0;background:#fff;color:#111;border-bottom:2px solid #111;padding:20px 0}
+  html,body{
+    background:#fff!important;color:#000!important;font-size:10.5pt;line-height:1.45;
+    -webkit-print-color-adjust:exact;print-color-adjust:exact;
+  }
+  body::before,.topbar,.hero-actions,.print-btn,.progress-ring,.nav{display:none!important}
+  .shell{max-width:none;width:100%;margin:0;padding:0}
+  .hero{
+    box-shadow:none;border-radius:0;background:#fff!important;color:#000!important;
+    border:1.5pt solid #333;padding:8pt 10pt;margin:0 0 8pt;break-inside:avoid;
+  }
   .hero::before,.hero::after{display:none!important}
-  .hero .eyebrow,.hero h1,.hero h1 .accent,.hero-lede,.hero-lede b,.hero-stat .n,.hero-stat .l{color:#111}
+  .hero .eyebrow,.hero h1,.hero h1 .accent,.hero-lede,.hero-lede b,.hero-stat .n,.hero-stat .l{color:#000!important}
+  .hero h1{font-size:15pt}
   .hero h1 .accent::after{display:none}
-  .hero-stats{border-top-color:#bbb}
-  .topic-matrix{display:none}
-  .section{padding-top:28px;break-inside:avoid}
-  .topic,.card,.table-wrap{box-shadow:none;break-inside:avoid}
+  .hero-stats{border-top-color:#999}
+  .topic-matrix,.hero-visual,.matrix-note{display:none!important}
+  .section{padding-top:10pt;break-inside:avoid}
+  .section-head{break-after:avoid}
+  .topic,.card,.table-wrap,.callout,.priority-callout{
+    box-shadow:none!important;border-radius:0!important;background:#fff!important;
+    border:0.6pt solid #666!important;break-inside:avoid;page-break-inside:avoid;color:#000!important;
+  }
+  .topic{margin-bottom:8pt}
+  h2,h3{color:#000!important;break-after:avoid}
+  table{font-size:8.5pt;break-inside:avoid}
+  th,td{border-color:#666!important}
+  th{background:#e8e8e8!important;color:#000!important}
+  details{display:block;break-inside:avoid}
+  details > summary{color:#000!important}
   details > summary::after{display:none}
-  details > .qa-answer{display:block!important}
-  a{text-decoration:none;color:#111}
+  details > .qa-answer,.qa-answer{display:block!important;background:#f3f3f3!important;color:#000!important;border:0.4pt solid #aaa}
+  .tag,.pill,.badge,.hot{background:#eee!important;color:#000!important;border:0.4pt solid #666;border-radius:0}
+  a{text-decoration:none;color:#000!important}
+  footer{color:#333!important;font-size:8pt;border-top:0.5pt solid #666}
+}
+@media screen{
+  .shell{max-width:210mm}
+  .topbar-inner{max-width:210mm}
 }
 
 </style>
@@ -303,7 +328,7 @@ footer b{color:var(--navy)}
       <a href="#final">考前自测</a>
     </nav>
     <div class="progress-ring" id="progressRing" title="专题掌握进度"><span id="progressText">0%</span></div>
-    <button class="print-btn" type="button" onclick="window.print()">打印 / PDF</button>
+    <button class="print-btn" type="button" onclick="window.print()" title="按 A4 纵向打印">打印 A4</button>
   </div>
 </header>
 
@@ -1623,6 +1648,22 @@ function updateProgress() {
   localStorage.setItem(PROGRESS_KEY, JSON.stringify(state));
 }
 updateProgress();
+
+(function () {
+  function setDetailsOpen(open) {
+    document.querySelectorAll("details").forEach(function (d) {
+      if (open) {
+        if (!("wasOpen" in d.dataset)) d.dataset.wasOpen = d.open ? "1" : "0";
+        d.open = true;
+      } else if ("wasOpen" in d.dataset) {
+        d.open = d.dataset.wasOpen === "1";
+        delete d.dataset.wasOpen;
+      }
+    });
+  }
+  window.addEventListener("beforeprint", function () { setDetailsOpen(true); });
+  window.addEventListener("afterprint", function () { setDetailsOpen(false); });
+})();
 </script>
 </body>
 </html>

@@ -200,6 +200,294 @@
   .stat.s1 { background: var(--accent-soft); color: var(--accent); }
   .stat.s2 { background: var(--blue-soft); color: var(--blue); }
   .stat.s3 { background: var(--amber-soft); color: var(--amber); }
+
+  .print-btn {
+    background: #c9a227; color: #1c2430; border: none; cursor: pointer;
+    font-size: .75rem; font-weight: 700; padding: .28rem .7rem;
+    border-radius: 999px; font-family: inherit; white-space: nowrap;
+  }
+  .print-btn:hover { filter: brightness(1.08); }
+  .print-hint {
+    display: block; background: #fff8e6; border: 1px solid #e6c86a;
+    color: #7a5a00; font-size: .82rem; padding: .55rem .85rem;
+    border-radius: 6px; margin-bottom: 1rem;
+  }
+
+  /* ========== A4 打印样式 ========== */
+  @page {
+    size: A4 portrait;
+    margin: 14mm 12mm 16mm 12mm;
+  }
+
+  @media print {
+    html, body {
+      background: #fff !important;
+      color: #000 !important;
+      font-size: 10.5pt;
+      line-height: 1.45;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .topbar,
+    .print-btn,
+    .nav,
+    .badge { display: none !important; }
+
+    .print-hint { display: none !important; }
+
+    .wrap {
+      max-width: none;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    .hero {
+      background: #fff !important;
+      color: #000 !important;
+      border: 1.5pt solid #333;
+      border-radius: 0;
+      padding: 8pt 10pt;
+      margin: 0 0 8pt;
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+    .hero .k { color: #333 !important; }
+    .hero h1 {
+      color: #000 !important;
+      font-size: 16pt;
+      margin-bottom: 4pt;
+    }
+    .hero h1 br { display: none; }
+    .hero p { color: #222 !important; font-size: 9.5pt; }
+    .hero p strong { color: #000 !important; }
+    .chips { margin-top: 4pt; gap: 4pt; }
+    .chip {
+      background: #f0f0f0 !important;
+      border: 0.5pt solid #666;
+      color: #000 !important;
+      font-size: 8.5pt;
+      padding: 2pt 6pt;
+      border-radius: 0;
+    }
+
+    .stat-row {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 4pt;
+      margin: 0 0 8pt;
+      break-inside: avoid;
+    }
+    .stat {
+      border: 0.5pt solid #666;
+      border-radius: 0;
+      padding: 4pt;
+      background: #f5f5f5 !important;
+      color: #000 !important;
+    }
+    .stat .n { font-size: 14pt; }
+    .stat .l { font-size: 8pt; }
+
+    h2 {
+      font-size: 13pt;
+      border-bottom: 1.2pt solid #000;
+      margin: 8pt 0 6pt;
+      color: #000;
+      break-after: avoid;
+      page-break-after: avoid;
+    }
+    h3 {
+      font-size: 11pt;
+      color: #000 !important;
+      break-after: avoid;
+      page-break-after: avoid;
+    }
+
+    .toc {
+      grid-template-columns: 1fr 1fr;
+      gap: 4pt;
+      margin-bottom: 8pt;
+    }
+    .toc a {
+      border: 0.5pt solid #999;
+      border-radius: 0;
+      padding: 4pt 6pt;
+      box-shadow: none !important;
+      background: #fff !important;
+      color: #000 !important;
+      break-inside: avoid;
+    }
+    .toc .n { color: #000 !important; font-size: 7.5pt; }
+    .toc .t { font-size: 9.5pt; }
+    .toc .s { font-size: 8pt; color: #333 !important; }
+
+    .chapter {
+      background: #fff !important;
+      border: none;
+      border-radius: 0;
+      padding: 0;
+      margin: 0 0 6pt;
+      box-shadow: none;
+    }
+    .ch-head {
+      border-bottom: 1pt solid #000;
+      margin-bottom: 6pt;
+      padding-bottom: 4pt;
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+    .ch-tag {
+      background: #eee !important;
+      color: #000 !important;
+      border: 0.5pt solid #666;
+      border-radius: 0;
+      font-size: 8pt;
+    }
+
+    .kp {
+      border: 0.75pt solid #444;
+      border-radius: 0;
+      margin: 0 0 8pt;
+      background: #fff !important;
+      break-inside: avoid;
+      page-break-inside: avoid;
+      overflow: visible;
+    }
+    .kp-head {
+      background: #e8e8e8 !important;
+      border-bottom: 0.5pt solid #666;
+      padding: 4pt 6pt;
+      break-after: avoid;
+    }
+    .kp-head h3 { color: #000 !important; font-size: 10.5pt; }
+    .kp-id {
+      background: #333 !important;
+      color: #fff !important;
+      font-size: 7.5pt;
+      border-radius: 0;
+    }
+    .kp-body { padding: 5pt 6pt 6pt; }
+    .kp-brief {
+      background: #f7f7f7 !important;
+      border-left: 2pt solid #333;
+      padding: 4pt 6pt;
+      margin-bottom: 5pt;
+      font-size: 9pt;
+      break-inside: avoid;
+    }
+
+    .q {
+      background: #fff !important;
+      border: 0.5pt solid #888;
+      border-radius: 0;
+      padding: 5pt 6pt;
+      margin: 4pt 0;
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+    .q-meta { font-size: 7.5pt; margin-bottom: 2pt; }
+    .tag {
+      border: 0.4pt solid #666;
+      border-radius: 0;
+      background: #f0f0f0 !important;
+      color: #000 !important;
+      padding: 0 3pt;
+    }
+    .q-stem { font-size: 9.5pt; }
+    .q-opts { font-size: 9pt; margin: 2pt 0; padding-left: 14pt; }
+    .q-opts li { margin: 1pt 0; }
+
+    details {
+      margin-top: 3pt;
+      border-top: 0.5pt dashed #999;
+      padding-top: 3pt;
+      break-inside: avoid;
+    }
+    summary {
+      color: #000 !important;
+      font-size: 9pt;
+      cursor: default;
+    }
+    summary::before { content: "【答案】 "; }
+    details[open] summary::before { content: "【答案】 "; }
+
+    .ans {
+      background: #f3f3f3 !important;
+      border: 0.4pt solid #aaa;
+      border-radius: 0;
+      padding: 4pt 5pt;
+      margin-top: 2pt;
+      font-size: 9pt;
+    }
+    .ans .label { color: #000 !important; font-size: 9pt; }
+    .ans .parse { color: #000 !important; font-size: 9pt; }
+    .ans .parse b { color: #000 !important; }
+
+    .formula {
+      background: #f5f5f5 !important;
+      border: 0.5pt dashed #666;
+      border-radius: 0;
+      padding: 3pt 5pt;
+      font-size: 9pt;
+      overflow: visible;
+      white-space: normal;
+    }
+
+    table {
+      font-size: 8.5pt;
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+    th, td {
+      border: 0.5pt solid #666 !important;
+      padding: 2pt 4pt;
+    }
+    th { background: #e5e5e5 !important; color: #000 !important; }
+
+    .compare {
+      grid-template-columns: 1fr 1fr;
+      gap: 4pt;
+      break-inside: avoid;
+    }
+    .box {
+      border: 0.5pt solid #666;
+      border-radius: 0;
+      padding: 4pt 5pt;
+      background: #fff !important;
+      font-size: 9pt;
+    }
+    .box.a, .box.b { border-top: 1.5pt solid #333; }
+
+    .muted, .lead { color: #333 !important; font-size: 9pt; }
+
+    footer {
+      border-top: 0.5pt solid #666;
+      color: #333 !important;
+      font-size: 8pt;
+      margin-top: 8pt;
+      padding-top: 4pt;
+      break-inside: avoid;
+    }
+
+    a { color: #000 !important; text-decoration: none !important; }
+
+    /* 章节尽量从新页开始，知识点尽量整块不断开 */
+    #ch1, #ch2, #ch3, #map {
+      break-before: page;
+      page-break-before: always;
+    }
+    #toc { break-before: auto; }
+
+    .table-wrap { overflow: visible !important; }
+  }
+
+  /* 屏幕预览：接近 A4 版心宽度 */
+  @media screen {
+    .wrap { max-width: 210mm; }
+    .topbar-inner { max-width: 210mm; }
+    body { background: #d8dee6; }
+    .chapter, .hero, .toc a, .kp, .q { box-shadow: 0 1px 2px rgba(0,0,0,.04); }
+  }
 </style>
 </head>
 <body>
@@ -215,11 +503,14 @@
       <a href="#ch3">第3章</a>
       <a href="#map">考点地图</a>
     </nav>
+    <button type="button" class="print-btn" onclick="window.print()" title="按 A4 纵向打印">打印 A4</button>
     <div class="badge">每点 3 题 · 含解析</div>
   </div>
 </header>
 
 <main class="wrap">
+
+  <p class="print-hint">打印提示：纸张选 A4，纵向，边距默认；建议勾选「背景图形」。点右上角「打印 A4」即可。</p>
 
   <div class="hero">
     <div class="k">普通高中教科书 · 山东科技教育出版社（鲁科版 2019）</div>
@@ -1053,5 +1344,22 @@
 
 </main>
 
+<script>
+  (function () {
+    function setDetailsOpen(open) {
+      document.querySelectorAll("details").forEach(function (d) {
+        if (open) {
+          if (!("wasOpen" in d.dataset)) d.dataset.wasOpen = d.open ? "1" : "0";
+          d.open = true;
+        } else if ("wasOpen" in d.dataset) {
+          d.open = d.dataset.wasOpen === "1";
+          delete d.dataset.wasOpen;
+        }
+      });
+    }
+    window.addEventListener("beforeprint", function () { setDetailsOpen(true); });
+    window.addEventListener("afterprint", function () { setDetailsOpen(false); });
+  })();
+</script>
 </body>
 </html>

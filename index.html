@@ -189,6 +189,54 @@
     .hero { padding: 1.5rem 1.2rem; }
     .grid { grid-template-columns: 1fr; }
   }
+
+  .print-btn {
+    background: #c9a227; color: #1a2332; border: none; cursor: pointer;
+    font-size: .75rem; font-weight: 700; padding: .28rem .7rem;
+    border-radius: 999px; font-family: inherit; white-space: nowrap;
+  }
+
+  @page { size: A4 portrait; margin: 14mm 12mm 16mm 12mm; }
+
+  @media print {
+    html, body {
+      background: #fff !important; color: #000 !important;
+      font-size: 11pt; line-height: 1.45;
+      -webkit-print-color-adjust: exact; print-color-adjust: exact;
+    }
+    .topbar, .badge, .print-btn { display: none !important; }
+    .wrap { max-width: none; margin: 0; padding: 0; }
+    .hero {
+      background: #fff !important; color: #000 !important;
+      border: 1.5pt solid #333; border-radius: 0; padding: 10pt;
+      margin: 0 0 10pt; box-shadow: none;
+    }
+    .hero::after { display: none !important; }
+    .hero .k, .hero p, .stat { color: #222 !important; }
+    .hero h1 { color: #000 !important; font-size: 16pt; }
+    .hero h1 br { display: none; }
+    .stats .stat {
+      background: #f5f5f5 !important; border: 0.5pt solid #666; color: #000 !important;
+    }
+    h2 { color: #000; border-bottom: 1.2pt solid #000; }
+    .lead, .muted { color: #333 !important; }
+    .grid { grid-template-columns: 1fr 1fr; gap: 6pt; }
+    .card {
+      background: #fff !important; border: 0.75pt solid #444; border-radius: 0;
+      box-shadow: none !important; break-inside: avoid; page-break-inside: avoid;
+      color: #000 !important;
+    }
+    .card .subj, .card h3, .card p, .card .meta { color: #000 !important; }
+    .card .go { color: #000 !important; border-color: #666; }
+    .group-label { color: #000 !important; border-bottom-color: #666; }
+    footer { border-top: 0.5pt solid #666; color: #333 !important; font-size: 8pt; }
+    a { color: #000 !important; text-decoration: none !important; }
+  }
+
+  @media screen {
+    .wrap { max-width: 210mm; }
+    .topbar-inner { max-width: 210mm; }
+  }
 </style>
 </head>
 <body>
@@ -196,6 +244,7 @@
 <header class="topbar">
   <div class="topbar-inner">
     <div class="brand">高一上 · 自学课件<small>首页索引</small></div>
+    <button type="button" class="print-btn" onclick="window.print()" title="按 A4 纵向打印">打印 A4</button>
     <div class="badge">4 科 · 5 份课件</div>
   </div>
 </header>
