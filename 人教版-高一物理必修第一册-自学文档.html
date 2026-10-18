@@ -1,0 +1,1425 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>人教版高中物理必修第一册 · 知识点梳理 + 经典考题与解析（目标 80/100）</title>
+<style>
+  :root {
+    --ink: #1c2430;
+    --muted: #5c6b7a;
+    --line: #d7dce6;
+    --bg: #eef1f6;
+    --card: #fff;
+    --accent: #15468a;
+    --accent-soft: #e6edf7;
+    --blue: #0b7a66;
+    --blue-soft: #e4f3ee;
+    --amber: #9a5b00;
+    --amber-soft: #fff4e5;
+    --rose: #8f1d3a;
+    --rose-soft: #fce8ee;
+    --font: "PingFang SC", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+    --serif: "Source Han Serif SC", "Noto Serif SC", "Songti SC", SimSun, serif;
+    --mono: "JetBrains Mono", Consolas, monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--font); color: var(--ink); background: var(--bg); line-height: 1.7; font-size: 15.5px; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  .topbar {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(12, 28, 48, 0.96); color: #e7eef7;
+    border-bottom: 1px solid #1c3a60;
+  }
+  .topbar-inner {
+    max-width: 1080px; margin: 0 auto; padding: .7rem 1.1rem;
+    display: flex; flex-wrap: wrap; gap: .6rem; align-items: center;
+  }
+  .brand { font-weight: 700; white-space: nowrap; }
+  .brand small { color: #7fb0e6; font-weight: 500; margin-left: .4rem; font-size: .82em; }
+  .nav { display: flex; flex-wrap: wrap; gap: .25rem; flex: 1; }
+  .nav a {
+    color: #c3d4ea; font-size: .8rem; padding: .2rem .5rem; border-radius: 4px;
+  }
+  .nav a:hover { background: #1c3a60; color: #fff; text-decoration: none; }
+  .badge {
+    background: #15468a; font-size: .75rem; font-weight: 700;
+    padding: .28rem .65rem; border-radius: 999px; white-space: nowrap;
+  }
+
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 1.4rem 1.1rem 3.5rem; }
+
+  .hero {
+    background: linear-gradient(140deg, #0c2142 0%, #15356b 50%, #0b7a66 100%);
+    color: #eef3f8; border-radius: 12px; padding: 1.9rem 1.6rem; margin-bottom: 1.4rem;
+  }
+  .hero .k { color: #8fc6b7; font-size: .85rem; letter-spacing: .06em; margin-bottom: .5rem; }
+  .hero h1 {
+    font-family: var(--serif); font-size: clamp(1.4rem, 3vw, 1.9rem);
+    line-height: 1.35; margin-bottom: .6rem;
+  }
+  .hero p { color: #c3d3e6; max-width: 48rem; }
+  .hero p + p { margin-top: .5rem; }
+  .chips { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1rem; }
+  .chip {
+    background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.14);
+    padding: .28rem .65rem; border-radius: 5px; font-size: .8rem; color: #dbe7f3;
+  }
+
+  h2 {
+    font-family: var(--serif); font-size: 1.35rem;
+    border-bottom: 2px solid var(--accent); display: inline-block;
+    padding-bottom: .35rem; margin: 1.5rem 0 .9rem;
+  }
+  h3 { font-size: 1.05rem; margin: 0 0 .55rem; color: var(--blue); }
+  .muted { color: var(--muted); font-size: .9rem; }
+  .lead { color: var(--muted); margin-bottom: .9rem; }
+
+  .toc {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: .7rem; margin-bottom: 1rem;
+  }
+  .toc a {
+    display: block; background: var(--card); border: 1px solid var(--line);
+    border-radius: 8px; padding: .8rem .9rem; color: inherit; text-decoration: none;
+  }
+  .toc a:hover { border-color: var(--accent); box-shadow: 0 2px 10px rgba(21,70,138,.1); }
+  .toc .n { font-family: var(--mono); font-size: .72rem; color: var(--accent); font-weight: 700; }
+  .toc .t { font-weight: 700; margin: .15rem 0; }
+  .toc .s { font-size: .8rem; color: var(--muted); }
+
+  .chapter {
+    background: var(--card); border: 1px solid var(--line);
+    border-radius: 10px; padding: 1.2rem 1.25rem; margin-bottom: 1.2rem;
+  }
+  .ch-head {
+    display: flex; flex-wrap: wrap; justify-content: space-between; gap: .6rem;
+    align-items: flex-start; margin-bottom: .8rem;
+    padding-bottom: .7rem; border-bottom: 1px solid var(--line);
+  }
+  .ch-head h2 { margin: 0; border: none; padding: 0; }
+  .ch-tag {
+    background: var(--amber-soft); color: var(--amber);
+    font-size: .75rem; font-weight: 700; padding: .3rem .65rem; border-radius: 999px;
+    white-space: nowrap;
+  }
+
+  .kp {
+    border: 1px solid var(--line); border-radius: 8px;
+    margin: 1rem 0; overflow: hidden; background: #fafbfc;
+  }
+  .kp-head {
+    background: var(--accent-soft); padding: .75rem 1rem;
+    border-bottom: 1px solid #c3d4ea;
+    display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; justify-content: space-between;
+  }
+  .kp-head h3 { margin: 0; color: var(--accent); font-size: 1rem; }
+  .kp-id {
+    font-family: var(--mono); font-size: .72rem; background: var(--accent);
+    color: #fff; padding: .12rem .45rem; border-radius: 3px;
+  }
+  .kp-body { padding: .9rem 1rem 1rem; }
+  .kp-brief {
+    background: #fff; border-left: 3px solid var(--accent);
+    padding: .55rem .8rem; margin-bottom: .85rem; font-size: .92rem;
+  }
+  .kp-brief .formula { margin: .4rem 0; }
+
+  .warn {
+    background: var(--amber-soft); border-left: 3px solid var(--amber);
+    padding: .5rem .75rem; margin: .6rem 0; font-size: .88rem; border-radius: 4px;
+    color: #6b4300;
+  }
+  .warn b { color: var(--amber); }
+
+  .q {
+    background: #fff; border: 1px solid var(--line);
+    border-radius: 7px; padding: .85rem .95rem; margin: .7rem 0;
+  }
+  .q-meta {
+    display: flex; flex-wrap: wrap; gap: .4rem; align-items: center;
+    margin-bottom: .45rem; font-size: .78rem;
+  }
+  .tag {
+    display: inline-block; font-weight: 700; padding: .1rem .4rem; border-radius: 3px;
+  }
+  .tag-q { background: var(--blue-soft); color: var(--blue); }
+  .tag-hot { background: var(--rose-soft); color: var(--rose); }
+  .tag-type { background: #eef2f5; color: var(--muted); }
+  .q-stem { margin-bottom: .4rem; }
+  .q-opts { padding-left: 1.1rem; margin: .35rem 0; }
+  .q-opts li { margin: .15rem 0; }
+  details {
+    margin-top: .55rem; border-top: 1px dashed var(--line); padding-top: .55rem;
+  }
+  summary {
+    cursor: pointer; color: var(--accent); font-weight: 700; font-size: .9rem;
+    list-style: none; user-select: none;
+  }
+  summary::-webkit-details-marker { display: none; }
+  summary::before { content: "▶ "; font-size: .75em; }
+  details[open] summary::before { content: "▼ "; }
+  .ans {
+    margin-top: .5rem; background: var(--accent-soft);
+    border-radius: 6px; padding: .65rem .8rem;
+  }
+  .ans .label { font-weight: 700; color: var(--accent); margin-bottom: .25rem; }
+  .ans .parse { color: var(--ink); font-size: .92rem; }
+  .ans .parse b { color: var(--blue); }
+
+  .formula {
+    font-family: var(--mono); background: #f3f6f8;
+    border: 1px dashed #b7c5d0; border-radius: 5px;
+    padding: .45rem .7rem; margin: .4rem 0; font-size: .88rem; overflow-x: auto;
+  }
+
+  table { width: 100%; border-collapse: collapse; font-size: .88rem; margin: .5rem 0; }
+  th, td { border: 1px solid var(--line); padding: .45rem .55rem; text-align: left; vertical-align: top; }
+  th { background: #e8eef5; }
+
+  .compare {
+    display: grid; grid-template-columns: 1fr 1fr; gap: .6rem; margin: .6rem 0;
+  }
+  @media (max-width: 700px) {
+    .compare { grid-template-columns: 1fr; }
+    .nav { display: none; }
+  }
+  .box {
+    border: 1px solid var(--line); border-radius: 6px; padding: .7rem .8rem; background: #fff;
+  }
+  .box.a { border-top: 3px solid var(--accent); }
+  .box.b { border-top: 3px solid var(--amber); }
+
+  footer {
+    text-align: center; color: var(--muted); font-size: .82rem;
+    margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--line);
+  }
+
+  .stat-row {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: .6rem; margin: .8rem 0 1rem;
+  }
+  @media (max-width: 640px) { .stat-row { grid-template-columns: 1fr; } }
+  .stat {
+    text-align: center; border-radius: 8px; padding: .9rem .6rem;
+  }
+  .stat .n { font-family: var(--serif); font-size: 1.6rem; font-weight: 700; }
+  .stat .l { font-size: .8rem; margin-top: .15rem; }
+  .stat.s1 { background: var(--accent-soft); color: var(--accent); }
+  .stat.s2 { background: var(--blue-soft); color: var(--blue); }
+  .stat.s3 { background: var(--amber-soft); color: var(--amber); }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">人教版 · 物理必修第一册<small>知识点 + 经典考题</small></div>
+    <nav class="nav">
+      <a href="index.html">← 首页</a>
+      <a href="#toc">目录</a>
+      <a href="#ch1">第1章</a>
+      <a href="#ch2">第2章</a>
+      <a href="#ch3">第3章</a>
+      <a href="#ch4">第4章</a>
+      <a href="#ch5">专题强化</a>
+      <a href="#map">80分策略</a>
+    </nav>
+    <div class="badge">每点 3 题 · 含解析</div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div class="hero">
+    <div class="k">普通高中教科书 · 人民教育出版社（人教版 2019）· 高一上学期</div>
+    <h1>物理必修第一册<br />知识点梳理 · 经典考题与详细解析</h1>
+    <p>按教材 4 章拆解全部核心知识点，每个知识点配 <strong style="color:#fff">要点速记 + 3 道经典考题</strong>（点击"答案与解析"展开，建议先独立作答再对照）。</p>
+    <p>本文档按 <strong style="color:#fff">目标 80/100 分</strong> 设计：优先吃透运动学公式、受力分析、牛顿定律应用等"必拿分"板块，兼顾易错点提醒；文末附《80分复习优先级地图》，告诉你时间该花在哪里。</p>
+    <div class="chips">
+      <span class="chip">第1章 运动的描述</span>
+      <span class="chip">第2章 匀变速直线运动的研究</span>
+      <span class="chip">第3章 相互作用——力</span>
+      <span class="chip">第4章 运动和力的关系</span>
+      <span class="chip">专题 动力学综合应用</span>
+    </div>
+  </div>
+
+  <div class="stat-row">
+    <div class="stat s1"><div class="n">18</div><div class="l">核心知识点</div></div>
+    <div class="stat s2"><div class="n">54</div><div class="l">经典考题（含解析）</div></div>
+    <div class="stat s3"><div class="n">4+1</div><div class="l">章节全覆盖 + 综合专题</div></div>
+  </div>
+
+  <!-- TOC -->
+  <section id="toc">
+    <h2>全书目录</h2>
+    <p class="lead">点击跳转到对应知识点；每点含要点卡片与三道题（选择 / 计算 / 简答 / 判断等多种题型）。</p>
+    <div class="toc">
+      <a href="#kp01"><div class="n">1.1</div><div class="t">质点与参考系</div><div class="s">理想化模型 · 运动的相对性</div></a>
+      <a href="#kp02"><div class="n">1.2</div><div class="t">时间和位移</div><div class="s">矢量标量 · 路程与位移</div></a>
+      <a href="#kp03"><div class="n">1.3</div><div class="t">速度</div><div class="s">平均速度 · 瞬时速度 · 速率</div></a>
+      <a href="#kp04"><div class="n">1.4</div><div class="t">加速度</div><div class="s">Δv/Δt · 与速度无必然关系</div></a>
+      <a href="#kp05"><div class="n">2.1</div><div class="t">实验：打点计时器</div><div class="s">逐差法 · 中间时刻速度法</div></a>
+      <a href="#kp06"><div class="n">2.2</div><div class="t">速度与时间的关系</div><div class="s">v=v₀+at · v-t图像</div></a>
+      <a href="#kp07"><div class="n">2.3</div><div class="t">位移与时间的关系</div><div class="s">x=v₀t+½at² · Δx=aT²</div></a>
+      <a href="#kp08"><div class="n">2.4-2.5</div><div class="t">自由落体 · 竖直上抛</div><div class="s">g · 对称性 · 伽利略方法</div></a>
+      <a href="#kp09"><div class="n">3.1</div><div class="t">重力与弹力</div><div class="s">胡克定律 · 弹力方向判断</div></a>
+      <a href="#kp10"><div class="n">3.2</div><div class="t">摩擦力</div><div class="s">静摩擦(被动) · f=μN</div></a>
+      <a href="#kp11"><div class="n">3.3</div><div class="t">牛顿第三定律</div><div class="s">作用反作用 ≠ 平衡力</div></a>
+      <a href="#kp12"><div class="n">3.4</div><div class="t">力的合成与分解</div><div class="s">平行四边形定则 · 按效果分解</div></a>
+      <a href="#kp13"><div class="n">3.5</div><div class="t">共点力的平衡</div><div class="s">正交分解 · 动态平衡图解法</div></a>
+      <a href="#kp14"><div class="n">4.1</div><div class="t">牛顿第一定律</div><div class="s">惯性 · 力与运动的关系</div></a>
+      <a href="#kp15"><div class="n">4.2-4.4</div><div class="t">牛顿第二定律</div><div class="s">F=ma · 力学单位制</div></a>
+      <a href="#kp16"><div class="n">4.5</div><div class="t">牛顿定律的局限性</div><div class="s">宏观低速 · 适用范围</div></a>
+      <a href="#kp17"><div class="n">4.6</div><div class="t">超重和失重</div><div class="s">N=m(g±a) · 完全失重</div></a>
+      <a href="#kp18"><div class="n">专题</div><div class="t">动力学综合应用</div><div class="s">整体法隔离法 · 传送带 · 连接体</div></a>
+    </div>
+  </section>
+
+  <!-- ========== CH1 ========== -->
+  <section id="ch1" class="chapter">
+    <div class="ch-head">
+      <div>
+        <h2>第1章 运动的描述</h2>
+        <p class="muted">1.1 质点 参考系 · 1.2 时间 位移 · 1.3 速度 · 1.4 加速度</p>
+      </div>
+      <span class="ch-tag">基础概念章 · 为后续计算打地基</span>
+    </div>
+
+    <!-- KP01 -->
+    <article class="kp" id="kp01">
+      <div class="kp-head">
+        <h3>质点与参考系</h3>
+        <span class="kp-id">KP-01</span>
+      </div>
+      <div class="kp-body">
+        <div class="kp-brief">
+          <strong>要点：</strong>质点是忽略物体大小、形状，用一个有质量的点代替研究对象的<b>理想化模型</b>；能否看作质点取决于"物体的大小和形状对所研究问题的影响能否忽略"，与物体本身尺寸大小无关。参考系是描述运动必须选定的参照物体；同一物体相对不同参考系的运动描述可以不同——<b>运动是绝对的，对运动的描述是相对的</b>。
+        </div>
+
+        <div class="q">
+          <div class="q-meta"><span class="tag tag-q">题1</span><span class="tag tag-hot">高频</span><span class="tag tag-type">选择题</span></div>
+          <div class="q-stem">下列研究对象可以看作质点的是（　）</div>
+          <ol class="q-opts" type="A">
+            <li>研究地球自转情况时的地球</li>
+            <li>研究一列火车通过某一路标所用时间时的火车</li>
+            <li>研究地球绕太阳公转周期时的地球</li>
+            <li>研究跳水运动员在空中转体动作时的运动员</li>
+          </ol>
+          <details open>
+            <summary>答案与解析</summary>
+            <div class="ans">
+              <div class="label">答案：C</div>
+              <div class="parse">能否看作质点，关键看物体的大小、形状对所研究问题是否可以忽略。A 研究自转，地球自身大小形状不可忽略；B 研究通过路标所用时间，火车车身长度与路标相比不可忽略；C 研究公转周期，地球自身大小远小于轨道半径，可看作质点；D 研究转体动作，运动员的形状和姿态正是研究对象本身，不能看作质点。</div>
+            </div>
+          </details>
+        </div>
+
+        <div class="q">
+          <div class="q-meta"><span class="tag tag-q">题2</span><span class="tag tag-hot">高频</span><span class="tag tag-type">简答</span></div>
+          <div class="q-stem">"运动是绝对的，但对运动的描述是相对的"，请结合参考系说明：高铁上的乘客为什么会"看到"旁边同向行驶、速度相近的另一列车好像没有动？</div>
+          <details open>
+            <summary>答案与解析</summary>
+            <div class="ans">
+              <div class="label">答案要点</div>
+              <div class="parse">选定不同参考系，对同一物体运动的描述会不同，这就是运动描述的<b>相对性</b>；但物体相对某一确定参考系是否发生位置变化，是客观存在的，运动本身是<b>绝对的</b>。乘客以自己所乘的列车为参考系，由于两车速度相近，相对位置几乎不变，所以"看起来"没有动；但若以地面为参考系，两车都在高速运动。</div>
+            </div>
+          </details>
+        </div>
+
+        <div class="q">
+          <div class="q-meta"><span class="tag tag-q">题3</span><span class="tag tag-type">判断</span></div>
+          <div class="q-stem">"甲、乙两物体在某问题中都被看作质点"，这是否意味着甲、乙的实际尺寸一定很小？请说明理由。</div>
+          <details open>
+            <summary>答案与解析</summary>
+            <div class="ans">
+              <div class="label">答案：不是</div>
+              <div class="parse">质点能否成立，不是依据物体的真实尺寸大小决定的，而是依据所研究的问题中，物体的大小、形状对结果影响是否可以忽略。研究天体运动（如行星绕恒星公转）时，哪怕物体本身很大，也常可看作质点；研究微小物体内部结构或转动细节时，哪怕物体很小，也不能看作质点。</div>
+            </div>
+          </details>
+        </div>
+      </div>
+    </article>
+
+    <!-- KP02 -->
+    <article class="kp" id="kp02">
+      <div class="kp-head">
+        <h3>时间和位移</h3>
+        <span class="kp-id">KP-02</span>
+      </div>
+      <div class="kp-body">
+        <div class="kp-brief">
+          <strong>要点：</strong>时刻是时间轴上的一点（如"第3s末"），时间间隔是两时刻之差、对应一个过程（如"第3s内""第2s到第5s内"）。路程是运动轨迹的实际长度，<b>标量</b>，恒为正；位移是由初位置指向末位置的有向线段，<b>矢量</b>，一维直线运动中可用正负表示方向：<span class="formula">x = x末 − x初</span>位移大小 ≤ 路程，只有单方向直线运动时位移大小才等于路程。
+        </div>
+
+        <div class="q">
+          <div class="q-meta"><span class="tag tag-q">题1</span><span class="tag tag-hot">高频</span><span class="tag tag-type">选择题</span></div>
+          <div class="q-stem">关于位移和路程，下列说法正确的是（　）</div>
+          <ol class="q-opts" type="A">
+            <li>位移是标量，路程是矢量</li>
+            <li>物体做曲线运动时，位移大小可能等于路程</li>
+            <li>物体通过的路程越大，位移必然越大</li>
+            <li>只有单方向直线运动中，位移的大小才等于路程</li>
+          </ol>
+          <details open>
+            <summary>答案与解析</summary>
+            <div class="ans">
+              <div class="label">答案：D</div>
+              <div class="parse">位移是矢量、路程是标量，A 说反了；曲线运动中位移大小一定小于路程（弦小于弧），B 错；路程大小与位移没有固定比例关系，例如往返运动路程可以很大而位移很小，C 错；D 正确——只有不改变运动方向的直线运动，位移大小才等于路程。</div>
+            </div>
+          </details>
+        </div>
+
+        <div class="q">
+          <div class="q-meta"><span class="tag tag-q">题2</span><span class="tag tag-hot">高频</span><span class="tag tag-type">计算</span></div>
+          <div class="q-stem">质点沿直线从 O 点（坐标为 0）出发，沿正方向运动 6 m 到达 A 点，再返回运动到 B 点，B 点坐标为 2 m（取 O 为原点，运动初始方向为正方向）。求全程的路程与位移。</div>
+          <details open>
+            <summary>答案与解析</summary>
+            <div class="ans">
+              <div class="label">答案：路程 10 m；位移 2 m（沿正方向）</div>
+              <div class="parse">第一段：O→A，位移 x₁=+6 m，路程 6 m。第二段：A（坐标6m）→B（坐标2m），位移 x₂=2−6=−4 m，路程 4 m。<br>全程路程 = 6+4 = 10 m。<br>全程位移 = 末位置 − 初位置 = 2−0 = 2 m（方向沿正方向），也等于 x₁+x₂=6+(−4)=2 m。</div>
+            </div>
+          </details>
+        </div>
+
+        <div class="q">
+          <div class="q-meta"><span class="tag tag-q">题3</span><span class="tag tag-type">简答</span></div>
+          <div class="q-stem">"第3s末"和"第3s内"有什么区别？"第2s到第4s内"是时刻还是时间？</div>
+          <details open>
+            <summary>答案与解析</summary>
+            <div class="ans">
+              <div class="label">答案</div>
+              <div class="parse">"第3s末"指时间轴上 t=3s 这一瞬间，是一个<b>时刻</b>；"第3s内"指从 t=2s 到 t=3s 这段过程，是一个<b>时间间隔</b>（持续1s）。"第2s到第4s内"指 t=2s 到 t=4s 这段过程，是<b>时间间隔</b>（持续2s），不是时刻。</div>
+            </div>
+          </details>
+        </div>
+      </div>
+    </article>
+
+    <!-- KP03 -->
+    <article class="kp" id="kp03">
+      <div class="kp-head">
+        <h3>速度</h3>
+        <span class="kp-id">KP-03</span>
+      </div>
+      <div class="kp-body">
+        <div class="kp-brief">
+          <strong>要点：</strong>
+          <div class="formula">平均速度 v̄ = Δx/Δt　（矢量，方向与位移方向相同）</div>
+          <div class="formula">平均速率 = 路程/时间　（标量，一般 ≠ 平均速度大小）</div>
+          瞬时速度：某时刻（或某位置）对应的速度，矢量，方向为该时刻的运动方向。速度与速率的区别：速度是矢量，速率是速度的大小（标量）。单位：m/s，1 m/s = 3.6 km/h。
+        </div>
+
+        <div class="q">
+          <div class="q-meta"><span class="tag tag-q">题1</span><span class="tag tag-hot">高频</span><span class="tag tag-type">选择题</span></div>
+          <div class="q-stem">关于平均速度和瞬时速度，下列说法正确的是（　）</div>
+          <ol class="q-opts" type="A">
+            <li>平均速度就是物体运动过程中各时刻速度的平均值</li>
+            <li>瞬时速度是物体在某一时刻的速度，反映该时刻运动的快慢和方向</li>
+            <li>平均速度的方向就是物体运动轨迹的方向</li>
+            <li>平均速率一定等于平均速度的大小</li>
+          </ol>
+          <details open>
+            <summary>答案与解析</summary>
+            <div class="ans">
+              <div class="label">答案：B</div>
+              <div class="parse">A 错：平均速度是位移比时间，并非各时刻速度的简单平均。C 错：位移方向不一定是轨迹方向（曲线运动中二者不同）。D 错：只有单方向直线运动时平均速率才等于平均速度大小，一般路程≥|位移|，故平均速率≥平均速度大小。</div>
+            </div>
+          </details>
+        </div>
+
+        <div class="q">
+          <div class="q-meta"><span class="tag tag-q">题2</span><span class="tag tag-hot">高频</span><span class="tag tag-type">计算</span></div>
+          <div class="q-stem">汽车从甲地到乙地，前一半路程以 v₁=36 km/h 行驶，后一半路程以 v₂=54 km/h 行驶，求全程的平均速度。</div>
+          <details open>
+            <summary>答案与解析</summary>
+            <div class="ans">
+              <div class="label">答案：43.2 km/h</div>
+              <div class="parse">设一半路程为 s。t₁=s/v₁，t₂=s/v₂，总时间 t=t₁+t₂=s(v₁+v₂)/(v₁v₂)。<br>
+              v̄ = 总路程/总时间 = 2s ÷ [s(v₁+v₂)/(v₁v₂)] = <b>2v₁v₂/(v₁+v₂)</b> = 2×36×54/(36+54) = 3888/90 = 43.2 km/h。<br>
+              ⚠️ 等<b>路程</b>分段的平均速度是调和平均数，不是算术平均数(36+54)/2=45；只有等<b>时间</b>分段才能用算术平均。这是本节最容易出错的"陷阱题"。</div>
+            </div>
+          </details>
+        </div>
+
+        <div class="q">
+          <div class="q-meta"><span class="tag tag-q">题3</span><span class="tag tag-hot">高频</span><span class="tag tag-type">图像题</span></div>
+          <div class="q-stem">某物体做直线运动的 x-t 图像中，0~2s 内是过原点的倾斜直线段，2s 末坐标为 4 m；2~4s 内是平行于 t 轴的直线段，4s 末坐标仍为 4 m。描述该物体的运动情况，并求 0~4s 内的平均速度。</div>
+          <details open>
+            <summary>答案与解析</summary>
+            <div class="ans">
+              <div class="label">答案：0~2s 做 v=2 m/s 的匀速直线运动，2~4s 静止；全程平均速度 1 m/s</div>
+              <div class="parse">x-t 图像斜率表示速度。0~2s：v₁=4/2=2 m/s（匀速）；2~4s：x 不变，v₂=0（静止）。0~4s 位移=4−0=4 m，用时4s，v̄=4/4=1 m/s。</div>
+            </div>
+          </details>
+        </div>
+      </div>
+    </article>
+
+    <!-- KP04 -->
+    <article class="kp" id="kp04">
+      <div class="kp-head">
+        <h3>加速度</h3>
+        <span class="kp-id">KP-04</span>
+      </div>
+      <div class="kp-body">
+        <div class="kp-brief">
+          <strong>要点：</strong>
+          <div class="formula">a = Δv/Δt = (v末 − v初)/Δt　（矢量，方向与 Δv 方向相同）</div>
+          加速度描述速度<b>变化的快慢</b>，与速度大小<b>没有必然关系</b>：速度很大时加速度可以为0（匀速）；速度为0时加速度可以很大（起步瞬间）。a 与 v 同向→加速；a 与 v 反向→减速。v-t 图像中，图线斜率表示加速度。
+        </div>
+
+        <div class="q">
+          <div class="q-meta"><span class="tag tag-q">题1</span><span class="tag tag-hot">高频</span><span class="tag tag-type">选择题</span></div>
+          <div class="q-stem">关于加速度，下列说法正确的是（　）</div>
+          <ol class="q-opts" type="A">
+            <li>加速度为零，速度一定为零</li>
+            <li>速度变化量越大，加速度一定越大</li>
+            <li>物体的加速度方向保持不变，其速度方向也一定保持不变</li>
+            <li>速度很大的物体，加速度可能很小，甚至为零</li>
+          </ol>
+          <details open>
+            <summary>答案与解析</summary>
+            <div class="ans">
+              <div class="label">答案：D</div>
+              <div class="parse">A 错：加速度为0只表示速度不变化，速度本身可以是任意恒定值（如匀速直线运动）。B 错：a=Δv/Δt 还要看时间 Δt，速度变化量大但所用时间也长，加速度未必大。C 错：加速度方向不变时，速度方向可能发生反转（如先做匀减速到0，再反向加速，这是竖直上抛类问题的典型情形）。D 正确：速度与加速度大小没有必然联系，这是本节最核心的易错点。</div>
+            </div>
+          </details>
+        </div>
+
+        <div class="q">
+          <div class="q-meta"><span class="tag tag-q">题2</span><span class="tag tag-hot">高频</span><span class="tag tag-type">计算</span></div>
+          <div class="q-stem">质点 v-t 图像为一条由 (0, 2 m/s) 到 (4s, 10 m/s) 的倾斜直线。求加速度的大小和方向，并说明该过程物体做什么运动。</div>
+          <details open>
+            <summary>答案与解析</summary>
+            <div class="ans">
+              <div class="label">答案：a=2 m/s²，方向沿正方向；做初速度2 m/s 的匀加速直线运动</div>
+              <div class="parse">a = Δv/Δt = (10−2)/(4−0) = 2 m/s²。由于速度始终为正且 a 也为正（与速度同方向），物体做匀加速直线运动。</div>
+            </div>
+          </details>
+        </div>
+
+        <div class="q">
+          <div class="q-meta"><span class="tag tag-q">题3</span><span class="tag tag-hot">高频</span><span class="tag tag-type">选择题</span></div>
+          <div class="q-stem">一物体做直线运动，初速度方向为正，加速度方向为负且大小保持不变，则该物体的运动情况是（　）</div>
+          <ol class="q-opts" type="A">
+            <li>一直加速</li>
+            <li>一直减速</li>
+            <li>先减速到零，然后反向做匀加速运动</li>
+            <li>先加速后反向减速</li>
+          </ol>
+          <details open>
+            <summary>答案与解析</summary>
+            <div class="ans">
+              <div class="label">答案：C</div>
+              <div class="parse">加速度方向与初速度方向相反，物体先做匀减速运动，速度减小到零；此后由于加速度方向不变（仍沿负方向），物体开始沿负方向运动并加速。这正是"类竖直上抛"情境的典型考法，是自由落体/竖直上抛综合题的常见铺垫。</div>
+            </div>
+          </details>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <!-- ========== CH2 ========== -->
+  <section id="ch2" class="chapter">
+    <div class="ch-head">
+      <div>
+        <h2>第2章 匀变速直线运动的研究</h2>
+        <p class="muted">2.1 实验：探究小车速度随时间变化的规律 · 2.2 速度与时间的关系 · 2.3 位移与时间的关系 · 2.4 自由落体运动 · 2.5 伽利略的研究</p>
+      </div>
+      <span class="ch-tag">计算大户 · 公式必须滚瓜烂熟</span>
+    </div>
+
+    <!-- KP05 -->
+    <article class="kp" id="kp05">
+      <div class="kp-head">
+        <h3>实验：打点计时器与逐差法</h3>
+        <span class="kp-id">KP-05</span>
+      </div>
+      <div class="kp-body">
+        <div class="kp-brief">
+          <strong>要点：</strong>电磁打点计时器用 <b>4~6V 交流</b>电源；电火花计时器用 <b>220V 交流</b>电源。打点时间间隔由电源频率决定（常用50Hz，相邻点时间间隔 T=0.02s），与电压大小无关。<br>
+          中间时刻速度法：<span class="formula">vₙ ≈ (xₙ + xₙ₊₁) / (2T)</span>　逐差法求加速度（6段为例）：<span class="formula">a = [(x₄+x₅+x₆) − (x₁+x₂+x₃)] / (9T²)</span>
+        </div>
+
+        <div class="q">
+          <div class="q-meta"><span class="tag tag-q">题1</span><span class="tag tag-hot">高频</span><span class="tag tag-type">选择题</span></div>
+          <div class="q-stem">使用打点计时器时，下列说法正确的是（　）</div>
+          <ol class="q-opts" type="A">
+            <li>电磁打点计时器使用220V交流电源</li>
+            <li>电火花计时器使用4~6V交流电源</li>
+            <li>打点的时间间隔由交流电源的频率决定，与电压大小无关</li>
+            <li>纸带上点距越大，就一定说明该段时间内的速度越大，与时间间隔无关</li>
+          </ol>
+          <details open>
+            <summary>答案与解析</summary>
+            <div class="ans">
+              <div class="label">答案：C</div>
+              <div class="parse">A、B 说反了——电磁打点计时器用4~6V低压交流，电火花计时器用220V交流。C 正确，相邻点间时间间隔 T=1/f，只由频率决定，与电压无关。D 错，比较速度大小要看"位移/时间"，若各段时间间隔不同，不能只看点距大小。</div>
+            </div>
+          </details>
+        </div>
+
+        <div class="q">
+          <div class="q-meta"><span class="tag tag-q">题2</span><span class="tag tag-hot">高频</span><span class="tag tag-type">计算</span></div>
+          <div class="q-stem">某同学用打点计时器研究小车运动，相邻计数点间时间间隔 T=0.1s，测得连续6段位移分别为 x₁=2.00cm，x₂=3.00cm，x₃=4.00cm，x₄=5.00cm，x₅=6.00cm，x₆=7.00cm。用逐差法求小车运动的加速度。</div>
+          <details open>
+            <summary>答案与解析</summary>
+            <div class="ans">
+              <div class="label">答案：a=1.00 m/s²</div>
+              <div class="parse">a = [(x₄+x₅+x₆)−(x₁+x₂+x₃)] / (9T²) = [(5.00+6.00+7.00)−(2.00+3.00+4.00)] cm / (9×0.1²) s² = 9.00cm / 0.09s² = 100 cm/s² = 1.00 m/s²。<br>
+              （验证：每段比前一段多1.00cm，恰好等于 aT²=1×0.01m=1cm，吻合，说明确为匀加速直线运动。）</div>
+            </div>
+          </details>
+        </div>
+
+        <div class="q">
+          <div class="q-meta"><span class="tag tag-q">题3</span><span class="tag tag-type">原理简答</span></div>
+          <div class="q-stem">为什么求纸带上某点的瞬时速度，常用"该点前后相邻两段位移之和除以对应总时间"的方法（中间时刻速度法），而不是只用该点前一段（或后一段）的平均速度来近似？</div>
+          <details open>
+            <summary>答案与解析</summary>
+            <div class="ans">
+              <div class="label">答案要点</div>
+              <div class="parse">对于匀变速直线运动，可以证明：某段时间<b>中间时刻</b>的瞬时速度，恰好等于这段时间的平均速度。若只用前一段（或后一段）的平均速度去近似该点的瞬时速度，这个平均速度实际对应的是"前一段的中间时刻"，与该点存在系统偏差；而用该点前后相邻两段位移之和除以总时间，恰好使该点正好位于这个更大时间间隔的<b>中间时刻</b>，从而减小误差，更接近真实瞬时速度。</div>
+            </div>
+          </details>
+        </div>
+      </div>
+    </article>
+
+    <!-- KP06 -->
+    <article class="kp" id="kp06">
+      <div class="kp-head">
+        <h3>匀变速直线运动的速度与时间的关系</h3>
+        <span class="kp-id">KP-06</span>
+      </div>
+      <div class="kp-body">
+        <div class="kp-brief">
+          <strong>要点：</strong>
+          <div class="formula">v = v₀ + at</div>
+          v-t 图像为倾斜直线：斜率 = a，截距（t=0时）= v₀；图线与时间轴所夹面积 = 位移（下节会用到）。应用时须先规定正方向，与正方向相反的量代入负值。
+        </div>
+
+        <div class="q">
+          <div class="q-meta"><span class="tag tag-q">题1</span><span class="tag tag-hot">高频</span><span class="tag tag-type">计算</span></div>
+          <div class="q-stem">①汽车以初速度10m/s做匀加速直线运动，加速度为2m/s²，求3s末的速度。②该汽车若以初速度20m/s做匀减速运动，加速度大小为4m/s²，经过多长时间速度减为0？</div>
+          <details open>
+            <summary>答案与解析</summary>
+            <div class="ans">
+              <div class="label">答案：①16 m/s；②5 s</div>
+              <div class="parse">① v=v₀+at=10+2×3=16 m/s。<br>② 取初速度方向为正，a=−4m/s²，由 0=20−4t 得 t=5s。</div>
+            </div>
+          </details>
+        </div>
+
+        <div class="q">
+          <div class="q-meta"><span class="tag tag-q">题2</span><span class="tag tag-hot">高频</span><span class="tag tag-type">图像题</span></div>
+          <div class="q-stem">v-t 图像中：0~4s 内图线从(0,0)直线上升到(4s,8m/s)；4~6s 内图线水平(保持8m/s)；6~10s 内图线从(6s,8m/s)直线下降到(10s,0)。分别求三段的加速度，并说明各段运动性质。</div>
+          <details open>
+            <summary>答案与解析</summary>
+            <div class="ans">
+              <div class="label">答案：a₁=2m/s²（匀加速）；a₂=0（匀速）；a₃=−2m/s²（匀减速）</div>
+              <div class="parse">a₁=(8−0)/4=2m/s²；a₂=0；a₃=(0−8)/(10−6)=−2m/s²，大小2m/s²，方向与初速度方向相反。</div>
+            </div>
+          </details>
+        </div>
+
+        <div class="q">
+          <div class="q-meta"><span class="tag tag-q">题3</span><span class="tag tag-hot">高频</span><span class="tag tag-type">易错简答</span></div>
+          <div class="q-stem">做匀减速直线运动的物体，速度减为0后，若合外力（及其产生的加速度）保持不变，接下来会怎样运动？请举例说明。</div>
+          <details open>
+            <summary>答案与解析</summary>
+            <div class="ans">
+              <div class="label">答案要点</div>
+              <div class="parse">若加速度方向保持不变，物体速度减为0后，将沿加速度方向开始反向做匀加速运动。经典例子：竖直上抛运动，上升阶段是初速度向上、加速度（重力）向下的匀减速运动，速度减为0（最高点）后，由于重力仍然存在，物体开始像自由落体一样向下做匀加速运动。<br>
+              ⚠️ 需区分"刹车到速度为0后保持静止"（如汽车刹车，驱动力消失，受静摩擦等达到新的平衡）与"减速到0后反向加速"（如竖直上抛，外力/加速度没有变化）——这是本章最常设坑的地方。</div>
+            </div>
+          </details>
+        </div>
+      </div>
+    </article>
+
+    <!-- KP07 -->
+    <article class="kp" id="kp07">
+      <div class="kp-head">
+        <h3>匀变速直线运动的位移与时间的关系（及重要推论）</h3>
+        <span class="kp-id">KP-07</span>
+      </div>
+      <div class="kp-body">
+        <div class="kp-brief">
+          <strong>要点（公式链，务必背熟）：</strong>
+          <div class="formula">x = v₀t + ½at²　　v² − v₀² = 2ax　　v̄ = (v₀+v)/2 = x/t</div>
+          <div class="formula">中间时刻速度 = 平均速度：v_(t/2) = (v₀+v)/2</div>
+          <div class="formula">重要推论（逐差法基础）：Δx = aT²　（连续相等时间T内的位移差恒为 aT²）</div>
+          初速度为0的匀加速直线运动，比例关系：各T末速度之比 1:2:3…；各T内位移之比 1:4:9…；第n个T内位移之比 1:3:5…（奇数比）。
+        </div>
+
+        <div class="q">
+          <div class="q-meta"><span class="tag tag-q">题1</span><span class="tag tag-hot">高频</span><span class="tag tag-type">计算</span></div>
+          <div class="q-stem">物体以初速度5m/s、加速度2m/s²做匀加速直线运动，求5s内的位移，以及第5s内（即第4s末到第5s末）的位移。</div>
+          <details open>
+            <summary>答案与解析</summary>
+            <div class="ans">
+              <div class="label">答案：5s内位移50m；第5s内位移14m</div>
+              <div class="parse">x₅=v₀×5+½×2×5²=25+25=50m。x₄=v₀×4+½×2×4²=20+16=36m。<br>第5s内位移=x₅−x₄=50−36=14m。</div>
+            </div>
+          </details>
+        </div>
+
+        <div class="q">
+          <div class="q-meta"><span class="tag tag-q">题2</span><span class="tag tag-hot">高频</span><span class="tag tag-type">计算（经典陷阱）</span></div>
+          <div class="q-stem">汽车以20m/s的速度行驶，刹车产生的加速度大小为5m/s²，求刹车后10s内汽车通过的位移。</div>
+          <details open>
+            <summary>答案与解析</summary>
+            <div class="ans">
+              <div class="label">答案：40 m（不是直接代入10s算出的负数或错误结果）</div>
+              <div class="parse">先判断汽车实际运动时间：刹车到停止所需时间 t₀=v₀/a=20/5=4s。由于 10s＞t₀=4s，说明汽车第4s末就已停止，此后保持静止。<br>
+              若直接代入t=10s：x=20×10−½×5×10²=200−250=−50m，明显不合理，这正是陷阱所在！<br>
+              正确做法：x=v₀²/(2a)=400/10=<b>40m</b>（只用实际运动的4s计算）。</div>
+            </div>
+          </details>
+          <div class="warn"><b>⚠️易错提醒：</b>凡涉及"匀减速到速度为0"的问题，先判断给定时间是否超过停止所需时间 t₀=v₀/a，若超过，必须按停止时刻计算，不能直接代入原始时间套公式。</div>
+        </div>
+
+        <div class="q">
+          <div class="q-meta"><span class="tag tag-q">题3</span><span class="tag tag-hot">高频</span><span class="tag tag-type">计算</span></div>
+          <div class="q-stem">一质点做匀加速直线运动，连续两个相等时间间隔 T=1s 内的位移分别为 x₁=3m，x₂=5m，求该质点的加速度，并求两段"中间时刻速度"之差。</div>
+          <details open>
+            <summary>答案与解析</summary>
+            <div class="ans">
+              <div class="label">答案：a=2m/s²；中间时刻速度差为2m/s</div>
+              <div class="parse">由 Δx=aT² 得 a=(x₂−x₁)/T²=(5−3)/1²=2m/s²。<br>
+              第一段中间时刻速度 v₁中=x₁/T=3/1=3m/s；第二段中间时刻速度 v₂中=x₂/T=5/1=5m/s；两者相差 5−3=2m/s，恰好等于 a×T=2×1=2m/s（两中间时刻恰好相隔一个T，验证了 a=Δv/T）。</div>
+            </div>
+          </details>
+        </div>
+      </div>
+    </article>
+
+    <!-- KP08 -->
+    <article class="kp" id="kp08">
+      <div class="kp-head">
+        <h3>自由落体运动 · 竖直上抛 · 伽利略的研究方法</h3>
+        <span class="kp-id">KP-08</span>
+      </div>
+      <div class="kp-body">
+        <div class="kp-brief">
+          <strong>要点：</strong>自由落体运动是只受重力、初速度为0的匀加速直线运动，加速度为重力加速度 g（一般取10m/s²，精确值9.8m/s²），方向竖直向下。
+          <div class="formula">v = gt　　h = ½gt²　　v² = 2gh</div>
+          竖直上抛（拓展，常考）：取竖直向上为正，<span class="formula">v=v₀−gt，h=v₀t−½gt²</span>；上升最大高度 H=v₀²/(2g)；上升时间=回到原点所用下降时间=v₀/g；具有<b>对称性</b>：同一位置经过时速度大小相等方向相反。伽利略通过"冲淡重力"的斜面实验和逻辑推理，否定了亚里士多德"重物下落快"的观点，证明不计空气阻力时一切物体下落加速度相同——体现了逻辑推理与实验验证相结合的科学方法。
+        </div>
+
+        <div class="q">
+          <div class="q-meta"><span class="tag tag-q">题1</span><span class="tag tag-hot">高频</span><span class="tag tag-type">计算</span></div>
+          <div class="q-stem">一石块由静止从某高度自由下落，经2s落地，取g=10m/s²，求下落高度和落地速度。</div>
+          <details open>
+            <summary>答案与解析</summary>
+            <div class="ans">
+              <div class="label">答案：h=20m，v=20m/s</div>
+              <div class="parse">h=½gt²=½×10×2²=20m。v=gt=10×2=20m/s。</div>
+            </div>
+          </details>
+        </div>
+
+        <div class="q">
+          <div class="q-meta"><span class="tag tag-q">题2</span><span class="tag tag-hot">高频</span><span class="tag tag-type">综合计算</span></div>
+          <div class="q-stem">将一小球以20m/s的初速度竖直向上抛出，取g=10m/s²，不计空气阻力。求：①上升的最大高度；②小球经过多长时间回到抛出点；③抛出后3s末小球的位置和速度（说明方向）。</div>
+          <details open>
+            <summary>答案与解析</summary>
+            <div class="ans">
+              <div class="label">答案：①20m；②4s；③距抛出点上方15m，速度大小10m/s方向向下</div>
+              <div class="parse">① H=v₀²/(2g)=400/20=20m。<br>
+              ② 上升时间 t₁=v₀/g=20/10=2s；由对称性，下降回到原位置也用2s；全程=2+2=4s。<br>
+              ③ t=3s已超过上升时间(2s)，物体正处于下降阶段。取竖直向上为正：<br>
+              h=v₀t−½gt²=20×3−½×10×9=60−45=15m（抛出点上方15m）。<br>
+              v=v₀−gt=20−10×3=−10m/s，负值表示方向向下，大小10m/s。<br>
+              （验证：从最高点下落1s，位移=½×10×1²=5m，20−5=15m，一致。）</div>
+            </div>
+          </details>
+        </div>
+
+        <div class="q">
+          <div class="q-meta"><span class="tag tag-q">题3</span><span class="tag tag-hot">高频</span><span class="tag tag-type">生活应用</span></div>
+          <div class="q-stem">"测反应时间"小游戏中，一人将直尺自由释放，另一人在看到直尺开始下落后尽快用手指捏住。若测得直尺下落了0.2m才被捏住，取g=10m/s²，求此人的反应时间。</div>
+          <details open>
+            <summary>答案与解析</summary>
+            <div class="ans">
+              <div class="label">答案：约0.2s</div>
+              <div class="parse">直尺做自由落体运动，由 h=½gt² 得 t=√(2h/g)=√(2×0.2/10)=√0.04=0.2s。</div>
+            </div>
+          </details>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <!-- ========== CH3 ========== -->
+  <section id="ch3" class="chapter">
+    <div class="ch-head">
+      <div>
+        <h2>第3章 相互作用——力</h2>
+        <p class="muted">3.1 重力与弹力 · 3.2 摩擦力 · 3.3 牛顿第三定律 · 3.4 力的合成和分解 · 3.5 共点力的平衡</p>
+      </div>
+      <span class="ch-tag">受力分析主战场 · 决定你能不能上80分</span>
+    </div>
+
+    <!-- KP09 -->
+    <article class="kp" id="kp09">
+      <div class="kp-head">
+        <h3>重力与弹力</h3>
+        <span class="kp-id">KP-09</span>
+      </div>
+      <div class="kp-body">
+        <div class="kp-brief">
+          <strong>要点：</strong>力是物体间的相互作用，矢量，三要素为大小、方向、作用点。重力 G=mg，方向竖直向下，作用点为重心。弹力产生条件：①直接接触；②发生弹性形变。<b>弹力方向判断口诀</b>：绳的拉力沿绳方向，指向绳收缩的方向（只能拉不能压）；面与面接触的弹力垂直于接触面，指向被支持（被压）的物体。
+          <div class="formula">胡克定律：F = kx　（k为劲度系数，x为形变量，弹性限度内）</div>
+        </div>
+
+        <div class="q">
+          <div class="q-meta"><span class="tag tag-q">题1</span><span class="tag tag-hot">高频</span><span class="tag tag-type">判断说明</span></div>
+          <div class="q-stem">一个光滑斜面固定在水平地面上，斜面上放一个小球，用一条水平方向的轻绳将小球系住，绳的另一端固定在斜面上方的竖直墙壁上，小球保持静止。请判断：①斜面对小球的支持力方向；②绳对小球的拉力方向。</div>
+          <details open>
+            <summary>答案与解析</summary>
+            <div class="ans">
+              <div class="label">答案</div>
+              <div class="parse">①支持力（弹力）方向<b>垂直于斜面</b>，由斜面指向小球——这是"面对物体的弹力垂直于接触面"的基本规则，与斜面倾角无关。<br>
+              ②绳的拉力方向<b>沿绳的方向</b>，由小球指向墙壁固定点（保持水平方向）——绳只能拉不能压，拉力方向永远沿绳、指向绳拉紧的方向。</div>
+            </div>
+          </details>
+        </div>
+
+        <div class="q">
+          <div class="q-meta"><span class="tag tag-q">题2</span><span class="tag tag-hot">高频</span><span class="tag tag-type">计算</span></div>
+          <div class="q-stem">一轻弹簧原长10cm，挂上质量0.2kg的重物后伸长到12cm，取g=10m/s²。求该弹簧的劲度系数；若改挂质量0.5kg的重物（弹性限度内），弹簧长度变为多少？</div>
+          <details open>
+            <summary>答案与解析</summary>
+            <div class="ans">
+              <div class="label">答案：k=100N/m；弹簧长度变为15cm</div>
+              <div class="parse">第一次：x₁=12−10=2cm=0.02m；F₁=mg=0.2×10=2N（静止，弹力=重力）。k=F₁/x₁=2/0.02=100N/m。<br>
+              第二次：F₂=0.5×10=5N；x₂=F₂/k=5/100=0.05m=5cm。弹簧长度=10+5=15cm。</div>
+            </div>
+          </details>
+        </div>
+
+        <div class="q">
+          <div class="q-meta"><span class="tag tag-q">题3</span><span class="tag tag-hot">高频</span><span class="tag tag-type">受力分析</span></div>
+          <div class="q-stem">质量为m的小球用细线悬挂静止，细线与竖直方向成30°角，另一端用水平力F拉住小球使其静止。求细线的拉力T和水平力F的大小（用m、g表示）。</div>
+          <details open>
+            <summary>答案与解析</summary>
+            <div class="ans">
+              <div class="label">答案：T=2√3mg/3，F=√3mg/3</div>
+              <div class="parse">小球受重力mg（竖直向下）、绳的拉力T（沿绳方向）、水平拉力F，三力平衡。<br>
+              竖直方向：T·cos30°=mg → T=mg/cos30°=2√3mg/3。<br>
+              水平方向：T·sin30°=F → F=T×0.5=mg·tan30°=√3mg/3。</div>
+            </div>
+          </details>
+        </div>
+      </div>
+    </article>
+
+    <!-- KP10 -->
+    <article class="kp" id="kp10">
+      <div class="kp-head">
+        <h3>摩擦力</h3>
+        <span class="kp-id">KP-10</span>
+      </div>
+      <div class="kp-body">
+        <div class="kp-brief">
+          <strong>要点：</strong><b>静摩擦力</b>：产生于有相对运动趋势而未发生相对滑动的接触面间；方向与相对运动趋势方向相反；大小范围 0≤f≤f_max，<b>必须由平衡条件或牛顿第二定律求解</b>（"被动力"，不能直接套公式）。<b>滑动摩擦力</b>：发生相对滑动时产生，方向与相对滑动方向相反。
+          <div class="formula">f = μN　（μ为动摩擦因数，N为接触面间的正压力，与接触面积无关）</div>
+          最大静摩擦力略大于滑动摩擦力，中学阶段常近似认为二者相等。
+        </div>
+
+        <div class="q">
+          <div class="q-meta"><span class="tag tag-q">题1</span><span class="tag tag-hot">高频</span><span class="tag tag-type">选择题</span></div>
+          <div class="q-stem">关于摩擦力，下列说法正确的是（　）</div>
+          <ol class="q-opts" type="A">
+            <li>只有相对运动的物体间才有摩擦力</li>
+            <li>静摩擦力的大小总等于滑动摩擦力</li>
+            <li>滑动摩擦力的大小与接触面的粗糙程度和正压力有关，与接触面积无关</li>
+            <li>物体所受摩擦力方向一定与物体对地运动方向相反</li>
+          </ol>
+          <details open>
+            <summary>答案与解析</summary>
+            <div class="ans">
+              <div class="label">答案：C</div>
+              <div class="parse">A 错：静摩擦力存在于相对静止但有相对运动趋势的物体间。B 错：静摩擦力大小在0到最大值间变化，不一定等于滑动摩擦力。D 错：摩擦力方向与<b>相对运动（或相对运动趋势）</b>方向相反，不一定与物体对地运动方向相反（如随传送带加速的物体，摩擦力可能与运动方向相同、提供动力）。C 正确，是 f=μN 的直接体现。</div>
+            </div>
+          </details>
+        </div>
+
+        <div class="q">
+          <div class="q-meta"><span class="tag tag-q">题2</span><span class="tag tag-hot">高频</span><span class="tag tag-type">计算</span></div>
+          <div class="q-stem">质量为4kg的木块放在水平地面上，用水平力F=10N拉动木块做匀速直线运动，取g=10m/s²，求木块与地面间的动摩擦因数；若改用F=20N拉动（木块已在运动中），木块将做什么运动？</div>
+          <details open>
+            <summary>答案与解析</summary>
+            <div class="ans">
+              <div class="label">答案：μ=0.25；做加速度2.5m/s²的匀加速直线运动</div>
+              <div class="parse">匀速，合力为0：F=f=μN，N=mg=40N，μ=F/N=10/40=0.25。<br>
+              改用F=20N后木块仍在滑动，摩擦力仍为滑动摩擦力：f=μN=0.25×40=10N（不变）。合力=20−10=10N，a=10/4=2.5m/s²。</div>
+            </div>
+          </details>
+        </div>
+
+        <div class="q">
+          <div class="q-meta"><span class="tag tag-q">题3</span><span class="tag tag-hot">高频</span><span class="tag tag-type">经典易错</span></div>
+          <div class="q-stem">质量为2kg的木块放在水平地面上，与地面间最大静摩擦力为6N，现对木块施加水平力F=4N，木块保持静止，求此时木块受到的摩擦力大小和方向；若F增大到8N，木块仍能保持静止吗？</div>
+          <details open>
+            <summary>答案与解析</summary>
+            <div class="ans">
+              <div class="label">答案：F=4N时 f=4N（方向与F相反）；F=8N时木块不能保持静止，将发生滑动</div>
+              <div class="parse">F=4N时，木块静止，由平衡条件 f=F=4N，方向与F相反。由于最大静摩擦力为6N，F=8N＞6N，说明外力已超过最大静摩擦力能提供的最大阻力，木块不能保持静止。</div>
+            </div>
+          </details>
+          <div class="warn"><b>⚠️易错提醒：</b>很多同学一看到"水平拉力"就直接套用 f=μN 计算，但只要物体<b>保持静止</b>，摩擦力就是<b>静摩擦力</b>，必须用平衡条件 f=F 求解（大小随外力变化），μN 对应的是最大静摩擦力的近似值，是上限不是实际值。</div>
+        </div>
+      </div>
+    </article>
+
+    <!-- KP11 -->
+    <article class="kp" id="kp11">
+      <div class="kp-head">
+        <h3>牛顿第三定律</h3>
+        <span class="kp-id">KP-11</span>
+      </div>
+      <div class="kp-body">
+        <div class="kp-brief">
+          <strong>要点：</strong>两个物体间的作用力和反作用力，总是<b>大小相等、方向相反、作用在同一直线上</b>，分别作用在两个相互作用的物体上，<b>同时产生同时消失，性质相同</b>。
+        </div>
+        <div class="compare">
+          <div class="box a"><strong>作用力与反作用力</strong><br>作用在两个不同物体上；性质一定相同；一定同时产生、同时消失，不能单独存在。</div>
+          <div class="box b"><strong>一对平衡力</strong><br>作用在同一个物体上；性质可以不同；某一个力可单独存在，不要求同时产生消失。</div>
+        </div>
+
+        <div class="q">
+          <div class="q-meta"><span class="tag tag-q">题1</span><span class="tag tag-hot">高频</span><span class="tag tag-type">经典选择</span></div>
+          <div class="q-stem">马拉车前进的过程中，"马对车的拉力"和"车对马的拉力"是一对（　）；"车受到的重力"和"地面对车的支持力"是一对（　）</div>
+          <ol class="q-opts" type="A">
+            <li>作用力与反作用力；平衡力</li>
+            <li>平衡力；作用力与反作用力</li>
+            <li>作用力与反作用力；作用力与反作用力</li>
+            <li>平衡力；平衡力</li>
+          </ol>
+          <details open>
+            <summary>答案与解析</summary>
+            <div class="ans">
+              <div class="label">答案：A</div>
+              <div class="parse">马对车的拉力与车对马的拉力分别作用在车、马两个物体上，大小相等方向相反、性质相同（都是拉力），是一对作用力与反作用力。车受到的重力（地球对车的吸引）和地面对车的支持力（弹力）都作用在车这一个物体上，性质不同，二力平衡使车保持平衡，是一对平衡力。</div>
+            </div>
+          </details>
+        </div>
+
+        <div class="q">
+          <div class="q-meta"><span class="tag tag-q">题2</span><span class="tag tag-hot">高频</span><span class="tag tag-type">概念辨析</span></div>
+          <div class="q-stem">对于"马拉车前进"这一现象，下列解释正确的是（　）</div>
+          <ol class="q-opts" type="A">
+            <li>马对车的拉力大于车对马的拉力，所以车被拉动</li>
+            <li>马对地面的作用力和地面对马的反作用力这对力大小相等，所以不能用来解释运动状态改变</li>
+            <li>车能被拉动前进，是因为车所受的合力不为零（马的拉力大于车受到的阻力），而不是因为马对车的拉力大于车对马的拉力</li>
+            <li>牛顿第三定律在物体做加速运动时不适用</li>
+          </ol>
+          <details open>
+            <summary>答案与解析</summary>
+            <div class="ans">
+              <div class="label">答案：C</div>
+              <div class="parse">由牛顿第三定律，马对车的拉力恒等于车对马的拉力，这与车能否被拉动<b>无关</b>；车能否被拉动，取决于车受到的<b>合力</b>是否为零——这是牛顿第二定律（结合受力分析）决定的问题，不是牛顿第三定律的内容。D 错，牛顿第三定律对任何相互作用力都成立，与物体是否做加速运动无关。</div>
+            </div>
+          </details>
+        </div>
+
+        <div class="q">
+          <div class="q-meta"><span class="tag tag-q">题3</span><span class="tag tag-type">简答</span></div>
+          <div class="q-stem">请说出"作用力与反作用力"和"二力平衡"的三条区别。</div>
+          <details open>
+            <summary>答案与解析</summary>
+            <div class="ans">
+              <div class="label">答案</div>
+              <div class="parse">①作用对象：作用力与反作用力分别作用在两个物体上；平衡力作用在同一个物体上。<br>
+              ②性质是否相同：作用力与反作用力性质一定相同；平衡力性质可以不同。<br>
+              ③是否同时存在：作用力与反作用力一定同时产生、同时消失；平衡力中某一个力可单独存在，不要求同时产生消失。</div>
+            </div>
+          </details>
+        </div>
+      </div>
+    </article>
+
+    <!-- KP12 -->
+    <article class="kp" id="kp12">
+      <div class="kp-head">
+        <h3>力的合成与分解</h3>
+        <span class="kp-id">KP-12</span>
+      </div>
+      <div class="kp-body">
+        <div class="kp-brief">
+          <strong>要点：</strong>合力与分力是<b>等效替代</b>关系，遵循<b>平行四边形定则</b>。两个共点力的合力范围：<span class="formula">|F₁−F₂| ≤ F合 ≤ F₁+F₂</span>夹角90°时常用勾股定理：F合=√(F₁²+F₂²)。力的分解通常按<b>实际作用效果</b>分解（如斜面上重力分解为沿斜面的下滑分力和垂直斜面的压力分力）。
+        </div>
+
+        <div class="q">
+          <div class="q-meta"><span class="tag tag-q">题1</span><span class="tag tag-hot">高频</span><span class="tag tag-type">计算</span></div>
+          <div class="q-stem">两个共点力 F₁=6N、F₂=8N，求它们合力的最大值、最小值，以及当两力夹角为90°时合力的大小。</div>
+          <details open>
+            <summary>答案与解析</summary>
+            <div class="ans">
+              <div class="label">答案：最大14N，最小2N，90°时10N</div>
+              <div class="parse">最大值（同向）：F合=F₁+F₂=14N。最小值（反向）：F合=|F₁−F₂|=2N。夹角90°：F合=√(6²+8²)=√100=10N。</div>
+            </div>
+          </details>
+        </div>
+
+        <div class="q">
+          <div class="q-meta"><span class="tag tag-q">题2</span><span class="tag tag-hot">高频</span><span class="tag tag-type">经典模型</span></div>
+          <div class="q-stem">质量为m的物体放在倾角为θ的光滑斜面上，求重力沿斜面方向的分力和垂直斜面方向的分力大小（用m、g、θ表示），并说明这两个分力各自产生的效果。</div>
+          <details open>
+            <summary>答案与解析</summary>
+            <div class="ans">
+              <div class="label">答案：沿斜面方向 mgsinθ；垂直斜面方向 mgcosθ</div>
+              <div class="parse">按重力的实际作用效果分解：G₁=mgsinθ（沿斜面方向，产生使物体下滑的效果）；G₂=mgcosθ（垂直斜面方向，产生压紧斜面、使斜面对物体产生支持力的效果，二者大小相等方向相反）。</div>
+            </div>
+          </details>
+        </div>
+
+        <div class="q">
+          <div class="q-meta"><span class="tag tag-q">题3</span><span class="tag tag-hot">高频</span><span class="tag tag-type">选择题</span></div>
+          <div class="q-stem">两个共点力F₁、F₂的合力大小恒为10N。若F₁的大小保持6N不变（方向可以改变），F₂的大小和方向都可以改变，则F₂的最小值是（　）</div>
+          <ol class="q-opts" type="A">
+            <li>4N</li><li>6N</li><li>8N</li><li>10N</li>
+          </ol>
+          <details open>
+            <summary>答案与解析</summary>
+            <div class="ans">
+              <div class="label">答案：A</div>
+              <div class="parse">F₂ = 合力 − F₁（矢量减法）。当 F₁ 与合力方向<b>相同</b>时，F₂ 与 F₁、合力三者共线同向，F₂取得<b>最小值</b> = 合力−F₁ = 10−6 = 4N；当F₁与合力方向<b>相反</b>时，F₂取得最大值 = 10+6=16N。所以F₂的最小值为4N。<br>
+              ⚠️ 很多同学会误用勾股定理算出 √(10²−6²)=8N，但那是另一种题型（合力方向固定、F₁方向固定、求F₂垂直F₁时的最小值），与本题"F₁方向可自由改变"的条件不同，务必看清题目条件再选方法。</div>
+            </div>
+          </details>
+        </div>
+      </div>
+    </article>
+
+    <!-- KP13 -->
+    <article class="kp" id="kp13">
+      <div class="kp-head">
+        <h3>共点力的平衡</h3>
+        <span class="kp-id">KP-13</span>
+      </div>
+      <div class="kp-body">
+        <div class="kp-brief">
+          <strong>要点：</strong>平衡状态指静止或匀速直线运动（加速度为零）。平衡条件：合力为零，常用<b>正交分解法</b>：
+          <div class="formula">ΣFx = 0　　ΣFy = 0</div>
+          动态平衡问题（一个力大小方向都变化，分析另一个力的变化趋势）常用<b>图解法</b>：把不变的力画出，变化的力画出方向变化范围，结合几何关系（常用"垂线最短"）判断变化趋势。
+        </div>
+
+        <div class="q">
+          <div class="q-meta"><span class="tag tag-q">题1</span><span class="tag tag-hot">高频</span><span class="tag tag-type">计算</span></div>
+          <div class="q-stem">质量为2kg的物体放在水平地面上，受到一个与水平方向成30°角斜向上方的拉力F作用，物体保持静止，F=4N，取g=10m/s²。求地面对物体的支持力N和摩擦力f的大小。</div>
+          <details open>
+            <summary>答案与解析</summary>
+            <div class="ans">
+              <div class="label">答案：N=18N，f=2√3N≈3.46N</div>
+              <div class="parse">F水平分量 Fx=F·cos30°=4×(√3/2)=2√3N；竖直分量 Fy=F·sin30°=4×0.5=2N。<br>
+              竖直方向：N+Fy=mg → N=20−2=18N。<br>
+              水平方向：f=Fx=2√3N≈3.46N，方向与Fx相反。</div>
+            </div>
+          </details>
+        </div>
+
+        <div class="q">
+          <div class="q-meta"><span class="tag tag-q">题2</span><span class="tag tag-hot">高频</span><span class="tag tag-type">经典模型</span></div>
+          <div class="q-stem">质量为m的物体静止在倾角为θ的斜面上（摩擦力未达到最大值），物体与斜面间的动摩擦因数为μ。求物体所受的摩擦力和支持力大小（用m、g、θ表示）。</div>
+          <details open>
+            <summary>答案与解析</summary>
+            <div class="ans">
+              <div class="label">答案：N=mgcosθ，f=mgsinθ（沿斜面向上）</div>
+              <div class="parse">垂直斜面方向平衡：N=mgcosθ。沿斜面方向平衡：f=mgsinθ，方向沿斜面向上（与下滑趋势相反）。</div>
+            </div>
+          </details>
+          <div class="warn"><b>⚠️易错提醒：</b>此题摩擦力由平衡条件 f=mgsinθ 决定，<b>不能</b>直接用 f=μN=μmgcosθ 计算（除非题目明确说明物体恰好处于临界滑动状态，这时才用 f_max=μN 判断物体是否会滑动）。</div>
+        </div>
+
+        <div class="q">
+          <div class="q-meta"><span class="tag tag-q">题3</span><span class="tag tag-hot">高频</span><span class="tag tag-type">动态平衡·图解法</span></div>
+          <div class="q-stem">用两根绳 OA、OC 吊起一个重物，OA 固定在墙上且方向始终保持水平不变，若保持悬挂物体不动，将 OC 的另一端 C 沿墙壁从靠近 A 处缓慢上移（OC 与墙的夹角逐渐增大，绳 OC 方向逐渐接近竖直），分析绳 OA 的拉力和绳 OC 的拉力大小的变化趋势。</div>
+          <details open>
+            <summary>答案与解析</summary>
+            <div class="ans">
+              <div class="label">答案：F(OA) 一直减小；F(OC) 先减小后增大（OC竖直时最小）</div>
+              <div class="parse">物体受重力mg（大小方向不变）、F(OA)（方向不变——始终水平，大小可变）、F(OC)（大小方向都变化），三力平衡。<br>
+              采用图解法：以重力为固定边，F(OA)沿水平方向，画出一系列可能的力三角形，让 F(OC) 的方向从接近水平逐渐转向竖直：<br>
+              当 OC 转为竖直方向时，F(OC) 与重力共线，此时 F(OC) 取得<b>最小值</b> F(OC)min=mg，对应 F(OA)=0；<br>
+              在此之前，F(OA) 随 OC 转动角度增大持续<b>减小</b>（从最大值减小到0），而 F(OC) 的变化为先减小后到达最小值（当OC恰好竖直时）。<br>
+              结论：F(OA) 单调减小；F(OC) 先减小后增大，最小值出现在 OC 转为竖直方向时。这是动态平衡"定一变二"模型的标准解法，核心是用图解法观察变化的力矢量端点轨迹。</div>
+            </div>
+          </details>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <!-- ========== CH4 ========== -->
+  <section id="ch4" class="chapter">
+    <div class="ch-head">
+      <div>
+        <h2>第4章 运动和力的关系</h2>
+        <p class="muted">4.1 牛顿第一定律 · 4.2 牛顿第二定律 · 4.3 力的单位和运动方程 · 4.4 力学单位制 · 4.5 牛顿运动定律的局限性 · 4.6 超重和失重</p>
+      </div>
+      <span class="ch-tag">全书核心 · F=ma 贯穿后续所有章节</span>
+    </div>
+
+    <!-- KP14 -->
+    <article class="kp" id="kp14">
+      <div class="kp-head">
+        <h3>牛顿第一定律（惯性）</h3>
+        <span class="kp-id">KP-14</span>
+      </div>
+      <div class="kp-body">
+        <div class="kp-brief">
+          <strong>要点：</strong>牛顿第一定律（惯性定律）：一切物体总保持匀速直线运动状态或静止状态，直到有外力迫使它改变这种状态为止。<b>力不是维持运动的原因，而是改变运动状态（产生加速度）的原因</b>。惯性：物体保持原有运动状态的性质，<b>大小只由质量决定</b>，与速度大小、是否受力、是否运动无关。
+        </div>
+
+        <div class="q">
+          <div class="q-meta"><span class="tag tag-q">题1</span><span class="tag tag-hot">高频</span><span class="tag tag-type">选择题</span></div>
+          <div class="q-stem">汽车急刹车时，车内乘客身体向前倾倒，这是因为（　）</div>
+          <ol class="q-opts" type="A">
+            <li>乘客受到了向前的力</li>
+            <li>乘客的身体具有惯性，下半身随车一起减速，上半身由于惯性仍要保持原来的运动状态，所以向前倾倒</li>
+            <li>乘客受到了向后的惯性力</li>
+            <li>车厢内空气流动造成的</li>
+          </ol>
+          <details open>
+            <summary>答案与解析</summary>
+            <div class="ans">
+              <div class="label">答案：B</div>
+              <div class="parse">急刹车时，与座椅接触的下半身受摩擦力迅速减速，而上半身没有直接受到迫使其减速的外力，仍试图保持原有运动速度（向前），于是相对下半身出现向前倾倒的现象。A、C 错误地把惯性当成一种"力"——惯性不是力，而是物体固有的属性。</div>
+            </div>
+          </details>
+        </div>
+
+        <div class="q">
+          <div class="q-meta"><span class="tag tag-q">题2</span><span class="tag tag-hot">高频</span><span class="tag tag-type">概念辨析</span></div>
+          <div class="q-stem">下列关于惯性的说法正确的是（　）</div>
+          <ol class="q-opts" type="A">
+            <li>物体运动得越快，惯性越大</li>
+            <li>物体静止时没有惯性，只有运动时才有惯性</li>
+            <li>物体的质量越大，惯性越大，与物体是否受力、是否运动无关</li>
+            <li>宇航员在太空失重环境下，惯性消失</li>
+          </ol>
+          <details open>
+            <summary>答案与解析</summary>
+            <div class="ans">
+              <div class="label">答案：C</div>
+              <div class="parse">A、B、D 都错误地把惯性与运动状态、是否受力联系起来。惯性只由<b>质量</b>决定：质量越大，惯性越大（越难改变其运动状态）；惯性是一切物体的固有属性，无论物体运动或静止、受力或不受力，都具有惯性。</div>
+            </div>
+          </details>
+        </div>
+
+        <div class="q">
+          <div class="q-meta"><span class="tag tag-q">题3</span><span class="tag tag-type">生活应用简答</span></div>
+          <div class="q-stem">为什么"卡车上放置的箱子，急刹车时容易向前滑动甚至倾倒"？请用惯性知识解释，并说明如何减少这种现象。</div>
+          <details open>
+            <summary>答案与解析</summary>
+            <div class="ans">
+              <div class="label">答案要点</div>
+              <div class="parse">卡车急刹车时车厢减速，但箱子由于惯性要保持原来的运动状态（继续以原速度向前运动）；若箱子与车厢底板间的摩擦力不足以提供让箱子同步减速的力，箱子就会相对车厢向前滑动甚至倾倒。可通过增大摩擦力（铺防滑垫、增大正压力）或用绳索/卡扣固定箱子，使车厢能提供足够的力让箱子与车厢保持相同的减速度，从而减少该现象。</div>
+            </div>
+          </details>
+        </div>
+      </div>
+    </article>
+
+    <!-- KP15 -->
+    <article class="kp" id="kp15">
+      <div class="kp-head">
+        <h3>牛顿第二定律（力的单位与力学单位制）</h3>
+        <span class="kp-id">KP-15</span>
+      </div>
+      <div class="kp-body">
+        <div class="kp-brief">
+          <strong>要点：</strong>
+          <div class="formula">F合 = ma　（矢量式，a 方向与 F合 方向相同）</div>
+          力的单位：牛顿(N)，1N=1kg·m/s²。力学单位制中，长度(m)、质量(kg)、时间(s)是基本单位，速度、加速度、力等是导出单位。解题两类基本问题：①已知受力求运动（先求a，再用运动学公式）；②已知运动求受力（先用运动学公式求a，再用F=ma求力）。
+        </div>
+
+        <div class="q">
+          <div class="q-meta"><span class="tag tag-q">题1</span><span class="tag tag-hot">高频</span><span class="tag tag-type">计算</span></div>
+          <div class="q-stem">质量为2kg的物体，受到水平方向10N的拉力和4N的摩擦力（阻力）作用，求物体的加速度大小。</div>
+          <details open>
+            <summary>答案与解析</summary>
+            <div class="ans">
+              <div class="label">答案：a=3m/s²，方向与拉力方向相同</div>
+              <div class="parse">合力 F合=F−f=10−4=6N。a=F合/m=6/2=3m/s²。</div>
+            </div>
+          </details>
+        </div>
+
+        <div class="q">
+          <div class="q-meta"><span class="tag tag-q">题2</span><span class="tag tag-hot">高频</span><span class="tag tag-type">多选题 · 图像实验</span></div>
+          <div class="q-stem">在"探究加速度与力、质量的关系"实验中：保持质量m不变，作出 a-F 图像为过原点的倾斜直线；保持F不变，作出 a-(1/m) 图像也为过原点的倾斜直线。下列说法正确的是（　）</div>
+          <ol class="q-opts" type="A">
+            <li>a-F 图像的斜率等于质量 m</li>
+            <li>a-F 图像的斜率等于质量的倒数 1/m</li>
+            <li>a-(1/m) 图像的斜率等于 F</li>
+            <li>两图像都说明"质量一定时，a 与 F 无关"</li>
+          </ol>
+          <details open>
+            <summary>答案与解析</summary>
+            <div class="ans">
+              <div class="label">答案：BC</div>
+              <div class="parse">由 a=F/m：m 不变时，a 是 F 的正比例函数，斜率=1/m，故 B 正确、A 错误；F 不变时，a=F×(1/m)，是 (1/m) 的正比例函数，斜率=F，故 C 正确。D 错误，图像恰恰说明 a 与 F 成正比（密切相关），不是无关。</div>
+            </div>
+          </details>
+        </div>
+
+        <div class="q">
+          <div class="q-meta"><span class="tag tag-q">题3</span><span class="tag tag-hot">高频</span><span class="tag tag-type">两类基本问题</span></div>
+          <div class="q-stem">质量为1kg的物体，初速度为0，在水平恒力F作用下沿光滑水平面做匀加速直线运动，经过2s位移为4m，求恒力F的大小。</div>
+          <details open>
+            <summary>答案与解析</summary>
+            <div class="ans">
+              <div class="label">答案：F=2N</div>
+              <div class="parse">先由运动学公式求加速度：x=½at² → 4=½×a×4 → a=2m/s²。<br>
+              再由牛顿第二定律求力：F=ma=1×2=2N。<br>
+              这是"已知运动情况求受力情况"的典型两步法：运动学求 a → F=ma 求力。</div>
+            </div>
+          </details>
+        </div>
+      </div>
+    </article>
+
+    <!-- KP16 -->
+    <article class="kp" id="kp16">
+      <div class="kp-head">
+        <h3>牛顿运动定律的局限性</h3>
+        <span class="kp-id">KP-16</span>
+      </div>
+      <div class="kp-body">
+        <div class="kp-brief">
+          <strong>要点：</strong>牛顿运动定律只适用于<b>宏观、低速（远小于光速）</b>的物体。研究接近光速运动的物体需要用相对论力学；研究微观粒子需要用量子力学。在适用范围内，牛顿定律仍是分析宏观低速力学问题最基本、最重要的工具（高考绝大多数力学问题都在其适用范围内）。
+        </div>
+
+        <div class="q">
+          <div class="q-meta"><span class="tag tag-q">题1</span><span class="tag tag-hot">高频</span><span class="tag tag-type">概念选择</span></div>
+          <div class="q-stem">关于牛顿运动定律的适用范围，下列说法正确的是（　）</div>
+          <ol class="q-opts" type="A">
+            <li>牛顿运动定律适用于任何情况下的物体运动，不存在局限性</li>
+            <li>牛顿运动定律只适用于宏观、低速（远小于光速）运动的物体</li>
+            <li>牛顿运动定律不适用于地球上任何物体的运动</li>
+            <li>研究人造卫星的运动必须用相对论力学，不能用牛顿定律</li>
+          </ol>
+          <details open>
+            <summary>答案与解析</summary>
+            <div class="ans">
+              <div class="label">答案：B</div>
+              <div class="parse">A 错，牛顿定律存在局限性，对接近光速运动的物体和微观粒子不再适用；C 错，地球上绝大多数物体运动都是宏观低速的，正是牛顿定律的典型适用场景；D 错，人造卫星运动速度（第一宇宙速度约7.9km/s）远小于光速，仍属宏观低速范畴，可用牛顿定律结合万有引力定律分析。</div>
+            </div>
+          </details>
+        </div>
+
+        <div class="q">
+          <div class="q-meta"><span class="tag tag-q">题2</span><span class="tag tag-hot">高频</span><span class="tag tag-type">选择题</span></div>
+          <div class="q-stem">下列哪种情形不能用牛顿运动定律处理（　）</div>
+          <ol class="q-opts" type="A">
+            <li>研究汽车刹车过程</li>
+            <li>研究抛出的篮球在空中的运动</li>
+            <li>研究接近光速运动的高能粒子的运动规律</li>
+            <li>研究从高空下落的雨滴运动</li>
+          </ol>
+          <details open>
+            <summary>答案与解析</summary>
+            <div class="ans">
+              <div class="label">答案：C</div>
+              <div class="parse">A、B、D 都是宏观、低速（远小于光速）的运动，属于牛顿力学适用范围；C 中粒子接近光速运动，属于高速运动，需要用相对论力学处理，牛顿定律不再适用。</div>
+            </div>
+          </details>
+        </div>
+
+        <div class="q">
+          <div class="q-meta"><span class="tag tag-q">题3</span><span class="tag tag-type">简答</span></div>
+          <div class="q-stem">请举出一个生活中的例子，说明"牛顿运动定律在其适用范围内是最基本、最重要的分析工具"。</div>
+          <details open>
+            <summary>答案与解析</summary>
+            <div class="ans">
+              <div class="label">答案（示例，合理即可）</div>
+              <div class="parse">汽车在高速公路上行驶（速度远小于光速），分析其加速、刹车、转弯过程中的受力和运动情况，都可以直接用 F=ma 结合运动学公式求解，不需要考虑相对论效应，这正体现了牛顿运动定律对宏观低速问题的普遍适用性和实用价值。</div>
+            </div>
+          </details>
+        </div>
+      </div>
+    </article>
+
+    <!-- KP17 -->
+    <article class="kp" id="kp17">
+      <div class="kp-head">
+        <h3>超重和失重</h3>
+        <span class="kp-id">KP-17</span>
+      </div>
+      <div class="kp-body">
+        <div class="kp-brief">
+          <strong>要点：</strong><b>超重</b>：物体对支持物的压力（或对悬挂物的拉力）大于重力，发生条件是加速度方向竖直<b>向上</b>（加速上升或减速下降）：
+          <div class="formula">N = m(g+a) ＞ mg</div>
+          <b>失重</b>：压力/拉力小于重力，发生条件是加速度方向竖直<b>向下</b>（加速下降或减速上升）：
+          <div class="formula">N = m(g−a) ＜ mg</div>
+          <b>完全失重</b>：a=g（方向向下）时，N=0。注意：超重、失重时物体<b>重力本身大小不变</b>，改变的是对支持物/悬挂物的作用力（"视重"）。
+        </div>
+
+        <div class="q">
+          <div class="q-meta"><span class="tag tag-q">题1</span><span class="tag tag-hot">高频</span><span class="tag tag-type">经典选择·电梯问题</span></div>
+          <div class="q-stem">一个人站在电梯中的体重计上，下列情况中体重计示数会<b>大于</b>此人实际重力的是（　）</div>
+          <ol class="q-opts" type="A">
+            <li>电梯匀速上升</li>
+            <li>电梯加速上升</li>
+            <li>电梯加速下降</li>
+            <li>电梯减速上升</li>
+          </ol>
+          <details open>
+            <summary>答案与解析</summary>
+            <div class="ans">
+              <div class="label">答案：B</div>
+              <div class="parse">体重计示数等于地板对人的支持力N。A匀速，a=0，N=mg。B加速上升，加速度向上，超重，N＞mg。C加速下降，加速度向下，失重，N＜mg。D减速上升，速度向上减小，加速度方向向下，同样失重，N＜mg。</div>
+            </div>
+          </details>
+        </div>
+
+        <div class="q">
+          <div class="q-meta"><span class="tag tag-q">题2</span><span class="tag tag-hot">高频</span><span class="tag tag-type">概念辨析</span></div>
+          <div class="q-stem">关于完全失重，下列说法正确的是（　）</div>
+          <ol class="q-opts" type="A">
+            <li>完全失重状态下，物体不受重力作用</li>
+            <li>完全失重状态下，物体的加速度为0</li>
+            <li>完全失重状态下，物体对支持物的压力（或对悬挂物的拉力）为0，但物体仍受重力作用，大小不变</li>
+            <li>只有在没有空气的太空中才会发生完全失重现象</li>
+          </ol>
+          <details open>
+            <summary>答案与解析</summary>
+            <div class="ans">
+              <div class="label">答案：C</div>
+              <div class="parse">A 错，重力依然存在；B 错，完全失重时 a=g≠0（方向竖直向下）；C 正确，这正是完全失重的本质——重力没有消失，但物体与支持物有相同的向下加速度g，二者之间不再产生相互作用力；D 错，地球上也能产生完全失重现象，如绳子突然断裂后做自由落体运动的物体，不一定需要在太空中。</div>
+            </div>
+          </details>
+        </div>
+
+        <div class="q">
+          <div class="q-meta"><span class="tag tag-q">题3</span><span class="tag tag-hot">高频</span><span class="tag tag-type">计算</span></div>
+          <div class="q-stem">质量为50kg的人站在电梯内的体重计上，电梯以2m/s²的加速度加速上升，取g=10m/s²，求体重计的示数；若电梯改为以2m/s²的加速度加速下降，体重计示数又是多少？</div>
+          <details open>
+            <summary>答案与解析</summary>
+            <div class="ans">
+              <div class="label">答案：加速上升时600N（超重）；加速下降时400N（失重）</div>
+              <div class="parse">①加速上升，加速度向上：N=m(g+a)=50×(10+2)=600N。<br>②加速下降，加速度向下：N=m(g−a)=50×(10−2)=400N。<br>（人的实际重力mg=500N，始终不变，变化的是对体重计的压力。）</div>
+            </div>
+          </details>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <!-- ========== CH5 专题 ========== -->
+  <section id="ch5" class="chapter">
+    <div class="ch-head">
+      <div>
+        <h2>专题强化：动力学综合应用</h2>
+        <p class="muted">整体法与隔离法 · 连接体问题 · 传送带模型（跨章节综合，期中/期末压轴题高频来源）</p>
+      </div>
+      <span class="ch-tag">冲击80分的关键 · 多知识点综合运用</span>
+    </div>
+
+    <!-- KP18 -->
+    <article class="kp" id="kp18">
+      <div class="kp-head">
+        <h3>整体法隔离法 · 连接体 · 传送带</h3>
+        <span class="kp-id">KP-18</span>
+      </div>
+      <div class="kp-body">
+        <div class="kp-brief">
+          <strong>要点：</strong><b>整体法</b>：若几个连接在一起的物体具有相同加速度，可看作一个整体，只分析整体受到的外力（内部相互作用力无需考虑），求整体加速度。<b>隔离法</b>：要求某两物体间的相互作用力（绳的张力、物体间压力等），需把其中一个物体单独隔离，结合牛顿第二定律求解。<b>一般顺序：整体法求 a → 隔离法求内力</b>。<br>
+          <b>传送带模型</b>：先比较物体与传送带的速度关系，判断摩擦力方向；分段讨论（通常先加速或减速，达到与传送带共速后再判断是否保持相对静止）。
+        </div>
+
+        <div class="q">
+          <div class="q-meta"><span class="tag tag-q">题1</span><span class="tag tag-hot">高频</span><span class="tag tag-type">整体法隔离法</span></div>
+          <div class="q-stem">质量分别为 m₁=2kg、m₂=3kg 的两物体用轻绳连接，放在光滑水平面上，一水平恒力 F=10N 作用在 m₁ 上（m₁ 通过绳拉动 m₂），求整体的加速度和绳的拉力T。</div>
+          <details open>
+            <summary>答案与解析</summary>
+            <div class="ans">
+              <div class="label">答案：a=2m/s²，T=6N</div>
+              <div class="parse"><b>整体法</b>：总质量M=m₁+m₂=5kg，外力只有F（绳张力是内力，不计），a=F/M=10/5=2m/s²。<br>
+              <b>隔离法</b>（以m₂为对象，只受绳的拉力T）：T=m₂×a=3×2=6N。<br>
+              （验证：以m₁为对象，F−T=m₁a → 10−T=4 → T=6N，一致。）</div>
+            </div>
+          </details>
+        </div>
+
+        <div class="q">
+          <div class="q-meta"><span class="tag tag-q">题2</span><span class="tag tag-hot">高频</span><span class="tag tag-type">传送带模型</span></div>
+          <div class="q-stem">一水平传送带以 v=2m/s 的速度匀速运动，将一个初速度为0的物体轻轻放在传送带左端，物体与传送带间动摩擦因数 μ=0.2，取g=10m/s²。求物体从放上传送带到与传送带共速所需的时间，以及这段时间内物体的位移。</div>
+          <details open>
+            <summary>答案与解析</summary>
+            <div class="ans">
+              <div class="label">答案：t=1s，位移1m</div>
+              <div class="parse">物体放上瞬间速度0，传送带速度2m/s，物体相对传送带向后滑，摩擦力方向向前（沿传送带运动方向），驱动物体加速：a=μg=0.2×10=2m/s²。<br>
+              共速时间：t=v/a=2/2=1s。<br>
+              这段时间位移：x=½at²=½×2×1²=1m。<br>
+              （此后物体与传送带相对静止，摩擦力变为静摩擦力且为0，随传送带匀速运动。）</div>
+            </div>
+          </details>
+        </div>
+
+        <div class="q">
+          <div class="q-meta"><span class="tag tag-q">题3</span><span class="tag tag-hot">高频</span><span class="tag tag-type">连接体+临界问题</span></div>
+          <div class="q-stem">质量 m₁=1kg 的物体A放在质量 m₂=2kg 的物体B上面，B放在光滑水平地面上，A、B间动摩擦因数 μ=0.3，取g=10m/s²。现对B施加水平拉力F，使A、B保持相对静止一起做匀加速运动。求能使A、B保持相对静止一起运动的最大加速度，以及此时F的大小。</div>
+          <details open>
+            <summary>答案与解析</summary>
+            <div class="ans">
+              <div class="label">答案：a_max=3m/s²，此时F=9N</div>
+              <div class="parse">A、B要保持相对静止，A的加速度只能由A、B间的摩擦力提供（A不受其它水平力）：f=m₁a，f不能超过最大静摩擦力 f_max=μm₁g=0.3×1×10=3N。<br>
+              所以 a_max=f_max/m₁=3/1=3m/s²。<br>
+              对整体（地面光滑）：F=(m₁+m₂)×a_max=(1+2)×3=9N。<br>
+              若a超过3m/s²，A、B将发生相对滑动，不再保持相对静止——这是临界条件分析的典型思路。</div>
+            </div>
+          </details>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <!-- MAP: 80分策略 -->
+  <section id="map" class="chapter">
+    <div class="ch-head">
+      <div>
+        <h2>目标 80/100 · 复习优先级地图</h2>
+        <p class="muted">时间有限时，先把 ★★★★★ 板块练到"看到题就知道怎么下手"，再逐步往下补</p>
+      </div>
+    </div>
+    <div style="overflow-x:auto">
+      <table>
+        <thead>
+          <tr><th>优先级</th><th>知识点</th><th>高频题型</th><th>复习建议</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>★★★★★</td><td>匀变速直线运动公式链（KP06-KP08）</td><td>计算/图像</td><td>v=v₀+at、x=v₀t+½at²、v²-v₀²=2ax、Δx=aT² 必须脱口而出；专练"刹车陷阱题"</td></tr>
+          <tr><td>★★★★★</td><td>受力分析 + 共点力平衡（KP09-KP10,KP13）</td><td>计算/受力图</td><td>每道题先画受力图再列方程；弹力方向、摩擦力"被动性"是最大易错点</td></tr>
+          <tr><td>★★★★★</td><td>牛顿第二定律两类基本问题（KP15,KP18）</td><td>计算/综合</td><td>练熟"运动学求a→F=ma求力"和"F=ma求a→运动学求位移/时间"两条路</td></tr>
+          <tr><td>★★★★☆</td><td>力的合成与分解（KP12）</td><td>计算/图解</td><td>斜面模型、绳挂重物模型闭眼能画；合力范围公式记牢</td></tr>
+          <tr><td>★★★★☆</td><td>超重失重 · 整体法隔离法（KP17-KP18）</td><td>计算/连接体</td><td>电梯问题公式 N=m(g±a) 要会秒判方向；连接体先整体后隔离</td></tr>
+          <tr><td>★★★☆☆</td><td>自由落体与竖直上抛（KP08）</td><td>综合计算</td><td>记住对称性结论，画出 v-t 图象辅助理解上升/下降阶段</td></tr>
+          <tr><td>★★★☆☆</td><td>速度、加速度基本概念（KP01-KP04）</td><td>选择/辨析</td><td>重点突破"平均速度≠平均速率""加速度与速度无必然关系"两类易错题</td></tr>
+          <tr><td>★★☆☆☆</td><td>打点计时器实验与逐差法（KP05）</td><td>实验计算</td><td>公式会套即可，不必深究误差来源的全部细节</td></tr>
+          <tr><td>★★☆☆☆</td><td>牛顿第三定律辨析（KP11）</td><td>选择</td><td>记住"作用反作用≠平衡力"三条区别即可拿分</td></tr>
+          <tr><td>★☆☆☆☆</td><td>牛顿定律局限性 · 力学单位制（KP15-KP16）</td><td>概念选择</td><td>属于"识记型"送分题，考前过一遍结论即可，不必深入投入时间</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="muted" style="margin-top:.8rem">使用方法：先看要点卡片 → 盖住答案做三道题 → 对照解析改错 → 把易错点抄进自己的"错题本"→ 同类型题目再找1~2道巩固。按 ★ 数量从高到低安排时间，基础题（约60~70分权重）务必不丢分，中等综合题（力的平衡、牛顿第二定律应用、连接体）再拿10~20分即可达到80分目标，难度最高的动态平衡/多过程综合题可留到最后冲刺更高分数时再攻克。</p>
+  </section>
+
+  <footer>
+    <p>教材：人民教育出版社《普通高中教科书·物理》必修第一册（人教版 2019）</p>
+    <p style="margin-top:.3rem">18 个核心知识点 · 54 道经典考题（含答案解析）· 仅供自学梳理，以教材与教师讲解为准</p>
+  </footer>
+
+</main>
+
+</body>
+</html>

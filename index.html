@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>高一上 · 自学课件索引</title>
+<style>
+  :root {
+    --ink: #1a2332;
+    --muted: #5a6577;
+    --line: #d5dce6;
+    --bg: #eef1f5;
+    --card: #ffffff;
+    --accent: #1a3a5c;
+    --font: "PingFang SC", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+    --serif: "Source Han Serif SC", "Noto Serif SC", "Songti SC", SimSun, serif;
+    --mono: "JetBrains Mono", Consolas, monospace;
+
+    --math: #0d6e6e;
+    --math-soft: #e6f3f3;
+    --physics: #15468a;
+    --physics-soft: #e6edf7;
+    --chem: #0f5c4c;
+    --chem-soft: #e4f2ee;
+    --bio: #0d3b32;
+    --bio-soft: #e8f3ee;
+    --bio2: #b84332;
+    --bio2-soft: #fceee9;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--font);
+    color: var(--ink);
+    background:
+      radial-gradient(ellipse at 10% 0%, rgba(21,70,138,.08), transparent 42%),
+      radial-gradient(ellipse at 90% 8%, rgba(13,110,110,.07), transparent 40%),
+      linear-gradient(180deg, #f5f7fa 0%, var(--bg) 45%, #e8ecf2 100%);
+    line-height: 1.7;
+    font-size: 15.5px;
+    min-height: 100vh;
+  }
+  a { color: inherit; text-decoration: none; }
+
+  .topbar {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(18, 28, 42, 0.96);
+    color: #e8eef5;
+    border-bottom: 1px solid #2a3548;
+    backdrop-filter: blur(8px);
+  }
+  .topbar-inner {
+    max-width: 1080px; margin: 0 auto; padding: .75rem 1.2rem;
+    display: flex; flex-wrap: wrap; gap: .6rem; align-items: center;
+    justify-content: space-between;
+  }
+  .brand { font-weight: 700; letter-spacing: .02em; }
+  .brand small { color: #8fb0d0; font-weight: 500; margin-left: .45rem; font-size: .82em; }
+  .badge {
+    background: #1a3a5c; font-size: .75rem; font-weight: 700;
+    padding: .28rem .7rem; border-radius: 999px; white-space: nowrap;
+  }
+
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 1.5rem 1.2rem 3.5rem; }
+
+  .hero {
+    background: linear-gradient(140deg, #121c2a 0%, #1a3a5c 55%, #0d5c4c 100%);
+    color: #eef3f8; border-radius: 14px; padding: 2rem 1.7rem 1.8rem;
+    margin-bottom: 1.5rem; position: relative; overflow: hidden;
+  }
+  .hero::after {
+    content: ""; position: absolute; right: -50px; top: -60px;
+    width: 240px; height: 240px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(143,176,208,.22), transparent 70%);
+    pointer-events: none;
+  }
+  .hero .k {
+    color: #8fb0d0; font-size: .85rem; letter-spacing: .08em;
+    margin-bottom: .55rem; font-family: var(--mono);
+  }
+  .hero h1 {
+    font-family: var(--serif); font-size: clamp(1.6rem, 3.5vw, 2.15rem);
+    line-height: 1.3; margin-bottom: .55rem; position: relative; z-index: 1;
+  }
+  .hero p {
+    color: #b8c9db; max-width: 40rem; position: relative; z-index: 1;
+  }
+  .stats {
+    display: flex; flex-wrap: wrap; gap: .7rem; margin-top: 1.2rem;
+    position: relative; z-index: 1;
+  }
+  .stat {
+    background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.14);
+    padding: .35rem .75rem; border-radius: 6px; font-size: .82rem; color: #d5e2ef;
+  }
+  .stat b { color: #fff; font-family: var(--serif); margin-right: .2rem; }
+
+  h2 {
+    font-family: var(--serif); font-size: 1.25rem;
+    border-bottom: 2px solid var(--accent); display: inline-block;
+    padding-bottom: .3rem; margin: .4rem 0 1rem;
+  }
+  .lead { color: var(--muted); margin-bottom: 1.1rem; font-size: .95rem; }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1rem;
+  }
+
+  .card {
+    display: flex; flex-direction: column;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 1.15rem 1.2rem 1.2rem;
+    transition: border-color .18s, box-shadow .18s, transform .18s;
+    position: relative;
+    overflow: hidden;
+  }
+  .card::before {
+    content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 4px;
+    background: var(--subj);
+  }
+  .card:hover {
+    border-color: var(--subj);
+    box-shadow: 0 8px 28px rgba(26, 35, 50, .08);
+    transform: translateY(-2px);
+  }
+  .card:hover .go { background: var(--subj); color: #fff; }
+
+  .card-top {
+    display: flex; align-items: flex-start; justify-content: space-between;
+    gap: .6rem; margin-bottom: .55rem;
+  }
+  .subj-tag {
+    font-family: var(--mono); font-size: .72rem; font-weight: 700;
+    color: var(--subj); background: var(--subj-soft);
+    padding: .18rem .5rem; border-radius: 4px; letter-spacing: .04em;
+  }
+  .edition {
+    font-size: .72rem; color: var(--muted); white-space: nowrap;
+  }
+  .card h3 {
+    font-family: var(--serif); font-size: 1.12rem; line-height: 1.35;
+    margin-bottom: .4rem; color: var(--ink);
+  }
+  .card .desc {
+    color: var(--muted); font-size: .88rem; flex: 1; margin-bottom: .9rem;
+  }
+  .meta {
+    display: flex; flex-wrap: wrap; gap: .35rem; margin-bottom: .95rem;
+  }
+  .meta span {
+    font-size: .75rem; color: var(--muted);
+    background: #f3f5f8; border: 1px solid var(--line);
+    padding: .15rem .45rem; border-radius: 4px;
+  }
+  .go {
+    display: inline-flex; align-items: center; gap: .35rem;
+    align-self: flex-start;
+    font-size: .88rem; font-weight: 700;
+    color: var(--subj); background: var(--subj-soft);
+    padding: .45rem .85rem; border-radius: 7px;
+    transition: background .15s, color .15s;
+  }
+  .go::after { content: "→"; }
+
+  .card.math { --subj: var(--math); --subj-soft: var(--math-soft); }
+  .card.physics { --subj: var(--physics); --subj-soft: var(--physics-soft); }
+  .card.chem { --subj: var(--chem); --subj-soft: var(--chem-soft); }
+  .card.bio { --subj: var(--bio); --subj-soft: var(--bio-soft); }
+  .card.bio2 { --subj: var(--bio2); --subj-soft: var(--bio2-soft); }
+
+  .group-label {
+    grid-column: 1 / -1;
+    font-size: .8rem; font-weight: 700; color: var(--muted);
+    letter-spacing: .06em; margin-top: .3rem;
+    padding-bottom: .35rem; border-bottom: 1px dashed var(--line);
+  }
+  .group-label:first-child { margin-top: 0; }
+
+  footer {
+    text-align: center; color: var(--muted); font-size: .82rem;
+    margin-top: 2rem; padding-top: 1.1rem; border-top: 1px solid var(--line);
+  }
+
+  @media (max-width: 640px) {
+    .hero { padding: 1.5rem 1.2rem; }
+    .grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">高一上 · 自学课件<small>首页索引</small></div>
+    <div class="badge">4 科 · 5 份课件</div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div class="hero">
+    <div class="k">SENIOR ONE · FIRST SEMESTER</div>
+    <h1>高一上学期<br />自学课件总入口</h1>
+    <p>数学、物理、化学、生物统一归入「高一上」。点击卡片进入对应课件，知识点梳理 + 经典考题与解析。</p>
+    <div class="stats">
+      <span class="stat"><b>4</b> 学科</span>
+      <span class="stat"><b>5</b> 份课件</span>
+      <span class="stat"><b>必修一</b> 主线</span>
+    </div>
+  </div>
+
+  <h2>课件目录</h2>
+  <p class="lead">按学科进入；生物有两份课件（整体自学 + 专题突破），可按需选用。</p>
+
+  <div class="grid">
+
+    <div class="group-label">数理化</div>
+
+    <a class="card math" href="菏泽一中-高一数学必修一自学课件.html">
+      <div class="card-top">
+        <span class="subj-tag">数学</span>
+        <span class="edition">人教 A 版</span>
+      </div>
+      <h3>数学必修第一册</h3>
+      <p class="desc">菏泽一中高一上学期自学课件。集合、不等式、函数与三角函数等核心模块，目标 100/150。</p>
+      <div class="meta">
+        <span>集合 · 不等式</span>
+        <span>函数 · 三角</span>
+        <span>目标 100/150</span>
+      </div>
+      <span class="go">进入课件</span>
+    </a>
+
+    <a class="card physics" href="人教版-高一物理必修第一册-自学文档.html">
+      <div class="card-top">
+        <span class="subj-tag">物理</span>
+        <span class="edition">人教版 2019</span>
+      </div>
+      <h3>物理必修第一册</h3>
+      <p class="desc">运动的描述、匀变速直线运动、力与牛顿定律。18 个知识点 + 54 道经典题，目标 80/100。</p>
+      <div class="meta">
+        <span>运动学</span>
+        <span>受力 · 牛顿定律</span>
+        <span>目标 80/100</span>
+      </div>
+      <span class="go">进入课件</span>
+    </a>
+
+    <a class="card chem" href="鲁科版-高一化学必修第一册-知识点高频题.html">
+      <div class="card-top">
+        <span class="subj-tag">化学</span>
+        <span class="edition">鲁科版 2019</span>
+      </div>
+      <h3>化学必修第一册</h3>
+      <p class="desc">物质的量、离子反应、氧化还原、铁硫氮转化。12 个核心知识点 + 36 道高频题。</p>
+      <div class="meta">
+        <span>物质的量</span>
+        <span>离子 · 氧化还原</span>
+        <span>元素化合物</span>
+      </div>
+      <span class="go">进入课件</span>
+    </a>
+
+    <div class="group-label">生物</div>
+
+    <a class="card bio" href="人教版-高一生物必修1-自学课件-34到80.html">
+      <div class="card-top">
+        <span class="subj-tag">生物 · 自学</span>
+        <span class="edition">人教版必修 1</span>
+      </div>
+      <h3>生物必修 1 · 自学课件</h3>
+      <p class="desc">分子与细胞主线自学课件，从基础到提分（34→80），按章节推进，适合系统过一遍教材。</p>
+      <div class="meta">
+        <span>分子与细胞</span>
+        <span>34 → 80</span>
+        <span>系统自学</span>
+      </div>
+      <span class="go">进入课件</span>
+    </a>
+
+    <a class="card bio2" href="人教版-高一生物必修1-专题分类突破课件.html">
+      <div class="card-top">
+        <span class="subj-tag">生物 · 专题</span>
+        <span class="edition">人教版必修 1</span>
+      </div>
+      <h3>生物必修 1 · 专题突破</h3>
+      <p class="desc">把必修 1 拆成 13 个专题逐个突破，按题型与考点分类训练，适合阶段性强化。</p>
+      <div class="meta">
+        <span>13 个专题</span>
+        <span>分类突破</span>
+        <span>考点强化</span>
+      </div>
+      <span class="go">进入课件</span>
+    </a>
+
+  </div>
+
+  <footer>
+    <p>高一上学期 · 自学课件索引 · 仅供个人学习梳理使用</p>
+  </footer>
+
+</main>
+
+</body>
+</html>
