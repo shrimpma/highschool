@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>近三年本科起薪最高的方向，和一个高三女生的选法</title>
+<style>
+  :root{
+    --paper:#EDEEE7;
+    --paper-deep:#E4E6DD;
+    --ink:#1A2B36;
+    --ink-soft:#55686F;
+    --ink-faint:#8A999C;
+    --line:#C6CBC2;
+    --mark:#E2CB45;
+    --mark-soft:rgba(226,203,69,.35);
+    --alert:#99392B;
+    color-scheme: light;
+  }
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"PingFang SC","Microsoft YaHei","Hiragino Sans GB",sans-serif;
+    font-size:16.5px;
+    line-height:1.85;
+    letter-spacing:.01em;
+  }
+  .wrap{
+    max-width:1020px;
+    margin:0 auto;
+    padding:0 26px 90px;
+  }
+  .measure{max-width:730px;}
+
+  h1,h2,h3{
+    font-family:"Songti SC","STSong","SimSun",serif;
+    font-weight:700;
+    letter-spacing:.01em;
+    margin:0;
+  }
+  p{margin:0 0 18px;}
+  .num{font-family:Georgia,"Times New Roman",serif;font-variant-numeric:tabular-nums;}
+
+  /* ---------- 抬头 ---------- */
+  header{
+    padding:64px 0 0;
+    border-bottom:2px solid var(--ink);
+  }
+  .kicker{
+    font-size:13px;
+    color:var(--ink-soft);
+    letter-spacing:.18em;
+    margin-bottom:26px;
+  }
+  h1{
+    font-size:clamp(30px,5.2vw,52px);
+    line-height:1.22;
+    padding-bottom:6px;
+  }
+  h1 em{
+    font-style:normal;
+    background:linear-gradient(transparent 62%, var(--mark) 62%, var(--mark) 92%, transparent 92%);
+    padding:0 .06em;
+  }
+  .lede{
+    max-width:700px;
+    font-size:17px;
+    color:var(--ink-soft);
+    margin:24px 0 34px;
+  }
+  /* 三年账本 */
+  .ledger-label{
+    font-size:12.5px;
+    color:var(--ink-faint);
+    letter-spacing:.06em;
+    margin-bottom:6px;
+  }
+  .ledger{
+    display:flex;
+    gap:0;
+    border-top:1px solid var(--line);
+  }
+  .ledger div{
+    flex:1;
+    padding:16px 0 20px;
+    border-right:1px solid var(--line);
+    min-width:0;
+  }
+  .ledger div:last-child{border-right:none;}
+  .ledger span{
+    display:block;
+    font-size:12.5px;
+    color:var(--ink-faint);
+    letter-spacing:.08em;
+    margin-bottom:2px;
+    white-space:nowrap;
+  }
+  .ledger strong{
+    font-family:Georgia,serif;
+    font-size:clamp(21px,3.6vw,34px);
+    font-weight:400;
+    line-height:1.2;
+    letter-spacing:-.01em;
+  }
+  .ledger div+div{padding-left:22px;}
+  .ledger small{font-size:12.5px;color:var(--ink-faint);}
+
+  /* ---------- 章节 ---------- */
+  section{padding:56px 0 0;}
+  .sec-head{
+    display:flex;
+    align-items:baseline;
+    gap:16px;
+    border-top:1px solid var(--ink);
+    padding-top:12px;
+    margin-bottom:26px;
+  }
+  h2{
+    font-size:clamp(22px,3.4vw,30px);
+    line-height:1.35;
+    flex:1;
+  }
+  .sec-note{
+    font-size:12.5px;
+    color:var(--ink-faint);
+    white-space:nowrap;
+  }
+  h3{
+    font-size:18px;
+    margin:34px 0 10px;
+  }
+  .lead-in{color:var(--ink-soft);max-width:730px;}
+
+  /* ---------- 排行条 ---------- */
+  .rank{margin-top:8px;border-bottom:1px solid var(--line);}
+  .row{
+    display:grid;
+    grid-template-columns:26px minmax(0,1fr) auto;
+    align-items:center;
+    gap:0 14px;
+    padding:11px 0;
+    border-top:1px solid var(--line);
+  }
+  .row .idx{
+    font-family:Georgia,serif;
+    font-size:13px;
+    color:var(--ink-faint);
+    text-align:right;
+  }
+  .row .name{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:baseline;
+    gap:0 8px;
+    min-width:0;
+  }
+  .row .name b{font-weight:600;font-size:15.5px;line-height:1.4;}
+  .row .name i{
+    font-style:normal;
+    font-size:12.5px;
+    color:var(--ink-faint);
+    line-height:1.4;
+  }
+  .bar{
+    grid-column:2;
+    grid-row:2;
+    height:7px;
+    background:var(--paper-deep);
+    margin-top:8px;
+    overflow:hidden;
+  }
+  .bar span{
+    display:block;
+    height:100%;
+    background:var(--ink);
+    opacity:.82;
+  }
+  .row .val{
+    font-family:Georgia,serif;
+    font-size:19px;
+    text-align:right;
+    white-space:nowrap;
+    line-height:1.2;
+  }
+  .row .val small{font-size:11px;color:var(--ink-faint);margin-left:2px;}
+  .row.pick .name b{background:linear-gradient(transparent 58%, var(--mark) 58%, var(--mark) 92%, transparent 92%);}
+  .row.cold .bar span{opacity:.38;}
+
+  .legend{
+    display:flex;
+    flex-direction:column;
+    gap:7px;
+    font-size:12.5px;
+    color:var(--ink-soft);
+    margin-top:16px;
+  }
+  .legend i{
+    display:inline-block;
+    width:20px;height:7px;
+    background:var(--ink);opacity:.82;
+    margin-right:6px;
+    vertical-align:middle;
+  }
+  .legend .l2 i{opacity:.38}
+  .legend .l3 i{
+    background:var(--mark);height:9px;opacity:1;
+  }
+
+  /* ---------- 表格 ---------- */
+  .table-scroll{overflow-x:auto;margin:6px 0 8px;padding-bottom:4px;}
+  table{
+    border-collapse:collapse;
+    width:100%;
+    min-width:520px;
+    font-size:14.5px;
+  }
+  caption{
+    text-align:left;
+    font-size:12.5px;
+    color:var(--ink-faint);
+    padding-bottom:8px;
+  }
+  th,td{
+    padding:8px 10px;
+    border-bottom:1px solid var(--line);
+    text-align:left;
+    vertical-align:middle;
+  }
+  th{
+    font-weight:600;
+    font-size:12.5px;
+    color:var(--ink-soft);
+    border-bottom:1px solid var(--ink);
+    white-space:nowrap;
+  }
+  td.n,th.n{font-family:Georgia,serif;text-align:right;font-variant-numeric:tabular-nums;}
+  tr.out td{color:var(--ink-faint);}
+  tr.out td.n{color:var(--ink-faint);}
+  tr.in-row td{background:rgba(226,203,69,.16);}
+  .tag{
+    display:inline-block;
+    font-size:11.5px;
+    padding:1px 7px;
+    border:1px solid var(--line);
+    color:var(--ink-soft);
+    margin-left:6px;
+    white-space:nowrap;
+    vertical-align:1px;
+  }
+
+  /* ---------- 方向条目 ---------- */
+  .track{
+    border-top:1px solid var(--ink);
+    padding:22px 0 24px;
+    display:grid;
+    grid-template-columns:210px 1fr;
+    gap:0 36px;
+  }
+  .track:last-of-type{border-bottom:1px solid var(--ink);}
+  .track h3{margin:0 0 8px;font-size:20px;line-height:1.4;}
+  .track .money{
+    font-family:Georgia,serif;
+    font-size:13.5px;
+    color:var(--ink-soft);
+    line-height:1.7;
+  }
+  .track .money b{
+    display:block;
+    font-family:Georgia,serif;
+    font-size:26px;
+    font-weight:400;
+    color:var(--ink);
+  }
+  .track p{margin:0 0 12px;font-size:15.5px;}
+  .track p:last-child{margin-bottom:0;}
+  .say{color:var(--ink-soft);}
+  .bad::before{
+    content:"注意";
+    font-size:11px;
+    letter-spacing:.06em;
+    color:#fff;
+    background:var(--alert);
+    padding:1px 5px;
+    margin-right:7px;
+    vertical-align:2px;
+  }
+
+  /* ---------- 选科 ---------- */
+  .gate{
+    background:var(--ink);
+    color:#F3F4EC;
+    padding:34px clamp(20px,3.4vw,34px) 30px;
+    margin-top:26px;
+  }
+  .gate h3{
+    color:#fff;
+    margin:0 0 14px;
+    font-size:clamp(20px,3vw,25px);
+    line-height:1.45;
+  }
+  .gate p{color:#D8DCD2;font-size:15.5px;}
+  .gate strong{color:var(--mark);font-weight:600;}
+  .combos{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:1px;
+    background:rgba(255,255,255,.18);
+    margin-top:26px;
+  }
+  .combos div{background:var(--ink);padding:16px 16px 18px;}
+  .combos b{display:block;font-size:14.5px;margin-bottom:5px;color:#fff;letter-spacing:.02em;}
+  .combos span{font-size:13.5px;color:#C9D1C6;line-height:1.7;display:block;}
+  .combos .ok{background:#243B47;}
+
+  /* ---------- 时间线 ---------- */
+  .steps{border-left:1px solid var(--line);margin:8px 0 0 6px;padding-left:26px;}
+  .steps div{position:relative;padding-bottom:20px;}
+  .steps div::before{
+    content:"";
+    position:absolute;
+    left:-31px;top:9px;
+    width:9px;height:9px;
+    background:var(--paper);
+    border:1px solid var(--ink);
+  }
+  .criteria{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:1px;
+    background:var(--line);
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    margin-bottom:8px;
+  }
+  .criteria > div{background:var(--paper);padding:18px 20px 18px 0;}
+  .criteria b{display:block;font-size:15px;margin-bottom:4px;}
+  .criteria p{font-size:14.5px;color:var(--ink-soft);margin:0;line-height:1.75;}
+  .criteria > div:nth-child(odd){padding-right:24px;}
+  .criteria > div:nth-child(even){padding-left:24px;padding-right:0;}
+
+  .steps b{display:block;font-size:15px;}
+  .steps span{font-size:14px;color:var(--ink-soft);}
+
+  /* ---------- 脚注 ---------- */
+  .foot{
+    margin-top:64px;
+    border-top:1px solid var(--ink);
+    padding-top:18px;
+    font-size:13px;
+    color:var(--ink-soft);
+    line-height:1.75;
+  }
+  .foot h3{font-size:14px;margin:0 0 8px;font-family:inherit;font-weight:600;}
+  .foot ol{padding-left:20px;margin:0 0 14px;}
+  .foot li{margin-bottom:4px;}
+  .foot a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line);}
+  .caveat{
+    font-size:13px;
+    color:var(--ink-soft);
+    background:var(--paper-deep);
+    padding:14px 18px;
+    margin:20px 0 0;
+  }
+
+  @media (max-width:720px){
+    body{font-size:16px;line-height:1.8;}
+    .wrap{padding:0 18px 64px;}
+    header{padding-top:40px;}
+    .ledger div+div{padding-left:14px;}
+    .row{grid-template-columns:22px 1fr 92px;gap:10px;}
+    .row .val{font-size:17px;}
+    .track{grid-template-columns:1fr;gap:8px;padding:20px 0;}
+    .track .money b{display:inline;font-size:20px;margin-right:6px;}
+    .combos{grid-template-columns:1fr;}
+    .criteria{grid-template-columns:1fr;}
+    .criteria > div{padding:16px 0 !important;}
+    .gate{padding:28px 20px;}
+    .sec-head{flex-direction:column;gap:2px;}
+    .sec-note{white-space:normal;}
+    table{font-size:13.5px;min-width:480px;}
+    th,td{padding:7px 7px;}
+  }
+  @media print{
+    body{background:#fff;}
+    .gate{background:#eee;color:#000;}
+    .gate p,.gate strong{color:#000;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="kicker">麦可思《中国本科生就业报告》2023—2025 三届数据</div>
+    <h1>三年高薪榜看下来，只有一个规律：<em>全是工科</em></h1>
+    <p class="lede">
+      这是给一个高三女生做的择校择专业参考。不写“适合女生的十大专业”这种话——
+      先说清钱从哪里来，再说哪些岗位女生真能干得久。数据是本科毕业半年后的月收入，不是招聘广告上的数。
+    </p>
+    <div class="ledger-label">本科毕业半年后的平均月收入</div>
+    <div class="ledger">
+      <div>
+        <span>2023 届</span>
+        <strong>6050</strong><small> 元</small>
+      </div>
+      <div>
+        <span>2024 届</span>
+        <strong>6199</strong><small> 元</small>
+      </div>
+      <div>
+        <span>2025 届</span>
+        <strong>6435</strong><small> 元</small>
+      </div>
+    </div>
+  </header>
+
+  <section>
+    <div class="sec-head">
+      <h2>先看榜单：前十名被谁占着</h2>
+      <div class="sec-note">2025 届 · 毕业半年后月收入</div>
+    </div>
+    <p class="lead-in">
+      2025 届前十名，清一色工学。榜首不再是计算机，而是微电子——芯片这条线，连着三年往上走。
+    </p>
+
+    <div class="rank">
+      <div class="row pick">
+        <div class="idx">1</div>
+        <div class="name"><b>微电子科学与工程</b><i>芯片设计 / 版图 / 器件</div>
+        <div class="val">7814<small>元</small></div>
+        <div class="bar"><span style="width:97.7%"></span></div>
+      </div>
+      <div class="row pick">
+        <div class="idx">2</div>
+        <div class="name"><b>电子科学与技术</b><i>半导体 / 电子材料</div>
+        <div class="val">7752<small>元</small></div>
+        <div class="bar"><span style="width:96.9%"></span></div>
+      </div>
+      <div class="row pick">
+        <div class="idx">3</div>
+        <div class="name"><b>自动化</b><i>控制 / 机器人 / 工控</div>
+        <div class="val">7573<small>元</small></div>
+        <div class="bar"><span style="width:94.7%"></span></div>
+      </div>
+      <div class="row cold">
+        <div class="idx">4</div>
+        <div class="name"><b>信息安全</b><i>三年第一，今年退到第四</div>
+        <div class="val">7548<small>元</small></div>
+        <div class="bar"><span style="width:94.4%"></span></div>
+      </div>
+      <div class="row pick">
+        <div class="idx">5</div>
+        <div class="name"><b>光电信息科学与工程</b><i>光学 / 显示 / 激光</div>
+        <div class="val">7525<small>元</small></div>
+        <div class="bar"><span style="width:94.1%"></span></div>
+      </div>
+      <div class="row">
+        <div class="idx">6</div>
+        <div class="name"><b>采矿工程</b><i>能源类，就业面窄</div>
+        <div class="val">7448<small>元</small></div>
+        <div class="bar"><span style="width:93.1%"></span></div>
+      </div>
+      <div class="row">
+        <div class="idx">7</div>
+        <div class="name"><b>机械工程</b><i>通用机械</div>
+        <div class="val">7401<small>元</small></div>
+        <div class="bar"><span style="width:92.5%"></span></div>
+      </div>
+      <div class="row pick">
+        <div class="idx">8</div>
+        <div class="name"><b>测控技术与仪器</b><i>仪器仪表 / 检测</div>
+        <div class="val">7348<small>元</small></div>
+        <div class="bar"><span style="width:91.9%"></span></div>
+      </div>
+      <div class="row">
+        <div class="idx">9</div>
+        <div class="name"><b>材料科学与工程</b><i>新材料，多要读研</div>
+        <div class="val">7304<small>元</small></div>
+        <div class="bar"><span style="width:91.3%"></span></div>
+      </div>
+      <div class="row pick">
+        <div class="idx">10</div>
+        <div class="name"><b>通信工程</b><i>通信设备 / 网络</div>
+        <div class="val">7249<small>元</small></div>
+        <div class="bar"><span style="width:90.6%"></span></div>
+      </div>
+    </div>
+    <div class="legend">
+      <span><i></i>电子 / 芯片 / 通信 / 控制方向，女生可重点看</span>
+      <span class="l2"><i></i>趋势在回落或就业面较窄</span>
+      <span class="l3"><i></i>本页建议重点考虑</span>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <h2>榜单没变，里面的人换了</h2>
+      <div class="sec-note">同一份榜单，三年横向对照</div>
+    </div>
+    <p class="lead-in">
+      这是三年数据里最有价值的一件事：前十名还是工科，但 2023 届靠计算机进的四个专业，到 2025 届全部掉出去了；
+      补位的是机械、材料、测控、采矿。互联网让位，硬科技接棒。选专业时踩哪一年的风口，差别就在这里。
+    </p>
+
+    <div class="table-scroll">
+      <table>
+        <caption>本科毕业半年后月收入（元）。灰字为当年未进前十。</caption>
+        <thead>
+          <tr>
+            <th>专业</th>
+            <th class="n">2023 届</th>
+            <th class="n">2024 届</th>
+            <th class="n">2025 届</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="in-row">
+            <td>微电子科学与工程</td><td class="n">7151</td><td class="n">7282</td><td class="n"><b>7814</b></td>
+          </tr>
+          <tr class="in-row">
+            <td>电子科学与技术</td><td class="n">7011</td><td class="n">7215</td><td class="n"><b>7752</b></td>
+          </tr>
+          <tr class="in-row">
+            <td>自动化</td><td class="n out">—</td><td class="n">7108</td><td class="n"><b>7573</b></td>
+          </tr>
+          <tr>
+            <td>信息安全</td><td class="n">7756</td><td class="n">7599</td><td class="n">7548</td>
+          </tr>
+          <tr class="in-row">
+            <td>光电信息科学与工程</td><td class="n">6911</td><td class="n">7076</td><td class="n"><b>7525</b></td>
+          </tr>
+          <tr>
+            <td>采矿工程</td><td class="n out">—</td><td class="n out">—</td><td class="n">7448</td>
+          </tr>
+          <tr>
+            <td>机械工程</td><td class="n out">—</td><td class="n out">—</td><td class="n">7401</td>
+          </tr>
+          <tr class="in-row">
+            <td>测控技术与仪器</td><td class="n out">—</td><td class="n out">—</td><td class="n">7348</td>
+          </tr>
+          <tr>
+            <td>材料科学与工程</td><td class="n out">—</td><td class="n out">—</td><td class="n">7304</td>
+          </tr>
+          <tr class="in-row">
+            <td>通信工程</td><td class="n out">—</td><td class="n out">—</td><td class="n">7249</td>
+          </tr>
+          <tr class="out">
+            <td>软件工程</td><td class="n">7061</td><td class="n">7092</td><td class="n">—</td>
+          </tr>
+          <tr class="out">
+            <td>数据科学与大数据技术</td><td class="n">7014</td><td class="n">—</td><td class="n">—</td>
+          </tr>
+          <tr class="out">
+            <td>物联网工程</td><td class="n">6967</td><td class="n">—</td><td class="n">—</td>
+          </tr>
+          <tr class="out">
+            <td>智能科学与技术</td><td class="n">6966</td><td class="n">—</td><td class="n">—</td>
+          </tr>
+          <tr class="out">
+            <td>电子信息科学与技术</td><td class="n">6872</td><td class="n">7058</td><td class="n">—</td>
+          </tr>
+          <tr class="out">
+            <td>机械电子工程</td><td class="n">6842</td><td class="n">7018</td><td class="n">—</td>
+          </tr>
+          <tr class="out">
+            <td>材料成型及控制工程</td><td class="n">—</td><td class="n">7077</td><td class="n">—</td>
+          </tr>
+          <tr class="out">
+            <td>机械设计制造及其自动化</td><td class="n">—</td><td class="n">7051</td><td class="n">—</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="caveat">
+      读这张表要注意：这是“本科毕业半年后”的数，包含留在本行业和转行的所有人，不区分学校档次。
+      顶尖校和一个普通二本的微电子，起薪能差一倍。所以榜单用来判断<b>方向</b>，不能用来估<b>你孩子能拿多少</b>。
+    </p>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <h2>六个方向，逐个说清干什么、坑在哪</h2>
+      <div class="sec-note">按“女生能干得久”排序，不是按薪资排</div>
+    </div>
+
+    <div class="track">
+      <div>
+        <h3>微电子<br>集成电路</h3>
+        <div class="money"><b>7814</b>元 / 本科半年后<br>设计岗硕士起薪更高</div>
+      </div>
+      <div>
+        <p>芯片设计、版图、验证、封装测试、EDA 工具。女生在这行真正集中的是<b>版图、验证、DFT、测试、质量、EDA 应用工程师</b>——坐办公室、对图纸和工具、不搬设备、不倒班，时薪比很多岗位体面。</p>
+        <p class="say">适合的人：坐得住、细节强迫症、能忍受一个 bug 查三天。数学和物理不能怕。</p>
+        <p class="bad">晶圆厂的设备工程师、工艺工程师要穿无尘服倒班，女生去得少，报之前问清楚是设计岗还是产线岗。另外这行高薪岗位多数要硕士，本科就业常做版图或测试，志愿要挑<b>保研率高的学校</b>。</p>
+      </div>
+    </div>
+
+    <div class="track">
+      <div>
+        <h3>电子科学与<br>技术 / 光电</h3>
+        <div class="money"><b>7752</b>元<br>光电 7525 元</div>
+      </div>
+      <div>
+        <p>半导体器件、电子材料、光学设计、显示面板、激光。和微电子是一条产业链的不同环节，录取分数通常略低一点，是“想进芯片但分数差一口气”时的现实替代。</p>
+        <p class="say">适合的人：物理好，愿意读到硕士。光学设计对耐心和审美有一点要求，女生做得不错。</p>
+        <p class="bad">本科直接就业多进面板厂、器件厂，岗位偏工艺；想做设计要读研。选校时看有没有集成电路或光电的国家级平台。</p>
+      </div>
+    </div>
+
+    <div class="track">
+      <div>
+        <h3>通信工程</h3>
+        <div class="money"><b>7249</b>元<br>三年首次回到前十</div>
+      </div>
+      <div>
+        <p>5G/6G、网络规划、射频、嵌入式。就业去处稳定：运营商、设备商、军工院所。女生常做<b>网络优化、协议测试、技术支持、项目管理</b>，出差有但可控。</p>
+        <p class="say">适合的人：沟通不犯怵，能接受偶尔出差和驻场。</p>
+        <p class="bad">运营商起薪不高但稳，设备商钱多但强度大。同一个专业，进哪类单位是两条命。</p>
+      </div>
+    </div>
+
+    <div class="track">
+      <div>
+        <h3>自动化 /<br>测控技术</h3>
+        <div class="money"><b>7573</b>元 / 7348 元<br>今年双双进前十</div>
+      </div>
+      <div>
+        <p>控制算法、机器人、工业软件、仪器仪表。制造业升级的直接受益方向，岗位比纯互联网稳，不容易被一轮裁员带走。女生多做<b>算法、上位机软件、测试、系统集成</b>。</p>
+        <p class="say">适合的人：动手能力强，喜欢“让东西动起来”。自动化是个“万金油”，转行面宽。</p>
+        <p class="bad">现场调试要下车间、出差，纯现场岗对女生不友好。投简历时优先选研发中心和软件方向。</p>
+      </div>
+    </div>
+
+    <div class="track">
+      <div>
+        <h3>计算机<br>（信息安全 / 软件）</h3>
+        <div class="money"><b>7548</b> / 已跌出前十<br>但仍高于平均线</div>
+      </div>
+      <div>
+        <p>不是不能选，是要知道它不再是“闭眼选”。2023 届信息安全 7756 元，2025 届 7548 元，三年小幅回落；软件工程直接掉出前十。行业还在招人，但校招门槛抬高、岗位向头部集中。</p>
+        <p class="say">女生在这行有明确优势岗位：前端、测试开发、产品、数据、安全合规。工作环境好，是“坐办公室拿高薪”里最直接的一条。</p>
+        <p class="bad">如果只是“听说计算机好就业”而选，四年后可能正好撞上供给过剩。要选就选有产业资源的学校，并且从大一开始攒项目和实习。</p>
+      </div>
+    </div>
+
+    <div class="track">
+      <div>
+        <h3>数字媒体<br>技术</h3>
+        <div class="money">不在前十<br>但女生比例高、出口宽</div>
+      </div>
+      <div>
+        <p>程序 + 设计的交叉：游戏开发、交互设计、影视特效、UI/UX。起薪比芯片低一档，但<b>工作环境、性别氛围、转行弹性</b>是它的优势，也是很多女生最后真正待得住的地方。</p>
+        <p class="say">适合的人：既喜欢技术又喜欢视觉，不愿意天天对着寄存器。</p>
+        <p class="bad">这行吃作品集，不吃学历牌子。学校一般但作品强，一样进大厂；反过来则不成立。别把它当“轻松版计算机”。</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <h2>真正决定能不能报的，是选科</h2>
+      <div class="sec-note">这一节比前面所有内容都重要</div>
+    </div>
+    <p class="lead-in">
+      从 2024 年高考起，教育部《选考科目要求指引（通用版）》落地，理工农医绝大多数专业要求
+      <b>物理 + 化学同时选</b>。上面十个高薪专业，没有物理化学，基本一个都报不了。
+    </p>
+
+    <div class="gate">
+      <h3>如果还能改选科，就选“物理 + 化学”</h3>
+      <p>
+        这一条不是建议，是门槛。少了化学，微电子、电子科技、材料、光电、医学类会成片关闭；
+        只选历史，前面这份榜单上的专业<b>全部不可报</b>，能选的高薪方向只剩法学、财经、汉语言这几条，而且起薪普遍在 5000—6500 元区间。
+      </p>
+      <div class="combos">
+        <div class="ok">
+          <b>物理 + 化学 + 任意</b>
+          <span>榜单前十全部可报，医学、材料、芯片都不受限。女生选这个组合，竞争确实更累，但门是开着的。</span>
+        </div>
+        <div>
+          <b>物理 + 不选化学</b>
+          <span>可报部分计算机、自动化、管理类，微电子、电子科技、材料、医学类大面积关闭。是最吃亏的组合。</span>
+        </div>
+        <div>
+          <b>历史类</b>
+          <span>工科榜单全关。走法学、会计、汉语言、师范，靠考证和考编拉收入，路径完全不同。</span>
+        </div>
+      </div>
+    </div>
+
+    <h3>如果已经锁死在历史类</h3>
+    <p>
+      不用硬拐。历史类里起薪相对靠前的是法学（过法考 + 进红圈所或公检法）、会计/审计（四大、CPA）、
+      汉语言（考编、教师）。共同点是<b>前三年收入一般，靠证书和编制在第 5 年拉开差距</b>，和工科“起薪即高”是两种曲线。
+      这条路要提前接受：本科毕业直接工作的收入，大概率低于 6000 元。
+    </p>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <h2>分数不够顶尖时，怎么填才不吃亏</h2>
+      <div class="sec-note">高三这一年能做的具体动作</div>
+    </div>
+
+    <p class="lead-in">
+      同一个“微电子”，在顶尖校是设计岗起点，在普通校可能只能进封测厂。
+      所以这个层次的志愿，<b>专业和学校要一起看</b>，不能只保学校牌子。
+    </p>
+
+    <h3>四条判断标准</h3>
+    <div class="criteria">
+      <div>
+        <b>一、有没有硕士点和保研资格</b>
+        <p>芯片、材料、光电这三个方向，读到硕士才算真正入行。一所保研率 15% 的学校和一所 5% 的学校，四年后是两个结果。</p>
+      </div>
+      <div>
+        <b>二、产业在不在这座城市</b>
+        <p>长三角、珠三角、西安、成都、武汉的电子信息类，实习机会多到可以挑。内陆普通院校的同类专业，企业校招根本不去。</p>
+      </div>
+      <div>
+        <b>三、是不是学校的主力专业</b>
+        <p>一所财经院校新开的“人工智能”，不如一所工科院校干了二十年的自动化。看师资从哪来、实验室有没有真设备。</p>
+      </div>
+      <div>
+        <b>四、别为了挤进前十而被调剂</b>
+        <p>“材料物理”“应用化学”“信息与计算科学”这类名字相近、出口很窄的专业，是每年最常见的坑。服从调剂前先查会调到哪些专业。</p>
+      </div>
+    </div>
+
+    <h3>这一年按这个节奏走</h3>
+    <div class="steps">
+      <div><b>现在到寒假：定选科，定大方向</b><span>确认物理化学是否已选、能否调整。同时把“芯片 / 通信 / 计算机 / 医学”四个方向缩到一个，别留三个。</span></div>
+      <div><b>寒假：查三样东西</b><span>目标院校近三年该专业在你省的录取位次（不是分数）、该专业的保研率、该专业毕业生去向报告。学校官网都有，比任何志愿软件都准。</span></div>
+      <div><b>3—5 月：一模二模后校准位次</b><span>用位次而不是分数定位。分数每年波动，位次相对稳定。这时候开始列 20 个院校专业组。</span></div>
+      <div><b>6 月出分后：按“冲稳保”3:4:3 排</b><span>每个专业组里确认“服从调剂”会调到哪些专业，不能接受的直接删掉这个组。</span></div>
+    </div>
+
+    <p class="caveat">
+      关于“适合女生”：真正劝退女生的从来不是专业本身，是岗位形态——倒班、外派、驻场、搬设备。
+      同样的专业，选设计、验证、测试、算法、项目管理这些岗位，三十岁以后反而比男生更稳。
+      报志愿时多问一句“这个专业毕业都去什么岗”，比问“适合女生吗”有用。
+    </p>
+  </section>
+
+  <div class="foot">
+    <h3>数据来源与口径</h3>
+    <ol>
+      <li>麦可思研究院《2025 年中国本科生就业报告》：2024 届本科毕业半年后平均月收入 6199 元，前十专业数据。</li>
+      <li>麦可思研究院《2026 年中国本科生就业报告》：2025 届平均月收入 6435 元，前十专业数据。</li>
+      <li>麦可思《2024 年就业蓝皮书》：2023 届平均月收入 6050 元，前十专业数据。</li>
+      <li>教育部《普通高校本科招生专业选考科目要求指引（通用版）》，2021 年发布，2024 年起适用。</li>
+    </ol>
+    <p>
+      口径提醒：以上均为“毕业半年后”的月收入，含工资、奖金、提成和现金福利，样本约 19.5 万人，覆盖全国。
+      招聘平台公布的“应届生起薪”（如 AI 岗 1.6 万、芯片岗 1.3 万）是另一个口径，只统计愿意公开薪资的岗位，普遍偏高，两者不能混着看。
+    </p>
+    <p>
+      数据整理自公开报道：
+      <a href="https://news.qq.com/rain/a/20250613A078NO00">腾讯新闻·2024 届本科月均 6199 元</a>、
+      <a href="https://www.163.com/dy/article/KV5OH07K051492T3.html">网易·2025 届本科 6435 元</a>、
+      <a href="https://sdxw.iqilu.com/share/YS0yMS0xNTY3NTI3Nw.html">齐鲁网·2023 届本科月收入</a>、
+      <a href="https://www.bjeea.cn/html/ksb/gaozhaozhuanban/2023/0911/84191.html">北京教育考试院·物化捆绑选科要求</a>
+    </p>
+  </div>
+
+</div>
+</body>
+</html>
