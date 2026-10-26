@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="人教A版高中数学必修第一册自学课件：上、下学期进度，五章知识点、例题解析与可交互D3函数图像。">
+<title>人教A版 · 数学必修第一册 | 上下学期函数图解</title>
+<style>
+:root {
+  --ink:#182a35; --muted:#586b76; --line:#d9e2e5; --paper:#fff;
+  --bg:#f3f6f5; --teal:#086d6b; --teal-soft:#e3f2ef;
+  --orange:#b64d18; --orange-soft:#fff0e3; --blue:#245ba7;
+  --serif:"Songti SC","Noto Serif SC",SimSun,serif;
+  --sans:"PingFang SC","Microsoft YaHei","Noto Sans SC",sans-serif;
+  --mono:"SFMono-Regular",Consolas,"Liberation Mono",monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:6rem}
+body{font-family:var(--sans);color:var(--ink);background:var(--bg);font-size:16px;line-height:1.8}
+a{color:var(--teal);text-decoration:none}a:hover{text-decoration:underline}
+button,input{font:inherit}button{cursor:pointer}
+[hidden]{display:none!important}.skip{position:absolute;left:-999px}.skip:focus{left:1rem;top:1rem;z-index:999;background:#fff;padding:.6rem}
+.topbar{position:sticky;top:0;z-index:20;background:#142f37;color:#eaf4f2;box-shadow:0 1px 10px #142f371a}
+.bar-inner{max-width:1160px;margin:auto;display:flex;align-items:center;gap:1rem;padding:.65rem 1.3rem;flex-wrap:wrap}
+.brand{font-weight:700;white-space:nowrap}.brand small{display:block;font-size:.67rem;color:#94c9c1;font-weight:400;line-height:1.3}
+.nav{display:flex;gap:.25rem;flex:1;flex-wrap:wrap}.nav a{font-size:.8rem;color:#d0e1df;padding:.25rem .5rem;border-radius:4px}.nav a:hover{background:#28505a;text-decoration:none;color:#fff}
+.badge{font-size:.75rem;border:1px solid #52717a;border-radius:99px;padding:.2rem .6rem;white-space:nowrap}
+.wrap{max-width:1160px;margin:auto;padding:1.8rem 1.3rem 3rem}
+.hero{position:relative;overflow:hidden;background:linear-gradient(120deg,#12333a,#095d5c);color:#fff;border-radius:16px;padding:2.3rem 2rem}
+.hero:after{content:"∫  π  ƒ";position:absolute;right:1.5rem;top:-2rem;font:7rem var(--serif);color:#ffffff09;transform:rotate(-8deg);pointer-events:none}
+.eyebrow{font:600 .76rem var(--mono);letter-spacing:.12em;color:#9cdbce;text-transform:uppercase}
+.hero h1{font:700 clamp(1.65rem,4vw,2.4rem)/1.45 var(--serif);margin:.45rem 0}.hero p{max-width:47rem;color:#d0e6e3;font-size:.95rem}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.2rem}.chip{border:1px solid #ffffff30;background:#ffffff0a;border-radius:5px;padding:.22rem .65rem;font-size:.8rem;color:#e2efed}
+.notice{background:#fff9e9;border:1px solid #eed9a2;border-left:4px solid #bc7c17;border-radius:8px;padding:.85rem 1.1rem;margin:1rem 0 1.5rem;font-size:.9rem}
+h2{font:700 1.4rem/1.5 var(--serif);margin-bottom:.5rem}h3{font-size:1.08rem;margin:1.2rem 0 .45rem}h4{font-size:.95rem;margin:.5rem 0}
+sub,sup{line-height:0}
+p{margin:.4rem 0}ul,ol{padding-left:1.3rem;margin:.45rem 0}li{margin:.2rem 0}.muted{color:var(--muted);font-size:.88rem}.small{font-size:.82rem}.math{font-family:var(--mono);white-space:nowrap}.accent{color:var(--teal);font-weight:700}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:1.3rem 1.4rem;margin-bottom:1rem}
+.term-switch{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin:1.3rem 0}
+.term-button{border:1px solid var(--line);background:#fff;border-radius:10px;text-align:left;padding:1rem 1.2rem;color:var(--ink);display:flex;align-items:center;gap:.9rem}
+.term-button .num{font:700 1.9rem var(--serif);color:var(--muted)}.term-button strong{display:block}.term-button small{display:block;color:var(--muted)}
+.term-button[aria-pressed="true"]{border-color:var(--teal);background:var(--teal-soft);box-shadow:inset 0 0 0 1px var(--teal)}.term-button[aria-pressed="true"] .num{color:var(--teal)}
+.toc{display:grid;grid-template-columns:repeat(2,1fr);gap:.7rem;margin:.7rem 0 1.5rem}.toc a{display:block;background:#fff;border:1px solid var(--line);border-radius:8px;padding:.8rem 1rem;color:var(--ink)}.toc a:hover{border-color:var(--teal);text-decoration:none}.toc b{display:block}.toc span{color:var(--muted);font-size:.82rem}.toc .code{font:700 .68rem var(--mono);letter-spacing:.06em;color:var(--teal)}
+.term-heading{display:flex;align-items:baseline;gap:.7rem;border-bottom:2px solid var(--teal);margin:1.5rem 0 1rem;padding-bottom:.5rem}.term-heading h2{margin:0}.term-heading span{color:var(--muted);font-size:.82rem}.second .term-heading{border-color:var(--orange)}
+.chapter{scroll-margin-top:6rem}.chapter-head{display:flex;gap:.8rem;justify-content:space-between;align-items:flex-start;border-bottom:1px solid var(--line);padding-bottom:.7rem;margin-bottom:.7rem}.chapter-head h2{margin:0}.chapter-head p{font-size:.82rem;color:var(--muted)}
+.tag{display:inline-block;background:var(--teal-soft);color:var(--teal);border-radius:99px;font-size:.72rem;font-weight:700;padding:.2rem .6rem;white-space:nowrap}.second .tag{color:var(--orange);background:var(--orange-soft)}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}.grid2>*{min-width:0}.grid2 table{min-width:0}.formula{background:#f1f6f5;border:1px dashed #aac6c0;border-radius:6px;padding:.65rem .8rem;font-family:var(--mono);font-size:.9rem;overflow-wrap:anywhere;margin:.5rem 0}.formula b{color:var(--teal)}
+.callout{border-left:3px solid var(--teal);background:var(--teal-soft);padding:.6rem .85rem;margin:.7rem 0;font-size:.88rem}.callout.warn{border-color:#ba771e;background:#fff7e5}
+.table-wrap{overflow-x:auto;margin:.6rem 0}table{width:100%;border-collapse:collapse;font-size:.86rem;min-width:470px}th,td{text-align:left;border-bottom:1px solid var(--line);padding:.5rem .6rem;vertical-align:top}th{background:#edf3f2;font-weight:700;white-space:nowrap}tr:last-child td{border-bottom:0}
+details.example{background:#f7f9f9;border:1px solid var(--line);border-radius:8px;padding:.75rem .9rem;margin:.8rem 0}summary{cursor:pointer;font-weight:700;color:var(--teal)}details.example p:first-child{margin-top:.6rem}.answer{border-top:1px dashed var(--line);padding-top:.5rem;margin-top:.5rem}
+.graph{margin:1rem 0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#fff}.graph-head{display:flex;align-items:baseline;justify-content:space-between;gap:.5rem;padding:.85rem 1rem;background:#f5f8f7;border-bottom:1px solid var(--line)}.graph-head h3{margin:0}.graph-head span{font-size:.73rem;color:var(--muted)}
+.graph-body{padding:1rem}.graph svg{width:100%;height:auto;display:block;overflow:visible;touch-action:pan-y}.axis text{fill:#586b76;font-size:11px}.axis path,.axis line{stroke:#bdcccf}.grid line{stroke:#e6eeed}.zero-line{stroke:#7e989d;stroke-width:1.2}.curve{fill:none;stroke:var(--teal);stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}.curve.alt{stroke:var(--orange)}.curve.guide{stroke:#8ca0a7;stroke-width:1.2;stroke-dasharray:5 4}.point{fill:#fff;stroke:var(--orange);stroke-width:2}.point.blue{stroke:var(--blue)}.graph-label{font-size:12px;fill:var(--ink);paint-order:stroke;stroke:#fff;stroke-width:3px;stroke-linejoin:round}.graph-caption{font-size:.83rem;color:var(--muted);margin-top:.4rem}
+.controls{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem;margin:.7rem 0}.control{font-size:.8rem;color:var(--muted)}.control label{display:flex;justify-content:space-between;gap:.4rem}.control output{font-family:var(--mono);color:var(--teal);font-weight:700}.control input{width:100%;accent-color:var(--teal);cursor:pointer}.readout{background:var(--teal-soft);padding:.55rem .75rem;border-radius:6px;font-size:.86rem}.readout b{font-family:var(--mono)}.legend{display:flex;flex-wrap:wrap;gap:1rem;font-size:.8rem;margin:.5rem 0}.key:before{content:"";display:inline-block;width:18px;height:3px;background:var(--teal);vertical-align:middle;margin-right:.35rem}.key.orange:before{background:var(--orange)}.key.gray:before{background:#8ca0a7;height:1px}
+.checks{list-style:none;padding:0}.checks li{padding-left:1.5rem;position:relative}.checks li:before{content:"□";position:absolute;left:0;color:var(--teal);font-weight:700}
+.review{border-top:2px solid var(--orange);margin-top:1.6rem}.review h2{color:#914216}footer{border-top:1px solid var(--line);padding-top:1rem;margin-top:2rem;text-align:center;color:var(--muted);font-size:.82rem}.fallback{font-size:.85rem;background:#fff7e5;padding:.6rem;border-radius:5px}
+:focus-visible{outline:3px solid #d87d32;outline-offset:3px}
+@media(max-width:760px){.wrap{padding:1rem .8rem 2rem}.bar-inner{padding:.55rem .8rem;gap:.45rem}.badge{display:none}.nav a{font-size:.73rem;padding:.2rem .3rem}.hero{padding:1.5rem 1.2rem}.grid2{grid-template-columns:1fr;gap:0}.card{padding:1rem}.toc{grid-template-columns:1fr}.controls{grid-template-columns:1fr;gap:.25rem}.graph-body{padding:.6rem}.graph-head{display:block}.graph-head h3{font-size:1rem}.term-button{padding:.7rem;gap:.45rem}.term-button .num{font-size:1.4rem}.term-button small{font-size:.7rem}.chapter-head{display:block}.chapter-head .tag{margin-top:.4rem}h2{font-size:1.22rem}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+@media print{.topbar,.term-switch,.controls,.skip{display:none}.term-panel[hidden]{display:block!important}.card,.graph{break-inside:avoid}.wrap{max-width:none}.hero{background:#fff;color:#000;border:1px solid #000}.hero p,.eyebrow{color:#333}body{background:#fff}}
+</style>
+</head>
+<body>
+<a class="skip" href="#content">跳到正文</a>
+<header class="topbar">
+  <div class="bar-inner">
+    <div class="brand">数学 · 函数图解<small>人教 A 版 · 必修第一册</small></div>
+    <nav class="nav" aria-label="课件导航">
+      <a href="index.html">← 首页</a><a href="#catalog">目录</a><a href="#first">上学期</a><a href="#second">下学期</a><a href="#review">总复习</a>
+      <a href="菏泽一中-高一数学必修一自学课件.html">原自学课件 ↗</a>
+    </nav>
+    <span class="badge">5 章 · 4 组互动图</span>
+  </div>
+</header>
+<main class="wrap" id="content">
+  <section class="hero">
+    <div class="eyebrow">Mathematics · Required Book 1</div>
+    <h1>必修第一册<br>从知识清单到函数图像</h1>
+    <p>按照人教 A 版教材五章编排，把同一册内容分为上、下学期两个学习进度。读概念、看曲线、调参数、做例题，建立“式—图—性质”的联系。</p>
+    <div class="chips"><span class="chip">教材：人教 A 版（2019）</span><span class="chip">范围：必修第一册</span><span class="chip">图像：D3.js · 本地离线可用</span></div>
+  </section>
+  <div class="notice"><strong>范围说明：</strong>“上学期 / 下学期”是本课件建议的两个学习阶段，<strong>都属于必修第一册</strong>，不是两本教材，也不包含必修第二册。学校实际教学进度可能不同，可按章节直接跳转。</div>
+
+  <section id="catalog" aria-labelledby="catalog-title">
+    <h2 id="catalog-title">选择学习进度</h2>
+    <p class="muted">切换只影响当前显示；链接可直达具体章节。打印时显示全部内容。</p>
+    <div class="term-switch" role="group" aria-label="显示学习阶段">
+      <button class="term-button" type="button" data-term="first" aria-pressed="true" aria-controls="first"><span class="num">01</span><span><strong>上学期进度</strong><small>第 1—3 章 · 语言、工具与函数概念</small></span></button>
+      <button class="term-button" type="button" data-term="second" aria-pressed="false" aria-controls="second"><span class="num">02</span><span><strong>下学期进度</strong><small>第 4—5 章 · 指对数与三角函数</small></span></button>
+    </div>
+    <div class="toc">
+      <a href="#ch1"><span class="code">PART 01 · CHAPTER 1</span><b>集合与常用逻辑用语</b><span>集合关系与运算 · 充分必要 · 量词</span></a>
+      <a href="#ch2"><span class="code">PART 01 · CHAPTER 2</span><b>一元二次函数、方程和不等式</b><span>不等式性质 · 基本不等式 · 三个“二次”</span></a>
+      <a href="#ch3"><span class="code">PART 01 · CHAPTER 3</span><b>函数的概念与性质</b><span>定义域 · 单调性 · 奇偶性 · 幂函数</span></a>
+      <a href="#ch4"><span class="code">PART 02 · CHAPTER 4</span><b>指数函数与对数函数</b><span>运算法则 · 图象性质 · 零点与二分法</span></a>
+      <a href="#ch5"><span class="code">PART 02 · CHAPTER 5</span><b>三角函数</b><span>弧度制 · 单位圆 · 诱导公式 · 图象变换</span></a>
+      <a href="#review"><span class="code">PART 02 · REVIEW</span><b>全册综合复习</b><span>知识联系 · 易错清单 · 五步自检</span></a>
+    </div>
+  </section>
+
+  <section id="first" class="term-panel first" aria-label="上学期进度：第一至三章">
+    <div class="term-heading"><h2>上学期进度</h2><span>第 1—3 章 · 先会表达，再研究函数</span></div>
+
+    <article class="chapter card" id="ch1">
+      <div class="chapter-head"><div><h2>第一章　集合与常用逻辑用语</h2><p>1.1—1.5 · 数学语言的基础</p></div><span class="tag">关键词：属于、包含、推出</span></div>
+      <div class="grid2"><div><h3>集合：先分清三种关系</h3><table><thead><tr><th>写法</th><th>意义</th></tr></thead><tbody><tr><td class="math">a ∈ A</td><td>元素 a 属于集合 A</td></tr><tr><td class="math">A ⊆ B</td><td>A 中每个元素都属于 B</td></tr><tr><td class="math">A ∩ B / A ∪ B</td><td>公共部分 / 全部元素合并</td></tr><tr><td class="math">∁<sub>U</sub>A</td><td>全集 U 中不在 A 内的元素</td></tr></tbody></table></div><div><h3>条件：看箭头的方向</h3><div class="formula">p ⇒ q：p 是 q 的<b>充分条件</b><br>p ⇒ q：q 是 p 的<b>必要条件</b><br>p ⇔ q：p 与 q 互为<b>充要条件</b></div><p class="muted">命题“若 p，则 q”为真时，才能写 p⇒q。判断关系要分别检查正、反两个方向。</p></div></div>
+      <div class="callout"><strong>空集不能漏：</strong>∅ 是任何集合的子集。含参数的集合问题，若写 A⊆B，先检查 A=∅ 是否可能。补集必须相对于确定的全集。</div>
+      <h3>量词否定：换量词，也否定结论</h3><div class="formula">¬(∀x∈M, p(x)) ⇔ ∃x∈M, ¬p(x)<br>¬(∃x∈M, p(x)) ⇔ ∀x∈M, ¬p(x)</div>
+      <details class="example"><summary>例题 1　集合运算与条件判断</summary><p>设 U=ℝ，A={x | −1≤x&lt;3}，B={x | x≥1}。求 A∩B 与 ∁<sub>U</sub>A；判断“x&gt;2”是“x&gt;1”的什么条件。</p><div class="answer"><p><strong>解：</strong>A∩B=[1,3)。∁<sub>U</sub>A=(−∞,−1)∪[3,+∞)。</p><p>x&gt;2 ⇒ x&gt;1，但 x&gt;1 ⇏ x&gt;2（反例 x=1.5），所以是<strong>充分不必要条件</strong>。端点 3 不属于 A，求补集后要属于补集。</p></div></details>
+    </article>
+
+    <article class="chapter card" id="ch2">
+      <div class="chapter-head"><div><h2>第二章　一元二次函数、方程和不等式</h2><p>2.1—2.3 · 用图象连接三个“二次”</p></div><span class="tag">重点：开口、零点、符号</span></div>
+      <div class="grid2"><div><h3>基本不等式</h3><div class="formula">a&gt;0，b&gt;0 ⇒ (a+b)/2 ≥ √(ab)<br>当且仅当 <b>a=b</b> 时取等号</div><p>“和定积最大，积定和最小”之前，先验证正数条件与等号能否取到。</p></div><div><h3>三个“二次”</h3><p><span class="math">f(x)=ax²+bx+c (a≠0)</span></p><ul><li>方程 f(x)=0 的根 ⇔ 图象与 x 轴交点横坐标。</li><li>f(x)&gt;0 的解 ⇔ 图象在 x 轴上方的 x。</li><li>判别式 Δ=b²−4ac 帮助判断零点个数。</li></ul></div></div>
+      <section class="graph" aria-labelledby="quad-title">
+        <div class="graph-head"><h3 id="quad-title">图 1｜二次函数实验室</h3><span>拖动滑块，观察 y=ax²+bx+c</span></div>
+        <div class="graph-body">
+          <div class="controls">
+            <div class="control"><label for="qa">二次项系数 a <output id="qa-value" for="qa">1</output></label><input id="qa" type="range" min="-3" max="3" step="0.5" value="1" data-param="a"></div>
+            <div class="control"><label for="qb">一次项系数 b <output id="qb-value" for="qb">-2</output></label><input id="qb" type="range" min="-6" max="6" step="0.5" value="-2" data-param="b"></div>
+            <div class="control"><label for="qc">常数项 c <output id="qc-value" for="qc">-3</output></label><input id="qc" type="range" min="-6" max="6" step="0.5" value="-3" data-param="c"></div>
+          </div>
+          <div id="quadratic-chart" role="img" aria-label="可调参数的二次函数图像，橙点标出顶点，蓝点标出零点"></div>
+          <p id="quadratic-readout" class="readout" aria-live="polite"></p>
+          <p class="graph-caption">横轴为 x，纵轴为 y。零点图点只在当前纵轴范围内显示；完整零点见上方读数。</p>
+        </div>
+      </section>
+      <details class="example"><summary>例题 2　用图象解一元二次不等式</summary><p>解不等式 x²−2x−3≤0，并求对应函数的最小值。</p><div class="answer"><p>因式分解：(x−3)(x+1)≤0。抛物线开口向上，小于等于零取两根之间，故解集为 <strong>[−1,3]</strong>。</p><p>配方：x²−2x−3=(x−1)²−4，故当 x=1 时最小值为 <strong>−4</strong>。可在图 1 中设置 a=1、b=−2、c=−3 验证。</p></div></details>
+    </article>
+
+    <article class="chapter card" id="ch3">
+      <div class="chapter-head"><div><h2>第三章　函数的概念与性质</h2><p>3.1—3.4 · 从对应关系到图象特征</p></div><span class="tag">先定义域，后研究性质</span></div>
+      <h3>函数的三要素与常见定义域限制</h3>
+      <div class="table-wrap"><table><thead><tr><th>结构</th><th>限制</th><th>示例</th></tr></thead><tbody><tr><td>分式 1/g(x)</td><td>g(x)≠0</td><td>y=1/(x−1)：x≠1</td></tr><tr><td>偶次根式 √g(x)</td><td>g(x)≥0</td><td>y=√(x+2)：x≥−2</td></tr><tr><td>对数 log<sub>a</sub>g(x)</td><td>g(x)&gt;0</td><td>底数还须 a&gt;0 且 a≠1</td></tr><tr><td>实际问题</td><td>符合情境</td><td>人数为整数，长度为正数</td></tr></tbody></table></div>
+      <div class="grid2"><div><h3>单调性与奇偶性</h3><ul><li>在指定区间内，x₁&lt;x₂ ⇒ f(x₁)&lt;f(x₂)：增函数。</li><li>f(−x)=f(x)：偶函数，图象关于 y 轴对称。</li><li>f(−x)=−f(x)：奇函数，图象关于原点对称。</li></ul><div class="callout warn">判断奇偶性前，定义域必须关于原点对称。奇函数并非一定经过原点；只有 0 在定义域内时才有 f(0)=0。</div></div><div><h3>幂函数读图</h3><p>形如 <span class="math">y=x<sup>α</sup></span> 的函数。比较 x、x²、x³、√x、x⁻¹：</p><ul><li>图 2 中所有曲线都经过 (1,1)。</li><li>√x 的定义域为 [0,+∞)，不是奇函数或偶函数。</li><li>x⁻¹ 在 (−∞,0)、(0,+∞) 各自递减，不能说在定义域整体递减。</li></ul></div></div>
+      <section class="graph" aria-labelledby="power-title">
+        <div class="graph-head"><h3 id="power-title">图 2｜五个基本幂函数</h3><span>观察定义域、对称性与间断点</span></div>
+        <div class="graph-body"><div id="power-chart" role="img" aria-label="幂函数y=x、x²、x³、根号x和x分之一的对比图像"></div><div id="power-legend" class="legend"></div><p class="graph-caption">反比例函数的两支在 x=0 处分开绘制，不能把间断点两侧连成一条线。</p></div>
+      </section>
+      <details class="example"><summary>例题 3　判断奇偶性</summary><p>判断 f(x)=x²+1 与 g(x)=x³+x 的奇偶性。</p><div class="answer"><p>两者定义域均为 ℝ，关于原点对称。f(−x)=(−x)²+1=f(x)，故 f 为<strong>偶函数</strong>；g(−x)=−x³−x=−g(x)，故 g 为<strong>奇函数</strong>。</p></div></details>
+    </article>
+  </section>
+
+  <section id="second" class="term-panel second" aria-label="下学期进度：第四至五章" hidden>
+    <div class="term-heading"><h2>下学期进度</h2><span>第 4—5 章 · 用新函数描述增长与周期</span></div>
+    <article class="chapter card" id="ch4">
+      <div class="chapter-head"><div><h2>第四章　指数函数与对数函数</h2><p>4.1—4.5 · 互逆的两种变化</p></div><span class="tag">底数 a&gt;0 且 a≠1</span></div>
+      <div class="grid2"><div><h3>指数与对数互化</h3><div class="formula">a<sup>x</sup>=N ⇔ x=log<sub>a</sub>N<br><b>a&gt;0，a≠1，N&gt;0</b></div><p>对数的真数为正；aˣ&gt;0。同底时，a<sup>log<sub>a</sub>N</sup>=N，log<sub>a</sub>aˣ=x。</p></div><div><h3>图象性质对比</h3><table><thead><tr><th></th><th>y=aˣ</th><th>y=log<sub>a</sub>x</th></tr></thead><tbody><tr><td>定义域</td><td>ℝ</td><td>(0,+∞)</td></tr><tr><td>值域</td><td>(0,+∞)</td><td>ℝ</td></tr><tr><td>定点</td><td>(0,1)</td><td>(1,0)</td></tr><tr><td>a&gt;1 / 0&lt;a&lt;1</td><td>递增 / 递减</td><td>递增 / 递减</td></tr></tbody></table></div></div>
+      <section class="graph" aria-labelledby="exp-title">
+        <div class="graph-head"><h3 id="exp-title">图 3｜指数与对数的镜像</h3><span>调整底数 a，寻找定点和对称轴</span></div>
+        <div class="graph-body">
+          <div class="control"><label for="base">底数 a（0.2—4，不含 1）<output id="base-value" for="base">2</output></label><input id="base" type="range" min="0.2" max="4" step="0.05" value="2"></div>
+          <div class="legend"><span class="key">y=aˣ</span><span class="key orange">y=logₐx</span><span class="key gray">y=x</span></div>
+          <div id="exp-chart" role="img" aria-label="指数函数与对数函数关于y等于x对称的图像"></div>
+          <p id="exp-readout" class="readout" aria-live="polite"></p><p class="graph-caption">底数滑块跨过 1 时会自动跳过；也可点选 <button type="button" class="base-preset" data-base="0.5">a=0.5</button> 或 <button type="button" class="base-preset" data-base="2">a=2</button> 对比增减性。</p>
+        </div>
+      </section>
+      <div class="grid2"><div><h3>运算法则</h3><div class="formula">aᵐaⁿ=aᵐ⁺ⁿ　(aᵐ)ⁿ=aᵐⁿ<br>logₐ(MN)=logₐM+logₐN<br>logₐ(M/N)=logₐM−logₐN<br>logₐMᵏ=klogₐM</div><p class="small muted">对数公式要求 M&gt;0、N&gt;0。换底：logₐb=log<sub>c</sub>b/log<sub>c</sub>a。</p></div><div><h3>零点与二分法</h3><p>若 f 在 [a,b] 上连续，且 f(a)f(b)&lt;0，则 (a,b) 内<strong>至少有一个</strong>零点。</p><p>二分法每次取区间中点，保留端点函数值异号的子区间，直到区间长度满足精确度要求。</p></div></div>
+      <details class="example"><summary>例题 4　指数、对数求值</summary><p>计算 log₂8+log₃(1/9)，并比较 2<sup>0.3</sup> 与 2<sup>0.5</sup> 的大小。</p><div class="answer"><p>log₂8=3，log₃(1/9)=−2，原式=<strong>1</strong>。因为 y=2ˣ 在 ℝ 上递增且 0.3&lt;0.5，所以 <strong>2<sup>0.3</sup>&lt;2<sup>0.5</sup></strong>。</p></div></details>
+    </article>
+
+    <article class="chapter card" id="ch5">
+      <div class="chapter-head"><div><h2>第五章　三角函数</h2><p>5.1—5.7 · 单位圆与周期运动</p></div><span class="tag">核心：周期、振幅、相位</span></div>
+      <div class="grid2"><div><h3>从角度到弧度</h3><div class="formula">180°=π rad<br>sin²α+cos²α=1　tanα=sinα/cosα</div><p>单位圆上角 α 的终边与圆交于 P(x,y)，则 cosα=x，sinα=y。诱导公式可用“奇变偶不变，符号看象限”辅助记忆，但要结合单位圆理解。</p></div><div><h3>正弦型函数</h3><div class="formula">y=A sin(ωx+φ)，A≠0，ω≠0<br>振幅=<b>|A|</b>　周期=<b>T=2π/|ω|</b></div><p>最大值 |A|，最小值 −|A|。与 y=Asin(ωx) 比较，水平平移量为 −φ/ω。</p></div></div>
+      <section class="graph" aria-labelledby="sine-title">
+        <div class="graph-head"><h3 id="sine-title">图 4｜正弦曲线的变换</h3><span>y=A sin(ωx+φ)</span></div>
+        <div class="graph-body">
+          <div class="controls">
+            <div class="control"><label for="amplitude">振幅 A <output id="amplitude-value" for="amplitude">2</output></label><input id="amplitude" type="range" min="-3" max="3" step="0.5" value="2"></div>
+            <div class="control"><label for="omega">角频率 ω <output id="omega-value" for="omega">1</output></label><input id="omega" type="range" min="0.5" max="3" step="0.5" value="1"></div>
+            <div class="control"><label for="phase">初相 φ / π <output id="phase-value" for="phase">0</output></label><input id="phase" type="range" min="-1" max="1" step="0.25" value="0"></div>
+          </div>
+          <div class="legend"><span class="key">变换后的曲线</span><span class="key gray">基准 y=sin x</span></div>
+          <div id="sine-chart" role="img" aria-label="可调振幅、角频率和初相的正弦函数图像"></div><p id="sine-readout" class="readout" aria-live="polite"></p><p class="graph-caption">横轴单位是 π，纵轴是 y。φ 滑块上的数值要乘 π；A 为负时还包含关于 x 轴的翻折。</p>
+        </div>
+      </section>
+      <h3>五点法与恒等变换</h3><p>画 y=Asin(ωx+φ) 的一个周期：令 <span class="math">ωx+φ=0, π/2, π, 3π/2, 2π</span>，依次求 x 与 y，再描点连线。</p>
+      <div class="formula">sin(α±β)=sinαcosβ±cosαsinβ<br>cos(α±β)=cosαcosβ∓sinαsinβ<br>sin2α=2sinαcosα　cos2α=cos²α−sin²α=2cos²α−1=1−2sin²α</div>
+      <details class="example"><summary>例题 5　读参数，写性质</summary><p>求 y=2sin(2x−π/3) 的振幅、周期、最大值和单调递增区间。</p><div class="answer"><p>振幅为 2，周期 T=2π/2=π，最大值为 2。</p><p>正弦函数在 [−π/2+2kπ, π/2+2kπ] 上递增。令 −π/2+2kπ≤2x−π/3≤π/2+2kπ，解得递增区间为 <strong>[−π/12+kπ, 5π/12+kπ]（k∈ℤ）</strong>。</p></div></details>
+    </article>
+
+    <section class="card review" id="review">
+      <h2>全册综合复习｜把五章连成一条线</h2>
+      <div class="table-wrap"><table><thead><tr><th>任务</th><th>调用知识</th><th>检查点</th></tr></thead><tbody><tr><td>求函数定义域</td><td>集合、不等式、指对数</td><td>用集合或区间表示结果</td></tr><tr><td>比较函数值</td><td>单调性、图象</td><td>先确认同一单调区间</td></tr><tr><td>求方程根</td><td>函数零点、图象交点</td><td>代数结果代回原式</td></tr><tr><td>求三角函数性质</td><td>周期、图象变换、诱导公式</td><td>ω 提取后再求 x</td></tr></tbody></table></div>
+      <div class="grid2"><div><h3>考前自检</h3><ul class="checks"><li>集合端点开闭与空集情况已检查</li><li>充分、必要条件方向没有颠倒</li><li>基本不等式的正数、等号条件齐全</li><li>判断奇偶性前先查定义域</li><li>对数真数大于零、底数合法</li><li>三角函数周期写成 2π/|ω|</li></ul></div><div><h3>五步学习法</h3><ol><li>写出定义域和参数条件。</li><li>代入特殊点，获得直观判断。</li><li>用图象观察变化趋势。</li><li>回到代数推导，完成规范证明。</li><li>用另一方法或代入结果检验。</li></ol><p class="muted">函数图像是理解工具，不能代替必要的代数论证。</p></div></div>
+    </section>
+  </section>
+  <footer>人教 A 版 · 数学必修第一册 · 自学与复习使用<br><a href="index.html">返回课件首页</a> · 图表由本地 D3.js v7 绘制</footer>
+</main>
+<noscript><style>.term-panel[hidden]{display:block!important}.term-switch{display:none}.graph-body{display:none}</style><p class="wrap notice">当前未启用 JavaScript：正文全部可读；启用后可使用进度切换与函数参数实验。</p></noscript>
+<script src="vendor/d3.v7.min.js"></script>
+<script>
+(function () {
+  'use strict';
+  const $ = id => document.getElementById(id);
+  const fmt = n => Math.abs(n) < 1e-10 ? '0' : Number(n.toFixed(3)).toString();
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const initialTerm = location.hash.match(/^#(?:ch4|ch5|review)$/) ? 'second' : 'first';
+  const panels = { first: $('first'), second: $('second') };
+  const rendered = { first: false, second: false };
+
+  function showTerm(term, updateHash) {
+    Object.keys(panels).forEach(key => { panels[key].hidden = key !== term; });
+    document.querySelectorAll('[data-term]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.term === term)));
+    if (!rendered[term] && window.d3) {
+      if (term === 'first') { renderQuadratic(); renderPower(); }
+      else { renderExp(); renderSine(); }
+      rendered[term] = true;
+    }
+    if (updateHash) history.replaceState(null, '', term === 'first' ? '#first' : '#second');
+  }
+  document.querySelectorAll('[data-term]').forEach(button => button.addEventListener('click', () => {
+    showTerm(button.dataset.term, true);
+    $('catalog').scrollIntoView({ behavior: reducedMotion ? 'instant' : 'smooth' });
+  }));
+  document.querySelectorAll('a[href^="#"]').forEach(link => link.addEventListener('click', () => {
+    const id = link.getAttribute('href').slice(1);
+    if (['ch4', 'ch5', 'review'].includes(id)) showTerm('second');
+    if (['ch1', 'ch2', 'ch3', 'first'].includes(id)) showTerm('first');
+  }));
+  window.addEventListener('hashchange', () => {
+    if (['#ch4', '#ch5', '#review', '#second'].includes(location.hash)) showTerm('second');
+    if (['#ch1', '#ch2', '#ch3', '#first'].includes(location.hash)) showTerm('first');
+  });
+  if (!window.d3) {
+    document.querySelectorAll('.graph-body').forEach(box => {
+      const note = document.createElement('p');
+      note.className = 'fallback';
+      note.textContent = '交互图表未能加载。请确认 vendor/d3.v7.min.js 与本 HTML 位于同一课件目录；上方公式、性质表与例题仍可正常学习。';
+      box.prepend(note);
+    });
+    return;
+  }
+
+  // Shared plotting surface: axes are mathematical coordinates, not screen pixels.
+  function makePlot(id, xDomain, yDomain, xTicks, yTicks, xLabel) {
+    const width = 760, height = 350, margin = { top: 24, right: 24, bottom: 40, left: 48 };
+    const svg = d3.select('#' + id).append('svg').attr('viewBox', `0 0 ${width} ${height}`).attr('aria-hidden', 'true');
+    svg.append('defs').append('clipPath').attr('id', `clip-${id}`).append('rect')
+      .attr('x', margin.left).attr('y', margin.top).attr('width', width - margin.left - margin.right).attr('height', height - margin.top - margin.bottom);
+    const plotArea = svg.append('g').attr('clip-path', `url(#clip-${id})`);
+    const x = d3.scaleLinear().domain(xDomain).range([margin.left, width - margin.right]);
+    const y = d3.scaleLinear().domain(yDomain).range([height - margin.bottom, margin.top]);
+    svg.append('g').attr('class', 'grid').attr('transform', `translate(0,${height - margin.bottom})`).call(d3.axisBottom(x).ticks(xTicks).tickSize(-(height - margin.top - margin.bottom)).tickFormat(''));
+    svg.append('g').attr('class', 'grid').attr('transform', `translate(${margin.left},0)`).call(d3.axisLeft(y).ticks(yTicks).tickSize(-(width - margin.left - margin.right)).tickFormat(''));
+    svg.append('g').attr('class', 'axis').attr('transform', `translate(0,${height - margin.bottom})`).call(d3.axisBottom(x).ticks(xTicks).tickFormat(xLabel || d3.format('~g')));
+    svg.append('g').attr('class', 'axis').attr('transform', `translate(${margin.left},0)`).call(d3.axisLeft(y).ticks(yTicks).tickFormat(d3.format('~g')));
+    svg.append('line').attr('class', 'zero-line').attr('x1', x(xDomain[0])).attr('x2', x(xDomain[1])).attr('y1', y(0)).attr('y2', y(0));
+    svg.append('line').attr('class', 'zero-line').attr('x1', x(0)).attr('x2', x(0)).attr('y1', y(yDomain[0])).attr('y2', y(yDomain[1]));
+    const line = d3.line().x(d => x(d[0])).y(d => y(d[1]));
+    return {
+      x, y,
+      curve(points, alt, guide) { return plotArea.append('path').attr('d', line(points)).attr('class', `curve${alt ? ' alt' : ''}${guide ? ' guide' : ''}`); },
+      point(px, py, blue) { return plotArea.append('circle').attr('class', `point${blue ? ' blue' : ''}`).attr('cx', x(px)).attr('cy', y(py)).attr('r', 4.5); },
+      label(text, px, py, dx, dy) { return plotArea.append('text').attr('class', 'graph-label').attr('x', x(px) + (dx || 0)).attr('y', y(py) + (dy || 0)).text(text); }
+    };
+  }
+  function sample(fn, min, max, count) {
+    return d3.range(count + 1).map(i => { const x = min + (max - min) * i / count; return [x, fn(x)]; });
+  }
+  function bindRange(id, onInput) { $(id).addEventListener('input', () => onInput(Number($(id).value))); }
+
+  const quad = { a: 1, b: -2, c: -3 };
+  function renderQuadratic() {
+    const plot = makePlot('quadratic-chart', [-5, 5], [-8, 8], 10, 8);
+    const vertex = plot.point(1, -4, false);
+    const roots = [plot.point(-1, 0, true), plot.point(3, 0, true)];
+    function update() {
+      ['a', 'b', 'c'].forEach(key => { $('q' + key + '-value').textContent = fmt(quad[key]); });
+      const f = x => quad.a * x * x + quad.b * x + quad.c;
+      const curve = sample(f, -5, 5, 500);
+      // Break only when leaving the viewport; the shared clipPath trims at its exact edge.
+      const segments = [];
+      let segment = [];
+      curve.forEach(d => {
+        if (Math.abs(d[1]) <= 8) segment.push(d);
+        else if (segment.length) { segments.push(segment); segment = []; }
+      });
+      if (segment.length) segments.push(segment);
+      d3.select('#quadratic-chart').selectAll('.curve').remove();
+      segments.forEach(points => plot.curve(points));
+      const xv = -quad.b / (2 * quad.a), yv = f(xv);
+      vertex.attr('cx', plot.x(xv)).attr('cy', plot.y(yv)).attr('visibility', xv >= -5 && xv <= 5 && yv >= -8 && yv <= 8 ? 'visible' : 'hidden');
+      const delta = quad.b * quad.b - 4 * quad.a * quad.c;
+      let rootText;
+      if (delta > 0) rootText = [(-quad.b - Math.sqrt(delta)) / (2 * quad.a), (-quad.b + Math.sqrt(delta)) / (2 * quad.a)];
+      else if (delta === 0) rootText = [xv];
+      else rootText = [];
+      roots.forEach((root, i) => root.attr('visibility', rootText[i] === undefined || Math.abs(rootText[i]) > 5 ? 'hidden' : 'visible'));
+      if (rootText.length) rootText.forEach((r, i) => roots[i].attr('cx', plot.x(r)).attr('cy', plot.y(0)));
+      const formula = `y=${fmt(quad.a)}x²${quad.b >= 0 ? '+' : ''}${fmt(quad.b)}x${quad.c >= 0 ? '+' : ''}${fmt(quad.c)}`;
+      const deltaText = delta < 0 ? '无实数零点' : `${rootText.length === 1 ? '一个' : '两个'}实数零点：${rootText.map(fmt).join('，')}`;
+      $('quadratic-readout').innerHTML = `${formula}<br>顶点 <b>(${fmt(xv)}, ${fmt(yv)})</b>；Δ=${fmt(delta)}，${deltaText}`;
+    }
+    document.querySelectorAll('#qa,#qb,#qc').forEach(input => input.addEventListener('input', () => {
+      const key = input.dataset.param;
+      let value = Number(input.value);
+      if (key === 'a' && value === 0) { value = quad.a >= 0 ? 0.5 : -0.5; input.value = value; }
+      quad[key] = value; update();
+    }));
+    update();
+  }
+
+  function renderPower() {
+    const plot = makePlot('power-chart', [-3, 3], [-4, 4], 6, 8);
+    const functions = [
+      { label: 'y=x', fn: x => x, color: '#086d6b' },
+      { label: 'y=x²', fn: x => x * x, color: '#245ba7' },
+      { label: 'y=x³', fn: x => x * x * x, color: '#8553a4' },
+      { label: 'y=√x', fn: Math.sqrt, color: '#b64d18', min: 0 },
+      { label: 'y=x⁻¹', fn: x => 1 / x, color: '#a63250', split: true }
+    ];
+    functions.forEach(item => {
+      const draw = (min, max) => {
+        const points = sample(item.fn, min, max, 200);
+        plot.curve(points).attr('stroke', item.color);
+      };
+      if (item.split) { draw(-3, -0.25); draw(0.25, 3); }
+      else draw(item.min === undefined ? -3 : item.min, 3);
+      const legend = d3.select('#power-legend').append('span').attr('class', 'key').style('color', item.color).text(item.label);
+      legend.node().style.setProperty('--teal', item.color);
+    });
+    plot.point(1, 1, true);
+    plot.label('(1,1)', 1, 1, 8, -8);
+  }
+
+  const exp = { a: 2 };
+  function renderExp() {
+    const plot = makePlot('exp-chart', [-4, 4], [-4, 4], 8, 8);
+    plot.curve(sample(x => x, -4, 4, 2), false, true);
+    const curves = [plot.curve([]), plot.curve([], true)];
+    const points = [plot.point(0, 1, true), plot.point(1, 0, false)];
+    plot.label('(0,1)', 0, 1, -40, -8);
+    plot.label('(1,0)', 1, 0, 7, 15);
+    function update() {
+      const a = exp.a;
+      $('base').value = a;
+      $('base-value').textContent = fmt(a);
+      const positive = sample(x => Math.pow(a, x), -4, 4, 400).filter(d => d[1] <= 4);
+      const log = sample(x => Math.log(x) / Math.log(a), 0.0001, 4, 400).filter(d => Math.abs(d[1]) <= 4);
+      curves[0].attr('d', d3.line().x(d => plot.x(d[0])).y(d => plot.y(d[1]))(positive));
+      curves[1].attr('d', d3.line().x(d => plot.x(d[0])).y(d => plot.y(d[1]))(log));
+      $('exp-readout').innerHTML = `a=${fmt(a)}${a > 1 ? '&gt;1，两个函数均递增' : '∈(0,1)，两个函数均递减'}；指数恒过 <b>(0,1)</b>，对数恒过 <b>(1,0)</b>`;
+    }
+    bindRange('base', value => {
+      if (Math.abs(value - 1) < 0.025) value = exp.a >= 1 ? 1.05 : 0.95;
+      if (value === 1) value = exp.a > 1 ? 1.05 : 0.95;
+      exp.a = value; update();
+    });
+    document.querySelectorAll('.base-preset').forEach(button => button.addEventListener('click', () => { exp.a = Number(button.dataset.base); update(); }));
+    update();
+  }
+
+  const sine = { A: 2, omega: 1, phase: 0 };
+  function renderSine() {
+    const pi = Math.PI;
+    const tick = v => Math.abs(v) < 1e-9 ? '0' : `${fmt(v / pi)}π`;
+    const plot = makePlot('sine-chart', [-2 * pi, 2 * pi], [-3.5, 3.5], 8, 7, tick);
+    plot.curve(sample(Math.sin, -2 * pi, 2 * pi, 700), false, true);
+    const curve = plot.curve([]);
+    const origin = plot.point(0, 0, true);
+    function update() {
+      $('amplitude-value').textContent = fmt(sine.A);
+      $('omega-value').textContent = fmt(sine.omega);
+      $('phase-value').textContent = fmt(sine.phase);
+      const f = x => sine.A * Math.sin(sine.omega * x + sine.phase * pi);
+      curve.attr('d', d3.line().x(d => plot.x(d[0])).y(d => plot.y(d[1]))(sample(f, -2 * pi, 2 * pi, 700)));
+      origin.attr('cy', plot.y(f(0)));
+      $('sine-readout').innerHTML = `y=${fmt(sine.A)}sin(${fmt(sine.omega)}x${sine.phase >= 0 ? '+' : '−'}${fmt(Math.abs(sine.phase))}π)<br>振幅 <b>${fmt(Math.abs(sine.A))}</b>；周期 <b>T=${fmt(2 / sine.omega)}π</b>；f(0)=${fmt(f(0))}`;
+    }
+    bindRange('amplitude', value => { sine.A = value; update(); });
+    bindRange('omega', value => { sine.omega = value; update(); });
+    bindRange('phase', value => { sine.phase = value; update(); });
+    update();
+  }
+
+  // Initialize only after chart state and render functions have been declared.
+  showTerm(initialTerm);
+})();
+</script>
+</body>
+</html>
