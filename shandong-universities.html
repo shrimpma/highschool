@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>山东省高校目录 · 公办与民办</title>
+<style>
+  :root {
+    --ink: #1a2332;
+    --muted: #5a6577;
+    --line: #d5dce6;
+    --bg: #eef1f5;
+    --card: #ffffff;
+    --accent: #1a3a5c;
+    --font: "PingFang SC", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+    --mono: "JetBrains Mono", Consolas, monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; scroll-padding-top: 58px; }
+  .block, .tier, .tools { scroll-margin-top: 64px; }
+  body {
+    font-family: var(--font);
+    color: var(--ink);
+    background:
+      radial-gradient(ellipse at 10% 0%, rgba(21,70,138,.08), transparent 42%),
+      radial-gradient(ellipse at 90% 8%, rgba(13,110,110,.07), transparent 40%),
+      linear-gradient(180deg, #f5f7fa 0%, var(--bg) 45%, #e8ecf2 100%);
+    line-height: 1.65;
+    font-size: 15.5px;
+    min-height: 100vh;
+  }
+  a { color: inherit; }
+
+  .topbar {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(18, 28, 42, 0.96);
+    color: #e8eef5;
+    border-bottom: 1px solid #2a3548;
+  }
+  .topbar-inner {
+    max-width: 1120px; margin: 0 auto; padding: .7rem 1.2rem;
+    display: flex; flex-wrap: wrap; gap: .55rem .8rem; align-items: center;
+  }
+  .brand { font-weight: 700; letter-spacing: .02em; margin-right: auto; }
+  .brand small { color: #8fb0d0; font-weight: 500; margin-left: .4rem; font-size: .8em; }
+  .topbar a {
+    color: #d5e2ef; text-decoration: none; font-size: .86rem;
+    padding: .2rem .15rem; border-bottom: 2px solid transparent;
+  }
+  .topbar a:hover { color: #fff; border-bottom-color: #8fb0d0; }
+  .topbar a.on-public { color: #9fd0c4; }
+  .topbar a.on-private { color: #e7c48a; }
+
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 1.4rem 1.2rem 3.2rem; }
+
+  .hero {
+    background: linear-gradient(140deg, #121c2a 0%, #1a3a5c 58%, #0d5c4c 100%);
+    color: #eef3f8; border-radius: 14px; padding: 1.7rem 1.6rem 1.45rem;
+    margin-bottom: 1rem; position: relative; overflow: hidden;
+  }
+  .hero::after {
+    content: ""; position: absolute; right: -40px; top: -50px;
+    width: 220px; height: 220px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(143,176,208,.22), transparent 70%);
+    pointer-events: none;
+  }
+  .kicker {
+    color: #8fb0d0; font-size: .8rem; letter-spacing: .08em;
+    margin-bottom: .4rem; font-family: var(--mono);
+  }
+  .hero h1 { font-size: 1.7rem; font-weight: 750; letter-spacing: .02em; margin-bottom: .45rem; }
+  .hero p { max-width: 46rem; color: #d5e2ef; font-size: .95rem; }
+  .stats { display: flex; flex-wrap: wrap; gap: .55rem; margin-top: 1rem; position: relative; }
+  .stat {
+    background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.12);
+    border-radius: 10px; padding: .45rem .75rem; min-width: 7.2rem;
+  }
+  .stat b { display: block; font-size: 1.15rem; }
+  .stat span { color: #b7c8d8; font-size: .78rem; }
+
+  .note {
+    background: #fff; border: 1px solid var(--line); border-left: 4px solid var(--accent);
+    border-radius: 10px; padding: .85rem 1rem; margin-bottom: 1rem; color: var(--muted); font-size: .92rem;
+  }
+  .note strong { color: var(--ink); }
+
+  .tools {
+    display: flex; flex-wrap: wrap; gap: .55rem; align-items: center;
+    margin-bottom: 1.15rem;
+  }
+  .tools input {
+    flex: 1 1 220px; min-width: 180px;
+    border: 1px solid var(--line); background: #fff; color: var(--ink);
+    border-radius: 999px; padding: .5rem .95rem; font: inherit; font-size: .92rem;
+    outline: none;
+  }
+  .tools input:focus { border-color: #1a3a5c; }
+  .seg { display: flex; background: #fff; border: 1px solid var(--line); border-radius: 999px; overflow: hidden; }
+  .seg button {
+    border: 0; background: transparent; font: inherit; font-size: .88rem;
+    padding: .45rem .85rem; cursor: pointer; color: var(--muted);
+  }
+  .seg button.active { background: var(--accent); color: #fff; }
+
+  .block { margin-bottom: 1.35rem; }
+  .block h2 {
+    font-size: 1.22rem; margin: .2rem 0 .35rem;
+    display: flex; align-items: baseline; gap: .55rem;
+  }
+  .block h2 .en { font-family: var(--mono); font-size: .72rem; color: var(--muted); font-weight: 500; }
+  .lead { color: var(--muted); font-size: .9rem; margin-bottom: .7rem; }
+
+  .tier { margin: 0 0 1rem; }
+  .tier h3 {
+    font-size: .98rem; margin-bottom: .4rem;
+    display: flex; align-items: center; gap: .45rem;
+  }
+  .pill {
+    display: inline-block; font-size: .72rem; font-weight: 700;
+    padding: .08rem .45rem; border-radius: 999px; letter-spacing: .02em;
+  }
+  .pill-a { background: #121c2a; color: #f3e2b8; }
+  .pill-b { background: #e6edf7; color: #15468a; }
+  .pill-c { background: #e4f2ee; color: #0f5c4c; }
+  .pill-d { background: #f3eee6; color: #6b4e16; }
+  .pill-e { background: #fceee9; color: #8a3a2a; }
+  .count { color: var(--muted); font-weight: 500; font-size: .82rem; }
+
+  .table-wrap {
+    background: var(--card); border: 1px solid var(--line); border-radius: 12px;
+    overflow: auto;
+  }
+  table { width: 100%; border-collapse: collapse; min-width: 720px; }
+  th, td { text-align: left; vertical-align: top; padding: .62rem .75rem; border-bottom: 1px solid #e6ebf1; }
+  th {
+    background: #f6f8fb; color: #3d4b60; font-size: .78rem; font-weight: 700;
+    letter-spacing: .04em; position: sticky; top: 0;
+  }
+  tr:last-child td { border-bottom: 0; }
+  tr.hide { display: none; }
+  td.name { font-weight: 700; white-space: nowrap; }
+  td.city { white-space: nowrap; color: #2c3b50; }
+  td.trait { color: #2c3b50; min-width: 14rem; }
+  td.major { color: #243044; }
+  .tag {
+    display: inline-block; font-size: .72rem; font-weight: 700;
+    padding: .05rem .38rem; border-radius: 4px; margin-right: .25rem;
+    background: #121c2a; color: #f6edd4; vertical-align: 1px;
+  }
+
+  .aside {
+    background: #fff; border: 1px dashed var(--line); border-radius: 10px;
+    padding: .75rem .9rem; margin-top: .55rem; color: var(--muted); font-size: .9rem;
+  }
+  .aside strong { color: var(--ink); }
+
+  footer {
+    margin-top: 1.4rem; color: var(--muted); font-size: .82rem; line-height: 1.7;
+  }
+  .empty {
+    display: none; background: #fff; border: 1px solid var(--line); border-radius: 10px;
+    padding: 1rem; color: var(--muted); margin-bottom: 1rem;
+  }
+  @media (max-width: 720px) {
+    .hero h1 { font-size: 1.35rem; }
+    .topbar a { font-size: .8rem; }
+  }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="index.html">← 首页</a>
+    <div class="brand">山东省高校目录 <small>2026</small></div>
+    <a class="on-public" href="#public">公办</a>
+    <a href="#t1">双一流</a>
+    <a href="#t2">省属骨干</a>
+    <a href="#t3">医药</a>
+    <a href="#t4">行业特色</a>
+    <a href="#t5">应用型</a>
+    <a href="#t6">职业本科</a>
+    <a class="on-private" href="#private">民办</a>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <div class="kicker">SHANDONG UNIVERSITIES</div>
+    <h1>山东省本科高校目录</h1>
+    <p>按办学平台从高到低排列，公办与民办分开。同一层内的先后按学科平台和办学积淀排列，不是教育部门排名，也不能代替当年录取位次。</p>
+    <div class="stats">
+      <div class="stat"><b>77</b><span>本科高校约数</span></div>
+      <div class="stat"><b>51</b><span>公办（普通 46 + 职业 5）</span></div>
+      <div class="stat"><b>26</b><span>民办及独立学院</span></div>
+      <div class="stat"><b>3</b><span>国家“双一流”</span></div>
+    </div>
+  </section>
+
+  <p class="note">
+    <strong>怎么用这份目录。</strong>
+    公办和民办的差距主要在收费、保研和学科平台。普通本科和职业本科的文凭类型不同。同一所学校里，强势专业和一般专业可以差一截，青岛大学的医学、山东农业大学的农学、山东财经大学的会计，比校名更能说明问题。
+    名录依据教育部高等学校名单（截至 2026 年 6 月）及 2026 年设置、更名批复。特长专业主要依据第二轮“双一流”建设学科和国家级一流本科专业。
+  </p>
+
+  <div class="tools">
+    <input id="q" type="search" placeholder="搜索学校、城市或专业，例如：青岛、会计、口腔" autocomplete="off" />
+    <div class="seg" role="tablist">
+      <button type="button" class="active" data-filter="all">全部</button>
+      <button type="button" data-filter="public">公办</button>
+      <button type="button" data-filter="private">民办</button>
+    </div>
+  </div>
+  <p class="empty" id="empty">没有匹配的学校。换一个城市或专业名试试。</p>
+
+  <section class="block" id="public" data-sector="public">
+    <h2>公办 <span class="en">PUBLIC</span></h2>
+    <p class="lead">51 所。普通本科 46 所，职业本科 5 所。职业本科发的是职业本科文凭，和上面的普通本科不是同一条轨道。</p>
+
+    <div class="tier" id="t1">
+      <h3><span class="pill pill-a">第一层</span> 国家“双一流” · 部属 <span class="count">3 所</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>学校</th><th>城市</th><th>特点</th><th>特长专业</th></tr></thead>
+          <tbody>
+            <tr>
+              <td class="name">山东大学</td>
+              <td class="city">济南<br>青岛、威海有校区</td>
+              <td class="trait"><span class="tag">985</span><span class="tag">211</span><span class="tag">双一流</span>教育部直属综合性大学，省内平台最高</td>
+              <td class="major">中国语言文学、数学、化学、临床医学；法学、材料、控制、软件、口腔也强</td>
+            </tr>
+            <tr>
+              <td class="name">中国海洋大学</td>
+              <td class="city">青岛</td>
+              <td class="trait"><span class="tag">985</span><span class="tag">211</span><span class="tag">双一流</span>海洋和水产为全国顶尖</td>
+              <td class="major">海洋科学、水产；海洋技术、食品、港口海岸、船舶与海洋工程</td>
+            </tr>
+            <tr>
+              <td class="name">中国石油大学（华东）</td>
+              <td class="city">青岛</td>
+              <td class="trait"><span class="tag">211</span><span class="tag">双一流</span>石油石化行业特色鲜明</td>
+              <td class="major">地质资源与地质工程、石油与天然气工程；石油工程、化学工程、油气储运、安全工程</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="aside"><strong>在鲁办学、但不算山东独立高校：</strong>哈尔滨工业大学（威海）、北京交通大学（威海），文凭发本部，层次高于绝大多数省属高校。海军航空大学（烟台）等军事院校单独招生，不在此列。</p>
+    </div>
+
+    <div class="tier" id="t2">
+      <h3><span class="pill pill-b">第二层</span> 省属骨干大学 <span class="count">13 所</span></h3>
+      <p class="lead">学科平台和博士点较完整，是省内公办的主体。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>学校</th><th>城市</th><th>特点</th><th>特长专业</th></tr></thead>
+          <tbody>
+            <tr><td class="name">青岛大学</td><td class="city">青岛</td><td class="trait">文理工医综合，省属里规模和认可度靠前</td><td class="major">临床医学、眼科学、纺织工程、高分子材料、自动化、软件</td></tr>
+            <tr><td class="name">山东师范大学</td><td class="city">济南</td><td class="trait">省内师范龙头，文理并重</td><td class="major">中国语言文学、教育学、化学、物理学、生物科学、历史学</td></tr>
+            <tr><td class="name">山东科技大学</td><td class="city">青岛</td><td class="trait">以工为主，矿业安全传统强</td><td class="major">采矿工程、安全工程、测绘工程、地质工程、机械、计算机</td></tr>
+            <tr><td class="name">山东财经大学</td><td class="city">济南</td><td class="trait">省内财经类最强</td><td class="major">会计学、财政学、金融学、经济学、工商管理、国际经济与贸易</td></tr>
+            <tr><td class="name">青岛科技大学</td><td class="city">青岛</td><td class="trait">橡胶与化工特色鲜明</td><td class="major">化学工程与工艺、高分子材料、机械工程、过程装备、制药工程</td></tr>
+            <tr><td class="name">济南大学</td><td class="city">济南</td><td class="trait">综合性省属大学，材料见长</td><td class="major">材料科学与工程、应用化学、机械工程、计算机、社会工作</td></tr>
+            <tr><td class="name">齐鲁工业大学（山东省科学院）</td><td class="city">济南</td><td class="trait">轻工特色，与省科学院科教融合</td><td class="major">轻化工程、食品科学与工程、生物工程、无机非金属材料</td></tr>
+            <tr><td class="name">山东农业大学</td><td class="city">泰安</td><td class="trait">省内农业科学龙头</td><td class="major">农学、园艺、植物保护、动物科学、作物学、果树学</td></tr>
+            <tr><td class="name">青岛理工大学</td><td class="city">青岛</td><td class="trait">土木建筑与机械</td><td class="major">土木工程、建筑学、机械、给排水、建筑环境与能源</td></tr>
+            <tr><td class="name">山东理工大学</td><td class="city">淄博</td><td class="trait">以工为主，车辆与农机突出</td><td class="major">车辆工程、农业机械化、机械、电气、交通运输</td></tr>
+            <tr><td class="name">山东建筑大学</td><td class="city">济南</td><td class="trait">省内建筑类主校</td><td class="major">建筑学、土木工程、城乡规划、工程管理、给排水</td></tr>
+            <tr><td class="name">曲阜师范大学</td><td class="city">济宁曲阜<br>日照有校区</td><td class="trait">省属重点师范，基础学科稳</td><td class="major">汉语言文学、数学、教育学、物理学、历史学</td></tr>
+            <tr><td class="name">烟台大学</td><td class="city">烟台</td><td class="trait">北大、清华援建背景，法、药、工较均衡</td><td class="major">法学、药学、化学工程、软件工程、建筑学</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="tier" id="t3">
+      <h3><span class="pill pill-c">医药</span> 医药类公办 <span class="count">6 所</span></h3>
+      <p class="lead">和其他综合大学不好直接比高低，单独列出。省内学医，优先看这一组。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>学校</th><th>城市</th><th>特点</th><th>特长专业</th></tr></thead>
+          <tbody>
+            <tr><td class="name">山东第一医科大学</td><td class="city">济南<br>泰安有校区</td><td class="trait">省属医科最强，由原泰山医学院与省医学科学院等组建</td><td class="major">临床医学、医学影像、医学检验、护理、生物医学工程</td></tr>
+            <tr><td class="name">山东中医药大学</td><td class="city">济南</td><td class="trait">省内中医药唯一龙头</td><td class="major">中医学、中药学、针灸推拿、中西医临床医学</td></tr>
+            <tr><td class="name">山东第二医科大学</td><td class="city">潍坊</td><td class="trait">原潍坊医学院，临床和麻醉有传统</td><td class="major">临床医学、麻醉学、护理学、药学</td></tr>
+            <tr><td class="name">山东医药大学</td><td class="city">滨州<br>烟台有校区</td><td class="trait">原滨州医学院，2026 年 2 月更名</td><td class="major">临床医学、口腔医学、护理学</td></tr>
+            <tr><td class="name">济宁医学院</td><td class="city">济宁</td><td class="trait">区域医学院校，精神医学辨识度高</td><td class="major">精神医学、临床医学、预防医学</td></tr>
+            <tr><td class="name">康复大学</td><td class="city">青岛</td><td class="trait">2024 年新设，定位是康复领域的新型大学，积淀还浅</td><td class="major">康复医学、康复治疗相关方向</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="tier" id="t4">
+      <h3><span class="pill pill-d">第三层</span> 行业特色与区域骨干 <span class="count">18 所</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>学校</th><th>城市</th><th>特点</th><th>特长专业</th></tr></thead>
+          <tbody>
+            <tr><td class="name">山东艺术学院</td><td class="city">济南</td><td class="trait">省内艺术类主校</td><td class="major">音乐、美术、舞蹈、广播电视编导、设计</td></tr>
+            <tr><td class="name">山东工艺美术学院</td><td class="city">济南</td><td class="trait">设计艺术见长</td><td class="major">视觉传达、产品设计、服装与服饰、工艺美术、工业设计</td></tr>
+            <tr><td class="name">山东体育学院</td><td class="city">济南</td><td class="trait">体育学单科</td><td class="major">运动训练、社会体育指导与管理、休闲体育</td></tr>
+            <tr><td class="name">山东政法学院</td><td class="city">济南</td><td class="trait">法学特色</td><td class="major">法学、监狱学</td></tr>
+            <tr><td class="name">山东警察学院</td><td class="city">济南</td><td class="trait">省公安厅主管，提前批招公安生</td><td class="major">治安学、经济犯罪侦查</td></tr>
+            <tr><td class="name">山东交通学院</td><td class="city">济南</td><td class="trait">交通行业</td><td class="major">交通运输、交通工程、车辆工程、物流工程</td></tr>
+            <tr><td class="name">山东工商学院</td><td class="city">烟台</td><td class="trait">经管为主，计算机也不弱</td><td class="major">工商管理、会计学、计算机、工业工程、经济统计学</td></tr>
+            <tr><td class="name">青岛农业大学</td><td class="city">青岛</td><td class="trait">农业与生命科学，水产也有</td><td class="major">植物保护、园艺、食品、动物科学、水产养殖</td></tr>
+            <tr><td class="name">山东航空学院</td><td class="city">滨州</td><td class="trait">原滨州学院，2023 年更名，航空特色</td><td class="major">飞行技术相关、计算机、航空智能制造</td></tr>
+            <tr><td class="name">山东石油化工学院</td><td class="city">东营</td><td class="trait">原中国石油大学胜利学院转设为公办</td><td class="major">石油化工、化学工程、应用化学</td></tr>
+            <tr><td class="name">鲁东大学</td><td class="city">烟台</td><td class="trait">区域综合性大学，师范底子</td><td class="major">汉语言、生物科学、地理、水产、小学教育</td></tr>
+            <tr><td class="name">聊城大学</td><td class="city">聊城</td><td class="trait">区域综合性大学</td><td class="major">汉语言文学、化学、历史学、数学、通信工程</td></tr>
+            <tr><td class="name">临沂大学</td><td class="city">临沂</td><td class="trait">应用型综合大学，体量较大</td><td class="major">小学教育、软件工程、物流管理、制药工程</td></tr>
+            <tr><td class="name">山东青年政治学院</td><td class="city">济南</td><td class="trait">青年政治与传媒</td><td class="major">社会工作、广播电视学、播音与主持、舞蹈编导</td></tr>
+            <tr><td class="name">山东管理学院</td><td class="city">济南</td><td class="trait">管理类应用型</td><td class="major">劳动关系、财务管理、审计学</td></tr>
+            <tr><td class="name">山东女子学院</td><td class="city">济南</td><td class="trait">女性教育特色</td><td class="major">学前教育、社会工作</td></tr>
+            <tr><td class="name">齐鲁师范学院</td><td class="city">济南</td><td class="trait">教师教育</td><td class="major">生物科学、师范类专业</td></tr>
+            <tr><td class="name">潍坊学院</td><td class="city">潍坊</td><td class="trait">应用型，种子和设施农业有地方特色</td><td class="major">数学、计算机、种子与设施农业</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="tier" id="t5">
+      <h3><span class="pill pill-d">第四层</span> 地方应用型学院 <span class="count">6 所</span></h3>
+      <p class="lead">以服务本地为主，国家级一流专业较少或没有。适合看具体专业和城市，不宜只看校名。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>学校</th><th>城市</th><th>特点</th><th>相对突出的方向</th></tr></thead>
+          <tbody>
+            <tr><td class="name">德州学院</td><td class="city">德州</td><td class="trait">应用型</td><td class="major">服装设计与工程、师范</td></tr>
+            <tr><td class="name">泰山学院</td><td class="city">泰安</td><td class="trait">师范底子的应用型院校</td><td class="major">旅游管理、历史学、软件工程</td></tr>
+            <tr><td class="name">济宁学院</td><td class="city">济宁</td><td class="trait">教师教育为主</td><td class="major">师范类</td></tr>
+            <tr><td class="name">菏泽学院</td><td class="city">菏泽</td><td class="trait">师范与地方产业</td><td class="major">师范、牡丹与农业生物</td></tr>
+            <tr><td class="name">枣庄学院</td><td class="city">枣庄</td><td class="trait">应用型</td><td class="major">地方产业相关、师范</td></tr>
+            <tr><td class="name">山东农业工程学院</td><td class="city">济南</td><td class="trait">农业工程应用型</td><td class="major">农业工程、设施农业、食品</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="tier" id="t6">
+      <h3><span class="pill pill-e">第五层</span> 公办职业本科 <span class="count">5 所</span></h3>
+      <p class="lead">培养目标是技术技能。文凭类型与普通本科不同。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>学校</th><th>城市</th><th>特点</th><th>特长方向</th></tr></thead>
+          <tbody>
+            <tr><td class="name">山东商业职业技术大学</td><td class="city">济南</td><td class="trait">2026 年由山东商业职业技术学院升格，商科高职老校</td><td class="major">财经商贸、会计、电商</td></tr>
+            <tr><td class="name">山东科技职业大学</td><td class="city">潍坊</td><td class="trait">由山东科技职业学院升格，工科职业本科</td><td class="major">装备制造、纺织服装等工科技术</td></tr>
+            <tr><td class="name">淄博职业技术大学</td><td class="city">淄博</td><td class="trait">市属职业本科</td><td class="major">先进制造、化工相关技术</td></tr>
+            <tr><td class="name">滨州职业技术大学</td><td class="city">滨州</td><td class="trait">2026 年由滨州职业学院升格</td><td class="major">机械、应用化工、智能建造、健康养老</td></tr>
+            <tr><td class="name">日照职业技术大学</td><td class="city">日照</td><td class="trait">2026 年由日照职业技术学院升格</td><td class="major">现代水产养殖、食品工程、新能源汽车、智能建造</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="private" data-sector="private">
+    <h2>民办 <span class="en">PRIVATE</span></h2>
+    <p class="lead">26 所，含独立学院 4 所、民办职业本科 3 所。民办里没有 985、211 或双一流。层内差别小于公办各层之间的差别。独立学院是独立法人，毕业证、学位证写学院名称。</p>
+
+    <div class="tier" id="p1">
+      <h3><span class="pill pill-b">第一层</span> 办学时间较长、辨识度较高 <span class="count">8 所</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>学校</th><th>城市</th><th>特点</th><th>特长专业</th></tr></thead>
+          <tbody>
+            <tr><td class="name">青岛滨海学院</td><td class="city">青岛</td><td class="trait">省内最早一批民办本科，硕士学位授予立项培育</td><td class="major">材料与化工、护理、国际中文教育、设计</td></tr>
+            <tr><td class="name">烟台南山学院</td><td class="city">烟台（龙口）</td><td class="trait">南山集团举办，校企一体，工科应用型</td><td class="major">材料成型、电气、自动化、纺织、飞行器动力、旅游管理</td></tr>
+            <tr><td class="name">齐鲁医药学院</td><td class="city">淄博</td><td class="trait">名录归民办，举办方为鲁商集团；省内民办医学主力</td><td class="major">临床医学、口腔医学、口腔医学技术、药学、护理</td></tr>
+            <tr><td class="name">山东英才学院</td><td class="city">济南</td><td class="trait">学前和财经应用型</td><td class="major">学前教育、会计、财务管理</td></tr>
+            <tr><td class="name">山东协和学院</td><td class="city">济南</td><td class="trait">医护方向清楚</td><td class="major">护理学、康复相关</td></tr>
+            <tr><td class="name">青岛城市学院</td><td class="city">青岛</td><td class="trait">原青岛理工大学琴岛学院转设</td><td class="major">土木建筑、机械、信息类工科</td></tr>
+            <tr><td class="name">齐鲁理工学院</td><td class="city">济南</td><td class="trait">原曲阜师范大学杏坛学院转设</td><td class="major">智能制造、工业互联网、跨境电商</td></tr>
+            <tr><td class="name">潍坊科技学院</td><td class="city">潍坊（寿光）</td><td class="trait">对接寿光蔬菜和设施农业</td><td class="major">设施农业、种子、食品</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="tier" id="p2">
+      <h3><span class="pill pill-d">第二层</span> 其他民办普通本科 <span class="count">11 所</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>学校</th><th>城市</th><th>特点</th><th>相对突出的方向</th></tr></thead>
+          <tbody>
+            <tr><td class="name">青岛黄海学院</td><td class="city">青岛</td><td class="trait">应用型综合</td><td class="major">跨境电商、机电</td></tr>
+            <tr><td class="name">青岛恒星科技学院</td><td class="city">青岛</td><td class="trait">工科和管理应用型</td><td class="major">机械、电子信息、经管</td></tr>
+            <tr><td class="name">青岛工学院</td><td class="city">青岛（胶州）</td><td class="trait">工科应用型</td><td class="major">机械、土木、信息</td></tr>
+            <tr><td class="name">青岛电影学院</td><td class="city">青岛</td><td class="trait">省内少有的民办电影院校</td><td class="major">影视表演、编导、摄影、戏剧影视</td></tr>
+            <tr><td class="name">山东现代学院</td><td class="city">济南</td><td class="trait">经管和教育应用型</td><td class="major">经管、学前教育</td></tr>
+            <tr><td class="name">烟台理工学院</td><td class="city">烟台</td><td class="trait">工科应用型</td><td class="major">机械、电子信息</td></tr>
+            <tr><td class="name">烟台科技学院</td><td class="city">烟台</td><td class="trait">应用型</td><td class="major">工科、经管</td></tr>
+            <tr><td class="name">潍坊理工学院</td><td class="city">潍坊</td><td class="trait">工科应用型</td><td class="major">机械、食品、信息</td></tr>
+            <tr><td class="name">泰山科技学院</td><td class="city">泰安</td><td class="trait">原山东科技大学泰山科技学院转设</td><td class="major">矿业安全相关工科、机械</td></tr>
+            <tr><td class="name">山东华宇工学院</td><td class="city">德州</td><td class="trait">工科应用型</td><td class="major">机械、电气、土木</td></tr>
+            <tr><td class="name">临沂工学院</td><td class="city">临沂</td><td class="trait">2026 年 6 月新设，民办非营利</td><td class="major">智能制造、电子信息、人工智能、机器人、大数据</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="tier" id="p3">
+      <h3><span class="pill pill-d">独立学院</span> 仍挂靠母体高校 <span class="count">4 所</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>学校</th><th>城市</th><th>特点</th><th>相对突出的方向</th></tr></thead>
+          <tbody>
+            <tr><td class="name">山东财经大学燕山学院</td><td class="city">济南</td><td class="trait">依托山东财经大学，财经类</td><td class="major">会计、金融、工商管理</td></tr>
+            <tr><td class="name">山东财经大学东方学院</td><td class="city">泰安</td><td class="trait">依托山东财经大学，财经类</td><td class="major">会计、金融、国际经济与贸易</td></tr>
+            <tr><td class="name">青岛农业大学海都学院</td><td class="city">烟台（莱阳）</td><td class="trait">依托青岛农业大学</td><td class="major">农学、食品、园林</td></tr>
+            <tr><td class="name">聊城大学东昌学院</td><td class="city">聊城</td><td class="trait">依托聊城大学</td><td class="major">文理经管综合</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="tier" id="p4">
+      <h3><span class="pill pill-e">职业本科</span> 民办职业本科 <span class="count">3 所</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>学校</th><th>城市</th><th>特点</th><th>特长方向</th></tr></thead>
+          <tbody>
+            <tr><td class="name">山东工程职业技术大学</td><td class="city">济南</td><td class="trait">职业本科，工程技术</td><td class="major">机械、电子信息、建筑工程技术</td></tr>
+            <tr><td class="name">山东外国语职业技术大学</td><td class="city">日照</td><td class="trait">职业本科，外语</td><td class="major">外语、商务、翻译类技术技能</td></tr>
+            <tr><td class="name">山东外事职业大学</td><td class="city">威海</td><td class="trait">职业本科，外事外语</td><td class="major">外语、国际商务、跨境相关</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    层次是办学平台的大致分层。哈尔滨工业大学（威海）、北京交通大学（威海）未计入 77 所，因为它们不是山东省独立设置的高校。
+    2026 年变化已写入表内：滨州医学院更名为山东医药大学；滨州职业学院、日照职业学院、山东商业职业技术学院升格为职业技术大学；临沂工学院新设。
+  </footer>
+</main>
+
+<script>
+(function () {
+  var q = document.getElementById("q");
+  var empty = document.getElementById("empty");
+  var buttons = document.querySelectorAll(".seg button");
+  var sector = "all";
+
+  function apply() {
+    var text = q.value.trim().toLowerCase();
+    var shown = 0;
+    document.querySelectorAll("tbody tr").forEach(function (row) {
+      var block = row.closest("[data-sector]");
+      var sectorOk = sector === "all" || (block && block.getAttribute("data-sector") === sector);
+      var textOk = !text || row.textContent.toLowerCase().indexOf(text) !== -1;
+      var ok = sectorOk && textOk;
+      row.classList.toggle("hide", !ok);
+      if (ok) shown += 1;
+    });
+    document.querySelectorAll(".tier, .block").forEach(function (box) {
+      var rows = box.querySelectorAll("tbody tr");
+      if (!rows.length) return;
+      var any = false;
+      rows.forEach(function (row) { if (!row.classList.contains("hide")) any = true; });
+      box.style.display = any ? "" : "none";
+    });
+    empty.style.display = shown ? "none" : "block";
+  }
+
+  q.addEventListener("input", apply);
+  buttons.forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      buttons.forEach(function (b) { b.classList.remove("active"); });
+      btn.classList.add("active");
+      sector = btn.getAttribute("data-filter");
+      apply();
+    });
+  });
+})();
+</script>
+</body>
+</html>
