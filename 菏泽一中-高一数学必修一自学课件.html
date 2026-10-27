@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
+<script>try{var q=new URLSearchParams(location.search).get("view");var m=q||localStorage.getItem("hs-view");if(m==="a4")document.documentElement.classList.add("a4")}catch(e){}</script>
 <title>菏泽一中 · 高一上学期数学自学课件 | 人教A版必修第一册 · 目标100/150</title>
 <style>
   :root {
@@ -46,7 +47,7 @@
     border-bottom: 1px solid #2a3548;
   }
   .topbar-inner {
-    max-width: 1100px; margin: 0 auto;
+    max-width: 1440px; margin: 0 auto;
     padding: 0.7rem 1.25rem;
     display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;
   }
@@ -64,7 +65,7 @@
     white-space: nowrap;
   }
 
-  .wrap { max-width: 1100px; margin: 0 auto; padding: 1.5rem 1.25rem 4rem; }
+  .wrap { max-width: 1440px; margin: 0 auto; padding: 1.5rem 1.25rem 4rem; }
 
   /* Hero */
   .hero {
@@ -266,6 +267,17 @@
 
   .legend { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 0.5rem 0 0.85rem; font-size: 0.82rem; }
 
+  .view-switch {
+    display: inline-flex; border: 1px solid rgba(255,255,255,.28);
+    border-radius: 999px; overflow: hidden; flex: none;
+  }
+  .view-switch button {
+    appearance: none; background: transparent; color: #e8eef5;
+    border: 0; cursor: pointer; font-family: inherit;
+    font-size: 0.75rem; font-weight: 700; padding: 0.3rem 0.7rem; white-space: nowrap;
+  }
+  html:not(.a4) .view-switch [data-view="wide"],
+  html.a4 .view-switch [data-view="a4"] { background: #c9a227; color: #1a2332; }
   .print-btn {
     background: #c9a227; color: #1a2332; border: none; cursor: pointer;
     font-size: 0.75rem; font-weight: 700; padding: 0.3rem 0.7rem;
@@ -281,7 +293,7 @@
       font-size: 10.5pt; line-height: 1.45;
       -webkit-print-color-adjust: exact; print-color-adjust: exact;
     }
-    .topbar, .nav-links, .score-badge, .print-btn { display: none !important; }
+    .topbar, .nav-links, .score-badge, .print-btn, .view-switch { display: none !important; }
     .wrap { max-width: none; width: 100%; margin: 0; padding: 0; }
     .hero {
       background: #fff !important; color: #000 !important;
@@ -343,9 +355,9 @@
   }
 
   @media screen {
-    .wrap { max-width: 210mm; }
-    .topbar-inner { max-width: 210mm; }
-    body { background: #d8dee6; }
+    html.a4 body { background: #d8dee6; }
+    html.a4 .wrap,
+    html.a4 .topbar-inner { max-width: 210mm; }
   }
 </style>
 </head>
@@ -365,7 +377,11 @@
       <a href="#ch5">第5章</a>
       <a href="#exam">考前清单</a>
     </nav>
-    <button type="button" class="print-btn" onclick="window.print()" title="按 A4 纵向打印">打印 A4</button>
+    <div class="view-switch" role="group" aria-label="版式">
+      <button type="button" data-view="wide">宽屏</button>
+      <button type="button" data-view="a4">A4 打印版</button>
+    </div>
+    <button type="button" class="print-btn" onclick="window.print()" title="按 A4 纵向打印">打印</button>
     <div class="score-badge">目标 100 / 150</div>
   </div>
 </header>
@@ -1240,6 +1256,32 @@
     window.addEventListener("beforeprint", function () { setDetailsOpen(true); });
     window.addEventListener("afterprint", function () { setDetailsOpen(false); });
   })();
+</script>
+<script>
+(function () {
+  var root = document.documentElement;
+  var buttons = document.querySelectorAll(".view-switch [data-view]");
+  function sync() {
+    var a4 = root.classList.contains("a4");
+    buttons.forEach(function (btn) {
+      btn.setAttribute("aria-pressed", String((btn.getAttribute("data-view") === "a4") === a4));
+    });
+  }
+  buttons.forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var a4 = btn.getAttribute("data-view") === "a4";
+      root.classList.toggle("a4", a4);
+      try {
+        localStorage.setItem("hs-view", a4 ? "a4" : "wide");
+        var url = new URL(location.href);
+        url.searchParams.set("view", a4 ? "a4" : "wide");
+        history.replaceState(null, "", url);
+      } catch (e) {}
+      sync();
+    });
+  });
+  sync();
+})();
 </script>
 </body>
 </html>

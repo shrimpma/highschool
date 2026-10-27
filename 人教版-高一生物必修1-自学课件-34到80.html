@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script>try{var q=new URLSearchParams(location.search).get("view");var m=q||localStorage.getItem("hs-view");if(m==="a4")document.documentElement.classList.add("a4")}catch(e){}</script>
 <meta name="color-scheme" content="light">
 <title>人教版高一生物必修1 · 自学课件（34→80）</title>
 <style>
@@ -63,7 +64,7 @@ button{font:inherit}
   backdrop-filter:blur(14px);
 }
 .topbar-inner{
-  max-width:1240px;margin:0 auto;padding:10px 24px;
+  max-width:1440px;margin:0 auto;padding:10px 24px;
   display:flex;align-items:center;gap:20px;
 }
 .brand{display:flex;align-items:center;gap:10px;min-width:max-content}
@@ -88,13 +89,17 @@ button{font:inherit}
 }
 .progress-ring::before{content:"";position:absolute;inset:5px;border-radius:50%;background:#0a2a24}
 .progress-ring span{position:relative;font-family:var(--mono);font-size:11px;font-weight:700;color:#fff}
+.view-switch{display:inline-flex;border:1px solid rgba(200,241,105,.35);border-radius:9px;overflow:hidden;flex:none}
+.view-switch button{appearance:none;background:transparent;color:#e9f8d6;border:0;cursor:pointer;font:inherit;font-size:12px;font-weight:700;padding:7px 12px;white-space:nowrap}
+html:not(.a4) .view-switch [data-view="wide"],
+html.a4 .view-switch [data-view="a4"]{background:rgba(200,241,105,.22);color:#fff}
 .print-btn{
   border:1px solid rgba(200,241,105,.35);background:rgba(200,241,105,.08);color:#e9f8d6;
   padding:7px 12px;border-radius:9px;font-size:12px;cursor:pointer;white-space:nowrap;
 }
 .print-btn:hover{background:rgba(200,241,105,.18)}
 
-.shell{max-width:1240px;margin:0 auto;padding:24px 24px 80px}
+.shell{max-width:1440px;margin:0 auto;padding:24px 24px 80px}
 
 .hero{
   position:relative;overflow:hidden;
@@ -450,7 +455,7 @@ tbody tr:hover{background:#fbf8ef}
 .callout .big small{display:block;font-family:var(--sans);font-size:11px;color:#b9d1c4;text-align:right;letter-spacing:.1em}
 
 footer{
-  max-width:1240px;margin:0 auto;padding:28px 24px 56px;color:var(--muted);
+  max-width:1440px;margin:0 auto;padding:28px 24px 56px;color:var(--muted);
   font-size:12px;line-height:1.8;border-top:1px solid var(--line);
 }
 footer b{color:var(--forest)}
@@ -500,7 +505,7 @@ footer b{color:var(--forest)}
     background:#fff!important;color:#000!important;font-size:10.5pt;line-height:1.45;
     -webkit-print-color-adjust:exact;print-color-adjust:exact;
   }
-  body::before,.topbar,.hero-actions,.print-btn,.quiz-actions,.progress-ring,.hero-seal,.nav{display:none!important}
+  body::before,.topbar,.hero-actions,.print-btn,.view-switch,.quiz-actions,.progress-ring,.hero-seal,.nav{display:none!important}
   .shell{max-width:none;width:100%;margin:0;padding:0}
   .hero{
     box-shadow:none;border-radius:0;background:#fff!important;color:#000!important;
@@ -533,8 +538,9 @@ footer b{color:var(--forest)}
   footer{color:#333!important;font-size:8pt;border-top:0.5pt solid #666}
 }
 @media screen{
-  .shell{max-width:210mm}
-  .topbar-inner{max-width:210mm}
+  html.a4 .shell,
+  html.a4 .topbar-inner,
+  html.a4 footer{max-width:210mm}
 }
 
 </style>
@@ -559,7 +565,11 @@ footer b{color:var(--forest)}
       <a href="#final">考前清单</a>
     </nav>
     <div class="progress-ring" id="progressRing" title="学习进度"><span id="progressText">0%</span></div>
-    <button class="print-btn" type="button" onclick="window.print()" title="按 A4 纵向打印">打印 A4</button>
+    <div class="view-switch" role="group" aria-label="版式">
+      <button type="button" data-view="wide">宽屏</button>
+      <button type="button" data-view="a4">A4 打印版</button>
+    </div>
+    <button class="print-btn" type="button" onclick="window.print()" title="按 A4 纵向打印">打印</button>
   </div>
 </header>
 
@@ -1528,6 +1538,32 @@ updateProgress();
   }
   window.addEventListener("beforeprint", function () { setDetailsOpen(true); });
   window.addEventListener("afterprint", function () { setDetailsOpen(false); });
+})();
+</script>
+<script>
+(function () {
+  var root = document.documentElement;
+  var buttons = document.querySelectorAll(".view-switch [data-view]");
+  function sync() {
+    var a4 = root.classList.contains("a4");
+    buttons.forEach(function (btn) {
+      btn.setAttribute("aria-pressed", String((btn.getAttribute("data-view") === "a4") === a4));
+    });
+  }
+  buttons.forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var a4 = btn.getAttribute("data-view") === "a4";
+      root.classList.toggle("a4", a4);
+      try {
+        localStorage.setItem("hs-view", a4 ? "a4" : "wide");
+        var url = new URL(location.href);
+        url.searchParams.set("view", a4 ? "a4" : "wide");
+        history.replaceState(null, "", url);
+      } catch (e) {}
+      sync();
+    });
+  });
+  sync();
 })();
 </script>
 </body>

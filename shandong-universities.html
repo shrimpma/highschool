@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
+<script>try{var q=new URLSearchParams(location.search).get("view");var m=q||localStorage.getItem("hs-view");if(m==="a4")document.documentElement.classList.add("a4")}catch(e){}</script>
 <title>山东省高校目录 · 公办与民办</title>
 <style>
   :root {
@@ -38,7 +39,7 @@
     border-bottom: 1px solid #2a3548;
   }
   .topbar-inner {
-    max-width: 1120px; margin: 0 auto; padding: .7rem 1.2rem;
+    max-width: 1440px; margin: 0 auto; padding: .7rem 1.2rem;
     display: flex; flex-wrap: wrap; gap: .55rem .8rem; align-items: center;
   }
   .brand { font-weight: 700; letter-spacing: .02em; margin-right: auto; }
@@ -51,7 +52,23 @@
   .topbar a.on-public { color: #9fd0c4; }
   .topbar a.on-private { color: #e7c48a; }
 
-  .wrap { max-width: 1120px; margin: 0 auto; padding: 1.4rem 1.2rem 3.2rem; }
+  .wrap { max-width: 1440px; margin: 0 auto; padding: 1.4rem 1.2rem 3.2rem; }
+  .view-switch {
+    display: inline-flex; border: 1px solid rgba(255,255,255,.28);
+    border-radius: 999px; overflow: hidden; flex: none; margin-left: auto;
+  }
+  .view-switch button {
+    appearance: none; background: transparent; color: #e8eef5;
+    border: 0; cursor: pointer; font-family: inherit;
+    font-size: .75rem; font-weight: 700; padding: .28rem .7rem; white-space: nowrap;
+  }
+  html:not(.a4) .view-switch [data-view="wide"],
+  html.a4 .view-switch [data-view="a4"] { background: #c9a227; color: #1a2332; }
+  .print-btn {
+    background: transparent; color: #e8eef5; border: 1px solid rgba(255,255,255,.28);
+    cursor: pointer; font-size: .75rem; font-weight: 700; padding: .28rem .7rem;
+    border-radius: 999px; font-family: inherit; white-space: nowrap;
+  }
 
   .hero {
     background: linear-gradient(140deg, #121c2a 0%, #1a3a5c 58%, #0d5c4c 100%);
@@ -161,6 +178,16 @@
     display: none; background: #fff; border: 1px solid var(--line); border-radius: 10px;
     padding: 1rem; color: var(--muted); margin-bottom: 1rem;
   }
+  @page { size: A4 portrait; margin: 14mm 12mm 16mm 12mm; }
+  @media print {
+    .topbar, .view-switch, .print-btn { display: none !important; }
+    body { background: #fff; }
+    .wrap { max-width: none; margin: 0; padding: 0; }
+  }
+  @media screen {
+    html.a4 .wrap,
+    html.a4 .topbar-inner { max-width: 210mm; }
+  }
   @media (max-width: 720px) {
     .hero h1 { font-size: 1.35rem; }
     .topbar a { font-size: .8rem; }
@@ -180,6 +207,11 @@
     <a href="#t5">应用型</a>
     <a href="#t6">职业本科</a>
     <a class="on-private" href="#private">民办</a>
+    <div class="view-switch" role="group" aria-label="版式">
+      <button type="button" data-view="wide">宽屏</button>
+      <button type="button" data-view="a4">A4 打印版</button>
+    </div>
+    <button type="button" class="print-btn" onclick="window.print()" title="按 A4 纵向打印">打印</button>
   </div>
 </header>
 
@@ -472,6 +504,32 @@
       apply();
     });
   });
+})();
+</script>
+<script>
+(function () {
+  var root = document.documentElement;
+  var buttons = document.querySelectorAll(".view-switch [data-view]");
+  function sync() {
+    var a4 = root.classList.contains("a4");
+    buttons.forEach(function (btn) {
+      btn.setAttribute("aria-pressed", String((btn.getAttribute("data-view") === "a4") === a4));
+    });
+  }
+  buttons.forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var a4 = btn.getAttribute("data-view") === "a4";
+      root.classList.toggle("a4", a4);
+      try {
+        localStorage.setItem("hs-view", a4 ? "a4" : "wide");
+        var url = new URL(location.href);
+        url.searchParams.set("view", a4 ? "a4" : "wide");
+        history.replaceState(null, "", url);
+      } catch (e) {}
+      sync();
+    });
+  });
+  sync();
 })();
 </script>
 </body>

@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
+<script>try{var q=new URLSearchParams(location.search).get("view");var m=q||localStorage.getItem("hs-view");if(m==="a4")document.documentElement.classList.add("a4")}catch(e){}</script>
 <title>鲁科版高中化学必修第一册 · 知识点 + 高频考题与解析</title>
 <style>
   :root {
@@ -35,7 +36,7 @@
     border-bottom: 1px solid #1e4a40;
   }
   .topbar-inner {
-    max-width: 1080px; margin: 0 auto; padding: .7rem 1.1rem;
+    max-width: 1440px; margin: 0 auto; padding: .7rem 1.1rem;
     display: flex; flex-wrap: wrap; gap: .6rem; align-items: center;
   }
   .brand { font-weight: 700; white-space: nowrap; }
@@ -50,7 +51,7 @@
     padding: .28rem .65rem; border-radius: 999px; white-space: nowrap;
   }
 
-  .wrap { max-width: 1080px; margin: 0 auto; padding: 1.4rem 1.1rem 3.5rem; }
+  .wrap { max-width: 1440px; margin: 0 auto; padding: 1.4rem 1.1rem 3.5rem; }
 
   .hero {
     background: linear-gradient(140deg, #0f2824 0%, #163d36 50%, #1a4f8b 100%);
@@ -201,6 +202,17 @@
   .stat.s2 { background: var(--blue-soft); color: var(--blue); }
   .stat.s3 { background: var(--amber-soft); color: var(--amber); }
 
+  .view-switch {
+    display: inline-flex; border: 1px solid rgba(255,255,255,.28);
+    border-radius: 999px; overflow: hidden; flex: none;
+  }
+  .view-switch button {
+    appearance: none; background: transparent; color: #e8eef5;
+    border: 0; cursor: pointer; font-family: inherit;
+    font-size: .75rem; font-weight: 700; padding: .28rem .7rem; white-space: nowrap;
+  }
+  html:not(.a4) .view-switch [data-view="wide"],
+  html.a4 .view-switch [data-view="a4"] { background: #c9a227; color: #1c2430; }
   .print-btn {
     background: #c9a227; color: #1c2430; border: none; cursor: pointer;
     font-size: .75rem; font-weight: 700; padding: .28rem .7rem;
@@ -231,6 +243,7 @@
 
     .topbar,
     .print-btn,
+    .view-switch,
     .nav,
     .badge { display: none !important; }
 
@@ -481,12 +494,15 @@
     .table-wrap { overflow: visible !important; }
   }
 
-  /* 屏幕预览：接近 A4 版心宽度 */
   @media screen {
-    .wrap { max-width: 210mm; }
-    .topbar-inner { max-width: 210mm; }
-    body { background: #d8dee6; }
-    .chapter, .hero, .toc a, .kp, .q { box-shadow: 0 1px 2px rgba(0,0,0,.04); }
+    html.a4 body { background: #d8dee6; }
+    html.a4 .wrap,
+    html.a4 .topbar-inner { max-width: 210mm; }
+    html.a4 .chapter,
+    html.a4 .hero,
+    html.a4 .toc a,
+    html.a4 .kp,
+    html.a4 .q { box-shadow: 0 1px 2px rgba(0,0,0,.04); }
   }
 </style>
 </head>
@@ -503,14 +519,18 @@
       <a href="#ch3">第3章</a>
       <a href="#map">考点地图</a>
     </nav>
-    <button type="button" class="print-btn" onclick="window.print()" title="按 A4 纵向打印">打印 A4</button>
+    <div class="view-switch" role="group" aria-label="版式">
+      <button type="button" data-view="wide">宽屏</button>
+      <button type="button" data-view="a4">A4 打印版</button>
+    </div>
+    <button type="button" class="print-btn" onclick="window.print()" title="按 A4 纵向打印">打印</button>
     <div class="badge">每点 3 题 · 含解析</div>
   </div>
 </header>
 
 <main class="wrap">
 
-  <p class="print-hint">打印提示：纸张选 A4，纵向，边距默认；建议勾选「背景图形」。点右上角「打印 A4」即可。</p>
+  <p class="print-hint">屏幕默认宽屏阅读。要按纸张看，点右上角「A4 打印版」，再点「打印」。纸张选 A4 纵向，建议勾选「背景图形」。</p>
 
   <div class="hero">
     <div class="k">普通高中教科书 · 山东科技教育出版社（鲁科版 2019）</div>
@@ -1360,6 +1380,32 @@
     window.addEventListener("beforeprint", function () { setDetailsOpen(true); });
     window.addEventListener("afterprint", function () { setDetailsOpen(false); });
   })();
+</script>
+<script>
+(function () {
+  var root = document.documentElement;
+  var buttons = document.querySelectorAll(".view-switch [data-view]");
+  function sync() {
+    var a4 = root.classList.contains("a4");
+    buttons.forEach(function (btn) {
+      btn.setAttribute("aria-pressed", String((btn.getAttribute("data-view") === "a4") === a4));
+    });
+  }
+  buttons.forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var a4 = btn.getAttribute("data-view") === "a4";
+      root.classList.toggle("a4", a4);
+      try {
+        localStorage.setItem("hs-view", a4 ? "a4" : "wide");
+        var url = new URL(location.href);
+        url.searchParams.set("view", a4 ? "a4" : "wide");
+        history.replaceState(null, "", url);
+      } catch (e) {}
+      sync();
+    });
+  });
+  sync();
+})();
 </script>
 </body>
 </html>

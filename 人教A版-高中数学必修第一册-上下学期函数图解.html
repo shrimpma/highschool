@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script>try{var q=new URLSearchParams(location.search).get("view");var m=q||localStorage.getItem("hs-view");if(m==="a4")document.documentElement.classList.add("a4")}catch(e){}</script>
 <meta name="description" content="人教A版高中数学必修第一册自学课件：上、下学期进度，五章知识点、例题解析与可交互D3函数图像。">
 <title>人教A版 · 数学必修第一册 | 上下学期函数图解</title>
 <style>
@@ -21,11 +22,15 @@ a{color:var(--teal);text-decoration:none}a:hover{text-decoration:underline}
 button,input{font:inherit}button{cursor:pointer}
 [hidden]{display:none!important}.skip{position:absolute;left:-999px}.skip:focus{left:1rem;top:1rem;z-index:999;background:#fff;padding:.6rem}
 .topbar{position:sticky;top:0;z-index:20;background:#142f37;color:#eaf4f2;box-shadow:0 1px 10px #142f371a}
-.bar-inner{max-width:1160px;margin:auto;display:flex;align-items:center;gap:1rem;padding:.65rem 1.3rem;flex-wrap:wrap}
+.bar-inner{max-width:1440px;margin:auto;display:flex;align-items:center;gap:1rem;padding:.65rem 1.3rem;flex-wrap:wrap}
 .brand{font-weight:700;white-space:nowrap}.brand small{display:block;font-size:.67rem;color:#94c9c1;font-weight:400;line-height:1.3}
 .nav{display:flex;gap:.25rem;flex:1;flex-wrap:wrap}.nav a{font-size:.8rem;color:#d0e1df;padding:.25rem .5rem;border-radius:4px}.nav a:hover{background:#28505a;text-decoration:none;color:#fff}
 .badge{font-size:.75rem;border:1px solid #52717a;border-radius:99px;padding:.2rem .6rem;white-space:nowrap}
-.wrap{max-width:1160px;margin:auto;padding:1.8rem 1.3rem 3rem}
+.wrap{max-width:1440px;margin:auto;padding:1.8rem 1.3rem 3rem}
+.view-switch{display:inline-flex;border:1px solid rgba(255,255,255,.28);border-radius:999px;overflow:hidden;flex:none}
+.view-switch button{appearance:none;background:transparent;color:#eaf4f2;border:0;cursor:pointer;font:inherit;font-size:.75rem;font-weight:700;padding:.28rem .7rem;white-space:nowrap}
+html:not(.a4) .view-switch [data-view="wide"],html.a4 .view-switch [data-view="a4"]{background:#c9a227;color:#1a2332}
+.print-btn{background:#c9a227;color:#1a2332;border:none;cursor:pointer;font-size:.75rem;font-weight:700;padding:.28rem .7rem;border-radius:999px;font-family:inherit;white-space:nowrap}
 .hero{position:relative;overflow:hidden;background:linear-gradient(120deg,#12333a,#095d5c);color:#fff;border-radius:16px;padding:2.3rem 2rem}
 .hero:after{content:"∫  π  ƒ";position:absolute;right:1.5rem;top:-2rem;font:7rem var(--serif);color:#ffffff09;transform:rotate(-8deg);pointer-events:none}
 .eyebrow{font:600 .76rem var(--mono);letter-spacing:.12em;color:#9cdbce;text-transform:uppercase}
@@ -56,7 +61,9 @@ details.example{background:#f7f9f9;border:1px solid var(--line);border-radius:8p
 :focus-visible{outline:3px solid #d87d32;outline-offset:3px}
 @media(max-width:760px){.wrap{padding:1rem .8rem 2rem}.bar-inner{padding:.55rem .8rem;gap:.45rem}.badge{display:none}.nav a{font-size:.73rem;padding:.2rem .3rem}.hero{padding:1.5rem 1.2rem}.grid2{grid-template-columns:1fr;gap:0}.card{padding:1rem}.toc{grid-template-columns:1fr}.controls{grid-template-columns:1fr;gap:.25rem}.graph-body{padding:.6rem}.graph-head{display:block}.graph-head h3{font-size:1rem}.term-button{padding:.7rem;gap:.45rem}.term-button .num{font-size:1.4rem}.term-button small{font-size:.7rem}.chapter-head{display:block}.chapter-head .tag{margin-top:.4rem}h2{font-size:1.22rem}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
-@media print{.topbar,.term-switch,.controls,.skip{display:none}.term-panel[hidden]{display:block!important}.card,.graph{break-inside:avoid}.wrap{max-width:none}.hero{background:#fff;color:#000;border:1px solid #000}.hero p,.eyebrow{color:#333}body{background:#fff}}
+@page{size:A4 portrait;margin:14mm 12mm 16mm 12mm}
+@media print{.topbar,.term-switch,.controls,.skip,.view-switch,.print-btn{display:none!important}.term-panel[hidden]{display:block!important}.card,.graph{break-inside:avoid}.wrap{max-width:none}.hero{background:#fff;color:#000;border:1px solid #000}.hero p,.eyebrow{color:#333}body{background:#fff}}
+@media screen{html.a4 .wrap,html.a4 .bar-inner{max-width:210mm}}
 </style>
 </head>
 <body>
@@ -68,6 +75,11 @@ details.example{background:#f7f9f9;border:1px solid var(--line);border-radius:8p
       <a href="index.html">← 首页</a><a href="#catalog">目录</a><a href="#first">上学期</a><a href="#second">下学期</a><a href="#review">总复习</a>
       <a href="菏泽一中-高一数学必修一自学课件.html">原自学课件 ↗</a>
     </nav>
+    <div class="view-switch" role="group" aria-label="版式">
+      <button type="button" data-view="wide">宽屏</button>
+      <button type="button" data-view="a4">A4 打印版</button>
+    </div>
+    <button type="button" class="print-btn" onclick="window.print()" title="按 A4 纵向打印">打印</button>
     <span class="badge">5 章 · 4 组互动图</span>
   </div>
 </header>
@@ -375,6 +387,32 @@ details.example{background:#f7f9f9;border:1px solid var(--line);border-radius:8p
 
   // Initialize only after chart state and render functions have been declared.
   showTerm(initialTerm);
+})();
+</script>
+<script>
+(function () {
+  var root = document.documentElement;
+  var buttons = document.querySelectorAll(".view-switch [data-view]");
+  function sync() {
+    var a4 = root.classList.contains("a4");
+    buttons.forEach(function (btn) {
+      btn.setAttribute("aria-pressed", String((btn.getAttribute("data-view") === "a4") === a4));
+    });
+  }
+  buttons.forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var a4 = btn.getAttribute("data-view") === "a4";
+      root.classList.toggle("a4", a4);
+      try {
+        localStorage.setItem("hs-view", a4 ? "a4" : "wide");
+        var url = new URL(location.href);
+        url.searchParams.set("view", a4 ? "a4" : "wide");
+        history.replaceState(null, "", url);
+      } catch (e) {}
+      sync();
+    });
+  });
+  sync();
 })();
 </script>
 </body>

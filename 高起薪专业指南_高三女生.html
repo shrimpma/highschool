@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>try{var q=new URLSearchParams(location.search).get("view");var m=q||localStorage.getItem("hs-view");if(m==="a4")document.documentElement.classList.add("a4")}catch(e){}</script>
 <title>近三年本科起薪最高的方向，和一个高三女生的选法</title>
 <style>
   :root{
@@ -29,10 +30,16 @@
     letter-spacing:.01em;
   }
   .wrap{
-    max-width:1020px;
+    max-width:1440px;
     margin:0 auto;
     padding:0 26px 90px;
   }
+  .view-bar{display:flex;gap:8px;align-items:center;padding:22px 0 0}
+  .view-switch{display:inline-flex;border:1px solid var(--ink);border-radius:999px;overflow:hidden}
+  .view-switch button{appearance:none;background:transparent;color:var(--ink);border:0;cursor:pointer;font:inherit;font-size:13px;font-weight:700;padding:6px 12px}
+  html:not(.a4) .view-switch [data-view="wide"],
+  html.a4 .view-switch [data-view="a4"]{background:var(--ink);color:var(--paper)}
+  .print-btn{background:transparent;color:var(--ink);border:1px solid var(--ink);border-radius:999px;font:inherit;font-size:13px;font-weight:700;padding:6px 12px;cursor:pointer}
   .measure{max-width:730px;}
 
   h1,h2,h3{
@@ -383,10 +390,16 @@
     table{font-size:13.5px;min-width:480px;}
     th,td{padding:7px 7px;}
   }
+  @page{size:A4 portrait;margin:14mm 12mm 16mm 12mm}
   @media print{
     body{background:#fff;}
+    .view-bar{display:none!important}
+    .wrap{max-width:none;padding:0}
     .gate{background:#eee;color:#000;}
     .gate p,.gate strong{color:#000;}
+  }
+  @media screen{
+    html.a4 .wrap{max-width:210mm}
   }
 </style>
 </head>
@@ -394,6 +407,13 @@
 <div class="wrap">
 
   <header>
+    <div class="view-bar">
+      <div class="view-switch" role="group" aria-label="版式">
+        <button type="button" data-view="wide">宽屏</button>
+        <button type="button" data-view="a4">A4 打印版</button>
+      </div>
+      <button type="button" class="print-btn" onclick="window.print()" title="按 A4 纵向打印">打印</button>
+    </div>
     <div class="kicker">麦可思《中国本科生就业报告》2023—2025 三届数据</div>
     <h1>三年高薪榜看下来，只有一个规律：<em>全是工科</em></h1>
     <p class="lede">
@@ -768,5 +788,31 @@
   </div>
 
 </div>
+<script>
+(function () {
+  var root = document.documentElement;
+  var buttons = document.querySelectorAll(".view-switch [data-view]");
+  function sync() {
+    var a4 = root.classList.contains("a4");
+    buttons.forEach(function (btn) {
+      btn.setAttribute("aria-pressed", String((btn.getAttribute("data-view") === "a4") === a4));
+    });
+  }
+  buttons.forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var a4 = btn.getAttribute("data-view") === "a4";
+      root.classList.toggle("a4", a4);
+      try {
+        localStorage.setItem("hs-view", a4 ? "a4" : "wide");
+        var url = new URL(location.href);
+        url.searchParams.set("view", a4 ? "a4" : "wide");
+        history.replaceState(null, "", url);
+      } catch (e) {}
+      sync();
+    });
+  });
+  sync();
+})();
+</script>
 </body>
 </html>

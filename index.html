@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
+<script>try{var q=new URLSearchParams(location.search).get("view");var m=q||localStorage.getItem("hs-view");if(m==="a4")document.documentElement.classList.add("a4")}catch(e){}</script>
 <title>高一上 · 自学课件索引</title>
 <style>
   :root {
@@ -50,7 +51,7 @@
     backdrop-filter: blur(8px);
   }
   .topbar-inner {
-    max-width: 1080px; margin: 0 auto; padding: .75rem 1.2rem;
+    max-width: 1440px; margin: 0 auto; padding: .75rem 1.2rem;
     display: flex; flex-wrap: wrap; gap: .6rem; align-items: center;
     justify-content: space-between;
   }
@@ -61,7 +62,7 @@
     padding: .28rem .7rem; border-radius: 999px; white-space: nowrap;
   }
 
-  .wrap { max-width: 1080px; margin: 0 auto; padding: 1.5rem 1.2rem 3.5rem; }
+  .wrap { max-width: 1440px; margin: 0 auto; padding: 1.5rem 1.2rem 3.5rem; }
 
   .hero {
     background: linear-gradient(140deg, #121c2a 0%, #1a3a5c 55%, #0d5c4c 100%);
@@ -195,11 +196,23 @@
     .grid { grid-template-columns: 1fr; }
   }
 
+  .view-switch {
+    display: inline-flex; border: 1px solid rgba(255,255,255,.28);
+    border-radius: 999px; overflow: hidden; flex: none;
+  }
+  .view-switch button {
+    appearance: none; background: transparent; color: #e8eef5;
+    border: 0; cursor: pointer; font-family: inherit;
+    font-size: .75rem; font-weight: 700; padding: .28rem .7rem; white-space: nowrap;
+  }
+  html:not(.a4) .view-switch [data-view="wide"],
+  html.a4 .view-switch [data-view="a4"] { background: #c9a227; color: #1a2332; }
   .print-btn {
-    background: #c9a227; color: #1a2332; border: none; cursor: pointer;
-    font-size: .75rem; font-weight: 700; padding: .28rem .7rem;
+    background: transparent; color: #e8eef5; border: 1px solid rgba(255,255,255,.28);
+    cursor: pointer; font-size: .75rem; font-weight: 700; padding: .28rem .7rem;
     border-radius: 999px; font-family: inherit; white-space: nowrap;
   }
+  .print-btn:hover { background: rgba(255,255,255,.08); }
 
   @page { size: A4 portrait; margin: 14mm 12mm 16mm 12mm; }
 
@@ -209,7 +222,7 @@
       font-size: 11pt; line-height: 1.45;
       -webkit-print-color-adjust: exact; print-color-adjust: exact;
     }
-    .topbar, .badge, .print-btn { display: none !important; }
+    .topbar, .badge, .print-btn, .view-switch { display: none !important; }
     .wrap { max-width: none; margin: 0; padding: 0; }
     .hero {
       background: #fff !important; color: #000 !important;
@@ -239,8 +252,8 @@
   }
 
   @media screen {
-    .wrap { max-width: 210mm; }
-    .topbar-inner { max-width: 210mm; }
+    html.a4 .wrap,
+    html.a4 .topbar-inner { max-width: 210mm; }
   }
 </style>
 </head>
@@ -249,7 +262,11 @@
 <header class="topbar">
   <div class="topbar-inner">
     <div class="brand">高一上 · 自学课件<small>首页索引</small></div>
-    <button type="button" class="print-btn" onclick="window.print()" title="按 A4 纵向打印">打印 A4</button>
+    <div class="view-switch" role="group" aria-label="版式">
+      <button type="button" data-view="wide">宽屏</button>
+      <button type="button" data-view="a4">A4 打印版</button>
+    </div>
+    <button type="button" class="print-btn" onclick="window.print()" title="按 A4 纵向打印">打印</button>
     <div class="badge">4 科 · 6 份课件</div>
   </div>
 </header>
@@ -393,6 +410,31 @@
   </footer>
 
 </main>
-
+<script>
+(function () {
+  var root = document.documentElement;
+  var buttons = document.querySelectorAll(".view-switch [data-view]");
+  function sync() {
+    var a4 = root.classList.contains("a4");
+    buttons.forEach(function (btn) {
+      btn.setAttribute("aria-pressed", String((btn.getAttribute("data-view") === "a4") === a4));
+    });
+  }
+  buttons.forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var a4 = btn.getAttribute("data-view") === "a4";
+      root.classList.toggle("a4", a4);
+      try {
+        localStorage.setItem("hs-view", a4 ? "a4" : "wide");
+        var url = new URL(location.href);
+        url.searchParams.set("view", a4 ? "a4" : "wide");
+        history.replaceState(null, "", url);
+      } catch (e) {}
+      sync();
+    });
+  });
+  sync();
+})();
+</script>
 </body>
 </html>
