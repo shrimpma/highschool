@@ -199,6 +199,44 @@
     margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--line);
   }
 
+  .viz {
+    margin: .85rem 0 1rem; background: #fff;
+    border: 1px solid var(--line); border-radius: 8px; overflow: hidden;
+  }
+  .viz-cap {
+    display: flex; flex-wrap: wrap; justify-content: space-between; gap: .35rem .8rem;
+    padding: .55rem .8rem; background: #f4f7fb; border-bottom: 1px solid var(--line); font-size: .82rem;
+  }
+  .viz-cap strong { color: var(--accent); }
+  .viz-cap span { color: var(--muted); }
+  .viz-stage { overflow-x: auto; padding: .2rem .4rem 0; }
+  .viz-stage svg { width: 100%; min-width: 640px; height: auto; display: block; }
+  .viz-ui {
+    display: flex; flex-wrap: wrap; gap: .55rem .8rem; align-items: center;
+    padding: .5rem .75rem .15rem;
+  }
+  .viz-ui label {
+    display: flex; align-items: center; gap: .45rem; flex: 1 1 230px;
+    font-size: .8rem; color: var(--muted);
+  }
+  .viz-ui label span { white-space: nowrap; }
+  .viz-ui input[type="range"] { flex: 1; min-width: 88px; accent-color: var(--accent); }
+  .viz-ui output {
+    font-family: var(--mono); color: var(--accent); font-weight: 700;
+    min-width: 4.8rem; font-size: .78rem;
+  }
+  .viz-ui button {
+    font: inherit; font-size: .78rem; font-weight: 700; cursor: pointer;
+    background: var(--accent); color: #fff; border: 1px solid var(--accent);
+    border-radius: 5px; padding: .28rem .7rem;
+  }
+  .viz-ui button:disabled { opacity: .55; cursor: default; }
+  .viz-seg { display: flex; flex-wrap: wrap; gap: .35rem; }
+  .viz-ui button.seg { background: #fff; color: var(--accent); }
+  .viz-ui button.seg[aria-pressed="true"] { background: var(--accent); color: #fff; }
+  .viz-read { margin: 0; padding: .4rem .8rem .75rem; font-size: .88rem; }
+  .viz-read b { color: var(--blue); }
+
   .stat-row {
     display: grid; grid-template-columns: repeat(3, 1fr); gap: .6rem; margin: .8rem 0 1rem;
   }
@@ -279,8 +317,17 @@
     }
     .kp {
       border: 0.75pt solid #444; border-radius: 0; background: #fff !important;
-      break-inside: avoid; page-break-inside: avoid; overflow: visible; margin: 0 0 8pt;
+      break-inside: auto; page-break-inside: auto; overflow: visible; margin: 0 0 8pt;
     }
+    .viz {
+      border: 0.6pt solid #666; border-radius: 0; background: #fff !important;
+      break-inside: avoid; page-break-inside: avoid;
+    }
+    .viz-cap { background: #f2f2f2 !important; }
+    .viz-cap strong, .viz-read, .viz-read b { color: #000 !important; }
+    .viz-ui { display: none !important; }
+    .viz-stage { overflow: visible !important; }
+    .viz-stage svg { min-width: 0 !important; }
     .kp-head { background: #e8e8e8 !important; border-bottom: 0.5pt solid #666; }
     .kp-head h3 { color: #000 !important; }
     .kp-id { background: #333 !important; color: #fff !important; border-radius: 0; }
@@ -348,7 +395,7 @@
       <button type="button" data-view="a4">A4 打印版</button>
     </div>
     <button type="button" class="print-btn" onclick="window.print()" title="按 A4 纵向打印">打印</button>
-    <div class="badge">每点 3 题 · 含解析</div>
+    <div class="badge">每点 3 题 · 配图解</div>
   </div>
 </header>
 
@@ -365,6 +412,7 @@
       <span class="chip">第3章 相互作用——力</span>
       <span class="chip">第4章 运动和力的关系</span>
       <span class="chip">专题 动力学综合应用</span>
+      <span class="chip">18 幅互动图解 · 离线可用</span>
     </div>
   </div>
 
@@ -420,6 +468,12 @@
         <div class="kp-brief">
           <strong>要点：</strong>质点是忽略物体大小、形状，用一个有质量的点代替研究对象的<b>理想化模型</b>；能否看作质点取决于"物体的大小和形状对所研究问题的影响能否忽略"，与物体本身尺寸大小无关。参考系是描述运动必须选定的参照物体；同一物体相对不同参考系的运动描述可以不同——<b>运动是绝对的，对运动的描述是相对的</b>。
         </div>
+        <figure class="viz" data-viz="frame">
+          <div class="viz-cap"><strong>图1 · 换一个参考系</strong><span>先看同速，再改成以甲车为参考系</span></div>
+          <div class="viz-stage"><svg viewBox="0 0 640 168" role="img" aria-label="两列车在地面参考系和甲车参考系中的运动"></svg></div>
+          <div class="viz-ui"></div>
+          <p class="viz-read" aria-live="polite"></p>
+        </figure>
 
         <div class="q">
           <div class="q-meta"><span class="tag tag-q">题1</span><span class="tag tag-hot">高频</span><span class="tag tag-type">选择题</span></div>
@@ -475,6 +529,12 @@
         <div class="kp-brief">
           <strong>要点：</strong>时刻是时间轴上的一点（如"第3s末"），时间间隔是两时刻之差、对应一个过程（如"第3s内""第2s到第5s内"）。路程是运动轨迹的实际长度，<b>标量</b>，恒为正；位移是由初位置指向末位置的有向线段，<b>矢量</b>，一维直线运动中可用正负表示方向：<span class="formula">x = x末 − x初</span>位移大小 ≤ 路程，只有单方向直线运动时位移大小才等于路程。
         </div>
+        <figure class="viz" data-viz="disp">
+          <div class="viz-cap"><strong>图2 · 路程和位移不是同一段线</strong><span>对应本节计算题：O→A→B</span></div>
+          <div class="viz-stage"><svg viewBox="0 0 640 252" role="img" aria-label="从原点到6米再回到2米，同时标出路程、位移、时刻和时间间隔"></svg></div>
+          <div class="viz-ui"></div>
+          <p class="viz-read" aria-live="polite"></p>
+        </figure>
 
         <div class="q">
           <div class="q-meta"><span class="tag tag-q">题1</span><span class="tag tag-hot">高频</span><span class="tag tag-type">选择题</span></div>
@@ -533,6 +593,12 @@
           <div class="formula">平均速率 = 路程/时间　（标量，一般 ≠ 平均速度大小）</div>
           瞬时速度：某时刻（或某位置）对应的速度，矢量，方向为该时刻的运动方向。速度与速率的区别：速度是矢量，速率是速度的大小（标量）。单位：m/s，1 m/s = 3.6 km/h。
         </div>
+        <figure class="viz" data-viz="xt">
+          <div class="viz-cap"><strong>图3 · x-t 图像的斜率</strong><span>对应本节图像题</span></div>
+          <div class="viz-stage"><svg viewBox="0 0 640 220" role="img" aria-label="位移时间图像，蓝线斜率是瞬时速度，虚线斜率是平均速度"></svg></div>
+          <div class="viz-ui"></div>
+          <p class="viz-read" aria-live="polite"></p>
+        </figure>
 
         <div class="q">
           <div class="q-meta"><span class="tag tag-q">题1</span><span class="tag tag-hot">高频</span><span class="tag tag-type">选择题</span></div>
@@ -592,6 +658,12 @@
           <div class="formula">a = Δv/Δt = (v末 − v初)/Δt　（矢量，方向与 Δv 方向相同）</div>
           加速度描述速度<b>变化的快慢</b>，与速度大小<b>没有必然关系</b>：速度很大时加速度可以为0（匀速）；速度为0时加速度可以很大（起步瞬间）。a 与 v 同向→加速；a 与 v 反向→减速。v-t 图像中，图线斜率表示加速度。
         </div>
+        <figure class="viz" data-viz="acc">
+          <div class="viz-cap"><strong>图4 · 加速度看的是速度变化</strong><span>把 a 调成负数，看图线穿过横轴</span></div>
+          <div class="viz-stage"><svg viewBox="0 0 640 190" role="img" aria-label="速度时间图像的斜率表示加速度，旁边用箭头标出速度和加速度的方向"></svg></div>
+          <div class="viz-ui"></div>
+          <p class="viz-read" aria-live="polite"></p>
+        </figure>
 
         <div class="q">
           <div class="q-meta"><span class="tag tag-q">题1</span><span class="tag tag-hot">高频</span><span class="tag tag-type">选择题</span></div>
@@ -665,6 +737,12 @@
           <strong>要点：</strong>电磁打点计时器用 <b>4~6V 交流</b>电源；电火花计时器用 <b>220V 交流</b>电源。打点时间间隔由电源频率决定（常用50Hz，相邻点时间间隔 T=0.02s），与电压大小无关。<br>
           中间时刻速度法：<span class="formula">vₙ ≈ (xₙ + xₙ₊₁) / (2T)</span>　逐差法求加速度（6段为例）：<span class="formula">a = [(x₄+x₅+x₆) − (x₁+x₂+x₃)] / (9T²)</span>
         </div>
+        <figure class="viz" data-viz="tape">
+          <div class="viz-cap"><strong>图5 · 纸带上的相等时间</strong><span>点距用的就是本节计算题的 2、3、4、5、6、7 cm</span></div>
+          <div class="viz-stage"><svg viewBox="0 0 640 180" role="img" aria-label="打点纸带，前三段和后三段用不同颜色标出，用来做逐差法"></svg></div>
+          <div class="viz-ui"></div>
+          <p class="viz-read" aria-live="polite"></p>
+        </figure>
 
         <div class="q">
           <div class="q-meta"><span class="tag tag-q">题1</span><span class="tag tag-hot">高频</span><span class="tag tag-type">选择题</span></div>
@@ -723,6 +801,12 @@
           <div class="formula">v = v₀ + at</div>
           v-t 图像为倾斜直线：斜率 = a，截距（t=0时）= v₀；图线与时间轴所夹面积 = 位移（下节会用到）。应用时须先规定正方向，与正方向相反的量代入负值。
         </div>
+        <figure class="viz" data-viz="vt">
+          <div class="viz-cap"><strong>图6 · v = v₀ + at</strong><span>斜率是加速度，涂色面积是位移</span></div>
+          <div class="viz-stage"><svg viewBox="0 0 640 210" role="img" aria-label="可调初速度和加速度的速度时间图像，面积表示位移"></svg></div>
+          <div class="viz-ui"></div>
+          <p class="viz-read" aria-live="polite"></p>
+        </figure>
 
         <div class="q">
           <div class="q-meta"><span class="tag tag-q">题1</span><span class="tag tag-hot">高频</span><span class="tag tag-type">计算</span></div>
@@ -777,6 +861,12 @@
           <div class="formula">重要推论（逐差法基础）：Δx = aT²　（连续相等时间T内的位移差恒为 aT²）</div>
           初速度为0的匀加速直线运动，比例关系：各T末速度之比 1:2:3…；各T内位移之比 1:4:9…；第n个T内位移之比 1:3:5…（奇数比）。
         </div>
+        <figure class="viz" data-viz="move">
+          <div class="viz-cap"><strong>图7 · 1∶3∶5，以及刹车不能直接代 10 s</strong><span>红虚线是已经停下后不该再画的那段</span></div>
+          <div class="viz-stage"><svg viewBox="0 0 640 268" role="img" aria-label="相等时间内位移之比为1比3比5，以及刹车后速度在4秒减到零的速度时间图像"></svg></div>
+          <div class="viz-ui"></div>
+          <p class="viz-read" aria-live="polite"></p>
+        </figure>
 
         <div class="q">
           <div class="q-meta"><span class="tag tag-q">题1</span><span class="tag tag-hot">高频</span><span class="tag tag-type">计算</span></div>
@@ -832,6 +922,12 @@
           <div class="formula">v = gt　　h = ½gt²　　v² = 2gh</div>
           竖直上抛（拓展，常考）：取竖直向上为正，<span class="formula">v=v₀−gt，h=v₀t−½gt²</span>；上升最大高度 H=v₀²/(2g)；上升时间=回到原点所用下降时间=v₀/g；具有<b>对称性</b>：同一位置经过时速度大小相等方向相反。伽利略通过"冲淡重力"的斜面实验和逻辑推理，否定了亚里士多德"重物下落快"的观点，证明不计空气阻力时一切物体下落加速度相同——体现了逻辑推理与实验验证相结合的科学方法。
         </div>
+        <figure class="viz" data-viz="toss">
+          <div class="viz-cap"><strong>图8 · 竖直上抛</strong><span>向上为正。默认 v₀=20 m/s，可拖到 t=3 s 对题</span></div>
+          <div class="viz-stage"><svg viewBox="0 0 640 236" role="img" aria-label="小球竖直上抛，标出高度、速度方向和最高点"></svg></div>
+          <div class="viz-ui"></div>
+          <p class="viz-read" aria-live="polite"></p>
+        </figure>
 
         <div class="q">
           <div class="q-meta"><span class="tag tag-q">题1</span><span class="tag tag-hot">高频</span><span class="tag tag-type">计算</span></div>
@@ -898,6 +994,12 @@
           <strong>要点：</strong>力是物体间的相互作用，矢量，三要素为大小、方向、作用点。重力 G=mg，方向竖直向下，作用点为重心。弹力产生条件：①直接接触；②发生弹性形变。<b>弹力方向判断口诀</b>：绳的拉力沿绳方向，指向绳收缩的方向（只能拉不能压）；面与面接触的弹力垂直于接触面，指向被支持（被压）的物体。
           <div class="formula">胡克定律：F = kx　（k为劲度系数，x为形变量，弹性限度内）</div>
         </div>
+        <figure class="viz" data-viz="spring">
+          <div class="viz-cap"><strong>图9 · 胡克定律</strong><span>静止时弹力等于重力。伸长在图上放大了</span></div>
+          <div class="viz-stage"><svg viewBox="0 0 640 280" role="img" aria-label="弹簧悬挂重物，伸长随质量和劲度系数变化"></svg></div>
+          <div class="viz-ui"></div>
+          <p class="viz-read" aria-live="polite"></p>
+        </figure>
 
         <div class="q">
           <div class="q-meta"><span class="tag tag-q">题1</span><span class="tag tag-hot">高频</span><span class="tag tag-type">判断说明</span></div>
@@ -953,6 +1055,12 @@
           <div class="formula">f = μN　（μ为动摩擦因数，N为接触面间的正压力，与接触面积无关）</div>
           最大静摩擦力略大于滑动摩擦力，中学阶段常近似认为二者相等。
         </div>
+        <figure class="viz" data-viz="friction">
+          <div class="viz-cap"><strong>图10 · 静摩擦会“跟着”拉力变</strong><span>最大静摩擦 6 N，对应本节易错题</span></div>
+          <div class="viz-stage"><svg viewBox="0 0 640 186" role="img" aria-label="水平面上的木块，拉力不超过6牛时静止，超过后滑动"></svg></div>
+          <div class="viz-ui"></div>
+          <p class="viz-read" aria-live="polite"></p>
+        </figure>
 
         <div class="q">
           <div class="q-meta"><span class="tag tag-q">题1</span><span class="tag tag-hot">高频</span><span class="tag tag-type">选择题</span></div>
@@ -1014,6 +1122,12 @@
           <div class="box a"><strong>作用力与反作用力</strong><br>作用在两个不同物体上；性质一定相同；一定同时产生、同时消失，不能单独存在。</div>
           <div class="box b"><strong>一对平衡力</strong><br>作用在同一个物体上；性质可以不同；某一个力可单独存在，不要求同时产生消失。</div>
         </div>
+        <figure class="viz" data-viz="n3">
+          <div class="viz-cap"><strong>图11 · 力画在谁身上</strong><span>先看作用在几个物体上</span></div>
+          <div class="viz-stage"><svg viewBox="0 0 640 196" role="img" aria-label="左图马拉车和车拉马分别作用在两个物体上，右图重力和支持力都作用在车上"></svg></div>
+          <div class="viz-ui"></div>
+          <p class="viz-read" aria-live="polite"></p>
+        </figure>
 
         <div class="q">
           <div class="q-meta"><span class="tag tag-q">题1</span><span class="tag tag-hot">高频</span><span class="tag tag-type">经典选择</span></div>
@@ -1077,6 +1191,12 @@
         <div class="kp-brief">
           <strong>要点：</strong>合力与分力是<b>等效替代</b>关系，遵循<b>平行四边形定则</b>。两个共点力的合力范围：<span class="formula">|F₁−F₂| ≤ F合 ≤ F₁+F₂</span>夹角90°时常用勾股定理：F合=√(F₁²+F₂²)。力的分解通常按<b>实际作用效果</b>分解（如斜面上重力分解为沿斜面的下滑分力和垂直斜面的压力分力）。
         </div>
+        <figure class="viz" data-viz="para">
+          <div class="viz-cap"><strong>图12 · 平行四边形定则</strong><span>F₁=6 N，F₂=8 N。拖动夹角</span></div>
+          <div class="viz-stage"><svg viewBox="0 0 640 220" role="img" aria-label="两个力按平行四边形合成，合力随夹角变化"></svg></div>
+          <div class="viz-ui"></div>
+          <p class="viz-read" aria-live="polite"></p>
+        </figure>
 
         <div class="q">
           <div class="q-meta"><span class="tag tag-q">题1</span><span class="tag tag-hot">高频</span><span class="tag tag-type">计算</span></div>
@@ -1132,6 +1252,12 @@
           <div class="formula">ΣFx = 0　　ΣFy = 0</div>
           动态平衡问题（一个力大小方向都变化，分析另一个力的变化趋势）常用<b>图解法</b>：把不变的力画出，变化的力画出方向变化范围，结合几何关系（常用"垂线最短"）判断变化趋势。
         </div>
+        <figure class="viz" data-viz="incline">
+          <div class="viz-cap"><strong>图13 · 斜面上的静止</strong><span>摩擦力用平衡求，不直接套 μN</span></div>
+          <div class="viz-stage"><svg viewBox="0 0 640 230" role="img" aria-label="静止在斜面上的物体，重力沿斜面和垂直斜面的两个分力"></svg></div>
+          <div class="viz-ui"></div>
+          <p class="viz-read" aria-live="polite"></p>
+        </figure>
 
         <div class="q">
           <div class="q-meta"><span class="tag tag-q">题1</span><span class="tag tag-hot">高频</span><span class="tag tag-type">计算</span></div>
@@ -1199,6 +1325,12 @@
         <div class="kp-brief">
           <strong>要点：</strong>牛顿第一定律（惯性定律）：一切物体总保持匀速直线运动状态或静止状态，直到有外力迫使它改变这种状态为止。<b>力不是维持运动的原因，而是改变运动状态（产生加速度）的原因</b>。惯性：物体保持原有运动状态的性质，<b>大小只由质量决定</b>，与速度大小、是否受力、是否运动无关。
         </div>
+        <figure class="viz" data-viz="inertia">
+          <div class="viz-cap"><strong>图14 · 急刹车时人为什么前倾</strong><span>示意图，惯性不是力</span></div>
+          <div class="viz-stage"><svg viewBox="0 0 640 186" role="img" aria-label="车厢里的人在急刹车时上半身向前倾"></svg></div>
+          <div class="viz-ui"></div>
+          <p class="viz-read" aria-live="polite"></p>
+        </figure>
 
         <div class="q">
           <div class="q-meta"><span class="tag tag-q">题1</span><span class="tag tag-hot">高频</span><span class="tag tag-type">选择题</span></div>
@@ -1262,6 +1394,12 @@
           <div class="formula">F合 = ma　（矢量式，a 方向与 F合 方向相同）</div>
           力的单位：牛顿(N)，1N=1kg·m/s²。力学单位制中，长度(m)、质量(kg)、时间(s)是基本单位，速度、加速度、力等是导出单位。解题两类基本问题：①已知受力求运动（先求a，再用运动学公式）；②已知运动求受力（先用运动学公式求a，再用F=ma求力）。
         </div>
+        <figure class="viz" data-viz="newton">
+          <div class="viz-cap"><strong>图15 · a = F/m</strong><span>这里的 F 是合外力。默认 6 N、2 kg</span></div>
+          <div class="viz-stage"><svg viewBox="0 0 640 214" role="img" aria-label="合外力和质量变化时，加速度等于力除以质量"></svg></div>
+          <div class="viz-ui"></div>
+          <p class="viz-read" aria-live="polite"></p>
+        </figure>
 
         <div class="q">
           <div class="q-meta"><span class="tag tag-q">题1</span><span class="tag tag-hot">高频</span><span class="tag tag-type">计算</span></div>
@@ -1319,6 +1457,12 @@
         <div class="kp-brief">
           <strong>要点：</strong>牛顿运动定律只适用于<b>宏观、低速（远小于光速）</b>的物体。研究接近光速运动的物体需要用相对论力学；研究微观粒子需要用量子力学。在适用范围内，牛顿定律仍是分析宏观低速力学问题最基本、最重要的工具（高考绝大多数力学问题都在其适用范围内）。
         </div>
+        <figure class="viz" data-viz="limit">
+          <div class="viz-cap"><strong>图16 · 什么时候还能用牛顿定律</strong><span>宏观、低速</span></div>
+          <div class="viz-stage"><svg viewBox="0 0 640 156" role="img" aria-label="三类问题分别对应牛顿定律、相对论和量子力学"></svg></div>
+          <div class="viz-ui"></div>
+          <p class="viz-read" aria-live="polite"></p>
+        </figure>
 
         <div class="q">
           <div class="q-meta"><span class="tag tag-q">题1</span><span class="tag tag-hot">高频</span><span class="tag tag-type">概念选择</span></div>
@@ -1384,6 +1528,12 @@
           <div class="formula">N = m(g−a) ＜ mg</div>
           <b>完全失重</b>：a=g（方向向下）时，N=0。注意：超重、失重时物体<b>重力本身大小不变</b>，改变的是对支持物/悬挂物的作用力（"视重"）。
         </div>
+        <figure class="viz" data-viz="lift">
+          <div class="viz-cap"><strong>图17 · 电梯里的体重计</strong><span>m=50 kg，g=10 m/s²，加速时 a=2 m/s²</span></div>
+          <div class="viz-stage"><svg viewBox="0 0 640 248" role="img" aria-label="电梯中的人站在体重计上，不同运动状态下示数不同"></svg></div>
+          <div class="viz-ui"></div>
+          <p class="viz-read" aria-live="polite"></p>
+        </figure>
 
         <div class="q">
           <div class="q-meta"><span class="tag tag-q">题1</span><span class="tag tag-hot">高频</span><span class="tag tag-type">经典选择·电梯问题</span></div>
@@ -1457,6 +1607,12 @@
           <strong>要点：</strong><b>整体法</b>：若几个连接在一起的物体具有相同加速度，可看作一个整体，只分析整体受到的外力（内部相互作用力无需考虑），求整体加速度。<b>隔离法</b>：要求某两物体间的相互作用力（绳的张力、物体间压力等），需把其中一个物体单独隔离，结合牛顿第二定律求解。<b>一般顺序：整体法求 a → 隔离法求内力</b>。<br>
           <b>传送带模型</b>：先比较物体与传送带的速度关系，判断摩擦力方向；分段讨论（通常先加速或减速，达到与传送带共速后再判断是否保持相对静止）。
         </div>
+        <figure class="viz" data-viz="belt">
+          <div class="viz-cap"><strong>图18 · 先整体后隔离，再看传送带</strong><span>摩擦力可以是动力</span></div>
+          <div class="viz-stage"><svg viewBox="0 0 640 200" role="img" aria-label="两个物体用绳连接，以及木块在传送带上被摩擦力加速到与带同速"></svg></div>
+          <div class="viz-ui"></div>
+          <p class="viz-read" aria-live="polite"></p>
+        </figure>
 
         <div class="q">
           <div class="q-meta"><span class="tag tag-q">题1</span><span class="tag tag-hot">高频</span><span class="tag tag-type">整体法隔离法</span></div>
@@ -1537,11 +1693,12 @@
 
   <footer>
     <p>教材：人民教育出版社《普通高中教科书·物理》必修第一册（人教版 2019）</p>
-    <p style="margin-top:.3rem">18 个核心知识点 · 54 道经典考题（含答案解析）· 仅供自学梳理，以教材与教师讲解为准</p>
+    <p style="margin-top:.3rem">18 个核心知识点 · 54 道经典考题（含答案解析）· 18 幅互动图解 · 仅供自学梳理，以教材与教师讲解为准</p>
   </footer>
 
 </main>
 
+<script src="vendor/physics-b1-viz.js"></script>
 <script>
   (function () {
     function setDetailsOpen(open) {
