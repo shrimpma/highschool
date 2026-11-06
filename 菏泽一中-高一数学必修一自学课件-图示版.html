@@ -110,6 +110,11 @@ tbody tr:nth-child(even) td{background:#fcfaf7}
 .mini.gold h4{color:var(--gold)}
 .mini.green{border-top-color:var(--green)}
 .mini.green h4{color:var(--green)}
+.power-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:.75rem;margin:.9rem 0}
+.power-card{background:#fff;border:1px solid var(--line);border-radius:9px;padding:.5rem .55rem .45rem;min-width:0}
+.power-card h4{margin:0 0 .1rem;font-size:.88rem;color:var(--accent);text-align:center}
+.power-card svg{display:block;width:100%;height:auto}
+.power-card p{font-size:.75rem;color:var(--muted);line-height:1.55;margin:.2rem 0 0}
 
 .diagram{margin:1rem 0;background:#fbf9f5;border:1px solid var(--line);border-radius:10px;padding:.9rem 1rem .7rem}
 .diagram svg{display:block;width:100%;height:auto;max-width:100%;margin:0 auto}
@@ -235,11 +240,11 @@ footer{border-top:1px solid var(--line);padding-top:1rem;margin-top:2rem;text-al
   .hero h1{font-size:17pt;color:#000}
   h2,h3,h4{color:#000}
   h2{border-bottom:1.2pt solid #000}
-  .notice,.plain,.mustbox,.pitfall,.music{background:#f7f7f7!important;border:0.5pt solid #888;border-left-width:2.5pt}
+  .notice,.plain,.mustbox,.pitfall,.life{background:#f7f7f7!important;border:0.5pt solid #888;border-left-width:2.5pt}
   .term-band{background:#fff!important;color:#000!important;border:1pt solid #333;padding:6pt 9pt}
   .term-band h2,.term-band p,.term-band .num,.term-band .range{color:#000!important}
   .term-band .range{background:#fff!important;border-color:#888!important}
-  .card,.example,.diagram,.mini,.fcard{background:#fff!important;box-shadow:none!important;break-inside:avoid;page-break-inside:avoid}
+  .card,.example,.diagram,.mini,.power-card,.fcard{background:#fff!important;box-shadow:none!important;break-inside:avoid;page-break-inside:avoid}
   .topic,.paper{background:#fff!important;box-shadow:none!important;break-inside:auto;page-break-inside:auto}
   .topic{border:0.75pt solid #555;border-left:2.5pt solid #000}
   .diagram{border:0.5pt solid #999}
@@ -1135,29 +1140,80 @@ footer{border-top:1px solid var(--line);padding-top:1rem;margin-top:2rem;text-al
       </table>
     </div>
 
-    <div class="diagram">
-      <svg viewBox="0 0 660 400" role="img" aria-label="y等于x、x平方、x立方、x分之一、根号x五条幂函数曲线画在同一坐标系中，都经过点(1,1)">
-        <line x1="30" y1="210" x2="600" y2="210" class="svg-axis"/>
-        <line x1="300" y1="40" x2="300" y2="380" class="svg-axis"/>
-        <text x="604" y="228" class="svg-lbl">x</text>
-        <text x="312" y="46" class="svg-lbl">y</text>
-        <text x="286" y="228" class="svg-lbl">O</text>
-        <path d="M147,51 Q223.5,210 300,210 Q376.5,210 453,51" class="svg-curve gold"/>
-        <polyline points="170.4,374.2 174,360.9 192,305 210,265 228,238.2 246,221.9 264,213.5 282,210.4 300,210 318,209.6 336,206.5 354,198.1 372,181.8 390,155 408,115 426,59.1 429.6,45.8" fill="none" stroke="#2f6b4f" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
-        <polyline points="330,45 336,72.5 345,100 354,118.3 363,131.4 372,141.3 381,148.9 390,155 408,164.2 435,173.3 480,182.5 525,188 570,191.7" fill="none" stroke="#b04a3a" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-        <polyline points="270,375 264,347.5 255,320 246,301.7 237,288.6 228,278.8 219,271.1 210,265 192,255.8 165,246.7 120,237.5 75,232 30,228.3" fill="none" stroke="#b04a3a" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-        <polyline points="300,210 322.5,182.5 345,171.1 367.5,162.4 390,155 412.5,148.5 435,142.6 457.5,137.2 480,132.2 502.5,127.5 525,123 547.5,118.8 570,114.7" fill="none" stroke="#2b5d8c" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-        <line x1="66" y1="353" x2="534" y2="67" stroke="#6b3f8c" stroke-width="2.2" stroke-linecap="round"/>
-        <circle cx="390" cy="155" r="5" class="svg-pt"/>
-        <text x="402" y="148" class="svg-lbl strong">(1, 1)</text>
-        <text x="542" y="55" class="svg-lbl accent">y = x</text>
-        <text x="462" y="88" class="svg-lbl gold">y = x²</text>
-        <text x="440" y="40" class="svg-lbl green">y = x³</text>
-        <text x="524" y="166" class="svg-lbl coral">y = 1/x</text>
-        <text x="520" y="100" class="svg-lbl blue">y = √x</text>
-      </svg>
-      <p class="cap">五条曲线都过点 (1,1)。x³、1/x 是奇函数，x² 是偶函数；√x 只在 x ≥ 0 一侧有图象。</p>
+    <div class="power-grid">
+      <div class="power-card">
+        <h4>y = x</h4>
+        <svg viewBox="0 0 240 210" role="img" aria-label="y等于x的图象，一条过原点和(1,1)的直线">
+          <line x1="18" y1="110" x2="232" y2="110" class="svg-axis"/>
+          <line x1="120" y1="16" x2="120" y2="198" class="svg-axis"/>
+          <text x="234" y="126" text-anchor="end" class="svg-lbl">x</text>
+          <text x="126" y="26" class="svg-lbl">y</text>
+          <text x="112" y="124" text-anchor="end" class="svg-lbl">O</text>
+          <line x1="34.5" y1="195.5" x2="205.5" y2="24.5" class="svg-curve"/>
+          <circle cx="165" cy="65" r="4" class="svg-pt"/>
+          <text x="170" y="57" class="svg-lbl">(1,1)</text>
+        </svg>
+        <p>直线，奇函数，在 R 上单调递增。</p>
+      </div>
+      <div class="power-card">
+        <h4>y = x²</h4>
+        <svg viewBox="0 0 240 210" role="img" aria-label="y等于x平方的图象，开口向上的抛物线，过(1,1)">
+          <line x1="18" y1="110" x2="232" y2="110" class="svg-axis"/>
+          <line x1="120" y1="16" x2="120" y2="198" class="svg-axis"/>
+          <text x="234" y="126" text-anchor="end" class="svg-lbl">x</text>
+          <text x="126" y="26" class="svg-lbl">y</text>
+          <text x="112" y="124" text-anchor="end" class="svg-lbl">O</text>
+          <path d="M56.4,20 Q88.2,110 120,110 Q151.8,110 183.6,20" class="svg-curve"/>
+          <circle cx="165" cy="65" r="4" class="svg-pt"/>
+          <text x="170" y="57" class="svg-lbl">(1,1)</text>
+        </svg>
+        <p>抛物线，偶函数，最小值 0。</p>
+      </div>
+      <div class="power-card">
+        <h4>y = x³</h4>
+        <svg viewBox="0 0 240 210" role="img" aria-label="y等于x立方的图象，关于原点对称，过(1,1)">
+          <line x1="18" y1="110" x2="232" y2="110" class="svg-axis"/>
+          <line x1="120" y1="16" x2="120" y2="198" class="svg-axis"/>
+          <text x="234" y="126" text-anchor="end" class="svg-lbl">x</text>
+          <text x="126" y="26" class="svg-lbl">y</text>
+          <text x="112" y="124" text-anchor="end" class="svg-lbl">O</text>
+          <polyline points="63.3,200 70.5,169.9 75,155 84,133 93,119.7 102,112.9 111,110.4 120,110 129,109.6 138,107.1 147,100.3 156,87 165,65 169.5,50.1 176.7,20" class="svg-curve"/>
+          <circle cx="165" cy="65" r="4" class="svg-pt"/>
+          <text x="170" y="57" class="svg-lbl">(1,1)</text>
+        </svg>
+        <p>奇函数，在 R 上增，越往右越陡。</p>
+      </div>
+      <div class="power-card">
+        <h4>y = x<sup>−1</sup></h4>
+        <svg viewBox="0 0 240 210" role="img" aria-label="y等于x分之一的图象，两支双曲线，过(1,1)">
+          <line x1="18" y1="110" x2="232" y2="110" class="svg-axis"/>
+          <line x1="120" y1="16" x2="120" y2="198" class="svg-axis"/>
+          <text x="234" y="126" text-anchor="end" class="svg-lbl">x</text>
+          <text x="126" y="26" class="svg-lbl">y</text>
+          <text x="112" y="124" text-anchor="end" class="svg-lbl">O</text>
+          <polyline points="144.8,28.2 147,35 151.5,45.7 156,53.8 160.5,60 165,65 174,72.5 183,77.9 192,81.9 201,85 210,87.5 219,89.5" class="svg-curve"/>
+          <polyline points="95.2,191.8 93,185 88.5,174.3 84,166.3 79.5,160 75,155 66,147.5 57,142.1 48,138.1 39,135 30,132.5 21,130.5" class="svg-curve"/>
+          <circle cx="165" cy="65" r="4" class="svg-pt"/>
+          <text x="170" y="57" class="svg-lbl">(1,1)</text>
+        </svg>
+        <p>双曲线，奇函数，两段各自递减。</p>
+      </div>
+      <div class="power-card">
+        <h4>y = x<sup>1/2</sup></h4>
+        <svg viewBox="0 0 240 210" role="img" aria-label="y等于根号x的图象，只在x大于等于0时有曲线，过(1,1)">
+          <line x1="18" y1="110" x2="232" y2="110" class="svg-axis"/>
+          <line x1="120" y1="16" x2="120" y2="198" class="svg-axis"/>
+          <text x="234" y="126" text-anchor="end" class="svg-lbl">x</text>
+          <text x="126" y="26" class="svg-lbl">y</text>
+          <text x="112" y="124" text-anchor="end" class="svg-lbl">O</text>
+          <polyline points="120,110 131.3,87.5 142.5,78.2 153.8,71.1 165,65 176.3,59.7 187.5,54.9 198.8,50.5 210,46.4 219,43.3" class="svg-curve"/>
+          <circle cx="165" cy="65" r="4" class="svg-pt"/>
+          <text x="170" y="57" class="svg-lbl">(1,1)</text>
+        </svg>
+        <p>只在 x ≥ 0 有图象，非奇非偶，递增。</p>
+      </div>
     </div>
+    <p class="cap">五张图的曲线都经过点 (1,1)（图中圆点）。分开看形状，再对照上面的表格记定义域与单调性。</p>
 
     <div class="example">
       <p class="q"><b>例 1</b>　判断 f(x) = x³ + x 的奇偶性。</p>
