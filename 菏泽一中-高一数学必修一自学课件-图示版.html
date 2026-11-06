@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script>try{var q=new URLSearchParams(location.search).get("view");var m=q||localStorage.getItem("hs-view");if(m==="a4")document.documentElement.classList.add("a4")}catch(e){}</script>
-<meta name="description" content="菏泽一中高一数学（音乐班）自学课件：人教A版必修第一册，11个专题、图示讲解、按上下学期编排，目标80/100。">
-<title>菏泽一中 · 高一数学（音乐班）自学课件 | 人教A版必修第一册 · 目标80/100</title>
+<meta name="description" content="菏泽一中高一数学自学课件（图示版）：人教A版必修第一册，11个专题、图示讲解、按上下学期编排，目标80/100。">
+<title>菏泽一中 · 高一数学自学课件（图示版） | 人教A版必修第一册 · 目标80/100</title>
 <style>
 :root{
   --ink:#2a2233; --muted:#6b6478; --line:#e3dcec; --bg:#f5f0e8; --card:#fffdfa;
@@ -60,8 +60,7 @@ td.mono{white-space:nowrap}
 .mono{font-family:var(--font-mono)}
 
 .hero{position:relative;overflow:hidden;background:linear-gradient(130deg,#2b1f38 0%,#4a2d5e 55%,#6b3f8c 100%);color:#f4eefb;border-radius:16px;padding:2.4rem 2rem 2.1rem;margin-bottom:1.3rem}
-.hero::after{content:"♪";position:absolute;right:1.2rem;top:-3.6rem;font:13rem/1 var(--font-display);color:rgba(255,255,255,.07);transform:rotate(-12deg);pointer-events:none}
-.hero::before{content:"";position:absolute;left:0;right:0;bottom:0;height:110px;background:repeating-linear-gradient(180deg,transparent 0 15px,rgba(255,255,255,.055) 15px 16px);pointer-events:none}
+.hero::after{content:"π";position:absolute;right:1.4rem;top:-1.8rem;font:12rem/1 var(--font-display);color:rgba(255,255,255,.08);transform:rotate(-10deg);pointer-events:none}
 .hero .kicker{font-family:var(--font-mono);font-size:.77rem;letter-spacing:.12em;color:#d9c2ee;margin-bottom:.5rem;position:relative;z-index:1}
 .hero h1{font-family:var(--font-display);font-size:clamp(1.6rem,3.8vw,2.35rem);line-height:1.38;margin-bottom:.6rem;position:relative;z-index:1}
 .hero p{color:#ddcfe9;max-width:48rem;position:relative;z-index:1}
@@ -90,8 +89,8 @@ td.mono{white-space:nowrap}
 .mustbox strong{color:var(--green)}
 .pitfall{background:var(--coral-soft);border-left:4px solid var(--coral);border-radius:0 8px 8px 0;padding:.7rem .95rem;margin:.8rem 0;font-size:.93rem}
 .pitfall strong{color:var(--coral)}
-.music{background:#f3edf9;border:1px dashed #b79ccc;border-radius:8px;padding:.65rem .95rem;margin:.8rem 0;font-size:.9rem;color:#4a2d5e}
-.music::before{content:"♪ 音乐里的数学";display:block;font-weight:700;font-size:.77rem;letter-spacing:.05em;color:var(--accent);margin-bottom:.15rem}
+.life{background:#f3edf9;border:1px dashed #b79ccc;border-radius:8px;padding:.65rem .95rem;margin:.8rem 0;font-size:.9rem;color:#4a2d5e}
+.life::before{content:"生活中的数学";display:block;font-weight:700;font-size:.77rem;letter-spacing:.05em;color:var(--accent);margin-bottom:.15rem}
 
 .formula{font-family:var(--font-mono);background:#f7f4fb;border:1px dashed #c3b2d4;border-radius:6px;padding:.6rem .8rem;margin:.5rem 0 .75rem;font-size:.89rem;overflow-x:auto;line-height:1.95}
 .formula b{color:var(--accent)}
@@ -121,6 +120,7 @@ tbody tr:nth-child(even) td{background:#fcfaf7}
 .svg-curve.gold{stroke:var(--gold)}
 .svg-curve.green{stroke:var(--green)}
 .svg-curve.blue{stroke:var(--blue)}
+.svg-curve.coral{stroke:var(--coral)}
 .svg-dash{fill:none;stroke:#a79bb4;stroke-width:1.2;stroke-dasharray:5 4}
 .svg-pt{fill:#fff;stroke:var(--gold);stroke-width:2}
 .svg-pt.accent{stroke:var(--accent)}
@@ -147,6 +147,32 @@ summary:hover{text-decoration:underline}
 .steps{display:flex;flex-wrap:wrap;gap:.45rem;align-items:center;margin:.8rem 0}
 .steps span{background:var(--accent-soft);border:1px solid #d9c8e8;border-radius:999px;padding:.28rem .78rem;font-size:.81rem;font-weight:700;color:var(--accent)}
 .steps i{color:var(--muted);font-style:normal}
+
+.legend{display:flex;flex-wrap:wrap;gap:.9rem;justify-content:center;font-size:.79rem;color:var(--muted);margin:.35rem 0 .1rem}
+.legend span{display:inline-flex;align-items:center;gap:.35rem}
+.legend i{display:inline-block;width:20px;height:3px;border-radius:2px;background:var(--accent)}
+.legend i.gold{background:var(--gold)}
+.legend i.green{background:var(--green)}
+.legend i.blue{background:var(--blue)}
+.legend i.coral{background:var(--coral)}
+.legend i.dash{height:0;background:none;border-top:2px dashed #a79bb4;border-radius:0}
+
+.topic-nav{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:.8rem 0}
+.topic-nav-group{background:#fff;border:1px solid var(--line);border-radius:10px;padding:.85rem 1rem}
+.topic-nav-group h3{margin:0 0 .45rem;font-size:.95rem;color:var(--accent)}
+.topic-nav-group.second h3{color:var(--green)}
+.topic-nav-group a{display:flex;align-items:baseline;gap:.55rem;padding:.26rem .1rem;border-bottom:1px dashed #eee6f3;font-size:.86rem;color:var(--ink)}
+.topic-nav-group a:last-child{border-bottom:0}
+.topic-nav-group a b{font-family:var(--font-mono);color:var(--gold);font-size:.75rem;min-width:1.4rem}
+.topic-nav-group a:hover{color:var(--accent);text-decoration:none}
+
+.term2-wrap{margin:2.2rem 0 1rem;scroll-margin-top:6.5rem}
+.term2-wrap>summary{list-style:none;cursor:pointer;margin:0;outline-offset:4px}
+.term2-wrap>summary::-webkit-details-marker{display:none}
+.term2-wrap>summary.term-band{margin:0}
+.term2-wrap .chev{display:inline-block;margin-left:.3rem;transition:transform .2s}
+.term2-wrap[open] .chev{transform:rotate(90deg)}
+.term2-wrap[open] .topic:first-of-type{margin-top:1rem}
 
 .scorebars{background:#fff;border:1px solid var(--line);border-radius:10px;padding:1rem 1.1rem;margin:.8rem 0}
 .score-row{display:grid;grid-template-columns:4.5rem 1fr 3rem;gap:.6rem;align-items:center;margin:.45rem 0;font-size:.86rem}
@@ -237,7 +263,7 @@ footer{border-top:1px solid var(--line);padding-top:1rem;margin-top:2rem;text-al
   .topic{padding:1rem}
   .topic-head{flex-wrap:wrap}
   .tagrow{margin-left:0;width:100%;justify-content:flex-start}
-  .grid2,.grid3{grid-template-columns:1fr}
+  .grid2,.grid3,.topic-nav{grid-template-columns:1fr}
   .opts{grid-template-columns:1fr}
   .score-row{grid-template-columns:3.6rem 1fr 2.6rem}
   .term-band .range{margin-left:0}
@@ -248,11 +274,12 @@ footer{border-top:1px solid var(--line);padding-top:1rem;margin-top:2rem;text-al
 
 <header class="topbar">
   <div class="topbar-inner">
-    <div class="brand">数学 · 音乐班版<small>人教 A 版 · 必修第一册</small></div>
+    <div class="brand">数学 · 图示版<small>人教 A 版 · 必修第一册</small></div>
     <nav class="nav" aria-label="课件导航">
       <a href="index.html">← 首页</a>
       <a href="#howto">怎么用</a>
       <a href="#score">80 分地图</a>
+      <a href="#topics">专题</a>
       <a href="#term1">上学期</a>
       <a href="#term2">下学期</a>
       <a href="#exam">自测卷</a>
@@ -271,9 +298,9 @@ footer{border-top:1px solid var(--line);padding-top:1rem;margin-top:2rem;text-al
 <main class="wrap">
 
   <section class="hero" aria-label="课件说明">
-    <div class="kicker">菏泽一中 · 高一数学 · 音乐班自学版</div>
+    <div class="kicker">菏泽一中 · 高一数学 · 图示自学版</div>
     <h1>必修第一册，<br>用图和例子把数学读懂</h1>
-    <p>这份课件专为音乐班同学编写：少一点术语，多一点图和例子；把教材五章拆成 11 个专题，标清上学期和下学期。目标不是满分，而是把能拿的 <strong style="color:#fff">80 分</strong> 稳稳拿到。</p>
+    <p>这份课件用更通俗的说法和更多图示来讲解：把教材五章拆成 11 个专题，标清上学期和下学期。目标不是满分，而是把能拿的 <strong style="color:#fff">80 分</strong> 稳稳拿到。</p>
     <div class="chips">
       <span class="chip">教材：人教 A 版 · 必修第一册</span>
       <span class="chip">11 个专题</span>
@@ -333,8 +360,32 @@ footer{border-top:1px solid var(--line);padding-top:1rem;margin-top:2rem;text-al
     <div class="plain">
       <b>三不原则：</b>不空题（选择填空不会也要填一个）、不跳步（大题写清步骤，步骤分很值钱）、不恋战（一道题超过 5 分钟没思路，先跳过，回头再看）。
     </div>
-    <div class="music">
-      音乐生的优势是“节奏感”和“反复练”。数学一样：一个题型练三遍，比看十遍解析更有用。把每个专题当成一首曲子，先慢练，再合手。
+    <div class="life">
+      一个题型练三遍，比看十遍解析更有用：第一遍跟着例题走，第二遍合上答案自己写，第三遍隔天再做一次。
+    </div>
+  </section>
+
+  <section id="topics">
+    <h2>专题目录</h2>
+    <p class="lead">点专题直接跳转。下学期默认收起，点“下学期”或任意下学期专题会自动展开。</p>
+    <div class="topic-nav">
+      <div class="topic-nav-group">
+        <h3>上学期 · 专题 1—6</h3>
+        <a href="#t1"><b>01</b>集合与运算</a>
+        <a href="#t2"><b>02</b>充分条件与必要条件</a>
+        <a href="#t3"><b>03</b>不等式与基本不等式</a>
+        <a href="#t4"><b>04</b>二次函数与一元二次不等式</a>
+        <a href="#t5"><b>05</b>函数的概念与定义域</a>
+        <a href="#t6"><b>06</b>单调性、奇偶性与幂函数</a>
+      </div>
+      <div class="topic-nav-group second">
+        <h3>下学期 · 专题 7—11</h3>
+        <a href="#t7"><b>07</b>指数与指数函数</a>
+        <a href="#t8"><b>08</b>对数与对数函数</a>
+        <a href="#t9"><b>09</b>零点与二分法</a>
+        <a href="#t10"><b>10</b>三角基础</a>
+        <a href="#t11"><b>11</b>三角函数的图象与性质</a>
+      </div>
     </div>
   </section>
 
@@ -357,7 +408,7 @@ footer{border-top:1px solid var(--line);padding-top:1rem;margin-top:2rem;text-al
       <div class="tagrow"><span class="tag must">必拿分</span><span class="tag hot">选择题常客</span></div>
     </div>
 
-    <div class="plain"><b>先说人话：</b>集合就是一个“盒子”，把确定的东西放进去。你的歌单是一个集合，里面的每首歌是元素。盒子里不能放重复的歌，歌的顺序也不重要。</div>
+    <div class="plain"><b>先说人话：</b>集合就是一个“盒子”，把确定的东西放进去。你的书包是一个集合，里面的每本书是元素。盒子里不能放重复的书，书的顺序也不重要。</div>
 
     <h4>1. 四个符号，先分清</h4>
     <div class="table-wrap">
@@ -417,6 +468,38 @@ footer{border-top:1px solid var(--line);padding-top:1rem;margin-top:2rem;text-al
       <strong>必背关系：</strong>A∩B ⊆ A ⊆ A∪B；A∩∁<sub>U</sub>A = ∅；A∪∁<sub>U</sub>A = U。求补集前，先看清全集 U 是什么。
     </div>
 
+    <div class="diagram">
+      <svg viewBox="0 0 690 250" role="img" aria-label="交集、并集、补集三种集合运算的韦恩图">
+        <g transform="translate(10,0)">
+          <rect x="15" y="20" width="180" height="180" rx="6" fill="#fff" stroke="#c9bdd8"/>
+          <circle cx="85" cy="110" r="48" fill="rgba(107,63,140,.10)" stroke="#6b3f8c" stroke-width="1.6"/>
+          <circle cx="125" cy="110" r="48" fill="rgba(169,119,17,.12)" stroke="#a97711" stroke-width="1.6"/>
+          <text x="105" y="115" text-anchor="middle" class="svg-lbl strong">A∩B</text>
+          <text x="24" y="38" class="svg-lbl">U</text>
+          <text x="58" y="58" class="svg-lbl accent">A</text>
+          <text x="146" y="58" class="svg-lbl gold">B</text>
+          <text x="105" y="232" text-anchor="middle" class="svg-lbl">交集：公共部分</text>
+        </g>
+        <g transform="translate(240,0)">
+          <rect x="15" y="20" width="180" height="180" rx="6" fill="#fff" stroke="#c9bdd8"/>
+          <circle cx="85" cy="110" r="48" fill="rgba(107,63,140,.13)" stroke="#6b3f8c" stroke-width="1.6"/>
+          <circle cx="125" cy="110" r="48" fill="rgba(107,63,140,.13)" stroke="#6b3f8c" stroke-width="1.6"/>
+          <text x="105" y="115" text-anchor="middle" class="svg-lbl strong">A∪B</text>
+          <text x="24" y="38" class="svg-lbl">U</text>
+          <text x="105" y="232" text-anchor="middle" class="svg-lbl">并集：全部合并</text>
+        </g>
+        <g transform="translate(470,0)">
+          <rect x="15" y="20" width="180" height="180" rx="6" fill="#fff" stroke="#c9bdd8"/>
+          <path d="M15,20 H195 V200 H15 Z M85,110 m-48,0 a48,48 0 1,0 96,0 a48,48 0 1,0 -96,0" fill="rgba(107,63,140,.16)" fill-rule="evenodd"/>
+          <circle cx="85" cy="110" r="48" fill="none" stroke="#6b3f8c" stroke-width="1.6"/>
+          <text x="150" y="55" text-anchor="middle" class="svg-lbl accent">∁U A</text>
+          <text x="24" y="38" class="svg-lbl">U</text>
+          <text x="105" y="232" text-anchor="middle" class="svg-lbl">补集：U 里去掉 A</text>
+        </g>
+      </svg>
+      <p class="cap">阴影部分就是运算结果；求补集前，一定要先确定全集 U。</p>
+    </div>
+
     <div class="example">
       <p class="q"><b>例 1</b>　设 U = R，A = {x | −1 &lt; x ≤ 3}，B = {x | x ≥ 2}。求 A∩B、A∪B、∁<sub>U</sub>A。</p>
       <details class="qa"><summary>看解析（先自己画数轴）</summary>
@@ -465,7 +548,7 @@ footer{border-top:1px solid var(--line);padding-top:1rem;margin-top:2rem;text-al
       </details>
     </div>
 
-    <div class="music">歌单分组就是集合：两个歌单的交集，是两边都收藏的歌；并集，是两边合起来的全部歌曲。</div>
+    <div class="life">文具分类就是集合：两个文具盒的交集，是两边都有的文具；并集，是两边合起来的全部文具。</div>
   </article>
 
   <article class="topic" id="t2">
@@ -569,7 +652,7 @@ footer{border-top:1px solid var(--line);padding-top:1rem;margin-top:2rem;text-al
       </details>
     </div>
 
-    <div class="music">节拍稳定是“能合奏”的必要条件：没有它不行，但只有它也不一定合得好。数学里的“必要”，就是这个意思。</div>
+    <div class="life">下雨是地湿的充分条件：下雨一定地湿；但地湿不一定是下雨，也可能是洒水车。身份证是进考场的必要条件：没它不行，但只有它也不够。</div>
   </article>
 
   <article class="topic" id="t3">
@@ -617,6 +700,31 @@ footer{border-top:1px solid var(--line);padding-top:1rem;margin-top:2rem;text-al
     <div class="formula">a &gt; 0，b &gt; 0 时：<b>(a+b)/2 ≥ √(ab)</b><br>当且仅当 a = b 时取等号。<br>变形：a+b ≥ 2√(ab)；ab ≤ ((a+b)/2)²</div>
     <div class="steps"><span>一正：a、b 都是正数</span><i>→</i><span>二定：和或积是定值</span><i>→</i><span>三相等：验证 a=b 能否取到</span></div>
     <p>口诀：<strong>和定积最大，积定和最小</strong>。但“三相等”必须写出来，否则最值可能是取不到的。</p>
+
+    <div class="diagram">
+      <svg viewBox="0 0 620 320" role="img" aria-label="半圆中直径AB被C分成a和b两段，垂线CD等于根号ab，半径OD等于二分之a加b">
+        <path d="M150,250 A160,160 0 0 1 470,250" fill="none" stroke="#6b3f8c" stroke-width="2.2"/>
+        <line x1="150" y1="250" x2="470" y2="250" class="svg-axis"/>
+        <line x1="420" y1="250" x2="420" y2="133.8" class="svg-dash"/>
+        <line x1="310" y1="250" x2="420" y2="133.8" stroke="#a97711" stroke-width="2.4"/>
+        <circle cx="150" cy="250" r="4" class="svg-pt"/>
+        <circle cx="310" cy="250" r="4" class="svg-pt accent"/>
+        <circle cx="420" cy="250" r="4" class="svg-pt"/>
+        <circle cx="470" cy="250" r="4" class="svg-pt"/>
+        <circle cx="420" cy="133.8" r="4" class="svg-pt accent"/>
+        <text x="150" y="272" text-anchor="middle" class="svg-lbl">A</text>
+        <text x="310" y="272" text-anchor="middle" class="svg-lbl">O</text>
+        <text x="420" y="272" text-anchor="middle" class="svg-lbl">C</text>
+        <text x="470" y="272" text-anchor="middle" class="svg-lbl">B</text>
+        <text x="420" y="122" text-anchor="middle" class="svg-lbl accent">D</text>
+        <text x="285" y="240" text-anchor="middle" class="svg-lbl">a</text>
+        <text x="445" y="240" text-anchor="middle" class="svg-lbl">b</text>
+        <text x="432" y="195" class="svg-lbl accent">√(ab)</text>
+        <text x="340" y="180" class="svg-lbl gold">(a+b)/2</text>
+        <text x="310" y="45" text-anchor="middle" class="svg-lbl strong">√(ab) ≤ (a+b)/2，当 a = b 时取等号</text>
+      </svg>
+      <p class="cap">半圆直径 AB 被 C 分成 a、b 两段。CD = √(ab)，半径 OD = (a+b)/2；垂线永远不超过半径。</p>
+    </div>
 
     <div class="example">
       <p class="q"><b>例 2</b>　已知 x &gt; 0，求 x + 4/x 的最小值。</p>
@@ -729,6 +837,26 @@ footer{border-top:1px solid var(--line);padding-top:1rem;margin-top:2rem;text-al
     <div class="steps"><span>① 二次项系数化正</span><i>→</i><span>② 算 Δ</span><i>→</i><span>③ 求根</span><i>→</i><span>④ 画抛物线</span><i>→</i><span>⑤ 写解集</span></div>
     <div class="mustbox"><strong>开口向上时的口诀：</strong>“大于取两边，小于取中间”。如果二次项系数是负数，先两边乘 −1，<strong>不等号要反过来</strong>，再套口诀。</div>
 
+    <div class="diagram">
+      <svg viewBox="0 0 660 360" role="img" aria-label="开口向上的抛物线与x轴交于x1、x2，x轴上方两侧的绿色区域是大于零的解集，两根之间下方的橙色区域是小于零的解集">
+        <path d="M140,40 L240,40 L240,250 L230,237.4 L220,223.6 L210,208.6 L200,192.4 L190,175 L180,156.4 L170,136.6 L160,115.6 L150,93.4 L140,70 Z" fill="#3f7d5a" opacity=".13"/>
+        <path d="M440,40 L440,250 L450,237.4 L460,223.6 L470,208.6 L480,192.4 L490,175 L500,156.4 L510,136.6 L520,115.6 L530,93.4 L540,70 L540,40 Z" fill="#3f7d5a" opacity=".13"/>
+        <path d="M240,250 Q340,370 440,250 Z" fill="#c2573f" opacity=".14"/>
+        <line x1="80" y1="250" x2="620" y2="250" class="svg-axis"/>
+        <line x1="100" y1="40" x2="100" y2="330" class="svg-axis"/>
+        <path d="M140,70 L150,93.4 L160,115.6 L170,136.6 L180,156.4 L190,175 L200,192.4 L210,208.6 L220,223.6 L230,237.4 L240,250 L250,261.4 L260,271.6 L270,280.6 L280,288.4 L290,295 L300,300.4 L310,304.6 L320,307.6 L330,309.4 L340,310 L350,309.4 L360,307.6 L370,304.6 L380,300.4 L390,295 L400,288.4 L410,280.6 L420,271.6 L430,261.4 L440,250 L450,237.4 L460,223.6 L470,208.6 L480,192.4 L490,175 L500,156.4 L510,136.6 L520,115.6 L530,93.4 L540,70" fill="none" stroke="#6b3f8c" stroke-width="2.4" stroke-linejoin="round"/>
+        <circle cx="240" cy="250" r="4.5" class="svg-pt accent"/>
+        <circle cx="440" cy="250" r="4.5" class="svg-pt accent"/>
+        <text x="240" y="276" text-anchor="middle" class="svg-lbl">x₁</text>
+        <text x="440" y="276" text-anchor="middle" class="svg-lbl">x₂</text>
+        <text x="185" y="72" text-anchor="middle" class="svg-lbl green">y &gt; 0</text>
+        <text x="495" y="72" text-anchor="middle" class="svg-lbl green">y &gt; 0</text>
+        <text x="340" y="292" text-anchor="middle" class="svg-lbl coral">y &lt; 0</text>
+        <text x="340" y="26" text-anchor="middle" class="svg-lbl strong">y = ax² + bx + c（a &gt; 0）</text>
+      </svg>
+      <p class="cap">绿色两块对应“大于取两边”，中间橙色一块对应“小于取中间”。解集就是横轴上对应的 x 范围。</p>
+    </div>
+
     <div class="example">
       <p class="q"><b>例 1</b>　解不等式 −x² + 2x + 3 ≥ 0。</p>
       <details class="qa"><summary>看解析</summary>
@@ -800,6 +928,56 @@ footer{border-top:1px solid var(--line);padding-top:1rem;margin-top:2rem;text-al
         <div class="fbox"><b>y</b><small>输出（唯一）</small></div>
       </div>
       <p class="cap">例如 f(x) = 2x + 1：输入 1 得到 3，输入 2 得到 5。一个输入只能有一个输出。</p>
+    </div>
+
+    <div class="diagram">
+      <svg viewBox="0 0 660 320" role="img" aria-label="左边每个x只指向一个y，是函数；右边同一个x同时指向两个y，不是函数">
+        <defs>
+          <marker id="fmArrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+            <path d="M0,0 L10,5 L0,10 z" fill="#6b3f8c"/>
+          </marker>
+          <marker id="fmArrowRed" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+            <path d="M0,0 L10,5 L0,10 z" fill="#b04a3a"/>
+          </marker>
+        </defs>
+        <line x1="340" y1="55" x2="340" y2="290" class="svg-dash"/>
+        <text x="162" y="38" text-anchor="middle" class="svg-lbl green">√ 是函数：一个 x 只出一支箭</text>
+        <text x="502" y="38" text-anchor="middle" class="svg-lbl coral">× 不是函数：一个 x 出了两支箭</text>
+        <ellipse cx="82" cy="180" rx="52" ry="95" fill="none" stroke="#b9a9cb" stroke-width="1.4"/>
+        <ellipse cx="242" cy="180" rx="52" ry="95" fill="none" stroke="#b9a9cb" stroke-width="1.4"/>
+        <text x="82" y="80" text-anchor="middle" class="svg-lbl">定义域 A</text>
+        <text x="242" y="80" text-anchor="middle" class="svg-lbl">值域 B</text>
+        <circle cx="104" cy="135" r="4" class="svg-pt accent"/>
+        <circle cx="104" cy="180" r="4" class="svg-pt accent"/>
+        <circle cx="104" cy="225" r="4" class="svg-pt accent"/>
+        <circle cx="220" cy="155" r="4" class="svg-pt"/>
+        <circle cx="220" cy="205" r="4" class="svg-pt"/>
+        <text x="92" y="139" text-anchor="end" class="svg-lbl">1</text>
+        <text x="92" y="184" text-anchor="end" class="svg-lbl">2</text>
+        <text x="92" y="229" text-anchor="end" class="svg-lbl">3</text>
+        <text x="232" y="159" class="svg-lbl">3</text>
+        <text x="232" y="209" class="svg-lbl">5</text>
+        <line x1="118" y1="135" x2="204" y2="149" stroke="#6b3f8c" stroke-width="1.6" marker-end="url(#fmArrow)"/>
+        <line x1="118" y1="180" x2="204" y2="161" stroke="#6b3f8c" stroke-width="1.6" marker-end="url(#fmArrow)"/>
+        <line x1="118" y1="225" x2="204" y2="205" stroke="#6b3f8c" stroke-width="1.6" marker-end="url(#fmArrow)"/>
+        <ellipse cx="412" cy="180" rx="52" ry="95" fill="none" stroke="#d3a79c" stroke-width="1.4"/>
+        <ellipse cx="572" cy="180" rx="52" ry="95" fill="none" stroke="#d3a79c" stroke-width="1.4"/>
+        <text x="412" y="80" text-anchor="middle" class="svg-lbl">定义域 A</text>
+        <text x="572" y="80" text-anchor="middle" class="svg-lbl">值域 B</text>
+        <circle cx="434" cy="155" r="4" class="svg-pt accent"/>
+        <circle cx="434" cy="205" r="4" class="svg-pt accent"/>
+        <circle cx="550" cy="135" r="4" class="svg-pt"/>
+        <circle cx="550" cy="180" r="4" class="svg-pt"/>
+        <circle cx="550" cy="225" r="4" class="svg-pt"/>
+        <text x="422" y="159" text-anchor="end" class="svg-lbl">1</text>
+        <text x="422" y="209" text-anchor="end" class="svg-lbl">2</text>
+        <text x="562" y="139" class="svg-lbl">4</text>
+        <text x="562" y="184" class="svg-lbl">5</text>
+        <text x="562" y="229" class="svg-lbl">6</text>
+        <line x1="448" y1="150" x2="534" y2="137" stroke="#b04a3a" stroke-width="1.8" marker-end="url(#fmArrowRed)"/>
+        <line x1="448" y1="160" x2="534" y2="176" stroke="#b04a3a" stroke-width="1.8" marker-end="url(#fmArrowRed)"/>
+      </svg>
+      <p class="cap">左边 1、2 同时对应 3 也允许；右边 x = 1 同时对应 4 和 5，违反“输出唯一”，所以不是函数。</p>
     </div>
 
     <h4>1. 函数三要素</h4>
@@ -878,7 +1056,7 @@ footer{border-top:1px solid var(--line);padding-top:1rem;margin-top:2rem;text-al
       </details>
     </div>
 
-    <div class="music">函数像“节拍器 → 音符”的固定对应：每一拍按规则落在一个音符上。一个输入只能有一个输出，这就是函数最核心的“唯一性”。</div>
+    <div class="life">函数像自动售货机：按一个键，只出对应的商品。一个输入只能有一个输出；不同按键也可能出同一种商品。</div>
   </article>
 
   <article class="topic" id="t6">
@@ -957,6 +1135,30 @@ footer{border-top:1px solid var(--line);padding-top:1rem;margin-top:2rem;text-al
       </table>
     </div>
 
+    <div class="diagram">
+      <svg viewBox="0 0 660 400" role="img" aria-label="y等于x、x平方、x立方、x分之一、根号x五条幂函数曲线画在同一坐标系中，都经过点(1,1)">
+        <line x1="30" y1="210" x2="600" y2="210" class="svg-axis"/>
+        <line x1="300" y1="40" x2="300" y2="380" class="svg-axis"/>
+        <text x="604" y="228" class="svg-lbl">x</text>
+        <text x="312" y="46" class="svg-lbl">y</text>
+        <text x="286" y="228" class="svg-lbl">O</text>
+        <path d="M147,51 Q223.5,210 300,210 Q376.5,210 453,51" class="svg-curve gold"/>
+        <polyline points="170.4,374.2 174,360.9 192,305 210,265 228,238.2 246,221.9 264,213.5 282,210.4 300,210 318,209.6 336,206.5 354,198.1 372,181.8 390,155 408,115 426,59.1 429.6,45.8" fill="none" stroke="#2f6b4f" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+        <polyline points="330,45 336,72.5 345,100 354,118.3 363,131.4 372,141.3 381,148.9 390,155 408,164.2 435,173.3 480,182.5 525,188 570,191.7" fill="none" stroke="#b04a3a" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+        <polyline points="270,375 264,347.5 255,320 246,301.7 237,288.6 228,278.8 219,271.1 210,265 192,255.8 165,246.7 120,237.5 75,232 30,228.3" fill="none" stroke="#b04a3a" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+        <polyline points="300,210 322.5,182.5 345,171.1 367.5,162.4 390,155 412.5,148.5 435,142.6 457.5,137.2 480,132.2 502.5,127.5 525,123 547.5,118.8 570,114.7" fill="none" stroke="#2b5d8c" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+        <line x1="66" y1="353" x2="534" y2="67" stroke="#6b3f8c" stroke-width="2.2" stroke-linecap="round"/>
+        <circle cx="390" cy="155" r="5" class="svg-pt"/>
+        <text x="402" y="148" class="svg-lbl strong">(1, 1)</text>
+        <text x="542" y="55" class="svg-lbl accent">y = x</text>
+        <text x="462" y="88" class="svg-lbl gold">y = x²</text>
+        <text x="440" y="40" class="svg-lbl green">y = x³</text>
+        <text x="524" y="166" class="svg-lbl coral">y = 1/x</text>
+        <text x="520" y="100" class="svg-lbl blue">y = √x</text>
+      </svg>
+      <p class="cap">五条曲线都过点 (1,1)。x³、1/x 是奇函数，x² 是偶函数；√x 只在 x ≥ 0 一侧有图象。</p>
+    </div>
+
     <div class="example">
       <p class="q"><b>例 1</b>　判断 f(x) = x³ + x 的奇偶性。</p>
       <details class="qa"><summary>看解析</summary>
@@ -1007,17 +1209,18 @@ footer{border-top:1px solid var(--line);padding-top:1rem;margin-top:2rem;text-al
       </details>
     </div>
 
-    <div class="music">旋律上行、下行，就是函数的增、减；两句完全对称的乐句，像偶函数照镜子；把动机倒过来演奏，像奇函数绕原点转半圈。</div>
+    <div class="life">气温曲线上升、下降，就是函数的增、减；蝴蝶左右对称，像偶函数；把图形绕原点转半圈仍重合，像奇函数。</div>
   </article>
 
-  <section id="term2" class="term-band second">
-    <span class="num">02</span>
-    <div>
-      <h2>下学期 · 专题 7—11</h2>
-      <p>教材第 4—5 章：指数函数、对数函数、三角函数</p>
-    </div>
-    <span class="range">约 16 周 · 每天 30 分钟</span>
-  </section>
+  <details id="term2" class="term2-wrap">
+    <summary class="term-band second">
+      <span class="num">02</span>
+      <div>
+        <h2>下学期 · 专题 7—11</h2>
+        <p>教材第 4—5 章：指数函数、对数函数、三角函数</p>
+      </div>
+      <span class="range">约 16 周 · 点击展开<span class="chev">▸</span></span>
+    </summary>
 
   <article class="topic" id="t7">
     <div class="topic-head">
@@ -1120,7 +1323,7 @@ footer{border-top:1px solid var(--line);padding-top:1rem;margin-top:2rem;text-al
       </details>
     </div>
 
-    <div class="music">十二平均律里，每升高一个半音，频率就乘 2<sup>1/12</sup>；升高 12 个半音（一个八度），正好乘 2。这就是指数在音乐里最漂亮的应用。</div>
+    <div class="life">细胞分裂：每 20 分钟数量翻倍，2 小时后是原来的 2<sup>6</sup> 倍；复利也是同样的指数增长。</div>
   </article>
 
   <article class="topic" id="t8">
@@ -1233,7 +1436,7 @@ footer{border-top:1px solid var(--line);padding-top:1rem;margin-top:2rem;text-al
       </details>
     </div>
 
-    <div class="music">分贝就是对数：dB = 10 lg(I/I₀)。声音强度每变成原来的 10 倍，分贝数只加 10。人耳对响度的感觉，本来就是“对数”的。</div>
+    <div class="life">地震震级就是对数：能量每变成原来的 10 倍，震级大约加 1；化学里的 pH 值也是对数尺度。</div>
   </article>
 
   <article class="topic" id="t9">
@@ -1278,6 +1481,31 @@ footer{border-top:1px solid var(--line);padding-top:1rem;margin-top:2rem;text-al
     <div class="steps"><span>取中点</span><i>→</i><span>算中点函数值</span><i>→</i><span>保留异号那一半</span><i>→</i><span>重复到够精确</span></div>
     <p class="muted">二分法通常考选择或填空，知道“每次把区间缩小一半”就够了，不需要手算很多轮。</p>
 
+    <div class="diagram">
+      <svg viewBox="0 0 660 260" role="img" aria-label="二分法每一轮保留异号的那一半区间，区间长度依次减半">
+        <line x1="60" y1="210" x2="620" y2="210" class="svg-axis"/>
+        <line x1="100" y1="50" x2="100" y2="210" class="svg-dash"/>
+        <line x1="300" y1="50" x2="300" y2="210" class="svg-dash"/>
+        <line x1="400" y1="50" x2="400" y2="210" class="svg-dash"/>
+        <line x1="500" y1="50" x2="500" y2="210" class="svg-dash"/>
+        <line x1="100" y1="55" x2="500" y2="55" stroke="#6b3f8c" stroke-width="7" stroke-linecap="round"/>
+        <line x1="300" y1="100" x2="500" y2="100" stroke="#a97711" stroke-width="7" stroke-linecap="round"/>
+        <line x1="300" y1="145" x2="400" y2="145" stroke="#2f6b4f" stroke-width="7" stroke-linecap="round"/>
+        <text x="300" y="42" text-anchor="middle" class="svg-lbl accent">第 1 次：[a, b]</text>
+        <text x="400" y="88" text-anchor="middle" class="svg-lbl gold">第 2 次：保留 [m₁, b]</text>
+        <text x="350" y="133" text-anchor="middle" class="svg-lbl green">第 3 次：[m₁, m₂]</text>
+        <circle cx="100" cy="210" r="4" class="svg-pt"/>
+        <circle cx="300" cy="210" r="4" class="svg-pt"/>
+        <circle cx="400" cy="210" r="4" class="svg-pt"/>
+        <circle cx="500" cy="210" r="4" class="svg-pt"/>
+        <text x="100" y="232" text-anchor="middle" class="svg-lbl">a</text>
+        <text x="300" y="232" text-anchor="middle" class="svg-lbl">m₁</text>
+        <text x="400" y="232" text-anchor="middle" class="svg-lbl">m₂</text>
+        <text x="500" y="232" text-anchor="middle" class="svg-lbl">b</text>
+      </svg>
+      <p class="cap">每一轮取中点 m，算出 f(m)，保留两端异号的那一半。区间长度依次变为 400 → 200 → 100，每次减半。</p>
+    </div>
+
     <h4>3. 四种常见增长模型</h4>
     <div class="table-wrap">
       <table>
@@ -1286,7 +1514,7 @@ footer{border-top:1px solid var(--line);padding-top:1rem;margin-top:2rem;text-al
           <tr><td>一次函数 y = kx + b</td><td>匀速增长</td><td>出租车按里程计费</td></tr>
           <tr><td>二次函数 y = ax²</td><td>先慢后快</td><td>正方形边长与面积</td></tr>
           <tr><td>指数函数 y = a<sup>x</sup>（a &gt; 1）</td><td>爆炸式增长</td><td>细胞分裂、复利</td></tr>
-          <tr><td>对数函数 y = log<sub>a</sub>x</td><td>先快后慢</td><td>分贝、音高感觉</td></tr>
+          <tr><td>对数函数 y = log<sub>a</sub>x</td><td>先快后慢</td><td>地震震级、pH 值</td></tr>
         </tbody>
       </table>
     </div>
@@ -1339,7 +1567,7 @@ footer{border-top:1px solid var(--line);padding-top:1rem;margin-top:2rem;text-al
       </details>
     </div>
 
-    <div class="music">音高按频率成倍增长，人耳听起来却像“等距离”的音阶——这正是指数与对数一起工作的结果。</div>
+    <div class="life">复利、人口增长前期慢、后期快，是指数模型；对数模型正好相反，先快后慢。</div>
   </article>
 
   <article class="topic" id="t10">
@@ -1364,6 +1592,25 @@ footer{border-top:1px solid var(--line);padding-top:1rem;margin-top:2rem;text-al
       </table>
     </div>
     <div class="formula">弧长 <b>l = |α| r</b>　扇形面积 <b>S = ½ l r = ½ |α| r²</b><br>其中 α 用弧度制，r 是半径。</div>
+
+    <div class="diagram">
+      <svg viewBox="0 0 420 320" role="img" aria-label="半径r的圆上，弧长等于r时所对的圆心角规定为1弧度">
+        <path d="M200,160 L300,160 A100,100 0 0 0 254,75.8 Z" fill="#a97711" opacity=".12"/>
+        <circle cx="200" cy="160" r="100" fill="none" stroke="#a79bb4" stroke-width="1.6"/>
+        <line x1="200" y1="160" x2="300" y2="160" class="svg-curve"/>
+        <line x1="200" y1="160" x2="254" y2="75.8" class="svg-curve"/>
+        <path d="M300,160 A100,100 0 0 0 254,75.8" fill="none" stroke="#a97711" stroke-width="3.4"/>
+        <circle cx="200" cy="160" r="3.5" fill="#2a2233"/>
+        <text x="184" y="180" class="svg-lbl">O</text>
+        <text x="250" y="182" text-anchor="middle" class="svg-lbl">r</text>
+        <text x="218" y="108" class="svg-lbl">r</text>
+        <text x="298" y="104" class="svg-lbl gold">弧长 = r</text>
+        <text x="236" y="146" class="svg-lbl gold">1 rad</text>
+        <text x="210" y="32" text-anchor="middle" class="svg-lbl strong">1 弧度 ≈ 57.3°</text>
+        <text x="210" y="300" text-anchor="middle" class="svg-lbl">整圆周长 2πr → 360° = 2π 弧度</text>
+      </svg>
+      <p class="cap">把“长度等于半径的弧”所对的圆心角规定为 1 弧度。所以弧长 l = |α|r，整圆就是 2π 弧度。</p>
+    </div>
 
     <div class="grid2">
       <div class="diagram">
@@ -1478,7 +1725,7 @@ footer{border-top:1px solid var(--line);padding-top:1rem;margin-top:2rem;text-al
       </details>
     </div>
 
-    <div class="music">音叉振动时，空气位移随时间变化的图象就是正弦曲线：频率决定音高，振幅决定响度，初相决定从哪个位置开始振动。</div>
+    <div class="life">摩天轮座舱的高度随时间按正弦规律变化；钟摆、水车也是周期运动。</div>
   </article>
 
   <article class="topic" id="t11">
@@ -1541,6 +1788,39 @@ footer{border-top:1px solid var(--line);padding-top:1rem;margin-top:2rem;text-al
           <tr><td>φ 变化</td><td>左右平移</td><td>左加右减；平移量是 φ/ω</td></tr>
         </tbody>
       </table>
+    </div>
+
+    <div class="diagram">
+      <svg viewBox="0 0 660 230" role="img" aria-label="对照y等于sin x，分别展示振幅A、角频率ω、初相φ改变时曲线的变化">
+        <g>
+          <line x1="10" y1="115" x2="200" y2="115" class="svg-axis"/>
+          <line x1="20" y1="25" x2="20" y2="195" class="svg-axis"/>
+          <polyline points="20.0,115.0 23.5,109.1 27.1,103.4 30.6,97.8 34.2,92.5 37.7,87.6 41.2,83.2 44.8,79.3 48.3,76.0 51.9,73.4 55.4,71.5 59.0,70.4 62.5,70.0 66.0,70.4 69.6,71.5 73.1,73.4 76.7,76.0 80.2,79.3 83.8,83.2 87.3,87.6 90.8,92.5 94.4,97.8 97.9,103.4 101.5,109.1 105.0,115.0 108.5,120.9 112.1,126.6 115.6,132.2 119.2,137.5 122.7,142.4 126.2,146.8 129.8,150.7 133.3,154.0 136.9,156.6 140.4,158.5 144.0,159.6 147.5,160.0 151.0,159.6 154.6,158.5 158.1,156.6 161.7,154.0 165.2,150.7 168.8,146.8 172.3,142.4 175.8,137.5 179.4,132.2 182.9,126.6 186.5,120.9 190.0,115.0" class="svg-dash"/>
+          <polyline points="20.0,115.0 23.5,103.3 27.1,91.7 30.6,80.6 34.2,70.0 37.7,60.2 41.2,51.4 44.8,43.6 48.3,37.1 51.9,31.9 55.4,28.1 59.0,25.8 62.5,25.0 66.0,25.8 69.6,28.1 73.1,31.9 76.7,37.1 80.2,43.6 83.8,51.4 87.3,60.2 90.8,70.0 94.4,80.6 97.9,91.7 101.5,103.3 105.0,115.0 108.5,126.7 112.1,138.3 115.6,149.4 119.2,160.0 122.7,169.8 126.2,178.6 129.8,186.4 133.3,192.9 136.9,198.1 140.4,201.9 144.0,204.2 147.5,205.0 151.0,204.2 154.6,201.9 158.1,198.1 161.7,192.9 165.2,186.4 168.8,178.6 172.3,169.8 175.8,160.0 179.4,149.4 182.9,138.3 186.5,126.7 190.0,115.0" fill="none" stroke="#6b3f8c" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <text x="105" y="16" text-anchor="middle" class="svg-lbl accent">A 变：纵向拉伸</text>
+          <text x="20" y="130" class="svg-lbl">0</text>
+          <text x="190" y="130" text-anchor="middle" class="svg-lbl">2π</text>
+        </g>
+        <g transform="translate(215,0)">
+          <line x1="10" y1="115" x2="200" y2="115" class="svg-axis"/>
+          <line x1="20" y1="25" x2="20" y2="195" class="svg-axis"/>
+          <polyline points="20.0,115.0 23.5,109.1 27.1,103.4 30.6,97.8 34.2,92.5 37.7,87.6 41.2,83.2 44.8,79.3 48.3,76.0 51.9,73.4 55.4,71.5 59.0,70.4 62.5,70.0 66.0,70.4 69.6,71.5 73.1,73.4 76.7,76.0 80.2,79.3 83.8,83.2 87.3,87.6 90.8,92.5 94.4,97.8 97.9,103.4 101.5,109.1 105.0,115.0 108.5,120.9 112.1,126.6 115.6,132.2 119.2,137.5 122.7,142.4 126.2,146.8 129.8,150.7 133.3,154.0 136.9,156.6 140.4,158.5 144.0,159.6 147.5,160.0 151.0,159.6 154.6,158.5 158.1,156.6 161.7,154.0 165.2,150.7 168.8,146.8 172.3,142.4 175.8,137.5 179.4,132.2 182.9,126.6 186.5,120.9 190.0,115.0" class="svg-dash"/>
+          <polyline points="20.0,115.0 23.5,103.4 27.1,92.5 30.6,83.2 34.2,76.0 37.7,71.5 41.2,70.0 44.8,71.5 48.3,76.0 51.9,83.2 55.4,92.5 59.0,103.4 62.5,115.0 66.0,126.6 69.6,137.5 73.1,146.8 76.7,154.0 80.2,158.5 83.8,160.0 87.3,158.5 90.8,154.0 94.4,146.8 97.9,137.5 101.5,126.6 105.0,115.0 108.5,103.4 112.1,92.5 115.6,83.2 119.2,76.0 122.7,71.5 126.2,70.0 129.8,71.5 133.3,76.0 136.9,83.2 140.4,92.5 144.0,103.4 147.5,115.0 151.0,126.6 154.6,137.5 158.1,146.8 161.7,154.0 165.2,158.5 168.8,160.0 172.3,158.5 175.8,154.0 179.4,146.8 182.9,137.5 186.5,126.6 190.0,115.0" fill="none" stroke="#a97711" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <text x="105" y="16" text-anchor="middle" class="svg-lbl gold">ω 变：横向压缩</text>
+          <text x="20" y="130" class="svg-lbl">0</text>
+          <text x="190" y="130" text-anchor="middle" class="svg-lbl">2π</text>
+        </g>
+        <g transform="translate(430,0)">
+          <line x1="10" y1="115" x2="200" y2="115" class="svg-axis"/>
+          <line x1="20" y1="25" x2="20" y2="195" class="svg-axis"/>
+          <polyline points="20.0,115.0 23.5,109.1 27.1,103.4 30.6,97.8 34.2,92.5 37.7,87.6 41.2,83.2 44.8,79.3 48.3,76.0 51.9,73.4 55.4,71.5 59.0,70.4 62.5,70.0 66.0,70.4 69.6,71.5 73.1,73.4 76.7,76.0 80.2,79.3 83.8,83.2 87.3,87.6 90.8,92.5 94.4,97.8 97.9,103.4 101.5,109.1 105.0,115.0 108.5,120.9 112.1,126.6 115.6,132.2 119.2,137.5 122.7,142.4 126.2,146.8 129.8,150.7 133.3,154.0 136.9,156.6 140.4,158.5 144.0,159.6 147.5,160.0 151.0,159.6 154.6,158.5 158.1,156.6 161.7,154.0 165.2,150.7 168.8,146.8 172.3,142.4 175.8,137.5 179.4,132.2 182.9,126.6 186.5,120.9 190.0,115.0" class="svg-dash"/>
+          <polyline points="20.0,76.0 23.5,73.4 27.1,71.5 30.6,70.4 34.2,70.0 37.7,70.4 41.2,71.5 44.8,73.4 48.3,76.0 51.9,79.3 55.4,83.2 59.0,87.6 62.5,92.5 66.0,97.8 69.6,103.4 73.1,109.1 76.7,115.0 80.2,120.9 83.8,126.6 87.3,132.2 90.8,137.5 94.4,142.4 97.9,146.8 101.5,150.7 105.0,154.0 108.5,156.6 112.1,158.5 115.6,159.6 119.2,160.0 122.7,159.6 126.2,158.5 129.8,156.6 133.3,154.0 136.9,150.7 140.4,146.8 144.0,142.4 147.5,137.5 151.0,132.2 154.6,126.6 158.1,120.9 161.7,115.0 165.2,109.1 168.8,103.4 172.3,97.8 175.8,92.5 179.4,87.6 182.9,83.2 186.5,79.3 190.0,76.0" fill="none" stroke="#2f6b4f" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <text x="105" y="16" text-anchor="middle" class="svg-lbl green">φ 变：左右平移</text>
+          <text x="20" y="130" class="svg-lbl">0</text>
+          <text x="190" y="130" text-anchor="middle" class="svg-lbl">2π</text>
+        </g>
+      </svg>
+      <p class="cap">虚线都是 y = sin x 作对照。左：A = 2，高度翻倍；中：ω = 2，周期减半；右：φ = π/3，图象左移 π/3。</p>
     </div>
     <div class="pitfall"><strong>最容易错：</strong>y = sin(2x + π/3) 不是向左平移 π/3，而是 sin[2(x + π/6)]，向左平移 <strong>π/6</strong>。先把 ω 提出来，再读平移量。</div>
 
@@ -1609,8 +1889,9 @@ footer{border-top:1px solid var(--line);padding-top:1rem;margin-top:2rem;text-al
       </details>
     </div>
 
-    <div class="music">一段声音可以看成许多正弦波的叠加：A 是音量，ω 是音高，φ 是相位。学会读 y = A sin(ωx + φ)，你其实已经在读声音的“参数表”。</div>
+    <div class="life">交流电的电压可以写成 u = U<sub>m</sub> sin(ωt + φ)：A 是峰值，ω 是角频率，φ 是初相。</div>
   </article>
+  </details>
 
   <section id="exam">
     <h2>100 分自测卷</h2>
@@ -1866,7 +2147,7 @@ footer{border-top:1px solid var(--line);padding-top:1rem;margin-top:2rem;text-al
 
 
   <footer>
-    <p>菏泽一中 · 高一数学（音乐班）自学课件　|　教材：人教 A 版《普通高中教科书·数学》必修第一册</p>
+    <p>菏泽一中 · 高一数学自学课件（图示版）　|　教材：人教 A 版《普通高中教科书·数学》必修第一册</p>
     <p style="margin-top:.35rem">目标得分 80/100　·　仅供自学梳理，具体以教材与老师要求为准</p>
     <p style="margin-top:.35rem"><a href="index.html">← 返回课件首页</a></p>
   </footer>
@@ -1888,6 +2169,21 @@ footer{border-top:1px solid var(--line);padding-top:1rem;margin-top:2rem;text-al
   }
   window.addEventListener("beforeprint", function () { setDetailsOpen(true); });
   window.addEventListener("afterprint", function () { setDetailsOpen(false); });
+})();
+(function () {
+  var term2 = document.getElementById("term2");
+  if (!term2) return;
+  function openIfInside(hash) {
+    if (!hash || hash.length < 2) return;
+    var target;
+    try { target = document.querySelector(hash); } catch (e) { return; }
+    if (target && target.closest("#term2")) term2.open = true;
+  }
+  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener("click", function () { openIfInside(a.getAttribute("href")); });
+  });
+  window.addEventListener("hashchange", function () { openIfInside(location.hash); });
+  openIfInside(location.hash);
 })();
 (function () {
   var root = document.documentElement;
