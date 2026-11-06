@@ -1,0 +1,1918 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>try{var q=new URLSearchParams(location.search).get("view");var m=q||localStorage.getItem("hs-view");if(m==="a4")document.documentElement.classList.add("a4")}catch(e){}</script>
+<meta name="description" content="菏泽一中高一数学（音乐班）自学课件：人教A版必修第一册，11个专题、图示讲解、按上下学期编排，目标80/100。">
+<title>菏泽一中 · 高一数学（音乐班）自学课件 | 人教A版必修第一册 · 目标80/100</title>
+<style>
+:root{
+  --ink:#2a2233; --muted:#6b6478; --line:#e3dcec; --bg:#f5f0e8; --card:#fffdfa;
+  --accent:#6b3f8c; --accent-dark:#3a2449; --accent-soft:#f1eaf7;
+  --gold:#a97711; --gold-soft:#fbf2da;
+  --coral:#b04a3a; --coral-soft:#fbeae6;
+  --green:#2f6b4f; --green-soft:#e9f3ec;
+  --blue:#2b5d8c; --blue-soft:#e8f0f8;
+  --font-display:"Source Han Serif SC","Noto Serif SC","Songti SC","SimSun",serif;
+  --font-body:"Source Han Sans SC","Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif;
+  --font-mono:"JetBrains Mono","Cascadia Code",Consolas,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:6.5rem}
+body{
+  font-family:var(--font-body);color:var(--ink);line-height:1.8;font-size:16px;
+  background:
+    radial-gradient(ellipse at 8% 0%,rgba(107,63,140,.08),transparent 45%),
+    radial-gradient(ellipse at 95% 8%,rgba(169,119,17,.09),transparent 42%),
+    var(--bg);
+}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+button{font:inherit;cursor:pointer}
+
+.topbar{position:sticky;top:0;z-index:100;background:rgba(36,26,46,.97);color:#efe8f6;border-bottom:1px solid #453555;backdrop-filter:blur(8px)}
+.topbar-inner{max-width:1180px;margin:0 auto;padding:.62rem 1.25rem;display:flex;align-items:center;gap:.85rem;flex-wrap:wrap}
+.brand{font-weight:700;white-space:nowrap;letter-spacing:.02em}
+.brand small{display:block;font-size:.66rem;color:#c3a8d9;font-weight:400;line-height:1.35}
+.nav{display:flex;gap:.1rem;flex-wrap:wrap;flex:1}
+.nav a{color:#d9cbe6;font-size:.79rem;padding:.22rem .48rem;border-radius:4px}
+.nav a:hover{background:#4a3560;color:#fff;text-decoration:none}
+.badge{background:var(--gold);color:#2a2233;font-size:.72rem;font-weight:700;padding:.24rem .65rem;border-radius:999px;white-space:nowrap}
+.view-switch{display:inline-flex;border:1px solid rgba(255,255,255,.28);border-radius:999px;overflow:hidden;flex:none}
+.view-switch button{appearance:none;background:transparent;color:#efe8f6;border:0;font-size:.73rem;font-weight:700;padding:.24rem .62rem;white-space:nowrap;font-family:inherit}
+html:not(.a4) .view-switch [data-view="wide"],html.a4 .view-switch [data-view="a4"]{background:#c9a227;color:#241a2e}
+.print-btn{background:transparent;color:#efe8f6;border:1px solid rgba(255,255,255,.28);font-size:.73rem;font-weight:700;padding:.24rem .65rem;border-radius:999px;white-space:nowrap;font-family:inherit}
+.print-btn:hover{background:rgba(255,255,255,.08)}
+
+.wrap{max-width:1180px;margin:0 auto;padding:1.5rem 1.25rem 3.5rem}
+section{margin-bottom:2rem}
+h2{font-family:var(--font-display);font-size:1.4rem;line-height:1.5;margin:0 0 .55rem;padding-bottom:.35rem;border-bottom:2px solid var(--accent);display:inline-block}
+h3{font-size:1.08rem;margin:1.1rem 0 .45rem}
+h4{font-size:.95rem;margin:.8rem 0 .3rem;color:var(--accent)}
+p{margin:.35rem 0}
+ul,ol{padding-left:1.3rem;margin:.4rem 0 .8rem}
+li{margin:.22rem 0}
+.muted{color:var(--muted);font-size:.9rem}
+.small{font-size:.84rem}
+td.mono{white-space:nowrap}
+.lead{color:var(--muted);font-size:1rem;margin-bottom:1rem;max-width:54rem}
+.mono{font-family:var(--font-mono)}
+
+.hero{position:relative;overflow:hidden;background:linear-gradient(130deg,#2b1f38 0%,#4a2d5e 55%,#6b3f8c 100%);color:#f4eefb;border-radius:16px;padding:2.4rem 2rem 2.1rem;margin-bottom:1.3rem}
+.hero::after{content:"♪";position:absolute;right:1.2rem;top:-3.6rem;font:13rem/1 var(--font-display);color:rgba(255,255,255,.07);transform:rotate(-12deg);pointer-events:none}
+.hero::before{content:"";position:absolute;left:0;right:0;bottom:0;height:110px;background:repeating-linear-gradient(180deg,transparent 0 15px,rgba(255,255,255,.055) 15px 16px);pointer-events:none}
+.hero .kicker{font-family:var(--font-mono);font-size:.77rem;letter-spacing:.12em;color:#d9c2ee;margin-bottom:.5rem;position:relative;z-index:1}
+.hero h1{font-family:var(--font-display);font-size:clamp(1.6rem,3.8vw,2.35rem);line-height:1.38;margin-bottom:.6rem;position:relative;z-index:1}
+.hero p{color:#ddcfe9;max-width:48rem;position:relative;z-index:1}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.1rem;position:relative;z-index:1}
+.chip{border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.08);border-radius:6px;padding:.26rem .7rem;font-size:.8rem;color:#eee4f6}
+
+.notice{background:var(--gold-soft);border:1px solid #e8d3a2;border-left:4px solid var(--gold);border-radius:8px;padding:.85rem 1.05rem;margin:1rem 0 1.4rem;font-size:.9rem}
+.notice strong{color:#8a5f0c}
+
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:1.25rem 1.4rem;margin-bottom:1rem}
+.topic{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:12px;padding:1.2rem 1.4rem;margin-bottom:1.1rem;scroll-margin-top:6.5rem}
+.topic-head{display:flex;gap:.9rem;align-items:flex-start;border-bottom:1px solid var(--line);padding-bottom:.65rem;margin-bottom:.55rem}
+.topic-no{flex:none;width:2.6rem;height:2.6rem;border-radius:50%;background:var(--accent-soft);color:var(--accent);font:700 1.02rem var(--font-mono);display:flex;align-items:center;justify-content:center}
+.topic-head h3{margin:0;font-size:1.14rem;line-height:1.45}
+.topic-sub{font-size:.77rem;color:var(--muted);margin:.18rem 0 0}
+.tagrow{margin-left:auto;flex:none;display:flex;gap:.3rem;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+.tag{display:inline-block;font-size:.7rem;font-weight:700;padding:.12rem .45rem;border-radius:4px;white-space:nowrap}
+.tag.must{background:var(--green-soft);color:var(--green)}
+.tag.try{background:var(--blue-soft);color:var(--blue)}
+.tag.skip{background:var(--coral-soft);color:var(--coral)}
+.tag.hot{background:var(--gold-soft);color:var(--gold)}
+
+.plain{background:var(--gold-soft);border-left:4px solid var(--gold);border-radius:0 8px 8px 0;padding:.7rem .95rem;margin:.8rem 0;font-size:.95rem}
+.plain b{color:#8a5f0c}
+.mustbox{background:var(--green-soft);border-left:4px solid var(--green);border-radius:0 8px 8px 0;padding:.7rem .95rem;margin:.8rem 0}
+.mustbox strong{color:var(--green)}
+.pitfall{background:var(--coral-soft);border-left:4px solid var(--coral);border-radius:0 8px 8px 0;padding:.7rem .95rem;margin:.8rem 0;font-size:.93rem}
+.pitfall strong{color:var(--coral)}
+.music{background:#f3edf9;border:1px dashed #b79ccc;border-radius:8px;padding:.65rem .95rem;margin:.8rem 0;font-size:.9rem;color:#4a2d5e}
+.music::before{content:"♪ 音乐里的数学";display:block;font-weight:700;font-size:.77rem;letter-spacing:.05em;color:var(--accent);margin-bottom:.15rem}
+
+.formula{font-family:var(--font-mono);background:#f7f4fb;border:1px dashed #c3b2d4;border-radius:6px;padding:.6rem .8rem;margin:.5rem 0 .75rem;font-size:.89rem;overflow-x:auto;line-height:1.95}
+.formula b{color:var(--accent)}
+
+.table-wrap{overflow-x:auto;margin:.5rem 0 .9rem}
+table{width:100%;border-collapse:collapse;font-size:.88rem;min-width:440px;border:1px solid var(--line)}
+th,td{border-bottom:1px solid var(--line);padding:.45rem .6rem;text-align:left;vertical-align:top}
+th{background:#f4eef8;font-weight:700;white-space:nowrap}
+tbody tr:nth-child(even) td{background:#fcfaf7}
+
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:1rem;align-items:start}
+.grid2>*{min-width:0}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem;margin:.9rem 0}
+.mini{background:#fff;border:1px solid var(--line);border-top:3px solid var(--accent);border-radius:9px;padding:.8rem .95rem;font-size:.9rem}
+.mini h4{margin:0 0 .2rem;color:var(--accent);font-size:.92rem}
+.mini.gold{border-top-color:var(--gold)}
+.mini.gold h4{color:var(--gold)}
+.mini.green{border-top-color:var(--green)}
+.mini.green h4{color:var(--green)}
+
+.diagram{margin:1rem 0;background:#fbf9f5;border:1px solid var(--line);border-radius:10px;padding:.9rem 1rem .7rem}
+.diagram svg{display:block;width:100%;height:auto;max-width:100%;margin:0 auto}
+.cap{font-size:.8rem;color:var(--muted);text-align:center;margin-top:.45rem;line-height:1.6}
+.svg-axis{stroke:#a79bb4;stroke-width:1.3}
+.svg-grid{stroke:#e7e0ef;stroke-width:1}
+.svg-curve{fill:none;stroke:var(--accent);stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.svg-curve.gold{stroke:var(--gold)}
+.svg-curve.green{stroke:var(--green)}
+.svg-curve.blue{stroke:var(--blue)}
+.svg-dash{fill:none;stroke:#a79bb4;stroke-width:1.2;stroke-dasharray:5 4}
+.svg-pt{fill:#fff;stroke:var(--gold);stroke-width:2}
+.svg-pt.accent{stroke:var(--accent)}
+.svg-lbl{font-size:12px;fill:#5f576b;font-family:var(--font-body)}
+.svg-lbl.strong{font-weight:700;fill:var(--ink)}
+.svg-lbl.accent{fill:var(--accent);font-weight:700}
+.svg-lbl.gold{fill:var(--gold);font-weight:700}
+.svg-lbl.coral{fill:var(--coral);font-weight:700}
+.svg-lbl.green{fill:var(--green);font-weight:700}
+
+.example{background:#fbf9fd;border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:8px;padding:.7rem .95rem;margin:.8rem 0}
+.example .q{margin:0}
+.example .q b{color:var(--accent)}
+details.qa{background:#fff;border:1px solid var(--line);border-radius:6px;padding:.5rem .75rem;margin-top:.5rem}
+summary{cursor:pointer;font-weight:700;color:var(--accent);font-size:.9rem}
+details.qa summary{color:#8a5f0c}
+summary:hover{text-decoration:underline}
+.ans{border-top:1px dashed var(--line);margin-top:.55rem;padding-top:.55rem;font-size:.93rem}
+.ans .step{display:block;margin:.15rem 0}
+.quiz{background:#f7f4fb;border:1px solid #e0d3ee;border-radius:8px;padding:.7rem .95rem;margin:.8rem 0}
+.quiz>strong{color:var(--accent)}
+.quiz ol{margin:.3rem 0 .4rem}
+
+.steps{display:flex;flex-wrap:wrap;gap:.45rem;align-items:center;margin:.8rem 0}
+.steps span{background:var(--accent-soft);border:1px solid #d9c8e8;border-radius:999px;padding:.28rem .78rem;font-size:.81rem;font-weight:700;color:var(--accent)}
+.steps i{color:var(--muted);font-style:normal}
+
+.scorebars{background:#fff;border:1px solid var(--line);border-radius:10px;padding:1rem 1.1rem;margin:.8rem 0}
+.score-row{display:grid;grid-template-columns:4.5rem 1fr 3rem;gap:.6rem;align-items:center;margin:.45rem 0;font-size:.86rem}
+.track{height:16px;background:#ece5f3;border-radius:999px;overflow:hidden}
+.fill{height:100%;border-radius:999px;background:var(--accent)}
+.fill.gold{background:var(--gold)}
+.fill.green{background:var(--green)}
+.score-row .val{font-family:var(--font-mono);font-weight:700;text-align:right}
+.score-total{text-align:right;font-size:.85rem;color:var(--muted);border-top:1px dashed var(--line);padding-top:.45rem;margin-top:.5rem}
+.score-total b{color:var(--accent);font-family:var(--font-mono);font-size:1rem}
+
+.term-band{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;background:linear-gradient(120deg,#3a2449,#6b3f8c);color:#fff;border-radius:12px;padding:1.05rem 1.35rem;margin:2.2rem 0 1rem;scroll-margin-top:6.5rem}
+.term-band .num{font:700 1.6rem var(--font-display);color:#e7d6f5}
+.term-band h2{border:0;margin:0;padding:0;color:#fff;font-size:1.28rem}
+.term-band p{margin:0;color:#e2d5ef;font-size:.83rem}
+.term-band .range{margin-left:auto;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);border-radius:6px;padding:.25rem .7rem;font-size:.8rem;white-space:nowrap}
+.term-band.second{background:linear-gradient(120deg,#1f4440,#2f6b5f)}
+
+.fcard{background:#fff;border:1px solid var(--line);border-top:3px solid var(--accent);border-radius:10px;padding:.9rem 1rem}
+.fcard h4{margin:0 0 .35rem;color:var(--accent)}
+.fcard.gold{border-top-color:var(--gold)}
+.fcard.gold h4{color:var(--gold)}
+.fcard.green{border-top-color:var(--green)}
+.fcard.green h4{color:var(--green)}
+.fcard.coral{border-top-color:var(--coral)}
+.fcard.coral h4{color:var(--coral)}
+.formula-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:.9rem;margin:.8rem 0}
+.fcard .formula{background:#faf8fd;font-size:.82rem;line-height:1.9}
+
+.paper{background:#fff;border:1px solid var(--line);border-radius:12px;padding:1.2rem 1.4rem}
+.paper h3{margin-top:1.1rem;border-bottom:1px dashed var(--line);padding-bottom:.3rem}
+.q-item{margin:.65rem 0}
+.q-no{font-family:var(--font-mono);font-weight:700;color:var(--accent);margin-right:.35rem}
+.opts{display:grid;grid-template-columns:repeat(2,1fr);gap:.05rem .8rem;margin:.15rem 0 .2rem 1.6rem;font-size:.92rem}
+.answer-key{background:#faf8fd;border:1px dashed #c9b8da;border-radius:8px;padding:.8rem 1rem;margin-top:1rem}
+.answer-key li{margin:.35rem 0}
+
+.fmachine{display:flex;align-items:center;justify-content:center;gap:.7rem;flex-wrap:wrap;padding:.6rem 0}
+.fbox{min-width:5.5rem;text-align:center;background:#fff;border:1px solid var(--line);border-radius:8px;padding:.5rem .8rem}
+.fbox b{display:block;font-family:var(--font-mono);font-size:1.1rem;color:var(--accent)}
+.fbox small{display:block;font-size:.7rem;color:var(--muted)}
+.fbox.rule{background:var(--accent-soft);border-color:#d3c0e4}
+.farrow{color:var(--gold);font-size:1.2rem;font-weight:700}
+
+.checks{list-style:none;padding-left:0}
+.checks li{padding-left:1.6rem;position:relative}
+.checks li::before{content:"□";position:absolute;left:0;color:var(--accent);font-weight:700}
+
+footer{border-top:1px solid var(--line);padding-top:1rem;margin-top:2rem;text-align:center;color:var(--muted);font-size:.82rem}
+
+@page{size:A4 portrait;margin:14mm 12mm 16mm 12mm}
+@media print{
+  body{background:#fff;color:#000;font-size:10.8pt;line-height:1.5}
+  .topbar,.view-switch,.print-btn,.no-print{display:none!important}
+  .wrap{max-width:none;margin:0;padding:0}
+  .hero{background:#fff!important;color:#000!important;border:1.2pt solid #333;border-radius:0;padding:10pt;margin-bottom:10pt}
+  .hero::before,.hero::after{display:none!important}
+  .hero p,.hero .kicker,.chip{color:#222!important}
+  .chip{border-color:#888!important;background:#fff!important}
+  .hero h1{font-size:17pt;color:#000}
+  h2,h3,h4{color:#000}
+  h2{border-bottom:1.2pt solid #000}
+  .notice,.plain,.mustbox,.pitfall,.music{background:#f7f7f7!important;border:0.5pt solid #888;border-left-width:2.5pt}
+  .term-band{background:#fff!important;color:#000!important;border:1pt solid #333;padding:6pt 9pt}
+  .term-band h2,.term-band p,.term-band .num,.term-band .range{color:#000!important}
+  .term-band .range{background:#fff!important;border-color:#888!important}
+  .card,.example,.diagram,.mini,.fcard{background:#fff!important;box-shadow:none!important;break-inside:avoid;page-break-inside:avoid}
+  .topic,.paper{background:#fff!important;box-shadow:none!important;break-inside:auto;page-break-inside:auto}
+  .topic{border:0.75pt solid #555;border-left:2.5pt solid #000}
+  .diagram{border:0.5pt solid #999}
+  .diagram svg{max-width:100%}
+  a{color:#000!important;text-decoration:none!important}
+  thead{display:table-header-group}
+  tr,details,.q-item{break-inside:avoid}
+  .opts{grid-template-columns:1fr 1fr}
+  details.qa{background:#fafafa!important;border:0.5pt solid #aaa}
+  .ans{border-top-color:#aaa}
+}
+@media screen{
+  html.a4 .wrap,html.a4 .topbar-inner{max-width:210mm}
+}
+@media screen and (max-width:760px){
+  .wrap{padding:1rem .8rem 2.5rem}
+  .nav{display:none}
+  .topbar-inner{gap:.5rem}
+  .hero{padding:1.6rem 1.2rem 1.5rem}
+  .hero::after{font-size:9rem;top:-2.5rem}
+  .topic{padding:1rem}
+  .topic-head{flex-wrap:wrap}
+  .tagrow{margin-left:0;width:100%;justify-content:flex-start}
+  .grid2,.grid3{grid-template-columns:1fr}
+  .opts{grid-template-columns:1fr}
+  .score-row{grid-template-columns:3.6rem 1fr 2.6rem}
+  .term-band .range{margin-left:0}
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">数学 · 音乐班版<small>人教 A 版 · 必修第一册</small></div>
+    <nav class="nav" aria-label="课件导航">
+      <a href="index.html">← 首页</a>
+      <a href="#howto">怎么用</a>
+      <a href="#score">80 分地图</a>
+      <a href="#term1">上学期</a>
+      <a href="#term2">下学期</a>
+      <a href="#exam">自测卷</a>
+      <a href="#formula">公式卡</a>
+      <a href="#plan">计划表</a>
+    </nav>
+    <div class="view-switch" role="group" aria-label="版式">
+      <button type="button" data-view="wide">宽屏</button>
+      <button type="button" data-view="a4">A4 打印版</button>
+    </div>
+    <button type="button" class="print-btn" onclick="window.print()" title="按 A4 纵向打印">打印</button>
+    <span class="badge">11 专题 · 目标 80/100</span>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="hero" aria-label="课件说明">
+    <div class="kicker">菏泽一中 · 高一数学 · 音乐班自学版</div>
+    <h1>必修第一册，<br>用图和例子把数学读懂</h1>
+    <p>这份课件专为音乐班同学编写：少一点术语，多一点图和例子；把教材五章拆成 11 个专题，标清上学期和下学期。目标不是满分，而是把能拿的 <strong style="color:#fff">80 分</strong> 稳稳拿到。</p>
+    <div class="chips">
+      <span class="chip">教材：人教 A 版 · 必修第一册</span>
+      <span class="chip">11 个专题</span>
+      <span class="chip">上学期 1—6 · 下学期 7—11</span>
+      <span class="chip">目标 80 / 100</span>
+    </div>
+  </section>
+
+  <div class="notice">
+    <strong>范围说明：</strong>“上学期 / 下学期”是同一本必修第一册的两个学习阶段，不是两本书。上学期对应教材第 1—3 章（专题 1—6），下学期对应第 4—5 章（专题 7—11）。学校实际进度可能不同，直接点专题跳转即可。
+  </div>
+
+  <section id="howto">
+    <h2>这份课件怎么用</h2>
+    <p class="lead">自学最怕两件事：一是从头看到尾却什么都没记住，二是卡在一道题上半天不动。下面这套用法，每天 30—40 分钟就够。</p>
+    <div class="grid3">
+      <div class="mini">
+        <h4>① 先看懂</h4>
+        <p>读每节的“先说人话”和图示，知道它在讲什么，再去看公式。看不懂的地方先跳过，做个记号。</p>
+      </div>
+      <div class="mini gold">
+        <h4>② 再动手</h4>
+        <p>盖住解析做例题，写完再对照。例题不是用来“看”的，是用来“算”的；算错比看懂更有用。</p>
+      </div>
+      <div class="mini green">
+        <h4>③ 最后自测</h4>
+        <p>做完每节的自测，把错题题号圈起来，第二天再做一遍。做对两次才算过关。</p>
+      </div>
+    </div>
+    <div class="steps">
+      <span>读概念</span><i>→</i><span>背清单</span><i>→</i><span>做例题</span><i>→</i><span>做自测</span><i>→</i><span>订正错题</span>
+    </div>
+    <div class="mustbox">
+      <strong>每天的时间这样分：</strong>10 分钟读概念和图示，20 分钟动笔算，10 分钟订正。周末拿 40 分钟做一次整套自测卷。坚持比一次学很久更有效。
+    </div>
+  </section>
+
+  <section id="score">
+    <h2>80 分从哪里来</h2>
+    <p class="lead">按常见的 100 分卷面估算：选择 40 分、填空 20 分、解答 40 分。目标 80 分，不需要做对压轴题，只需要把基础题和中档题拿稳。</p>
+    <div class="scorebars">
+      <div class="score-row"><span>选择题</span><div class="track"><div class="fill" style="width:80%"></div></div><span class="val">32/40</span></div>
+      <div class="score-row"><span>填空题</span><div class="track"><div class="fill gold" style="width:80%"></div></div><span class="val">16/20</span></div>
+      <div class="score-row"><span>解答题</span><div class="track"><div class="fill green" style="width:80%"></div></div><span class="val">32/40</span></div>
+      <div class="score-total">合计 <b>80 / 100</b>　·　允许在难题上丢 20 分</div>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>策略</th><th>具体内容</th><th>说明</th></tr></thead>
+        <tbody>
+          <tr><td><span class="tag must">必拿</span></td><td>集合运算、充要条件、二次不等式、定义域、单调性奇偶性、指数对数运算、特殊角三角函数、正弦型函数的周期与振幅</td><td>这些题型固定，练熟就能拿分</td></tr>
+          <tr><td><span class="tag try">力争</span></td><td>基本不等式求最值、分段函数、零点判断、诱导公式化简、简单恒等变换</td><td>中档题，掌握套路即可</td></tr>
+          <tr><td><span class="tag skip">可放</span></td><td>含参分类讨论、复杂三角恒等变换、抽象函数综合、压轴题第二问</td><td>时间不够时先保证前面正确</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="plain">
+      <b>三不原则：</b>不空题（选择填空不会也要填一个）、不跳步（大题写清步骤，步骤分很值钱）、不恋战（一道题超过 5 分钟没思路，先跳过，回头再看）。
+    </div>
+    <div class="music">
+      音乐生的优势是“节奏感”和“反复练”。数学一样：一个题型练三遍，比看十遍解析更有用。把每个专题当成一首曲子，先慢练，再合手。
+    </div>
+  </section>
+
+  <section id="term1" class="term-band">
+    <span class="num">01</span>
+    <div>
+      <h2>上学期 · 专题 1—6</h2>
+      <p>教材第 1—3 章：集合与逻辑、不等式、函数的概念与性质</p>
+    </div>
+    <span class="range">约 16 周 · 每天 30 分钟</span>
+  </section>
+
+  <article class="topic" id="t1">
+    <div class="topic-head">
+      <div class="topic-no">01</div>
+      <div>
+        <h3>集合：先把东西分好类</h3>
+        <p class="topic-sub">教材 1.1—1.3 · 建议 3 天 · 考试约 5—10 分</p>
+      </div>
+      <div class="tagrow"><span class="tag must">必拿分</span><span class="tag hot">选择题常客</span></div>
+    </div>
+
+    <div class="plain"><b>先说人话：</b>集合就是一个“盒子”，把确定的东西放进去。你的歌单是一个集合，里面的每首歌是元素。盒子里不能放重复的歌，歌的顺序也不重要。</div>
+
+    <h4>1. 四个符号，先分清</h4>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>写法</th><th>读作</th><th>意思</th><th>例子</th></tr></thead>
+        <tbody>
+          <tr><td class="mono">a ∈ A</td><td>a 属于 A</td><td>a 是集合 A 里的元素</td><td>2 ∈ {1,2,3}</td></tr>
+          <tr><td class="mono">A ⊆ B</td><td>A 包含于 B</td><td>A 里的每个元素都在 B 里</td><td>{1,2} ⊆ {1,2,3}</td></tr>
+          <tr><td class="mono">A ⫋ B</td><td>A 真包含于 B</td><td>A ⊆ B 且 A ≠ B</td><td>{1,2} ⫋ {1,2,3}</td></tr>
+          <tr><td class="mono">∅</td><td>空集</td><td>一个元素都没有的集合</td><td>∅ ⊆ 任何集合</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>元素有三条性质：<strong>确定性</strong>（能不能明确判断）、<strong>互异性</strong>（不能重复）、<strong>无序性</strong>（不分先后）。考试最常用的是互异性，例如 <span class="mono">{1, a}</span> 中必须 <span class="mono">a ≠ 1</span>。</p>
+    <div class="formula">含 n 个元素的集合：子集 <b>2<sup>n</sup></b> 个，真子集 <b>2<sup>n</sup>−1</b> 个，非空真子集 <b>2<sup>n</sup>−2</b> 个。</div>
+
+    <div class="grid2">
+      <div class="diagram">
+        <svg viewBox="0 0 460 240" role="img" aria-label="集合A与集合B的韦恩图，重叠部分是交集">
+          <circle cx="180" cy="122" r="88" fill="rgba(107,63,140,.12)" stroke="#6b3f8c" stroke-width="2"/>
+          <circle cx="280" cy="122" r="88" fill="rgba(169,119,17,.13)" stroke="#a97711" stroke-width="2"/>
+          <text x="118" y="72" class="svg-lbl accent" font-size="15">A</text>
+          <text x="338" y="72" class="svg-lbl gold" font-size="15">B</text>
+          <text x="230" y="127" class="svg-lbl strong" text-anchor="middle">A∩B</text>
+          <text x="126" y="150" class="svg-lbl">只属于 A</text>
+          <text x="286" y="150" class="svg-lbl">只属于 B</text>
+        </svg>
+        <p class="cap">两个圆的重叠部分就是 A∩B；两个圆合起来是 A∪B。</p>
+      </div>
+      <div class="diagram">
+        <svg viewBox="0 0 520 130" role="img" aria-label="数轴表示区间-1到3，左端空心右端实心">
+          <line x1="30" y1="72" x2="500" y2="72" class="svg-axis"/>
+          <polygon points="500,72 489,67 489,77" fill="#a79bb4"/>
+          <line x1="160" y1="72" x2="400" y2="72" stroke="#6b3f8c" stroke-width="6" opacity=".5"/>
+          <circle cx="160" cy="72" r="6.5" fill="#fff" stroke="#6b3f8c" stroke-width="2.5"/>
+          <circle cx="400" cy="72" r="6.5" fill="#6b3f8c"/>
+          <text x="160" y="101" text-anchor="middle" class="svg-lbl">−1（不含）</text>
+          <text x="400" y="101" text-anchor="middle" class="svg-lbl">3（含）</text>
+          <text x="280" y="42" text-anchor="middle" class="svg-lbl accent">A = {x | −1 &lt; x ≤ 3} = (−1, 3]</text>
+        </svg>
+        <p class="cap">空心圈表示不含端点，实心点表示含端点。区间写法：小括号不含，中括号含。</p>
+      </div>
+    </div>
+
+    <h4>2. 三种运算，看“公共、合并、剩下”</h4>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>运算</th><th>符号</th><th>怎么找</th><th>一句口诀</th></tr></thead>
+        <tbody>
+          <tr><td>交集</td><td class="mono">A ∩ B</td><td>两个集合都有的元素</td><td>都要有</td></tr>
+          <tr><td>并集</td><td class="mono">A ∪ B</td><td>两个集合的全部元素（重复只写一次）</td><td>有一个就行</td></tr>
+          <tr><td>补集</td><td class="mono">∁<sub>U</sub>A</td><td>全集 U 里去掉 A 剩下的元素</td><td>剩下的</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="mustbox">
+      <strong>必背关系：</strong>A∩B ⊆ A ⊆ A∪B；A∩∁<sub>U</sub>A = ∅；A∪∁<sub>U</sub>A = U。求补集前，先看清全集 U 是什么。
+    </div>
+
+    <div class="example">
+      <p class="q"><b>例 1</b>　设 U = R，A = {x | −1 &lt; x ≤ 3}，B = {x | x ≥ 2}。求 A∩B、A∪B、∁<sub>U</sub>A。</p>
+      <details class="qa"><summary>看解析（先自己画数轴）</summary>
+        <div class="ans">
+          <span class="step"><strong>画数轴：</strong>A 从 −1 到 3，左空右实；B 从 2 向右。</span>
+          <span class="step"><strong>A∩B：</strong>两边都覆盖的部分是 [2, 3]。</span>
+          <span class="step"><strong>A∪B：</strong>合起来是 (−1, +∞)。</span>
+          <span class="step"><strong>∁<sub>U</sub>A：</strong>U 里去掉 A，剩下 (−∞, −1] ∪ (3, +∞)。注意 −1 本来不在 A 里，所以补集里要包含它；3 在 A 里，所以补集里不包含它。</span>
+        </div>
+      </details>
+    </div>
+
+    <div class="example">
+      <p class="q"><b>例 2</b>　集合 A = {1, 2, 3} 有多少个子集？多少个真子集？</p>
+      <details class="qa"><summary>看解析</summary>
+        <div class="ans">
+          <span class="step">元素个数 n = 3，子集个数 2³ = <strong>8</strong> 个。</span>
+          <span class="step">真子集要去掉它自己，8 − 1 = <strong>7</strong> 个。</span>
+          <span class="step">8 个子集分别是：∅，{1}，{2}，{3}，{1,2}，{1,3}，{2,3}，{1,2,3}。</span>
+        </div>
+      </details>
+    </div>
+
+    <div class="pitfall">
+      <strong>三个最容易丢分的点：</strong>
+      <ul>
+        <li><strong>忘了空集。</strong>题目说 A ⊆ B 求参数时，先问一句：A 能不能是 ∅？空集是任何集合的子集。</li>
+        <li><strong>端点开闭搞反。</strong>画数轴，空心不含、实心含；写区间时小括号不含、中括号含。</li>
+        <li><strong>描述法看错对象。</strong>{x | y = x²} 是 x 的范围 R；{y | y = x²} 是 y 的范围 [0, +∞)；{(x,y) | y = x²} 是图象上的点集。</li>
+      </ul>
+    </div>
+
+    <div class="quiz">
+      <strong>自测（做完再看答案）</strong>
+      <ol>
+        <li>A = {1,2,3}，B = {2,3,4}，求 A∩B 和 A∪B。</li>
+        <li>集合 {a, b} 有多少个子集？</li>
+        <li>把 {x | −2 ≤ x &lt; 1} 写成区间。</li>
+      </ol>
+      <details class="qa"><summary>对答案</summary>
+        <div class="ans">
+          <span class="step">1. A∩B = {2,3}；A∪B = {1,2,3,4}。</span>
+          <span class="step">2. 2² = 4 个：∅，{a}，{b}，{a,b}。</span>
+          <span class="step">3. [−2, 1)。左端含用中括号，右端不含用小括号。</span>
+        </div>
+      </details>
+    </div>
+
+    <div class="music">歌单分组就是集合：两个歌单的交集，是两边都收藏的歌；并集，是两边合起来的全部歌曲。</div>
+  </article>
+
+  <article class="topic" id="t2">
+    <div class="topic-head">
+      <div class="topic-no">02</div>
+      <div>
+        <h3>逻辑用语：充分条件和必要条件</h3>
+        <p class="topic-sub">教材 1.4—1.5 · 建议 2 天 · 选择、填空约 5 分</p>
+      </div>
+      <div class="tagrow"><span class="tag must">必拿分</span><span class="tag hot">易混</span></div>
+    </div>
+
+    <div class="plain"><b>先说人话：</b>“充分条件”就是“有它就够了”；“必要条件”就是“没它不行”。判断时只看箭头：p ⇒ q 表示“只要 p 成立，q 一定成立”。</div>
+
+    <h4>1. 一张表分清“充分”和“必要”</h4>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>关系</th><th>读法</th><th>谁充分</th><th>谁必要</th></tr></thead>
+        <tbody>
+          <tr><td class="mono">p ⇒ q</td><td>p 推出 q</td><td>p 是 q 的充分条件</td><td>q 是 p 的必要条件</td></tr>
+          <tr><td class="mono">q ⇒ p</td><td>q 推出 p</td><td>q 是 p 的充分条件</td><td>p 是 q 的必要条件</td></tr>
+          <tr><td class="mono">p ⇔ q</td><td>互相推出</td><td colspan="2">p 与 q 互为充要条件</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="mustbox">
+      <strong>判断口诀：小范围推大范围。</strong>把 p、q 分别看成集合。如果 p 的范围更小、被包在 q 里面，那么 p 是 q 的充分条件，q 是 p 的必要条件。
+    </div>
+
+    <div class="diagram">
+      <svg viewBox="0 0 460 210" role="img" aria-label="小集合A包含于大集合B，说明A是B的充分条件">
+        <circle cx="300" cy="105" r="82" fill="rgba(169,119,17,.1)" stroke="#a97711" stroke-width="2"/>
+        <circle cx="245" cy="105" r="40" fill="rgba(107,63,140,.16)" stroke="#6b3f8c" stroke-width="2"/>
+        <text x="240" y="110" text-anchor="middle" class="svg-lbl accent" font-size="15">p</text>
+        <text x="350" y="60" class="svg-lbl gold" font-size="15">q</text>
+        <text x="70" y="95" class="svg-lbl strong">p 的范围小</text>
+        <text x="70" y="118" class="svg-lbl strong">q 的范围大</text>
+        <text x="70" y="160" class="svg-lbl coral">p 是 q 的充分条件</text>
+        <text x="70" y="181" class="svg-lbl coral">q 是 p 的必要条件</text>
+      </svg>
+      <p class="cap">小范围 ⇒ 大范围：x &gt; 2 一定能推出 x &gt; 1，但 x &gt; 1 推不出 x &gt; 2。</p>
+    </div>
+
+    <div class="example">
+      <p class="q"><b>例 1</b>　判断“x &gt; 2”是“x &gt; 1”的什么条件。</p>
+      <details class="qa"><summary>看解析</summary>
+        <div class="ans">
+          <span class="step">正方向：x &gt; 2 ⇒ x &gt; 1，成立。</span>
+          <span class="step">反方向：x &gt; 1 ⇒ x &gt; 2，不成立。反例：x = 1.5。</span>
+          <span class="step">所以“x &gt; 2”是“x &gt; 1”的<strong>充分不必要条件</strong>；“x &gt; 1”是“x &gt; 2”的<strong>必要不充分条件</strong>。</span>
+        </div>
+      </details>
+    </div>
+
+    <h4>2. 全称量词与存在量词</h4>
+    <div class="grid2">
+      <div>
+        <div class="formula">∀：所有、任意<br>∃：存在、至少有一个</div>
+        <p>全称命题：∀x∈M，p(x) 对所有 x 都成立。</p>
+        <p>存在命题：∃x∈M，p(x) 至少有一个 x 成立。</p>
+      </div>
+      <div>
+        <div class="formula">¬(∀x∈M, p(x)) ⇔ <b>∃x∈M, ¬p(x)</b><br>¬(∃x∈M, p(x)) ⇔ <b>∀x∈M, ¬p(x)</b></div>
+        <p>否定口诀：<strong>换量词，否结论</strong>。∀ 变 ∃，∃ 变 ∀，再把后面的结论反过来。</p>
+      </div>
+    </div>
+
+    <div class="example">
+      <p class="q"><b>例 2</b>　写出“∀x ∈ R，x² ≥ 0”的否定。</p>
+      <details class="qa"><summary>看解析</summary>
+        <div class="ans">
+          <span class="step">∀ 换成 ∃；“≥”的否定是“&lt;”。</span>
+          <span class="step">答案：<strong>∃x ∈ R，x² &lt; 0</strong>。</span>
+          <span class="step">注意：不是“∀x ∈ R，x² &lt; 0”，量词一定要换。</span>
+        </div>
+      </details>
+    </div>
+
+    <div class="pitfall">
+      <strong>常见错误：</strong>
+      <ul>
+        <li>把“充分”和“必要”说反。记住：箭头<strong>出发</strong>的一边是充分，箭头<strong>指向</strong>的一边是必要。</li>
+        <li>否定时只换结论、忘了换量词；或者只换量词、忘了否定结论。</li>
+        <li>“&gt;”的否定是“≤”，“&lt;”的否定是“≥”；“且”的否定是“或”，“或”的否定是“且”。</li>
+      </ul>
+    </div>
+
+    <div class="quiz">
+      <strong>自测</strong>
+      <ol>
+        <li>“x = 1”是“x² = 1”的什么条件？</li>
+        <li>“三角形是等边三角形”是“三角形是等腰三角形”的什么条件？</li>
+        <li>写出“∃x ∈ R，x + 1 &lt; 0”的否定。</li>
+      </ol>
+      <details class="qa"><summary>对答案</summary>
+        <div class="ans">
+          <span class="step">1. 充分不必要。x = 1 ⇒ x² = 1；但 x² = 1 还有 x = −1。</span>
+          <span class="step">2. 充分不必要。等边一定是等腰，等腰不一定是等边。</span>
+          <span class="step">3. ∀x ∈ R，x + 1 ≥ 0。</span>
+        </div>
+      </details>
+    </div>
+
+    <div class="music">节拍稳定是“能合奏”的必要条件：没有它不行，但只有它也不一定合得好。数学里的“必要”，就是这个意思。</div>
+  </article>
+
+  <article class="topic" id="t3">
+    <div class="topic-head">
+      <div class="topic-no">03</div>
+      <div>
+        <h3>不等式：谁大谁小，怎么算</h3>
+        <p class="topic-sub">教材 2.1—2.2 · 建议 3 天 · 选择、填空、大题第(1)问</p>
+      </div>
+      <div class="tagrow"><span class="tag must">必拿分</span><span class="tag try">最值力争</span></div>
+    </div>
+
+    <div class="plain"><b>先说人话：</b>不等式就是“谁大谁小”。解不等式，就是找出让这句话成立的所有 x。它和等式的最大区别只有一条：<strong>两边乘或除以负数，不等号要反过来</strong>。</div>
+
+    <h4>1. 不等式性质：能做什么，不能做什么</h4>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>性质</th><th>式子</th><th>注意</th></tr></thead>
+        <tbody>
+          <tr><td>两边同加</td><td class="mono">a &gt; b ⇒ a+c &gt; b+c</td><td>同加同减，方向不变</td></tr>
+          <tr><td>乘正数</td><td class="mono">a &gt; b，c &gt; 0 ⇒ ac &gt; bc</td><td>方向不变</td></tr>
+          <tr><td>乘负数</td><td class="mono">a &gt; b，c &lt; 0 ⇒ ac &lt; bc</td><td><strong>方向要反过来</strong></td></tr>
+          <tr><td>同向可加</td><td class="mono">a &gt; b，c &gt; d ⇒ a+c &gt; b+d</td><td>只能加，不能减</td></tr>
+          <tr><td>同向可乘</td><td class="mono">a &gt; b &gt; 0，c &gt; d &gt; 0 ⇒ ac &gt; bd</td><td>必须都是正数</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="pitfall"><strong>注意：</strong>同向不等式不能相减、不能相除。例如 5 &gt; 3、4 &gt; 1，不能推出 5−4 &gt; 3−1（1 &gt; 2 是错的）。</div>
+
+    <h4>2. 比较大小：作差法</h4>
+    <div class="steps"><span>作差</span><i>→</i><span>化简</span><i>→</i><span>判断符号</span><i>→</i><span>下结论</span></div>
+    <div class="formula">若 M − N &gt; 0，则 M &gt; N；若 M − N &lt; 0，则 M &lt; N；若 M − N = 0，则 M = N。</div>
+
+    <div class="example">
+      <p class="q"><b>例 1</b>　比较 (x+1)(x+3) 与 (x+2)² 的大小。</p>
+      <details class="qa"><summary>看解析</summary>
+        <div class="ans">
+          <span class="step">作差：(x+1)(x+3) − (x+2)² = (x²+4x+3) − (x²+4x+4) = −1。</span>
+          <span class="step">差恒小于 0，所以 <strong>(x+1)(x+3) &lt; (x+2)²</strong>，对任意 x 都成立。</span>
+        </div>
+      </details>
+    </div>
+
+    <h4>3. 基本不等式：求最值的“万能钥匙”</h4>
+    <div class="formula">a &gt; 0，b &gt; 0 时：<b>(a+b)/2 ≥ √(ab)</b><br>当且仅当 a = b 时取等号。<br>变形：a+b ≥ 2√(ab)；ab ≤ ((a+b)/2)²</div>
+    <div class="steps"><span>一正：a、b 都是正数</span><i>→</i><span>二定：和或积是定值</span><i>→</i><span>三相等：验证 a=b 能否取到</span></div>
+    <p>口诀：<strong>和定积最大，积定和最小</strong>。但“三相等”必须写出来，否则最值可能是取不到的。</p>
+
+    <div class="example">
+      <p class="q"><b>例 2</b>　已知 x &gt; 0，求 x + 4/x 的最小值。</p>
+      <details class="qa"><summary>看解析</summary>
+        <div class="ans">
+          <span class="step">因为 x &gt; 0，所以 x 和 4/x 都是正数，可以用基本不等式。</span>
+          <span class="step">x + 4/x ≥ 2√(x · 4/x) = 2√4 = <strong>4</strong>。</span>
+          <span class="step">等号成立：x = 4/x，即 x² = 4，x = 2（负根舍去）。</span>
+          <span class="step">所以当 x = 2 时，最小值是 <strong>4</strong>。</span>
+        </div>
+      </details>
+    </div>
+
+    <div class="example">
+      <p class="q"><b>例 3</b>　用 20 m 长的篱笆靠墙围一个矩形菜园（墙作为一边，不用篱笆），怎样围面积最大？</p>
+      <details class="qa"><summary>看解析（先画图）</summary>
+        <div class="ans">
+          <span class="step">设垂直于墙的两条边各为 x m，则平行于墙的边为 (20 − 2x) m，面积 S = x(20 − 2x)，其中 0 &lt; x &lt; 10。</span>
+          <span class="step">S = 2x(10 − x)。把 x 与 10 − x 看成两个正数，它们的和是 10（定值）。</span>
+          <span class="step">由 ab ≤ ((a+b)/2)²：x(10 − x) ≤ (10/2)² = 25，所以 S ≤ 2 × 25 = 50。</span>
+          <span class="step">等号成立：x = 10 − x，即 x = 5。此时另一边为 10 m。</span>
+          <span class="step">答：围成 <strong>5 m × 10 m</strong> 时面积最大，最大面积为 <strong>50 m²</strong>。</span>
+        </div>
+      </details>
+    </div>
+
+    <div class="pitfall">
+      <strong>四个丢分点：</strong>
+      <ul>
+        <li>没写“a、b 为正数”就直接用基本不等式。</li>
+        <li>算出最值却不验证等号能否取到。等号取不到，那个“最值”就是假的。</li>
+        <li>两边乘负数忘记变号。</li>
+        <li>把“同向可加”误用成“同向可减”。</li>
+      </ul>
+    </div>
+
+    <div class="quiz">
+      <strong>自测</strong>
+      <ol>
+        <li>a &gt; 0，b &gt; 0，a + b = 6，求 ab 的最大值。</li>
+        <li>解不等式 2x − 3 &gt; 5。</li>
+        <li>比较 a² + b² 与 2ab 的大小。</li>
+      </ol>
+      <details class="qa"><summary>对答案</summary>
+        <div class="ans">
+          <span class="step">1. ab ≤ ((a+b)/2)² = 3² = 9，当 a = b = 3 时取到，最大值 9。</span>
+          <span class="step">2. 2x &gt; 8，所以 x &gt; 4，解集 (4, +∞)。</span>
+          <span class="step">3. a² + b² − 2ab = (a−b)² ≥ 0，所以 a² + b² ≥ 2ab，当 a = b 时取等号。</span>
+        </div>
+      </details>
+    </div>
+  </article>
+
+  <article class="topic" id="t4">
+    <div class="topic-head">
+      <div class="topic-no">04</div>
+      <div>
+        <h3>二次函数与一元二次不等式</h3>
+        <p class="topic-sub">教材 2.3 · 建议 4 天 · 考试约 10—15 分</p>
+      </div>
+      <div class="tagrow"><span class="tag must">必拿分</span><span class="tag hot">大题常考</span></div>
+    </div>
+
+    <div class="plain"><b>先说人话：</b>二次函数是一条抛物线。它与 x 轴的交点，就是方程的根；抛物线在 x 轴上方或下方的部分，就是不等式的解。记住一句话：<strong>图在上方就是大于零，图在下方就是小于零</strong>。</div>
+
+    <h4>1. 三个“二次”其实是一件事</h4>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>名字</th><th>写法</th><th>看图象的哪里</th></tr></thead>
+        <tbody>
+          <tr><td>二次函数</td><td class="mono">y = ax² + bx + c（a ≠ 0）</td><td>整条抛物线</td></tr>
+          <tr><td>一元二次方程</td><td class="mono">ax² + bx + c = 0</td><td>抛物线与 x 轴的交点</td></tr>
+          <tr><td>一元二次不等式</td><td class="mono">ax² + bx + c &gt; 0（或 &lt; 0）</td><td>抛物线在 x 轴上方的部分（或下方）</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="formula">对称轴：x = <b>−b/(2a)</b>　顶点：<b>(−b/(2a), (4ac−b²)/(4a))</b><br>判别式：<b>Δ = b² − 4ac</b>　Δ &gt; 0 两个零点，Δ = 0 一个零点，Δ &lt; 0 没有零点。</div>
+
+    <div class="diagram">
+      <svg viewBox="0 0 690 250" role="img" aria-label="抛物线开口向上时，判别式大于零、等于零、小于零的三种情况">
+        <g transform="translate(10,0)">
+          <line x1="10" y1="175" x2="205" y2="175" class="svg-axis"/>
+          <line x1="25" y1="30" x2="25" y2="200" class="svg-axis"/>
+          <path d="M35,40 Q100,370 165,40" class="svg-curve"/>
+          <circle cx="73" cy="175" r="4.5" class="svg-pt"/>
+          <circle cx="127" cy="175" r="4.5" class="svg-pt"/>
+          <text x="100" y="20" text-anchor="middle" class="svg-lbl accent">Δ &gt; 0</text>
+          <text x="100" y="228" text-anchor="middle" class="svg-lbl">两个零点</text>
+        </g>
+        <g transform="translate(240,0)">
+          <line x1="10" y1="175" x2="205" y2="175" class="svg-axis"/>
+          <line x1="25" y1="30" x2="25" y2="200" class="svg-axis"/>
+          <path d="M35,40 Q100,310 165,40" class="svg-curve gold"/>
+          <circle cx="100" cy="175" r="4.5" class="svg-pt accent"/>
+          <text x="100" y="20" text-anchor="middle" class="svg-lbl gold">Δ = 0</text>
+          <text x="100" y="228" text-anchor="middle" class="svg-lbl">一个零点（顶点在 x 轴上）</text>
+        </g>
+        <g transform="translate(470,0)">
+          <line x1="10" y1="175" x2="205" y2="175" class="svg-axis"/>
+          <line x1="25" y1="30" x2="25" y2="200" class="svg-axis"/>
+          <path d="M35,30 Q100,190 165,30" class="svg-curve green"/>
+          <text x="100" y="20" text-anchor="middle" class="svg-lbl green">Δ &lt; 0</text>
+          <text x="100" y="228" text-anchor="middle" class="svg-lbl">没有零点，整条在 x 轴上方</text>
+        </g>
+      </svg>
+      <p class="cap">三种情况都按“开口向上”画。Δ 决定抛物线与 x 轴交几次，解集跟着图象走。</p>
+    </div>
+
+    <h4>2. 解一元二次不等式：五步走</h4>
+    <div class="steps"><span>① 二次项系数化正</span><i>→</i><span>② 算 Δ</span><i>→</i><span>③ 求根</span><i>→</i><span>④ 画抛物线</span><i>→</i><span>⑤ 写解集</span></div>
+    <div class="mustbox"><strong>开口向上时的口诀：</strong>“大于取两边，小于取中间”。如果二次项系数是负数，先两边乘 −1，<strong>不等号要反过来</strong>，再套口诀。</div>
+
+    <div class="example">
+      <p class="q"><b>例 1</b>　解不等式 −x² + 2x + 3 ≥ 0。</p>
+      <details class="qa"><summary>看解析</summary>
+        <div class="ans">
+          <span class="step">两边乘 −1，不等号反向：x² − 2x − 3 ≤ 0。</span>
+          <span class="step">因式分解：(x − 3)(x + 1) ≤ 0，根为 −1 和 3。</span>
+          <span class="step">开口向上，小于等于零取两根之间：<strong>[−1, 3]</strong>。</span>
+        </div>
+      </details>
+    </div>
+
+    <div class="example">
+      <p class="q"><b>例 2</b>　解不等式 x² − 4x + 5 &gt; 0。</p>
+      <details class="qa"><summary>看解析</summary>
+        <div class="ans">
+          <span class="step">Δ = (−4)² − 4×1×5 = 16 − 20 = −4 &lt; 0。</span>
+          <span class="step">开口向上且与 x 轴无交点，整条抛物线都在 x 轴上方。</span>
+          <span class="step">所以对任意实数 x 都成立，解集是 <strong>R</strong>（全体实数）。</span>
+          <span class="step">对比：如果是 x² − 4x + 5 &lt; 0，那就无解，解集是 ∅。</span>
+        </div>
+      </details>
+    </div>
+
+    <div class="pitfall">
+      <strong>常见错误：</strong>
+      <ul>
+        <li>二次项系数是负数时，忘记变号就套“大于取两边”。</li>
+        <li>Δ &lt; 0 就一律写“无解”。要看开口方向和不等号：开口向上且“&gt; 0”时解集是 R。</li>
+        <li>端点开闭写错：≥、≤ 用中括号，&gt;、&lt; 用小括号。</li>
+        <li>“恒成立”问题不会用图象，硬背结论。先画抛物线，答案一眼就能看出来。</li>
+      </ul>
+    </div>
+
+    <div class="quiz">
+      <strong>自测</strong>
+      <ol>
+        <li>解不等式 x² − 5x + 6 &lt; 0。</li>
+        <li>解不等式 −x² + 4x − 3 &gt; 0。</li>
+        <li>二次函数 y = x² − 2x + 3 的对称轴和最小值是多少？</li>
+      </ol>
+      <details class="qa"><summary>对答案</summary>
+        <div class="ans">
+          <span class="step">1. (x−2)(x−3) &lt; 0，解集 (2, 3)。</span>
+          <span class="step">2. 两边乘 −1：x² − 4x + 3 &lt; 0，即 (x−1)(x−3) &lt; 0，解集 (1, 3)。</span>
+          <span class="step">3. 对称轴 x = 1；代入得 y = 1 − 2 + 3 = 2，最小值 2。</span>
+        </div>
+      </details>
+    </div>
+  </article>
+
+  <article class="topic" id="t5">
+    <div class="topic-head">
+      <div class="topic-no">05</div>
+      <div>
+        <h3>函数的概念：一台“加工机器”</h3>
+        <p class="topic-sub">教材 3.1 · 建议 3 天 · 定义域是必考点</p>
+      </div>
+      <div class="tagrow"><span class="tag must">必拿分</span><span class="tag hot">先求定义域</span></div>
+    </div>
+
+    <div class="plain"><b>先说人话：</b>函数就是一台加工机器。放进一个 x，按规则 f 加工，吐出一个 y。规则可以是一句话、一个公式、一张表或一条曲线，但必须保证：<strong>同一个 x 只能加工出一个 y</strong>。</div>
+
+    <div class="diagram">
+      <div class="fmachine">
+        <div class="fbox"><b>x</b><small>输入</small></div>
+        <div class="farrow">→</div>
+        <div class="fbox rule"><b>f</b><small>对应关系</small></div>
+        <div class="farrow">→</div>
+        <div class="fbox"><b>y</b><small>输出（唯一）</small></div>
+      </div>
+      <p class="cap">例如 f(x) = 2x + 1：输入 1 得到 3，输入 2 得到 5。一个输入只能有一个输出。</p>
+    </div>
+
+    <h4>1. 函数三要素</h4>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>要素</th><th>含义</th><th>注意</th></tr></thead>
+        <tbody>
+          <tr><td>定义域</td><td>自变量 x 允许取的所有值</td><td><strong>先求定义域，再谈其他</strong></td></tr>
+          <tr><td>对应关系</td><td>x 按什么规则变成 y</td><td>公式、表格、图象都算</td></tr>
+          <tr><td>值域</td><td>所有输出 y 组成的集合</td><td>由定义域和对应关系共同决定</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="formula">两个函数相同 ⇔ <b>定义域相同</b> 且 <b>对应关系相同</b>。与用什么字母表示无关。</div>
+
+    <h4>2. 定义域“雷区清单”</h4>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>结构</th><th>限制条件</th><th>例子</th></tr></thead>
+        <tbody>
+          <tr><td>分式 1/g(x)</td><td class="mono">g(x) ≠ 0</td><td>y = 1/(x−1)：x ≠ 1</td></tr>
+          <tr><td>偶次根式 √g(x)</td><td class="mono">g(x) ≥ 0</td><td>y = √(x+2)：x ≥ −2</td></tr>
+          <tr><td>对数 log<sub>a</sub>g(x)</td><td class="mono">g(x) &gt; 0，a &gt; 0 且 a ≠ 1</td><td>y = log₂(x−1)：x &gt; 1</td></tr>
+          <tr><td>零次幂 g(x)<sup>0</sup></td><td class="mono">g(x) ≠ 0</td><td>(x−2)<sup>0</sup>：x ≠ 2</td></tr>
+          <tr><td>实际问题</td><td>符合实际意义</td><td>人数取整数，长度取正数</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="example">
+      <p class="q"><b>例 1</b>　求 f(x) = √(x−1) + 1/(x−3) 的定义域。</p>
+      <details class="qa"><summary>看解析</summary>
+        <div class="ans">
+          <span class="step">根号里要非负：x − 1 ≥ 0，即 x ≥ 1。</span>
+          <span class="step">分母不能为零：x − 3 ≠ 0，即 x ≠ 3。</span>
+          <span class="step">两个条件同时满足：定义域为 <strong>[1, 3) ∪ (3, +∞)</strong>。</span>
+        </div>
+      </details>
+    </div>
+
+    <div class="example">
+      <p class="q"><b>例 2</b>　已知 f(x) = { x + 1（x &lt; 0）；x²（x ≥ 0） }，求 f(−2)、f(2)、f(f(−2))。</p>
+      <details class="qa"><summary>看解析</summary>
+        <div class="ans">
+          <span class="step">f(−2)：−2 &lt; 0，用上面一段，f(−2) = −2 + 1 = <strong>−1</strong>。</span>
+          <span class="step">f(2)：2 ≥ 0，用下面一段，f(2) = 2² = <strong>4</strong>。</span>
+          <span class="step">f(f(−2)) = f(−1)：先算里面，−1 &lt; 0，所以 = −1 + 1 = <strong>0</strong>。</span>
+          <span class="step">分段函数求值，先看 x 落在哪一段，从里往外算。</span>
+        </div>
+      </details>
+    </div>
+
+    <div class="pitfall">
+      <strong>常见错误：</strong>
+      <ul>
+        <li>先化简再求定义域。比如先约分再写，可能把原来分母为零的点漏掉。定义域要在<strong>原式</strong>上求。</li>
+        <li>几个限制条件之间用“或”而不是“且”。定义域要所有条件<strong>同时</strong>满足。</li>
+        <li>分段函数求 f(f(a)) 时从外往里算，顺序反了。</li>
+        <li>把“f(x+1) 的定义域”理解成 x+1 的范围。它问的始终是 x 的范围。</li>
+      </ul>
+    </div>
+
+    <div class="quiz">
+      <strong>自测</strong>
+      <ol>
+        <li>求 f(x) = √(2−x) + 1/(x+1) 的定义域。</li>
+        <li>已知 f(x) = x² + 1，若 f(a) = 10，求 a。</li>
+        <li>f(x) = x 与 g(x) = x²/x 是同一个函数吗？</li>
+      </ol>
+      <details class="qa"><summary>对答案</summary>
+        <div class="ans">
+          <span class="step">1. 2 − x ≥ 0 且 x + 1 ≠ 0，即 x ≤ 2 且 x ≠ −1，定义域 (−∞, −1) ∪ (−1, 2]。</span>
+          <span class="step">2. a² + 1 = 10，a² = 9，a = ±3。</span>
+          <span class="step">3. 不是。g(x) 的定义域是 x ≠ 0，和 f(x) 的定义域不同。</span>
+        </div>
+      </details>
+    </div>
+
+    <div class="music">函数像“节拍器 → 音符”的固定对应：每一拍按规则落在一个音符上。一个输入只能有一个输出，这就是函数最核心的“唯一性”。</div>
+  </article>
+
+  <article class="topic" id="t6">
+    <div class="topic-head">
+      <div class="topic-no">06</div>
+      <div>
+        <h3>函数的性质：上坡、下坡与对称</h3>
+        <p class="topic-sub">教材 3.2—3.4 · 建议 5 天 · 选择、填空、大题第(1)问</p>
+      </div>
+      <div class="tagrow"><span class="tag must">必拿分</span><span class="tag hot">图象题</span></div>
+    </div>
+
+    <div class="plain"><b>先说人话：</b>单调性看图象是“上坡”还是“下坡”；奇偶性看图象是“左右照镜子”还是“绕原点转半圈”。所有性质都建立在同一个前提上：<strong>定义域</strong>。</div>
+
+    <h4>1. 单调性：从左往右，往上还是往下</h4>
+    <div class="diagram">
+      <svg viewBox="0 0 560 190" role="img" aria-label="增函数从左到右上升，减函数从左到右下降">
+        <g>
+          <line x1="40" y1="160" x2="260" y2="160" class="svg-axis"/>
+          <line x1="50" y1="30" x2="50" y2="175" class="svg-axis"/>
+          <path d="M65,140 Q150,115 240,45" class="svg-curve"/>
+          <text x="150" y="28" text-anchor="middle" class="svg-lbl accent">增函数：上坡</text>
+          <text x="150" y="182" text-anchor="middle" class="svg-lbl">x₁ &lt; x₂ ⇒ f(x₁) &lt; f(x₂)</text>
+        </g>
+        <g>
+          <line x1="320" y1="160" x2="540" y2="160" class="svg-axis"/>
+          <line x1="330" y1="30" x2="330" y2="175" class="svg-axis"/>
+          <path d="M340,45 Q440,110 530,145" class="svg-curve gold"/>
+          <text x="430" y="28" text-anchor="middle" class="svg-lbl gold">减函数：下坡</text>
+          <text x="430" y="182" text-anchor="middle" class="svg-lbl">x₁ &lt; x₂ ⇒ f(x₁) &gt; f(x₂)</text>
+        </g>
+      </svg>
+      <p class="cap">单调性必须说“在哪个区间上”。离开区间谈单调，没有意义。</p>
+    </div>
+
+    <h4>2. 奇偶性：先看定义域是否关于原点对称</h4>
+    <div class="grid2">
+      <div class="diagram">
+        <svg viewBox="0 0 280 220" role="img" aria-label="偶函数图象关于y轴对称">
+          <line x1="30" y1="170" x2="250" y2="170" class="svg-axis"/>
+          <line x1="140" y1="30" x2="140" y2="195" class="svg-axis"/>
+          <path d="M50,60 Q140,280 230,60" class="svg-curve"/>
+          <circle cx="90" cy="135" r="4" class="svg-pt"/>
+          <circle cx="190" cy="135" r="4" class="svg-pt"/>
+          <text x="90" y="190" text-anchor="middle" class="svg-lbl">−a</text>
+          <text x="190" y="190" text-anchor="middle" class="svg-lbl">a</text>
+          <text x="140" y="215" text-anchor="middle" class="svg-lbl accent">f(−x) = f(x)</text>
+        </svg>
+        <p class="cap">偶函数：关于 y 轴对称。例：y = x²。</p>
+      </div>
+      <div class="diagram">
+        <svg viewBox="0 0 280 220" role="img" aria-label="奇函数图象关于原点对称">
+          <line x1="30" y1="120" x2="250" y2="120" class="svg-axis"/>
+          <line x1="140" y1="30" x2="140" y2="205" class="svg-axis"/>
+          <path d="M60,200 C100,175 110,160 140,120 C170,80 180,65 220,40" class="svg-curve gold"/>
+          <circle cx="100" cy="170" r="4" class="svg-pt accent"/>
+          <circle cx="180" cy="70" r="4" class="svg-pt accent"/>
+          <text x="140" y="215" text-anchor="middle" class="svg-lbl gold">f(−x) = −f(x)</text>
+        </svg>
+        <p class="cap">奇函数：关于原点对称。例：y = x³。</p>
+      </div>
+    </div>
+    <div class="formula">偶函数：<b>f(−x) = f(x)</b>　奇函数：<b>f(−x) = −f(x)</b><br>前提：定义域关于原点对称，否则直接判断为“非奇非偶”。</div>
+
+    <h4>3. 五个幂函数，抓住“都过 (1,1)”</h4>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>函数</th><th>定义域</th><th>值域</th><th>奇偶性</th><th>单调性</th></tr></thead>
+        <tbody>
+          <tr><td class="mono">y = x</td><td>R</td><td>R</td><td>奇</td><td>增</td></tr>
+          <tr><td class="mono">y = x²</td><td>R</td><td>[0, +∞)</td><td>偶</td><td>(−∞,0] 减，[0,+∞) 增</td></tr>
+          <tr><td class="mono">y = x³</td><td>R</td><td>R</td><td>奇</td><td>增</td></tr>
+          <tr><td class="mono">y = x<sup>−1</sup></td><td>{x | x ≠ 0}</td><td>{y | y ≠ 0}</td><td>奇</td><td>在 (−∞,0) 和 (0,+∞) 上分别减</td></tr>
+          <tr><td class="mono">y = x<sup>1/2</sup></td><td>[0, +∞)</td><td>[0, +∞)</td><td>非奇非偶</td><td>增</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="example">
+      <p class="q"><b>例 1</b>　判断 f(x) = x³ + x 的奇偶性。</p>
+      <details class="qa"><summary>看解析</summary>
+        <div class="ans">
+          <span class="step">定义域是 R，关于原点对称。</span>
+          <span class="step">f(−x) = (−x)³ + (−x) = −x³ − x = −(x³ + x) = −f(x)。</span>
+          <span class="step">所以 f(x) 是<strong>奇函数</strong>。</span>
+        </div>
+      </details>
+    </div>
+
+    <div class="example">
+      <p class="q"><b>例 2</b>　已知 f(x) = x² − 2x + 3，x ∈ [0, 3]。求它的单调区间和值域。</p>
+      <details class="qa"><summary>看解析</summary>
+        <div class="ans">
+          <span class="step">对称轴 x = −b/(2a) = 2/2 = 1，开口向上。</span>
+          <span class="step">在 [0, 1] 上递减，在 [1, 3] 上递增。</span>
+          <span class="step">最小值在顶点：f(1) = 1 − 2 + 3 = 2。</span>
+          <span class="step">最大值看两个端点：f(0) = 3，f(3) = 9 − 6 + 3 = 6，取较大的 6。</span>
+          <span class="step">值域为 <strong>[2, 6]</strong>。</span>
+        </div>
+      </details>
+    </div>
+
+    <div class="pitfall">
+      <strong>常见错误：</strong>
+      <ul>
+        <li>单调区间用“∪”连接。应该用“和”或逗号分开写，例如“在 (−∞,0) 和 (0,+∞) 上分别递减”。</li>
+        <li>判断奇偶性不看定义域。定义域不关于原点对称，直接是非奇非偶。</li>
+        <li>认为奇函数一定过原点。只有 0 在定义域内时，才有 f(0) = 0。</li>
+        <li>求闭区间最值时只算顶点，忘了比较两个端点。</li>
+      </ul>
+    </div>
+
+    <div class="quiz">
+      <strong>自测</strong>
+      <ol>
+        <li>判断 f(x) = x² + 1 的奇偶性。</li>
+        <li>判断 f(x) = x³ 的奇偶性。</li>
+        <li>f(x) = x² 在 [−1, 2] 上是奇函数还是偶函数？</li>
+      </ol>
+      <details class="qa"><summary>对答案</summary>
+        <div class="ans">
+          <span class="step">1. f(−x) = (−x)² + 1 = x² + 1 = f(x)，偶函数。</span>
+          <span class="step">2. f(−x) = (−x)³ = −x³ = −f(x)，奇函数。</span>
+          <span class="step">3. 都不是。定义域 [−1, 2] 不关于原点对称，直接判为非奇非偶。</span>
+        </div>
+      </details>
+    </div>
+
+    <div class="music">旋律上行、下行，就是函数的增、减；两句完全对称的乐句，像偶函数照镜子；把动机倒过来演奏，像奇函数绕原点转半圈。</div>
+  </article>
+
+  <section id="term2" class="term-band second">
+    <span class="num">02</span>
+    <div>
+      <h2>下学期 · 专题 7—11</h2>
+      <p>教材第 4—5 章：指数函数、对数函数、三角函数</p>
+    </div>
+    <span class="range">约 16 周 · 每天 30 分钟</span>
+  </section>
+
+  <article class="topic" id="t7">
+    <div class="topic-head">
+      <div class="topic-no">07</div>
+      <div>
+        <h3>指数与指数函数：每一步都乘同一个数</h3>
+        <p class="topic-sub">教材 4.1—4.2 · 建议 3 天 · 运算必考</p>
+      </div>
+      <div class="tagrow"><span class="tag must">必拿分</span><span class="tag hot">图象与单调性</span></div>
+    </div>
+
+    <div class="plain"><b>先说人话：</b>指数函数就是“每走一步，就乘同一个数”。细胞每分裂一次数量翻倍，就是 2 的幂；钱按年利率增长，也是这个道理。它长得非常快，所以叫“指数爆炸”。</div>
+
+    <h4>1. 指数运算：先记这几条</h4>
+    <div class="formula">a<sup>0</sup> = 1（a ≠ 0）　a<sup>−n</sup> = 1/a<sup>n</sup><br>a<sup>m/n</sup> = <sup>n</sup>√(a<sup>m</sup>)（a &gt; 0）<br>a<sup>m</sup> · a<sup>n</sup> = a<sup>m+n</sup>　a<sup>m</sup> ÷ a<sup>n</sup> = a<sup>m−n</sup><br>(a<sup>m</sup>)<sup>n</sup> = a<sup>mn</sup>　(ab)<sup>n</sup> = a<sup>n</sup>b<sup>n</sup></div>
+    <p class="muted">负指数先取倒数，分数指数先想“根号”。例如 8<sup>2/3</sup> = (2³)<sup>2/3</sup> = 2² = 4。</p>
+
+    <h4>2. 指数函数的图象与性质</h4>
+    <div class="grid2">
+      <div class="diagram">
+        <svg viewBox="0 0 560 320" role="img" aria-label="指数函数y等于2的x次方和y等于二分之一的x次方图象">
+          <line x1="40" y1="270" x2="530" y2="270" class="svg-axis"/>
+          <line x1="200" y1="30" x2="200" y2="300" class="svg-axis"/>
+          <line x1="45" y1="215" x2="380" y2="215" class="svg-dash"/>
+          <polyline points="50,260 80,256 110,251 140,243 170,231 200,215 230,192 260,160 290,114 320,50" class="svg-curve"/>
+          <polyline points="350,260 320,256 290,251 260,243 230,231 200,215 170,192 140,160 110,114 80,50" class="svg-curve gold"/>
+          <circle cx="200" cy="215" r="4.5" class="svg-pt"/>
+          <text x="208" y="208" class="svg-lbl strong">(0,1)</text>
+          <text x="330" y="92" class="svg-lbl accent">y = 2ˣ</text>
+          <text x="66" y="92" class="svg-lbl gold">y = (1/2)ˣ</text>
+          <text x="205" y="295" class="svg-lbl">O</text>
+          <text x="515" y="292" class="svg-lbl">x</text>
+          <text x="210" y="42" class="svg-lbl">y</text>
+        </svg>
+        <p class="cap">两条曲线都过 (0,1)，都在 x 轴上方；a &gt; 1 上升，0 &lt; a &lt; 1 下降。</p>
+      </div>
+      <div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>函数</th><th class="mono">y = a<sup>x</sup>（a &gt; 1）</th><th class="mono">y = a<sup>x</sup>（0 &lt; a &lt; 1）</th></tr></thead>
+            <tbody>
+              <tr><td>定义域</td><td>R</td><td>R</td></tr>
+              <tr><td>值域</td><td>(0, +∞)</td><td>(0, +∞)</td></tr>
+              <tr><td>定点</td><td>(0, 1)</td><td>(0, 1)</td></tr>
+              <tr><td>单调性</td><td>增函数</td><td>减函数</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="mustbox"><strong>必背：</strong>a<sup>x</sup> 永远大于 0，图象永远在 x 轴上方，x 轴是它的渐近线。底数必须满足 a &gt; 0 且 a ≠ 1。</div>
+      </div>
+    </div>
+
+    <h4>3. 比较大小：同底看单调，不同底找中间量</h4>
+    <div class="steps"><span>同底数 → 用单调性</span><i>→</i><span>不同底 → 找 1 或化成同底</span></div>
+
+    <div class="example">
+      <p class="q"><b>例 1</b>　比较 2<sup>0.3</sup> 与 2<sup>0.5</sup> 的大小。</p>
+      <details class="qa"><summary>看解析</summary>
+        <div class="ans">
+          <span class="step">底数 2 &gt; 1，函数 y = 2<sup>x</sup> 是增函数。</span>
+          <span class="step">因为 0.3 &lt; 0.5，所以 <strong>2<sup>0.3</sup> &lt; 2<sup>0.5</sup></strong>。</span>
+        </div>
+      </details>
+    </div>
+
+    <div class="example">
+      <p class="q"><b>例 2</b>　计算 8<sup>2/3</sup> + (1/2)<sup>−2</sup>。</p>
+      <details class="qa"><summary>看解析</summary>
+        <div class="ans">
+          <span class="step">8<sup>2/3</sup> = (2³)<sup>2/3</sup> = 2² = 4。</span>
+          <span class="step">(1/2)<sup>−2</sup> = 2² = 4。</span>
+          <span class="step">原式 = 4 + 4 = <strong>8</strong>。</span>
+        </div>
+      </details>
+    </div>
+
+    <div class="pitfall">
+      <strong>常见错误：</strong>
+      <ul>
+        <li>把 a<sup>0</sup> 写成 0。任何非零数的 0 次方都等于 1。</li>
+        <li>负指数忘记取倒数：2<sup>−3</sup> = 1/8，不是 −8。</li>
+        <li>认为 a<sup>x</sup> 可能等于 0 或负数。它恒大于 0。</li>
+        <li>比较大小不看底数，直接看指数。底数小于 1 时，指数越大反而越小。</li>
+      </ul>
+    </div>
+
+    <div class="quiz">
+      <strong>自测</strong>
+      <ol>
+        <li>计算 2<sup>−3</sup>。</li>
+        <li>比较 0.5² 与 0.5³ 的大小。</li>
+        <li>函数 y = 3<sup>x</sup> 的定义域和值域分别是什么？</li>
+      </ol>
+      <details class="qa"><summary>对答案</summary>
+        <div class="ans">
+          <span class="step">1. 2<sup>−3</sup> = 1/2³ = 1/8。</span>
+          <span class="step">2. 底数 0.5 在 (0,1) 内，函数递减，所以 0.5² &gt; 0.5³。</span>
+          <span class="step">3. 定义域 R，值域 (0, +∞)。</span>
+        </div>
+      </details>
+    </div>
+
+    <div class="music">十二平均律里，每升高一个半音，频率就乘 2<sup>1/12</sup>；升高 12 个半音（一个八度），正好乘 2。这就是指数在音乐里最漂亮的应用。</div>
+  </article>
+
+  <article class="topic" id="t8">
+    <div class="topic-head">
+      <div class="topic-no">08</div>
+      <div>
+        <h3>对数与对数函数：把指数“倒着问”</h3>
+        <p class="topic-sub">教材 4.3—4.4 · 建议 4 天 · 运算与图象</p>
+      </div>
+      <div class="tagrow"><span class="tag must">必拿分</span><span class="tag hot">真数大于 0</span></div>
+    </div>
+
+    <div class="plain"><b>先说人话：</b>对数是指数的“倒着问”。2 的几次方等于 8？答案是 3，写成 log₂8 = 3。指数问“结果是多少”，对数问“要几次方”。</div>
+
+    <div class="formula"><b>a<sup>x</sup> = N ⇔ x = log<sub>a</sub>N</b><br>其中 a &gt; 0，a ≠ 1，N &gt; 0。<br>常用：log<sub>a</sub>1 = 0，log<sub>a</sub>a = 1，a<sup>log<sub>a</sub>N</sup> = N。</div>
+
+    <h4>1. 对数运算：三条主线</h4>
+    <div class="formula">log<sub>a</sub>(MN) = log<sub>a</sub>M + log<sub>a</sub>N<br>log<sub>a</sub>(M/N) = log<sub>a</sub>M − log<sub>a</sub>N<br>log<sub>a</sub>M<sup>k</sup> = k log<sub>a</sub>M<br>换底：log<sub>a</sub>b = log<sub>c</sub>b / log<sub>c</sub>a</div>
+    <p class="muted">真数必须大于 0，底数必须大于 0 且不等于 1。这两条是解对数题的第一道检查。</p>
+
+    <div class="grid2">
+      <div class="diagram">
+        <svg viewBox="0 0 400 390" role="img" aria-label="指数函数与对数函数关于直线y等于x对称">
+          <line x1="40" y1="300" x2="375" y2="300" class="svg-axis"/>
+          <line x1="180" y1="30" x2="180" y2="345" class="svg-axis"/>
+          <line x1="100" y1="380" x2="380" y2="100" class="svg-dash"/>
+          <polyline points="70,286 98,281 125,273 153,261 180,245 208,222 235,190 263,144 290,80" class="svg-curve"/>
+          <polyline points="286,70 281,98 273,125 261,153 245,180 222,208 190,235 144,263 80,290" class="svg-curve gold"/>
+          <circle cx="180" cy="245" r="4" class="svg-pt"/>
+          <circle cx="235" cy="300" r="4" class="svg-pt accent"/>
+          <text x="296" y="102" class="svg-lbl accent">y = 2ˣ</text>
+          <text x="286" y="262" class="svg-lbl gold">y = log₂x</text>
+          <text x="330" y="150" class="svg-lbl">y = x</text>
+          <text x="188" y="240" class="svg-lbl strong">(0,1)</text>
+          <text x="242" y="318" class="svg-lbl strong">(1,0)</text>
+        </svg>
+        <p class="cap">y = a<sup>x</sup> 与 y = log<sub>a</sub>x 互为反函数，图象关于直线 y = x 对称。</p>
+      </div>
+      <div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>函数</th><th class="mono">y = log<sub>a</sub>x（a &gt; 1）</th><th class="mono">y = log<sub>a</sub>x（0 &lt; a &lt; 1）</th></tr></thead>
+            <tbody>
+              <tr><td>定义域</td><td>(0, +∞)</td><td>(0, +∞)</td></tr>
+              <tr><td>值域</td><td>R</td><td>R</td></tr>
+              <tr><td>定点</td><td>(1, 0)</td><td>(1, 0)</td></tr>
+              <tr><td>单调性</td><td>增函数</td><td>减函数</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="mustbox"><strong>对称记忆：</strong>指数函数过 (0,1)，对数函数过 (1,0)；定义域和值域互换；两条曲线关于 y = x 对称。</div>
+      </div>
+    </div>
+
+    <div class="example">
+      <p class="q"><b>例 1</b>　计算 log₂8 + log₃(1/9)。</p>
+      <details class="qa"><summary>看解析</summary>
+        <div class="ans">
+          <span class="step">2 的 3 次方是 8，所以 log₂8 = 3。</span>
+          <span class="step">3 的 −2 次方是 1/9，所以 log₃(1/9) = −2。</span>
+          <span class="step">原式 = 3 + (−2) = <strong>1</strong>。</span>
+        </div>
+      </details>
+    </div>
+
+    <div class="example">
+      <p class="q"><b>例 2</b>　计算 log₂3 · log₃4。</p>
+      <details class="qa"><summary>看解析</summary>
+        <div class="ans">
+          <span class="step">用换底公式：log₃4 = log₂4 / log₂3。</span>
+          <span class="step">原式 = log₂3 · (log₂4 / log₂3) = log₂4 = <strong>2</strong>。</span>
+        </div>
+      </details>
+    </div>
+
+    <div class="example">
+      <p class="q"><b>例 3</b>　解方程 log₂(x−1) = 3。</p>
+      <details class="qa"><summary>看解析</summary>
+        <div class="ans">
+          <span class="step">化成指数形式：x − 1 = 2³ = 8。</span>
+          <span class="step">解得 x = 9。</span>
+          <span class="step">检验真数：x − 1 = 8 &gt; 0，成立。所以 <strong>x = 9</strong>。</span>
+        </div>
+      </details>
+    </div>
+
+    <div class="pitfall">
+      <strong>常见错误：</strong>
+      <ul>
+        <li>忘记“真数大于 0”，解出根不检验。</li>
+        <li>把 log(M + N) 写成 logM + logN。只有乘法才能拆成加法。</li>
+        <li>把 logₐ1 和 logₐa 记混：前者是 0，后者是 1。</li>
+        <li>底数不合法（a ≤ 0 或 a = 1）还在算。</li>
+      </ul>
+    </div>
+
+    <div class="quiz">
+      <strong>自测</strong>
+      <ol>
+        <li>计算 log₂16。</li>
+        <li>计算 lg100（lg 表示以 10 为底）。</li>
+        <li>计算 log₃(1/27)。</li>
+      </ol>
+      <details class="qa"><summary>对答案</summary>
+        <div class="ans">
+          <span class="step">1. 2⁴ = 16，所以 log₂16 = 4。</span>
+          <span class="step">2. 10² = 100，所以 lg100 = 2。</span>
+          <span class="step">3. 3<sup>−3</sup> = 1/27，所以 log₃(1/27) = −3。</span>
+        </div>
+      </details>
+    </div>
+
+    <div class="music">分贝就是对数：dB = 10 lg(I/I₀)。声音强度每变成原来的 10 倍，分贝数只加 10。人耳对响度的感觉，本来就是“对数”的。</div>
+  </article>
+
+  <article class="topic" id="t9">
+    <div class="topic-head">
+      <div class="topic-no">09</div>
+      <div>
+        <h3>函数的应用：零点与二分法</h3>
+        <p class="topic-sub">教材 4.5 · 建议 2 天 · 选择、填空为主</p>
+      </div>
+      <div class="tagrow"><span class="tag try">力争分</span><span class="tag hot">存在定理</span></div>
+    </div>
+
+    <div class="plain"><b>先说人话：</b>函数的零点，就是让函数值等于 0 的那个 x。它不是点，是一个数；在图象上，它是曲线与 x 轴交点的横坐标。找零点，就是解方程 f(x) = 0。</div>
+
+    <h4>1. 零点存在定理：看两端符号</h4>
+    <div class="mustbox">
+      <strong>定理：</strong>如果函数 f(x) 在闭区间 [a, b] 上的图象连续不断，且 <strong>f(a)·f(b) &lt; 0</strong>，那么 f(x) 在 (a, b) 内至少有一个零点。<br>
+      <span class="muted">直观理解：一端在 x 轴下方，另一端在上方，曲线要过去，就必然穿过 x 轴。</span>
+    </div>
+
+    <div class="diagram">
+      <svg viewBox="0 0 460 220" role="img" aria-label="函数在a处为负、b处为正，中间穿过x轴产生零点">
+        <line x1="40" y1="130" x2="430" y2="130" class="svg-axis"/>
+        <line x1="40" y1="30" x2="40" y2="200" class="svg-axis"/>
+        <path d="M60,190 Q150,190 230,130" class="svg-curve"/>
+        <path d="M230,130 Q310,70 400,40" class="svg-curve"/>
+        <line x1="172" y1="165" x2="172" y2="130" class="svg-dash"/>
+        <line x1="296" y1="87" x2="296" y2="130" class="svg-dash"/>
+        <circle cx="172" cy="165" r="4" class="svg-pt accent"/>
+        <circle cx="296" cy="87" r="4" class="svg-pt accent"/>
+        <circle cx="230" cy="130" r="5" class="svg-pt"/>
+        <text x="172" y="190" text-anchor="middle" class="svg-lbl coral">f(a)&lt;0</text>
+        <text x="296" y="72" text-anchor="middle" class="svg-lbl green">f(b)&gt;0</text>
+        <text x="172" y="150" text-anchor="middle" class="svg-lbl">a</text>
+        <text x="296" y="150" text-anchor="middle" class="svg-lbl">b</text>
+        <text x="238" y="118" class="svg-lbl gold">零点</text>
+      </svg>
+      <p class="cap">两端函数值异号，中间至少穿过 x 轴一次。注意：定理只保证“至少一个”，不保证唯一。</p>
+    </div>
+
+    <h4>2. 二分法：不断对半缩小范围</h4>
+    <div class="steps"><span>取中点</span><i>→</i><span>算中点函数值</span><i>→</i><span>保留异号那一半</span><i>→</i><span>重复到够精确</span></div>
+    <p class="muted">二分法通常考选择或填空，知道“每次把区间缩小一半”就够了，不需要手算很多轮。</p>
+
+    <h4>3. 四种常见增长模型</h4>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>模型</th><th>增长特点</th><th>生活例子</th></tr></thead>
+        <tbody>
+          <tr><td>一次函数 y = kx + b</td><td>匀速增长</td><td>出租车按里程计费</td></tr>
+          <tr><td>二次函数 y = ax²</td><td>先慢后快</td><td>正方形边长与面积</td></tr>
+          <tr><td>指数函数 y = a<sup>x</sup>（a &gt; 1）</td><td>爆炸式增长</td><td>细胞分裂、复利</td></tr>
+          <tr><td>对数函数 y = log<sub>a</sub>x</td><td>先快后慢</td><td>分贝、音高感觉</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="example">
+      <p class="q"><b>例 1</b>　判断 f(x) = x² − 2x − 1 在 (2, 3) 内是否有零点。</p>
+      <details class="qa"><summary>看解析</summary>
+        <div class="ans">
+          <span class="step">f(2) = 4 − 4 − 1 = −1 &lt; 0。</span>
+          <span class="step">f(3) = 9 − 6 − 1 = 2 &gt; 0。</span>
+          <span class="step">f(2)·f(3) &lt; 0，且函数图象连续，所以在 (2, 3) 内<strong>至少有一个零点</strong>。</span>
+        </div>
+      </details>
+    </div>
+
+    <div class="example">
+      <p class="q"><b>例 2</b>　判断 f(x) = 2<sup>x</sup> + x − 4 在 (1, 2) 内是否有零点。</p>
+      <details class="qa"><summary>看解析</summary>
+        <div class="ans">
+          <span class="step">f(1) = 2 + 1 − 4 = −1 &lt; 0。</span>
+          <span class="step">f(2) = 4 + 2 − 4 = 2 &gt; 0。</span>
+          <span class="step">两端异号，图象连续，所以 (1, 2) 内至少有一个零点。</span>
+        </div>
+      </details>
+    </div>
+
+    <div class="pitfall">
+      <strong>常见错误：</strong>
+      <ul>
+        <li>把零点写成坐标 (x, 0)。零点是一个数 x，交点才是 (x, 0)。</li>
+        <li>认为 f(a)f(b) &lt; 0 就“只有一个”零点。定理只保证至少一个。</li>
+        <li>忘了“图象连续”这个前提。</li>
+        <li>由 f(a)f(b) &gt; 0 就断定没有零点。可能有两个。</li>
+      </ul>
+    </div>
+
+    <div class="quiz">
+      <strong>自测</strong>
+      <ol>
+        <li>函数 y = x² − 4 的零点是什么？</li>
+        <li>f(x) = x³ + x − 1 在 (0, 1) 内是否有零点？</li>
+        <li>二分法每进行一次，区间长度变成原来的多少？</li>
+      </ol>
+      <details class="qa"><summary>对答案</summary>
+        <div class="ans">
+          <span class="step">1. 解 x² − 4 = 0，得 x = ±2。</span>
+          <span class="step">2. f(0) = −1 &lt; 0，f(1) = 1 &gt; 0，两端异号，有零点。</span>
+          <span class="step">3. 变成原来的一半。</span>
+        </div>
+      </details>
+    </div>
+
+    <div class="music">音高按频率成倍增长，人耳听起来却像“等距离”的音阶——这正是指数与对数一起工作的结果。</div>
+  </article>
+
+  <article class="topic" id="t10">
+    <div class="topic-head">
+      <div class="topic-no">10</div>
+      <div>
+        <h3>三角函数：圆上的位置</h3>
+        <p class="topic-sub">教材 5.1—5.3 · 建议 5 天 · 特殊角与诱导公式必考</p>
+      </div>
+      <div class="tagrow"><span class="tag must">必拿分</span><span class="tag hot">符号易错</span></div>
+    </div>
+
+    <div class="plain"><b>先说人话：</b>三角函数就是“圆上的位置”。让一个点从 (1,0) 出发，沿单位圆转一个角 α，它停下来时的横坐标是 cosα，纵坐标是 sinα。角转一圈，sin 和 cos 就循环一次。</div>
+
+    <h4>1. 角度与弧度：180° = π</h4>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>角度</th><th>0°</th><th>30°</th><th>45°</th><th>60°</th><th>90°</th><th>180°</th><th>270°</th><th>360°</th></tr></thead>
+        <tbody>
+          <tr><td>弧度</td><td>0</td><td>π/6</td><td>π/4</td><td>π/3</td><td>π/2</td><td>π</td><td>3π/2</td><td>2π</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="formula">弧长 <b>l = |α| r</b>　扇形面积 <b>S = ½ l r = ½ |α| r²</b><br>其中 α 用弧度制，r 是半径。</div>
+
+    <div class="grid2">
+      <div class="diagram">
+        <svg viewBox="0 0 420 400" role="img" aria-label="单位圆上角α的终边与圆交于P，横坐标是余弦，纵坐标是正弦">
+          <line x1="30" y1="210" x2="400" y2="210" class="svg-axis"/>
+          <line x1="210" y1="30" x2="210" y2="390" class="svg-axis"/>
+          <circle cx="210" cy="210" r="130" fill="none" stroke="#a79bb4" stroke-width="1.6"/>
+          <line x1="210" y1="210" x2="275" y2="97" class="svg-curve"/>
+          <line x1="275" y1="97" x2="275" y2="210" class="svg-dash"/>
+          <line x1="275" y1="97" x2="210" y2="97" class="svg-dash"/>
+          <path d="M270,210 A60,60 0 0 0 240,158" fill="none" stroke="#a97711" stroke-width="1.8"/>
+          <circle cx="275" cy="97" r="4.5" class="svg-pt"/>
+          <text x="284" y="90" class="svg-lbl strong">P(cosα, sinα)</text>
+          <text x="246" y="200" class="svg-lbl gold">α</text>
+          <text x="238" y="234" class="svg-lbl accent">cosα</text>
+          <text x="284" y="160" class="svg-lbl accent">sinα</text>
+          <text x="196" y="228" class="svg-lbl">O</text>
+          <text x="345" y="200" class="svg-lbl">1</text>
+          <text x="216" y="45" class="svg-lbl">y</text>
+          <text x="390" y="232" class="svg-lbl">x</text>
+        </svg>
+        <p class="cap">单位圆半径是 1，所以 cosα 就是横坐标，sinα 就是纵坐标。</p>
+      </div>
+      <div class="diagram">
+        <svg viewBox="0 0 360 330" role="img" aria-label="四个象限中三角函数的正负号">
+          <line x1="30" y1="165" x2="330" y2="165" class="svg-axis"/>
+          <line x1="180" y1="20" x2="180" y2="310" class="svg-axis"/>
+          <text x="245" y="88" text-anchor="middle" class="svg-lbl accent" font-size="13">Ⅰ 全正</text>
+          <text x="245" y="108" text-anchor="middle" class="svg-lbl">sin + cos + tan +</text>
+          <text x="110" y="88" text-anchor="middle" class="svg-lbl gold" font-size="13">Ⅱ 正弦正</text>
+          <text x="110" y="108" text-anchor="middle" class="svg-lbl">sin +，其余 −</text>
+          <text x="110" y="232" text-anchor="middle" class="svg-lbl coral" font-size="13">Ⅲ 正切正</text>
+          <text x="110" y="252" text-anchor="middle" class="svg-lbl">tan +，其余 −</text>
+          <text x="245" y="232" text-anchor="middle" class="svg-lbl green" font-size="13">Ⅳ 余弦正</text>
+          <text x="245" y="252" text-anchor="middle" class="svg-lbl">cos +，其余 −</text>
+          <text x="180" y="320" text-anchor="middle" class="svg-lbl strong">一全正、二正弦、三正切、四余弦</text>
+        </svg>
+        <p class="cap">先判断角在第几象限，再决定正负号。符号错了，后面全错。</p>
+      </div>
+    </div>
+
+    <h4>2. 同角关系与诱导公式</h4>
+    <div class="grid2">
+      <div>
+        <div class="formula">sin²α + cos²α = 1<br>tanα = sinα / cosα（cosα ≠ 0）</div>
+        <p class="muted">已知一个，可以求另外两个，但开平方时要根据象限选正负号。</p>
+      </div>
+      <div>
+        <div class="formula">sin(π − α) = sinα　cos(π − α) = −cosα<br>sin(π + α) = −sinα　cos(π + α) = −cosα<br>sin(−α) = −sinα　cos(−α) = cosα<br>sin(π/2 − α) = cosα　cos(π/2 − α) = sinα</div>
+        <p class="muted">口诀“奇变偶不变，符号看象限”，配合单位圆理解，不要死背。</p>
+      </div>
+    </div>
+
+    <h4>3. 特殊角，必须张口就来</h4>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>α</th><th>0</th><th>π/6（30°）</th><th>π/4（45°）</th><th>π/3（60°）</th><th>π/2（90°）</th></tr></thead>
+        <tbody>
+          <tr><td>sinα</td><td>0</td><td>1/2</td><td>√2/2</td><td>√3/2</td><td>1</td></tr>
+          <tr><td>cosα</td><td>1</td><td>√3/2</td><td>√2/2</td><td>1/2</td><td>0</td></tr>
+          <tr><td>tanα</td><td>0</td><td>√3/3</td><td>1</td><td>√3</td><td>不存在</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="example">
+      <p class="q"><b>例 1</b>　已知 sinα = 3/5，且 α 在第二象限，求 cosα 和 tanα。</p>
+      <details class="qa"><summary>看解析</summary>
+        <div class="ans">
+          <span class="step">由 sin²α + cos²α = 1：cos²α = 1 − 9/25 = 16/25。</span>
+          <span class="step">开平方得 cosα = ±4/5。第二象限余弦为负，所以 <strong>cosα = −4/5</strong>。</span>
+          <span class="step">tanα = sinα / cosα = (3/5) ÷ (−4/5) = <strong>−3/4</strong>。</span>
+        </div>
+      </details>
+    </div>
+
+    <div class="example">
+      <p class="q"><b>例 2</b>　求 sin(7π/6)。</p>
+      <details class="qa"><summary>看解析</summary>
+        <div class="ans">
+          <span class="step">7π/6 = π + π/6，在第三象限，正弦为负。</span>
+          <span class="step">sin(π + α) = −sinα，所以 sin(7π/6) = −sin(π/6) = <strong>−1/2</strong>。</span>
+        </div>
+      </details>
+    </div>
+
+    <div class="pitfall">
+      <strong>常见错误：</strong>
+      <ul>
+        <li>开平方后忘记根据象限选正负号。sin² + cos² = 1 只能确定平方，不能直接确定符号。</li>
+        <li>把 tan 的定义域忘了：cosα = 0 时 tanα 不存在，即 α = π/2 + kπ。</li>
+        <li>角度和弧度混用，例如把 sin30 当成 sin30°。算弧度时必须写 π/6。</li>
+        <li>诱导公式只记结论，不判断象限，符号经常写反。</li>
+      </ul>
+    </div>
+
+    <div class="quiz">
+      <strong>自测</strong>
+      <ol>
+        <li>求 sin150°。</li>
+        <li>求 cosπ。</li>
+        <li>求 tan45°。</li>
+        <li>求 sin(−π/6)。</li>
+      </ol>
+      <details class="qa"><summary>对答案</summary>
+        <div class="ans">
+          <span class="step">1. sin150° = sin(180° − 30°) = sin30° = 1/2。</span>
+          <span class="step">2. cosπ = −1。</span>
+          <span class="step">3. tan45° = 1。</span>
+          <span class="step">4. sin(−π/6) = −sin(π/6) = −1/2。</span>
+        </div>
+      </details>
+    </div>
+
+    <div class="music">音叉振动时，空气位移随时间变化的图象就是正弦曲线：频率决定音高，振幅决定响度，初相决定从哪个位置开始振动。</div>
+  </article>
+
+  <article class="topic" id="t11">
+    <div class="topic-head">
+      <div class="topic-no">11</div>
+      <div>
+        <h3>三角函数的图象与性质</h3>
+        <p class="topic-sub">教材 5.4—5.7 · 建议 6 天 · 大题常考第(1)问</p>
+      </div>
+      <div class="tagrow"><span class="tag must">必拿分</span><span class="tag try">恒等变换力争</span></div>
+    </div>
+
+    <div class="plain"><b>先说人话：</b>把 sin 曲线拉高、压扁、左右挪，就得到 y = A sin(ωx + φ)。<strong>A 管高矮，ω 管快慢，φ 管左右</strong>。这三件事分清了，这一章就通了一半。</div>
+
+    <h4>1. 五点法画 y = sin x</h4>
+    <div class="diagram">
+      <svg viewBox="0 0 640 300" role="img" aria-label="正弦函数一个周期的五点作图，标出最大值、最小值和周期">
+        <line x1="50" y1="180" x2="610" y2="180" class="svg-axis"/>
+        <line x1="80" y1="40" x2="80" y2="270" class="svg-axis"/>
+        <line x1="80" y1="115" x2="560" y2="115" class="svg-dash"/>
+        <line x1="80" y1="245" x2="560" y2="245" class="svg-dash"/>
+        <polyline points="80,180 100,163 120,147 140,134 160,124 180,117 200,115 220,117 240,124 260,134 280,147 300,163 320,180 340,197 360,212 380,226 400,236 420,243 440,245 460,243 480,236 500,226 520,212 540,197 560,180" class="svg-curve"/>
+        <circle cx="80" cy="180" r="4" class="svg-pt"/>
+        <circle cx="200" cy="115" r="4" class="svg-pt"/>
+        <circle cx="320" cy="180" r="4" class="svg-pt"/>
+        <circle cx="440" cy="245" r="4" class="svg-pt"/>
+        <circle cx="560" cy="180" r="4" class="svg-pt"/>
+        <text x="80" y="200" text-anchor="middle" class="svg-lbl">0</text>
+        <text x="200" y="205" text-anchor="middle" class="svg-lbl">π/2</text>
+        <text x="320" y="205" text-anchor="middle" class="svg-lbl">π</text>
+        <text x="440" y="205" text-anchor="middle" class="svg-lbl">3π/2</text>
+        <text x="560" y="205" text-anchor="middle" class="svg-lbl">2π</text>
+        <text x="210" y="106" class="svg-lbl accent">最高点 1</text>
+        <text x="450" y="264" class="svg-lbl gold">最低点 −1</text>
+        <text x="320" y="285" text-anchor="middle" class="svg-lbl strong">一个周期 T = 2π</text>
+      </svg>
+      <p class="cap">五个关键点：0、π/2、π、3π/2、2π 对应的函数值依次是 0、1、0、−1、0。</p>
+    </div>
+
+    <h4>2. 三种基本三角函数的性质</h4>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>函数</th><th>定义域</th><th>值域</th><th>周期</th><th>奇偶性</th><th>单调递增区间</th></tr></thead>
+        <tbody>
+          <tr><td class="mono">y = sin x</td><td>R</td><td>[−1, 1]</td><td>2π</td><td>奇</td><td>[−π/2 + 2kπ, π/2 + 2kπ]</td></tr>
+          <tr><td class="mono">y = cos x</td><td>R</td><td>[−1, 1]</td><td>2π</td><td>偶</td><td>[−π + 2kπ, 2kπ]</td></tr>
+          <tr><td class="mono">y = tan x</td><td>x ≠ π/2 + kπ</td><td>R</td><td>π</td><td>奇</td><td>(−π/2 + kπ, π/2 + kπ)</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h4>3. y = A sin(ωx + φ)：四个参数看明白</h4>
+    <div class="formula"><b>振幅 |A|</b>　<b>周期 T = 2π/|ω|</b>　频率 f = 1/T<br><b>初相 φ</b>　相位 ωx + φ　值域 [−|A|, |A|]<br>最大值 |A|，最小值 −|A|。</div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>变化</th><th>对图象的影响</th><th>注意</th></tr></thead>
+        <tbody>
+          <tr><td>A 变化</td><td>上下拉伸，振幅变为 |A|</td><td>A 为负时还要关于 x 轴翻折</td></tr>
+          <tr><td>ω 变化</td><td>横向压缩或拉伸，周期变为 2π/|ω|</td><td>ω 越大，周期越短</td></tr>
+          <tr><td>φ 变化</td><td>左右平移</td><td>左加右减；平移量是 φ/ω</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="pitfall"><strong>最容易错：</strong>y = sin(2x + π/3) 不是向左平移 π/3，而是 sin[2(x + π/6)]，向左平移 <strong>π/6</strong>。先把 ω 提出来，再读平移量。</div>
+
+    <h4>4. 恒等变换：背公式，会代入</h4>
+    <div class="formula">sin(α ± β) = sinα cosβ ± cosα sinβ<br>cos(α ± β) = cosα cosβ ∓ sinα sinβ<br>tan(α ± β) = (tanα ± tanβ) / (1 ∓ tanα tanβ)<br><b>sin2α = 2 sinα cosα</b><br><b>cos2α = cos²α − sin²α = 2cos²α − 1 = 1 − 2sin²α</b></div>
+    <p class="muted">目标 80 分：先把公式背准，会做“给一个特殊角拆成两个角”的题；复杂的证明和变形可以暂时放一放。</p>
+
+    <div class="example">
+      <p class="q"><b>例 1</b>　求 y = 2sin(2x − π/3) 的振幅、周期、最大值和单调递增区间。</p>
+      <details class="qa"><summary>看解析（重点题，建议做两遍）</summary>
+        <div class="ans">
+          <span class="step">振幅 |A| = 2；周期 T = 2π/|ω| = 2π/2 = <strong>π</strong>；最大值 <strong>2</strong>。</span>
+          <span class="step">正弦函数在 [−π/2 + 2kπ, π/2 + 2kπ] 上递增。</span>
+          <span class="step">令 −π/2 + 2kπ ≤ 2x − π/3 ≤ π/2 + 2kπ。</span>
+          <span class="step">各部分加 π/3：−π/6 + 2kπ ≤ 2x ≤ 5π/6 + 2kπ。</span>
+          <span class="step">除以 2：<strong>[−π/12 + kπ, 5π/12 + kπ]（k ∈ Z）</strong>。</span>
+        </div>
+      </details>
+    </div>
+
+    <div class="example">
+      <p class="q"><b>例 2</b>　求 sin75°。</p>
+      <details class="qa"><summary>看解析</summary>
+        <div class="ans">
+          <span class="step">75° = 45° + 30°，用两角和公式。</span>
+          <span class="step">sin75° = sin45°cos30° + cos45°sin30°</span>
+          <span class="step">= (√2/2)(√3/2) + (√2/2)(1/2) = <strong>(√6 + √2)/4</strong>。</span>
+        </div>
+      </details>
+    </div>
+
+    <div class="example">
+      <p class="q"><b>例 3</b>　已知 sinα = 3/5，α ∈ (0, π/2)，求 sin2α 和 cos2α。</p>
+      <details class="qa"><summary>看解析</summary>
+        <div class="ans">
+          <span class="step">α 在第一象限，cosα = √(1 − 9/25) = 4/5。</span>
+          <span class="step">sin2α = 2 sinα cosα = 2 × (3/5) × (4/5) = <strong>24/25</strong>。</span>
+          <span class="step">cos2α = 1 − 2sin²α = 1 − 2 × (9/25) = <strong>7/25</strong>。</span>
+        </div>
+      </details>
+    </div>
+
+    <div class="pitfall">
+      <strong>常见错误：</strong>
+      <ul>
+        <li>周期写成 2π/ω，忘记加绝对值。ω 为负时周期仍是 2π/|ω|。</li>
+        <li>平移量直接读 φ，没有除以 ω。</li>
+        <li>tan 的单调区间用“∪”把两段连起来。必须分开写。</li>
+        <li>把 sin(α + β) 写成 sinα + sinβ。这是最经典的错误，三角函数不能“分配”。</li>
+      </ul>
+    </div>
+
+    <div class="quiz">
+      <strong>自测</strong>
+      <ol>
+        <li>求 y = 3sin(2x + π/6) 的振幅、周期和最大值。</li>
+        <li>求 sin15°。</li>
+        <li>已知 sinα = 1/3，求 cos2α。</li>
+      </ol>
+      <details class="qa"><summary>对答案</summary>
+        <div class="ans">
+          <span class="step">1. 振幅 3；周期 2π/2 = π；最大值 3。</span>
+          <span class="step">2. sin15° = sin(45° − 30°) = (√2/2)(√3/2) − (√2/2)(1/2) = <strong>(√6 − √2)/4</strong>。</span>
+          <span class="step">3. cos2α = 1 − 2sin²α = 1 − 2/9 = <strong>7/9</strong>。</span>
+        </div>
+      </details>
+    </div>
+
+    <div class="music">一段声音可以看成许多正弦波的叠加：A 是音量，ω 是音高，φ 是相位。学会读 y = A sin(ωx + φ)，你其实已经在读声音的“参数表”。</div>
+  </article>
+
+  <section id="exam">
+    <h2>100 分自测卷</h2>
+    <p class="lead">建议周末独立完成，限时 90 分钟。先不翻书、不看解析；做完再对答案，按评分要点给自己打分。80 分以上就是达标。</p>
+    <div class="paper">
+      <h3>一、选择题（每题 5 分，共 40 分）</h3>
+
+      <div class="q-item">
+        <p><span class="q-no">1.</span>设集合 A = {1,2,3}，B = {2,3,4}，则 A∩B =（　　）</p>
+        <div class="opts"><span>A. {1,2,3,4}</span><span>B. {2,3}</span><span>C. {1,4}</span><span>D. ∅</span></div>
+      </div>
+
+      <div class="q-item">
+        <p><span class="q-no">2.</span>命题“∀x ∈ R，x² ≥ 0”的否定是（　　）</p>
+        <div class="opts"><span>A. ∀x ∈ R，x² &lt; 0</span><span>B. ∃x ∈ R，x² &lt; 0</span><span>C. ∃x ∈ R，x² ≥ 0</span><span>D. ∀x ∈ R，x² ≤ 0</span></div>
+      </div>
+
+      <div class="q-item">
+        <p><span class="q-no">3.</span>不等式 x² − 3x + 2 &lt; 0 的解集是（　　）</p>
+        <div class="opts"><span>A. (−∞,1) ∪ (2,+∞)</span><span>B. (1,2)</span><span>C. [1,2]</span><span>D. R</span></div>
+      </div>
+
+      <div class="q-item">
+        <p><span class="q-no">4.</span>函数 f(x) = √(2−x) + 1/(x+1) 的定义域是（　　）</p>
+        <div class="opts"><span>A. (−∞,2]</span><span>B. (−1,2]</span><span>C. (−∞,−1) ∪ (−1,2]</span><span>D. (−∞,−1) ∪ (−1,2)</span></div>
+      </div>
+
+      <div class="q-item">
+        <p><span class="q-no">5.</span>下列函数中为奇函数的是（　　）</p>
+        <div class="opts"><span>A. y = x²</span><span>B. y = x³</span><span>C. y = 2<sup>x</sup></span><span>D. y = log₂x</span></div>
+      </div>
+
+      <div class="q-item">
+        <p><span class="q-no">6.</span>设 a = 2<sup>0.3</sup>，b = 2<sup>0.5</sup>，c = 0.5<sup>0.3</sup>，则（　　）</p>
+        <div class="opts"><span>A. a &lt; b &lt; c</span><span>B. c &lt; a &lt; b</span><span>C. c &lt; b &lt; a</span><span>D. b &lt; a &lt; c</span></div>
+      </div>
+
+      <div class="q-item">
+        <p><span class="q-no">7.</span>sin210° =（　　）</p>
+        <div class="opts"><span>A. 1/2</span><span>B. −1/2</span><span>C. √3/2</span><span>D. −√3/2</span></div>
+      </div>
+
+      <div class="q-item">
+        <p><span class="q-no">8.</span>函数 y = 3sin(2x + π/6) 的最小正周期是（　　）</p>
+        <div class="opts"><span>A. π/2</span><span>B. π</span><span>C. 2π</span><span>D. 4π</span></div>
+      </div>
+
+      <h3>二、填空题（每题 5 分，共 20 分）</h3>
+
+      <div class="q-item"><p><span class="q-no">9.</span>集合 {a,b,c} 的子集个数为 ________。</p></div>
+      <div class="q-item"><p><span class="q-no">10.</span>已知 a &gt; 0，b &gt; 0，a + b = 4，则 ab 的最大值为 ________。</p></div>
+      <div class="q-item"><p><span class="q-no">11.</span>log₂16 + log₃(1/3) = ________。</p></div>
+      <div class="q-item"><p><span class="q-no">12.</span>已知 sinα = 4/5，α ∈ (π/2, π)，则 cosα = ________。</p></div>
+
+      <h3>三、解答题（每题 10 分，共 40 分）</h3>
+
+      <div class="q-item">
+        <p><span class="q-no">13.</span>设全集 U = R，A = {x | −2 ≤ x &lt; 3}，B = {x | x ≥ 1}。求 A∩B、A∪B、∁<sub>U</sub>A。</p>
+      </div>
+      <div class="q-item">
+        <p><span class="q-no">14.</span>已知 f(x) = x² − 2x − 3。<br>（1）求 f(x) 的零点；<br>（2）解不等式 f(x) ≤ 0；<br>（3）当 x ∈ [0,3] 时，求 f(x) 的值域。</p>
+      </div>
+      <div class="q-item">
+        <p><span class="q-no">15.</span>用 20 m 长的篱笆靠墙围一个矩形菜园（墙作为矩形的一边，不用篱笆）。求菜园面积的最大值，并说明怎样围。</p>
+      </div>
+      <div class="q-item">
+        <p><span class="q-no">16.</span>已知 f(x) = 2sin(2x − π/3)。<br>（1）求振幅、最小正周期和最大值；<br>（2）求 f(x) 的单调递增区间；<br>（3）求 f(π/2)。</p>
+      </div>
+
+      <details class="qa"><summary>查看答案与评分要点</summary>
+        <div class="ans">
+          <p><strong>一、选择题</strong></p>
+          <ol>
+            <li>B　（交集是公共元素）</li>
+            <li>B　（∀ 换成 ∃，结论反过来）</li>
+            <li>B　（(x−1)(x−2) &lt; 0，取两根之间）</li>
+            <li>C　（2 − x ≥ 0 且 x + 1 ≠ 0）</li>
+            <li>B　（f(−x) = −f(x)）</li>
+            <li>B　（c = 2<sup>−0.3</sup> &lt; 1 &lt; a &lt; b）</li>
+            <li>B　（sin210° = sin(180° + 30°) = −sin30°）</li>
+            <li>B　（T = 2π/2 = π）</li>
+          </ol>
+          <p><strong>二、填空题</strong></p>
+          <ol start="9">
+            <li>8　（2³ = 8）</li>
+            <li>4　（ab ≤ ((a+b)/2)² = 4，a = b = 2 时取等）</li>
+            <li>3　（log₂16 = 4，log₃(1/3) = −1）</li>
+            <li>−3/5　（第二象限余弦为负，√(1 − 16/25) = 3/5，取负）</li>
+          </ol>
+          <p><strong>三、解答题</strong></p>
+          <p><strong>13.</strong>（画数轴 2 分）A∩B = [1, 3)（3 分）；A∪B = [−2, +∞)（3 分）；∁<sub>U</sub>A = (−∞, −2) ∪ [3, +∞)（2 分）。<br>
+          注意：−2 属于 A，补集不含 −2；3 不属于 A，补集含 3。</p>
+          <p><strong>14.</strong>（1）令 x² − 2x − 3 = 0，得 (x−3)(x+1) = 0，零点为 x = −1 和 x = 3（3 分）。<br>
+          （2）(x−3)(x+1) ≤ 0，解集 [−1, 3]（3 分）。<br>
+          （3）对称轴 x = 1，最小值 f(1) = −4；端点 f(0) = −3，f(3) = 0，所以值域 [−4, 0]（4 分）。</p>
+          <p><strong>15.</strong>设垂直于墙的边为 x m，则平行于墙的边为 (20−2x) m（2 分）。<br>
+          面积 S = x(20−2x) = 2x(10−x)（2 分）。<br>
+          因为 x &gt; 0，10−x &gt; 0，所以 x(10−x) ≤ ((x + 10 − x)/2)² = 25（3 分）。<br>
+          故 S ≤ 50，当且仅当 x = 10−x，即 x = 5 时取等号（2 分）。<br>
+          答：围成 5 m × 10 m 时面积最大，最大面积为 50 m²（1 分）。</p>
+          <p><strong>16.</strong>（1）振幅 2，周期 T = 2π/2 = π，最大值 2（3 分）。<br>
+          （2）令 −π/2 + 2kπ ≤ 2x − π/3 ≤ π/2 + 2kπ，解得 −π/12 + kπ ≤ x ≤ 5π/12 + kπ，所以递增区间为 [−π/12 + kπ, 5π/12 + kπ]（k ∈ Z）（5 分）。<br>
+          （3）f(π/2) = 2sin(π − π/3) = 2sin(2π/3) = 2 × (√3/2) = √3（2 分）。</p>
+          <p class="muted">评分说明：选择题、填空题只看结果；解答题按步骤给分，结果错了但方法对，也能拿大部分步骤分。所以大题一定不要空着。</p>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <section id="formula">
+    <h2>公式速查卡</h2>
+    <p class="lead">考前只看这一页。先遮住右边，默写一遍；写不出来的，回到对应专题再看。</p>
+    <div class="formula-grid">
+      <div class="fcard">
+        <h4>集合与逻辑</h4>
+        <div class="formula">A∩B：公共部分<br>A∪B：全部合并<br>∁<sub>U</sub>A：U 里去掉 A<br>n 个元素：子集 2<sup>n</sup> 个<br>p ⇒ q：p 充分，q 必要<br>¬(∀x, p) ⇔ ∃x, ¬p</div>
+      </div>
+      <div class="fcard gold">
+        <h4>不等式</h4>
+        <div class="formula">a &gt; b，c &lt; 0 ⇒ ac &lt; bc<br>(a+b)/2 ≥ √(ab)（a,b &gt; 0）<br>ab ≤ ((a+b)/2)²<br>一正、二定、三相等</div>
+      </div>
+      <div class="fcard green">
+        <h4>二次函数</h4>
+        <div class="formula">Δ = b² − 4ac<br>对称轴 x = −b/(2a)<br>顶点 (−b/(2a), (4ac−b²)/(4a))<br>a &gt; 0：大于取两边，小于取中间</div>
+      </div>
+      <div class="fcard coral">
+        <h4>函数性质</h4>
+        <div class="formula">分母 ≠ 0；偶次根 ≥ 0；真数 &gt; 0<br>偶：f(−x) = f(x)<br>奇：f(−x) = −f(x)<br>单调区间不能写“∪”</div>
+      </div>
+      <div class="fcard">
+        <h4>指数</h4>
+        <div class="formula">a<sup>0</sup> = 1　a<sup>−n</sup> = 1/a<sup>n</sup><br>a<sup>m/n</sup> = <sup>n</sup>√(a<sup>m</sup>)<br>a<sup>m</sup>a<sup>n</sup> = a<sup>m+n</sup><br>y = a<sup>x</sup>：R → (0,+∞)，过 (0,1)</div>
+      </div>
+      <div class="fcard gold">
+        <h4>对数</h4>
+        <div class="formula">a<sup>x</sup> = N ⇔ x = log<sub>a</sub>N<br>log(MN) = logM + logN<br>log(M/N) = logM − logN<br>log M<sup>k</sup> = k log M<br>log<sub>a</sub>b = log<sub>c</sub>b / log<sub>c</sub>a</div>
+      </div>
+      <div class="fcard green">
+        <h4>三角基础</h4>
+        <div class="formula">180° = π　l = |α|r　S = ½lr<br>sin²α + cos²α = 1<br>tanα = sinα / cosα<br>sin(π−α) = sinα<br>cos(π−α) = −cosα</div>
+      </div>
+      <div class="fcard coral">
+        <h4>三角图象</h4>
+        <div class="formula">y = A sin(ωx + φ)<br>振幅 |A|　周期 T = 2π/|ω|<br>sin(α±β) = sinαcosβ ± cosαsinβ<br>cos2α = 1 − 2sin²α = 2cos²α − 1</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="mistakes">
+    <h2>最容易丢分的 10 个地方</h2>
+    <p class="lead">这些不是“难题”，而是每次考试都会有人踩的坑。考前看一遍，能少丢 10 分。</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>专题</th><th>常见错误</th><th>正确做法</th></tr></thead>
+        <tbody>
+          <tr><td>集合</td><td>求子集时漏掉空集</td><td>A ⊆ B 求参数，先考虑 A = ∅</td></tr>
+          <tr><td>集合</td><td>区间端点开闭写反</td><td>画数轴：空心不含，实心含</td></tr>
+          <tr><td>逻辑</td><td>充分、必要条件说反</td><td>箭头出发的是充分，箭头指向的是必要</td></tr>
+          <tr><td>不等式</td><td>乘负数忘记变号</td><td>两边乘 −1，不等号立刻反过来</td></tr>
+          <tr><td>基本不等式</td><td>不验证等号能否取到</td><td>写“当且仅当 a = b 时取等”，并解出 a、b</td></tr>
+          <tr><td>二次不等式</td><td>二次项系数为负还套口诀</td><td>先化成 a &gt; 0，再“大于取两边”</td></tr>
+          <tr><td>函数</td><td>先化简再求定义域</td><td>在原式上求，分母和根号一个都不能漏</td></tr>
+          <tr><td>函数</td><td>单调区间用“∪”连接</td><td>用“和”或逗号分开写</td></tr>
+          <tr><td>指对数</td><td>对数真数小于等于 0 还继续算</td><td>真数 &gt; 0，解完方程要检验</td></tr>
+          <tr><td>三角函数</td><td>周期写成 2π/ω，平移量读成 φ</td><td>周期 2π/|ω|，平移量 φ/ω</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="plan">
+    <h2>一学期怎么安排</h2>
+    <p class="lead">下面的周次是建议，不是硬性要求。学校讲得快，就按专题追；讲得慢，就多花一周做自测。关键是每周都动笔。</p>
+
+    <h4>上学期（专题 1—6）</h4>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>周次</th><th>内容</th><th>本周目标</th></tr></thead>
+        <tbody>
+          <tr><td>第 1—2 周</td><td>专题 1 集合</td><td>会画数轴、会求交集并集补集、记住 2<sup>n</sup></td></tr>
+          <tr><td>第 3 周</td><td>专题 2 逻辑用语</td><td>能判断充分必要，会写量词否定</td></tr>
+          <tr><td>第 4—5 周</td><td>专题 3 不等式</td><td>性质不写错，基本不等式会验证等号</td></tr>
+          <tr><td>第 6—8 周</td><td>专题 4 二次函数与不等式</td><td>五步法解二次不等式，画图不丢分</td></tr>
+          <tr><td>第 9—11 周</td><td>专题 5 函数的概念</td><td>定义域全对，分段函数会从里往外算</td></tr>
+          <tr><td>第 12—15 周</td><td>专题 6 函数的性质</td><td>单调性、奇偶性判断熟练，幂函数图象有印象</td></tr>
+          <tr><td>第 16 周</td><td>上学期总复习</td><td>做一遍自测卷，错题重做</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h4>下学期（专题 7—11）</h4>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>周次</th><th>内容</th><th>本周目标</th></tr></thead>
+        <tbody>
+          <tr><td>第 1—3 周</td><td>专题 7 指数与指数函数</td><td>指数运算不丢负号，会看图象比较大小</td></tr>
+          <tr><td>第 4—6 周</td><td>专题 8 对数与对数函数</td><td>指数对数互化，三条运算法则记牢</td></tr>
+          <tr><td>第 7 周</td><td>专题 9 零点与二分法</td><td>会用两端异号判断零点存在</td></tr>
+          <tr><td>第 8—11 周</td><td>专题 10 三角基础</td><td>特殊角张口就来，诱导公式符号不错</td></tr>
+          <tr><td>第 12—15 周</td><td>专题 11 图象与恒等变换</td><td>会求振幅、周期、单调区间，记住和差与二倍角</td></tr>
+          <tr><td>第 16 周</td><td>全册总复习</td><td>重做 100 分自测卷，目标 80 分以上</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h4>每周的节奏</h4>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>时间</th><th>做什么</th><th>时长</th></tr></thead>
+        <tbody>
+          <tr><td>周一、周三、周五</td><td>读新专题的“先说人话”和图示，做 2 道例题</td><td>各 30—40 分钟</td></tr>
+          <tr><td>周二、周四</td><td>重做前一天做错的题，整理错题本</td><td>各 20 分钟</td></tr>
+          <tr><td>周六</td><td>做本周的自测，或做整套自测卷</td><td>40—90 分钟</td></tr>
+          <tr><td>周日</td><td>休息；愿意的话花 20 分钟翻一遍公式卡</td><td>20 分钟以内</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="mustbox"><strong>错题本这样记：</strong>左边抄题目（可以剪下来贴），右边写三行——错在哪、正确方法是什么、下次看到什么词要警惕。每周翻一次，比抄整本笔记有用。</div>
+  </section>
+
+  <section id="check">
+    <h2>考前 3 天，只做三件事</h2>
+    <div class="grid3">
+      <div class="mini">
+        <h4>第 1 天：过清单</h4>
+        <p>拿一张纸，遮住公式卡，把每个专题的必背公式默写一遍。写不出来的做记号。</p>
+      </div>
+      <div class="mini gold">
+        <h4>第 2 天：重做错题</h4>
+        <p>只做错题本上的题，不做新题。做对两次的划掉，还错的继续留。</p>
+      </div>
+      <div class="mini green">
+        <h4>第 3 天：做基础卷</h4>
+        <p>做自测卷的选择、填空和前两道大题，找回手感。早点睡，别熬夜刷难题。</p>
+      </div>
+    </div>
+    <h4>进考场前，最后检查这 10 条</h4>
+    <ul class="checks">
+      <li>集合端点开闭、空集情况检查了吗？</li>
+      <li>充分必要条件的箭头方向对吗？</li>
+      <li>基本不等式“一正二定三相等”写全了吗？</li>
+      <li>二次不等式先化成二次项系数为正了吗？</li>
+      <li>定义域是在原式上求的吗？</li>
+      <li>判断奇偶性前看定义域了吗？</li>
+      <li>对数的真数大于 0 吗？</li>
+      <li>三角函数的周期用了 2π/|ω| 吗？</li>
+      <li>特殊角的值记准了吗？</li>
+      <li>大题写步骤了吗，有没有空着？</li>
+    </ul>
+    <div class="plain"><b>最后说一句：</b>80 分不是靠天赋，是靠清单。把每个专题的“必拿分”做到，把会做的题做对，80 分自然就到手了。慢一点没关系，别停。</div>
+  </section>
+
+
+  <footer>
+    <p>菏泽一中 · 高一数学（音乐班）自学课件　|　教材：人教 A 版《普通高中教科书·数学》必修第一册</p>
+    <p style="margin-top:.35rem">目标得分 80/100　·　仅供自学梳理，具体以教材与老师要求为准</p>
+    <p style="margin-top:.35rem"><a href="index.html">← 返回课件首页</a></p>
+  </footer>
+
+</main>
+
+<script>
+(function () {
+  function setDetailsOpen(open) {
+    document.querySelectorAll("details").forEach(function (d) {
+      if (open) {
+        if (!("wasOpen" in d.dataset)) d.dataset.wasOpen = d.open ? "1" : "0";
+        d.open = true;
+      } else if ("wasOpen" in d.dataset) {
+        d.open = d.dataset.wasOpen === "1";
+        delete d.dataset.wasOpen;
+      }
+    });
+  }
+  window.addEventListener("beforeprint", function () { setDetailsOpen(true); });
+  window.addEventListener("afterprint", function () { setDetailsOpen(false); });
+})();
+(function () {
+  var root = document.documentElement;
+  var buttons = document.querySelectorAll(".view-switch [data-view]");
+  function sync() {
+    var a4 = root.classList.contains("a4");
+    buttons.forEach(function (btn) {
+      btn.setAttribute("aria-pressed", String((btn.getAttribute("data-view") === "a4") === a4));
+    });
+  }
+  buttons.forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var a4 = btn.getAttribute("data-view") === "a4";
+      root.classList.toggle("a4", a4);
+      try {
+        localStorage.setItem("hs-view", a4 ? "a4" : "wide");
+        var url = new URL(location.href);
+        url.searchParams.set("view", a4 ? "a4" : "wide");
+        history.replaceState(null, "", url);
+      } catch (e) {}
+      sync();
+    });
+  });
+  sync();
+})();
+</script>
+</body>
+</html>

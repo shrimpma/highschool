@@ -19,6 +19,8 @@
 
     --math: #0d6e6e;
     --math-soft: #e6f3f3;
+    --math2: #6b3f8c;
+    --math2-soft: #f1eaf7;
     --physics: #15468a;
     --physics-soft: #e6edf7;
     --chem: #0f5c4c;
@@ -168,6 +170,7 @@
   .go::after { content: "→"; }
 
   .card.math { --subj: var(--math); --subj-soft: var(--math-soft); }
+  .card.math2 { --subj: var(--math2); --subj-soft: var(--math2-soft); }
   .card.physics { --subj: var(--physics); --subj-soft: var(--physics-soft); }
   .card.chem { --subj: var(--chem); --subj-soft: var(--chem-soft); }
   .card.bio { --subj: var(--bio); --subj-soft: var(--bio-soft); }
@@ -267,7 +270,7 @@
       <button type="button" data-view="a4">A4 打印版</button>
     </div>
     <button type="button" class="print-btn" onclick="window.print()" title="按 A4 纵向打印">打印</button>
-    <div class="badge">4 科 · 6 份课件</div>
+    <div class="badge">4 科 · 7 份课件</div>
   </div>
 </header>
 
@@ -279,17 +282,32 @@
     <p>数学、物理、化学、生物统一归入「高一上」。点击卡片进入对应课件，知识点梳理 + 经典考题与解析。</p>
     <div class="stats">
       <span class="stat"><b>4</b> 学科</span>
-      <span class="stat"><b>6</b> 份课件</span>
+      <span class="stat"><b>7</b> 份课件</span>
       <span class="stat"><b>必修一</b> 主线</span>
     </div>
   </div>
 
   <h2>课件目录</h2>
-  <p class="lead">按学科进入；数学有知识梳理与函数图解两份课件，生物有整体自学与专题突破两份课件，可按需选用。</p>
+  <p class="lead">按学科进入；数学有三份课件（音乐班通俗版、知识梳理、函数图解），生物有整体自学与专题突破两份课件，可按需选用。</p>
 
   <div class="grid">
 
     <div class="group-label">数理化</div>
+
+    <a class="card math2" href="菏泽一中-高一数学必修一自学课件-音乐班版.html">
+      <div class="card-top">
+        <span class="subj-tag">数学 · 音乐班</span>
+        <span class="edition">人教 A 版</span>
+      </div>
+      <h3>数学必修第一册 · 音乐班版</h3>
+      <p class="desc">专为音乐班编写的通俗自学版：11 个专题、图示讲解、按上下学期编排，目标 80/100。</p>
+      <div class="meta">
+        <span>11 个专题</span>
+        <span>图示 + 例题 + 自测</span>
+        <span>目标 80/100</span>
+      </div>
+      <span class="go">进入课件</span>
+    </a>
 
     <a class="card math" href="菏泽一中-高一数学必修一自学课件.html">
       <div class="card-top">
