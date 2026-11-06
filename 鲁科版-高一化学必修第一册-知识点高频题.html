@@ -184,15 +184,59 @@
   .box.a { border-top: 3px solid var(--accent); }
   .box.b { border-top: 3px solid var(--amber); }
 
+  /* ===== 结构图与结构化解读 ===== */
+  .fig {
+    margin: .9rem 0 1rem; background: #fff;
+    border: 1px solid var(--line); border-radius: 8px;
+    padding: .8rem .9rem .55rem;
+  }
+  .fig-title {
+    font-size: .82rem; font-weight: 700; color: var(--blue);
+    letter-spacing: .02em; margin-bottom: .45rem;
+  }
+  .fig-title span { color: var(--muted); font-weight: 500; margin-left: .4rem; }
+  .fig svg { display: block; width: 100%; height: auto; }
+  .fig figcaption {
+    font-size: .78rem; color: var(--muted); text-align: center;
+    margin-top: .5rem; line-height: 1.55;
+  }
+  .struct {
+    border: 1px solid #c5ddd5; border-left: 3px solid var(--blue);
+    background: #f6fafb; border-radius: 6px;
+    padding: .6rem .8rem .55rem; margin: .8rem 0 .9rem;
+    font-size: .9rem;
+  }
+  .struct-t { font-weight: 700; color: var(--blue); margin-bottom: .25rem; font-size: .88rem; }
+  .struct ul { list-style: none; display: grid; gap: .2rem; }
+  .struct li { padding-left: 1.15rem; position: relative; }
+  .struct li::before {
+    content: "▸"; position: absolute; left: .1rem; top: 0; color: var(--accent);
+  }
+  .struct b { color: var(--accent); }
+
+  @media screen and (max-width: 700px) {
+    .term-table thead { display: none; }
+    .term-table, .term-table tbody, .term-table tr, .term-table td { display: block; width: 100%; }
+    .term-table tr {
+      border: 1px solid var(--line); border-radius: 8px;
+      background: #fff; padding: .45rem .6rem; margin: .5rem 0;
+    }
+    .term-table td { border: 0; padding: .12rem 0; }
+    .term-table td:nth-child(1) { font-weight: 700; font-size: 1rem; }
+    .term-table td:nth-child(2) { color: var(--muted); font-style: italic; }
+    .term-table td:nth-child(3)::before { content: "符号 / 单位："; font-weight: 700; color: var(--muted); }
+    .term-table td:nth-child(4)::before { content: "解释："; font-weight: 700; color: var(--muted); }
+  }
+
   footer {
     text-align: center; color: var(--muted); font-size: .82rem;
     margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--line);
   }
 
   .stat-row {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: .6rem; margin: .8rem 0 1rem;
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: .6rem; margin: .8rem 0 1rem;
   }
-  @media (max-width: 640px) { .stat-row { grid-template-columns: 1fr; } }
+  @media (max-width: 640px) { .stat-row { grid-template-columns: 1fr 1fr; } }
   .stat {
     text-align: center; border-radius: 8px; padding: .9rem .6rem;
   }
@@ -201,6 +245,7 @@
   .stat.s1 { background: var(--accent-soft); color: var(--accent); }
   .stat.s2 { background: var(--blue-soft); color: var(--blue); }
   .stat.s3 { background: var(--amber-soft); color: var(--amber); }
+  .stat.s4 { background: var(--rose-soft); color: var(--rose); }
 
   .view-switch {
     display: inline-flex; border: 1px solid rgba(255,255,255,.28);
@@ -286,7 +331,7 @@
     }
 
     .stat-row {
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       gap: 4pt;
       margin: 0 0 8pt;
       break-inside: avoid;
@@ -471,6 +516,35 @@
     }
     .box.a, .box.b { border-top: 1.5pt solid #333; }
 
+    .fig {
+      border: 0.5pt solid #666;
+      border-radius: 0;
+      padding: 4pt 5pt 3pt;
+      margin: 4pt 0 5pt;
+      background: #fff !important;
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+    .fig-title { font-size: 8.5pt; color: #000 !important; margin-bottom: 2pt; }
+    .fig-title span { color: #333 !important; }
+    .fig figcaption { font-size: 7.5pt; color: #333 !important; margin-top: 2pt; }
+    .fig svg { width: 100%; height: auto; }
+
+    .struct {
+      border: 0.5pt solid #666;
+      border-left: 2pt solid #333;
+      background: #f7f7f7 !important;
+      border-radius: 0;
+      padding: 3pt 5pt;
+      margin: 4pt 0;
+      font-size: 8.8pt;
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+    .struct-t { color: #000 !important; font-size: 8.5pt; }
+    .struct b { color: #000 !important; }
+    .struct li::before { color: #000 !important; }
+
     .muted, .lead { color: #333 !important; font-size: 9pt; }
 
     footer {
@@ -513,6 +587,7 @@
     <div class="brand">鲁科版 · 化学必修一<small>知识点 + 高频题</small></div>
     <nav class="nav">
       <a href="index.html">← 首页</a>
+      <a href="#overview">总览</a>
       <a href="#toc">目录</a>
       <a href="#ch1">第1章</a>
       <a href="#ch2">第2章</a>
@@ -535,7 +610,7 @@
   <div class="hero">
     <div class="k">普通高中教科书 · 山东科技教育出版社（鲁科版 2019）</div>
     <h1>化学必修第一册<br />知识点梳理 · 高频考题与答案解析</h1>
-    <p>按教材三章拆解高频考点。每个知识点给出要点速记 + <strong style="color:#fff">3 道高频考题</strong>（点击展开答案与解析）。题型贴近高一期中/期末与学业水平常见设问。</p>
+    <p>按教材三章拆解高频考点。每个知识点配一张<strong style="color:#fff">结构图 + 结构化解读</strong>，再给出要点速记与 <strong style="color:#fff">3 道高频考题</strong>（点击展开答案与解析）。题型贴近高一期中/期末与学业水平常见设问。</p>
     <div class="chips">
       <span class="chip">第1章 认识化学科学</span>
       <span class="chip">第2章 元素与物质世界</span>
@@ -547,12 +622,99 @@
     <div class="stat s1"><div class="n">12</div><div class="l">核心知识点</div></div>
     <div class="stat s2"><div class="n">36</div><div class="l">高频考题（含解析）</div></div>
     <div class="stat s3"><div class="n">3</div><div class="l">教材章节全覆盖</div></div>
+    <div class="stat s4"><div class="n">13</div><div class="l">结构图与图解</div></div>
   </div>
+
+  <!-- 知识结构总览 -->
+  <section id="overview" class="chapter">
+    <div class="ch-head">
+      <div>
+        <h2>知识结构总览</h2>
+        <p class="muted">三章不是三块孤立知识：第1章给“量”的工具，第2章给“微粒与反应”的语言，第3章用它解释具体元素。</p>
+      </div>
+      <span class="ch-tag">先看骨架 · 再钻细节</span>
+    </div>
+
+    <figure class="fig">
+      <div class="fig-title">全书知识骨架<span>12 个知识点挂在同一条主线上</span></div>
+      <svg viewBox="0 0 960 380" role="img" aria-label="全书三章十二个知识点的结构图">
+        <defs>
+          <marker id="ov-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M0,0 L10,5 L0,10 z" fill="#0f5c4c"/>
+          </marker>
+        </defs>
+
+        <rect x="10" y="8" width="290" height="46" rx="8" fill="#0f5c4c"/>
+        <text x="155" y="37" text-anchor="middle" font-size="15" font-weight="700" fill="#fff">第1章　认识化学科学</text>
+        <rect x="10" y="66" width="290" height="36" rx="6" fill="#e4f2ee" stroke="#c5ddd5" stroke-width="1.2"/>
+        <text x="24" y="89" font-size="13" fill="#1c2430">KP-01　研究方法与程序</text>
+        <rect x="10" y="110" width="290" height="36" rx="6" fill="#e4f2ee" stroke="#c5ddd5" stroke-width="1.2"/>
+        <text x="24" y="133" font-size="13" fill="#1c2430">KP-02　物质的量与 Nₐ</text>
+        <rect x="10" y="154" width="290" height="36" rx="6" fill="#e4f2ee" stroke="#c5ddd5" stroke-width="1.2"/>
+        <text x="24" y="177" font-size="13" fill="#1c2430">KP-03　摩尔质量 · Vₘ</text>
+        <rect x="10" y="198" width="290" height="36" rx="6" fill="#e4f2ee" stroke="#c5ddd5" stroke-width="1.2"/>
+        <text x="24" y="221" font-size="13" fill="#1c2430">KP-04　物质的量浓度</text>
+
+        <rect x="330" y="8" width="300" height="46" rx="8" fill="#1a4f8b"/>
+        <text x="480" y="37" text-anchor="middle" font-size="15" font-weight="700" fill="#fff">第2章　元素与物质世界</text>
+        <rect x="330" y="66" width="300" height="36" rx="6" fill="#e7eef7" stroke="#c3d5ea" stroke-width="1.2"/>
+        <text x="344" y="89" font-size="13" fill="#1c2430">KP-05　元素与物质分类</text>
+        <rect x="330" y="110" width="300" height="36" rx="6" fill="#e7eef7" stroke="#c3d5ea" stroke-width="1.2"/>
+        <text x="344" y="133" font-size="13" fill="#1c2430">KP-06　分散系与胶体</text>
+        <rect x="330" y="154" width="300" height="36" rx="6" fill="#e7eef7" stroke="#c3d5ea" stroke-width="1.2"/>
+        <text x="344" y="177" font-size="13" fill="#1c2430">KP-07　电解质与电离</text>
+        <rect x="330" y="198" width="300" height="36" rx="6" fill="#e7eef7" stroke="#c3d5ea" stroke-width="1.2"/>
+        <text x="344" y="221" font-size="13" fill="#1c2430">KP-08　离子反应与方程式</text>
+        <rect x="330" y="242" width="300" height="36" rx="6" fill="#e7eef7" stroke="#c3d5ea" stroke-width="1.2"/>
+        <text x="344" y="265" font-size="13" fill="#1c2430">KP-09　氧化还原反应</text>
+
+        <rect x="660" y="8" width="290" height="46" rx="8" fill="#9a5b00"/>
+        <text x="805" y="37" text-anchor="middle" font-size="15" font-weight="700" fill="#fff">第3章　物质的性质与转化</text>
+        <rect x="660" y="66" width="290" height="36" rx="6" fill="#fff4e5" stroke="#ecd7b8" stroke-width="1.2"/>
+        <text x="674" y="89" font-size="13" fill="#1c2430">KP-10　铁的多样性</text>
+        <rect x="660" y="110" width="290" height="36" rx="6" fill="#fff4e5" stroke="#ecd7b8" stroke-width="1.2"/>
+        <text x="674" y="133" font-size="13" fill="#1c2430">KP-11　硫的转化</text>
+        <rect x="660" y="154" width="290" height="36" rx="6" fill="#fff4e5" stroke="#ecd7b8" stroke-width="1.2"/>
+        <text x="674" y="177" font-size="13" fill="#1c2430">KP-12　氮的循环</text>
+
+        <line x1="304" y1="150" x2="326" y2="150" stroke="#0f5c4c" stroke-width="2" marker-end="url(#ov-arrow)"/>
+        <line x1="634" y1="150" x2="656" y2="150" stroke="#0f5c4c" stroke-width="2" marker-end="url(#ov-arrow)"/>
+        <rect x="25" y="300" width="156" height="56" rx="8" fill="#f3f6f8" stroke="#c8d3dc" stroke-width="1.2"/>
+        <text x="103" y="323" text-anchor="middle" font-size="13.5" font-weight="700" fill="#1c2430">宏观物质</text>
+        <text x="103" y="342" text-anchor="middle" font-size="11.5" fill="#5c6b7a">m、V、c</text>
+        <rect x="208" y="300" width="156" height="56" rx="8" fill="#e4f2ee" stroke="#0f5c4c" stroke-width="1.4"/>
+        <text x="286" y="323" text-anchor="middle" font-size="13.5" font-weight="700" fill="#0f5c4c">物质的量 n</text>
+        <text x="286" y="342" text-anchor="middle" font-size="11.5" fill="#5c6b7a">mol：桥梁</text>
+        <rect x="391" y="300" width="156" height="56" rx="8" fill="#e7eef7" stroke="#1a4f8b" stroke-width="1.4"/>
+        <text x="469" y="323" text-anchor="middle" font-size="13.5" font-weight="700" fill="#1a4f8b">微粒视角</text>
+        <text x="469" y="342" text-anchor="middle" font-size="11.5" fill="#5c6b7a">离子 · 电子</text>
+        <rect x="574" y="300" width="156" height="56" rx="8" fill="#fff4e5" stroke="#9a5b00" stroke-width="1.4"/>
+        <text x="652" y="323" text-anchor="middle" font-size="13.5" font-weight="700" fill="#9a5b00">反应与转化</text>
+        <text x="652" y="342" text-anchor="middle" font-size="11.5" fill="#5c6b7a">拆写 · 转移</text>
+        <rect x="757" y="300" width="156" height="56" rx="8" fill="#fce8ee" stroke="#8f1d3a" stroke-width="1.4"/>
+        <text x="835" y="323" text-anchor="middle" font-size="13.5" font-weight="700" fill="#8f1d3a">新物质</text>
+        <text x="835" y="342" text-anchor="middle" font-size="11.5" fill="#5c6b7a">性质与应用</text>
+        <line x1="181" y1="328" x2="204" y2="328" stroke="#5c6b7a" stroke-width="1.8" marker-end="url(#ov-arrow)"/>
+        <line x1="364" y1="328" x2="387" y2="328" stroke="#5c6b7a" stroke-width="1.8" marker-end="url(#ov-arrow)"/>
+        <line x1="547" y1="328" x2="570" y2="328" stroke="#5c6b7a" stroke-width="1.8" marker-end="url(#ov-arrow)"/>
+        <line x1="730" y1="328" x2="753" y2="328" stroke="#5c6b7a" stroke-width="1.8" marker-end="url(#ov-arrow)"/>
+      </svg>
+      <figcaption>先建立“章—知识点”的位置感：复习时先问自己在哪一章、这条知识接在哪一步，再背细节。</figcaption>
+    </figure>
+    <div class="struct">
+      <div class="struct-t">结构化理解</div>
+      <ul>
+        <li><b>第1章解决“算”：</b>物质的量把质量、气体体积、溶液浓度、微粒数连成一张换算网。</li>
+        <li><b>第2章解决“拆”和“判”：</b>先分类，再用电离把物质拆成离子，最后用化合价判断氧化还原。</li>
+        <li><b>第3章解决“用”：</b>以 Fe、S、N 为载体，把前两章的工具套进真实的转化关系里。</li>
+      </ul>
+    </div>
+  </section>
 
   <!-- TOC -->
   <section id="toc">
     <h2>全书目录</h2>
-    <p class="lead">点击跳转到对应知识点；每点含要点卡片与三道题。</p>
+    <p class="lead">点击跳转到对应知识点；每点含结构图、结构化解读、要点卡片与三道题。</p>
     <div class="toc">
       <a href="#kp01"><div class="n">1.1–1.2</div><div class="t">研究物质性质的方法与程序</div><div class="s">观察·实验·分类·比较</div></a>
       <a href="#kp02"><div class="n">1.3-A</div><div class="t">物质的量与阿伏加德罗常数</div><div class="s">n、Nₐ、微粒数换算</div></a>
@@ -588,6 +750,44 @@
       <div class="kp-body">
         <div class="kp-brief">
           <strong>要点：</strong>基本方法——观察、实验、分类、比较；基本程序——提出问题→设计实验→实施实验→获得结论→交流讨论。研究物质常从物理性质（颜色、状态、溶解性等）到化学性质（与酸、碱、氧气等反应）。
+        </div>
+
+        <figure class="fig">
+          <div class="fig-title">研究程序与方法<span>先有顺序，再谈方法</span></div>
+          <svg viewBox="0 0 900 210" role="img" aria-label="研究物质性质的基本程序流程图">
+            <defs>
+              <marker id="kp01-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M0,0 L10,5 L0,10 z" fill="#0f5c4c"/>
+              </marker>
+            </defs>
+            <rect x="25" y="45" width="150" height="52" rx="8" fill="#e4f2ee" stroke="#0f5c4c" stroke-width="1.4"/>
+            <text x="100" y="77" text-anchor="middle" font-size="14.5" font-weight="700" fill="#0f5c4c">提出问题</text>
+            <rect x="200" y="45" width="150" height="52" rx="8" fill="#fff" stroke="#0f5c4c" stroke-width="1.4"/>
+            <text x="275" y="77" text-anchor="middle" font-size="14.5" fill="#1c2430">设计实验</text>
+            <rect x="375" y="45" width="150" height="52" rx="8" fill="#fff" stroke="#0f5c4c" stroke-width="1.4"/>
+            <text x="450" y="77" text-anchor="middle" font-size="14.5" fill="#1c2430">实施实验</text>
+            <rect x="550" y="45" width="150" height="52" rx="8" fill="#fff" stroke="#0f5c4c" stroke-width="1.4"/>
+            <text x="625" y="77" text-anchor="middle" font-size="14.5" fill="#1c2430">得出结论</text>
+            <rect x="725" y="45" width="150" height="52" rx="8" fill="#e4f2ee" stroke="#0f5c4c" stroke-width="1.4"/>
+            <text x="800" y="77" text-anchor="middle" font-size="14.5" font-weight="700" fill="#0f5c4c">交流讨论</text>
+            <line x1="177" y1="71" x2="196" y2="71" stroke="#0f5c4c" stroke-width="2" marker-end="url(#kp01-a)"/>
+            <line x1="352" y1="71" x2="371" y2="71" stroke="#0f5c4c" stroke-width="2" marker-end="url(#kp01-a)"/>
+            <line x1="527" y1="71" x2="546" y2="71" stroke="#0f5c4c" stroke-width="2" marker-end="url(#kp01-a)"/>
+            <line x1="702" y1="71" x2="721" y2="71" stroke="#0f5c4c" stroke-width="2" marker-end="url(#kp01-a)"/>
+            <rect x="25" y="130" width="850" height="64" rx="8" fill="#f4faf8" stroke="#c5ddd5" stroke-width="1.2"/>
+            <text x="450" y="156" text-anchor="middle" font-size="15" font-weight="700" fill="#0f5c4c">四个基本方法：观察 · 实验 · 分类 · 比较</text>
+            <text x="450" y="178" text-anchor="middle" font-size="12.5" fill="#5c6b7a">研究顺序：物理性质（颜色、状态、气味、溶解性）→ 化学性质（与 O₂、酸、碱等反应）</text>
+          </svg>
+          <figcaption>程序是“按什么顺序做”，方法是每一步“用什么手段”；答题时两步都要交代。</figcaption>
+        </figure>
+
+        <div class="struct">
+          <div class="struct-t">结构化理解</div>
+          <ul>
+            <li><b>主线：</b>问题 → 实验 → 结论，中间靠“观察、实验、分类、比较”四种方法推进。</li>
+            <li><b>记忆：</b>四方法记“观实分比”，五步记“提设实得交”。</li>
+            <li><b>运用：</b>实验设计题按“目的—方法—现象—结论”三段写，不漏环节。</li>
+          </ul>
         </div>
 
         <div class="q">
@@ -648,6 +848,76 @@
           <strong>要点：</strong>物质的量 n 是基本物理量，单位 mol。阿伏加德罗常数 Nₐ ≈ 6.02×10²³ mol⁻¹。关系式：<span class="formula">N = n · Nₐ　（微粒数 = 物质的量 × Nₐ）</span>
           1 mol 任何微粒所含微粒数都约为 Nₐ。注意问的是分子、原子还是电子/质子。
         </div>
+
+        <figure class="fig">
+          <div class="fig-title">以 n 为中心的换算网<span>所有换算先落到 mol</span></div>
+          <svg viewBox="0 0 900 300" role="img" aria-label="物质的量与质量、微粒数、气体体积、浓度的换算关系图">
+            <defs>
+              <marker id="kp02-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M0,0 L10,5 L0,10 z" fill="#0f5c4c"/>
+              </marker>
+            </defs>
+            <circle cx="450" cy="150" r="56" fill="#e4f2ee" stroke="#0f5c4c" stroke-width="2"/>
+            <text x="450" y="146" text-anchor="middle" font-size="28" font-weight="700" fill="#0f5c4c">n</text>
+            <text x="450" y="170" text-anchor="middle" font-size="12.5" fill="#5c6b7a">mol</text>
+
+            <rect x="40" y="20" width="200" height="54" rx="8" fill="#fff" stroke="#1a4f8b" stroke-width="1.4"/>
+            <text x="140" y="42" text-anchor="middle" font-size="14" font-weight="700" fill="#1a4f8b">质量 m（g）</text>
+            <text x="140" y="62" text-anchor="middle" font-size="12.5" fill="#5c6b7a">m = n × M</text>
+
+            <rect x="660" y="20" width="200" height="54" rx="8" fill="#fff" stroke="#1a4f8b" stroke-width="1.4"/>
+            <text x="760" y="42" text-anchor="middle" font-size="14" font-weight="700" fill="#1a4f8b">微粒数 N（个）</text>
+            <text x="760" y="62" text-anchor="middle" font-size="12.5" fill="#5c6b7a">N = n × Nₐ</text>
+
+            <rect x="40" y="226" width="200" height="54" rx="8" fill="#fff" stroke="#9a5b00" stroke-width="1.4"/>
+            <text x="140" y="248" text-anchor="middle" font-size="14" font-weight="700" fill="#9a5b00">气体体积 V（L）</text>
+            <text x="140" y="268" text-anchor="middle" font-size="12.5" fill="#5c6b7a">V = n × Vₘ（标况）</text>
+
+            <rect x="660" y="226" width="200" height="54" rx="8" fill="#fff" stroke="#9a5b00" stroke-width="1.4"/>
+            <text x="760" y="248" text-anchor="middle" font-size="14" font-weight="700" fill="#9a5b00">浓度 c（mol·L⁻¹）</text>
+            <text x="760" y="268" text-anchor="middle" font-size="12.5" fill="#5c6b7a">c = n / V（溶液）</text>
+
+            <line x1="397" y1="132" x2="244" y2="78" stroke="#0f5c4c" stroke-width="1.8" marker-start="url(#kp02-a)" marker-end="url(#kp02-a)"/>
+            <line x1="503" y1="132" x2="656" y2="78" stroke="#0f5c4c" stroke-width="1.8" marker-start="url(#kp02-a)" marker-end="url(#kp02-a)"/>
+            <line x1="397" y1="168" x2="244" y2="222" stroke="#0f5c4c" stroke-width="1.8" marker-start="url(#kp02-a)" marker-end="url(#kp02-a)"/>
+            <line x1="503" y1="168" x2="656" y2="222" stroke="#0f5c4c" stroke-width="1.8" marker-start="url(#kp02-a)" marker-end="url(#kp02-a)"/>
+          </svg>
+          <figcaption>四条箭头都可双向使用：已知任何一种量，先除以对应常数化到 n，再乘到目标量。</figcaption>
+        </figure>
+
+        <div class="struct">
+          <div class="struct-t">结构化理解</div>
+          <ul>
+            <li><b>核心：</b>n 是连接宏观（质量、体积、浓度）与微观（分子、原子、电子）的唯一桥梁。</li>
+            <li><b>一条链：</b>m ÷ M = n，n × Nₐ = N；气体再加 V ÷ Vₘ = n。</li>
+            <li><b>易错：</b>先看清问的是哪种微粒，分子数要乘化学式中的原子个数。</li>
+          </ul>
+        </div>
+
+        <figure class="fig">
+          <div class="fig-title">常用术语中英对照<span>答题时符号、单位要写对</span></div>
+          <div class="table-wrap" style="overflow-x:auto">
+            <table class="term-table">
+              <thead>
+                <tr><th style="width:17%">中文术语</th><th style="width:25%">English</th><th style="width:18%">符号 / 单位</th><th>解释</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>物质的量</td><td>amount of substance</td><td>n / mol</td><td>表示一定数目粒子集合体的物理量，是国际单位制七个基本物理量之一；它不是质量，也不是数量。</td></tr>
+                <tr><td>摩尔</td><td>mole</td><td>mol</td><td>物质的量的单位。1 mol 物质含阿伏加德罗常数个基本单元。</td></tr>
+                <tr><td>阿伏加德罗常数</td><td>Avogadro constant</td><td>Nₐ / mol⁻¹</td><td>1 mol 任何粒子所含的粒子数，约为 6.02×10²³ mol⁻¹。</td></tr>
+                <tr><td>基本单元（微粒）</td><td>elementary entities (particles)</td><td>—</td><td>指分子、原子、离子、电子、质子等；用 mol 时必须指明是哪一种微粒。</td></tr>
+                <tr><td>摩尔质量</td><td>molar mass</td><td>M / g·mol⁻¹</td><td>单位物质的量的物质所具有的质量，数值上等于相对分子（原子）质量。</td></tr>
+                <tr><td>阿伏加德罗定律</td><td>Avogadro’s law</td><td>—</td><td>同温同压下，相同体积的任何气体含有相同数目的分子。</td></tr>
+                <tr><td>标准状况</td><td>standard temperature and pressure (STP)</td><td>0 ℃、101 kPa</td><td>气体摩尔体积 22.4 L·mol⁻¹ 的适用条件；水在标况下不是气体。</td></tr>
+                <tr><td>气体摩尔体积</td><td>molar volume of gas</td><td>Vₘ / L·mol⁻¹</td><td>单位物质的量的气体所占的体积；标准状况下约为 22.4 L·mol⁻¹。</td></tr>
+                <tr><td>物质的量浓度</td><td>amount-of-substance concentration (molar concentration)</td><td>c / mol·L⁻¹</td><td>单位体积溶液中所含溶质的物质的量，c = n / V，V 指溶液体积。</td></tr>
+                <tr><td>相对原子质量</td><td>relative atomic mass</td><td>Aᵣ</td><td>以 ¹²C 原子质量的 1/12 为标准，某原子质量与它的比值，无单位。</td></tr>
+                <tr><td>相对分子质量</td><td>relative molecular mass</td><td>Mᵣ</td><td>化学式中各原子的相对原子质量之和，无单位，数值上等于摩尔质量。</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <figcaption>英文按 IUPAC 常用写法；书写时注意符号大小写与下标：n、Nₐ、M、Vₘ、c。</figcaption>
+        </figure>
 
         <div class="q">
           <div class="q-meta"><span class="tag tag-q">题1</span><span class="tag tag-hot">高频</span><span class="tag tag-type">选择题</span></div>
@@ -716,6 +986,44 @@
           气体摩尔体积适用于气体；标况指 0℃、101 kPa。同温同压下，气体体积比 = 物质的量之比（阿伏加德罗定律）。
         </div>
 
+        <figure class="fig">
+          <div class="fig-title">为什么是 22.4 L<span>同温同压，体积只由分子数决定</span></div>
+          <svg viewBox="0 0 900 225" role="img" aria-label="相同条件下1摩尔不同气体体积相同的示意图">
+            <text x="450" y="24" text-anchor="middle" font-size="14" font-weight="700" fill="#0f5c4c">同温同压 · 同体积 ⇒ 分子数相同（都约 1 mol）</text>
+
+            <rect x="120" y="70" width="110" height="110" rx="3" fill="#e7eef7" stroke="#1a4f8b" stroke-width="1.5"/>
+            <path d="M120 70 L146 44 L256 44 L230 70 Z" fill="#d6e3f2" stroke="#1a4f8b" stroke-width="1.5"/>
+            <path d="M230 70 L256 44 L256 154 L230 180 Z" fill="#c9daee" stroke="#1a4f8b" stroke-width="1.5"/>
+            <text x="175" y="122" text-anchor="middle" font-size="17" font-weight="700" fill="#1a4f8b">H₂</text>
+            <text x="175" y="148" text-anchor="middle" font-size="12" fill="#5c6b7a">1 mol · 2 g</text>
+            <text x="175" y="205" text-anchor="middle" font-size="13" font-weight="700" fill="#1a4f8b">22.4 L</text>
+
+            <rect x="395" y="70" width="110" height="110" rx="3" fill="#e4f2ee" stroke="#0f5c4c" stroke-width="1.5"/>
+            <path d="M395 70 L421 44 L531 44 L505 70 Z" fill="#d3e9e2" stroke="#0f5c4c" stroke-width="1.5"/>
+            <path d="M505 70 L531 44 L531 154 L505 180 Z" fill="#c5e1d8" stroke="#0f5c4c" stroke-width="1.5"/>
+            <text x="450" y="122" text-anchor="middle" font-size="17" font-weight="700" fill="#0f5c4c">O₂</text>
+            <text x="450" y="148" text-anchor="middle" font-size="12" fill="#5c6b7a">1 mol · 32 g</text>
+            <text x="450" y="205" text-anchor="middle" font-size="13" font-weight="700" fill="#0f5c4c">22.4 L</text>
+
+            <rect x="670" y="70" width="110" height="110" rx="3" fill="#fff4e5" stroke="#9a5b00" stroke-width="1.5"/>
+            <path d="M670 70 L696 44 L806 44 L780 70 Z" fill="#fbe7c9" stroke="#9a5b00" stroke-width="1.5"/>
+            <path d="M780 70 L806 44 L806 154 L780 180 Z" fill="#f6ddb4" stroke="#9a5b00" stroke-width="1.5"/>
+            <text x="725" y="122" text-anchor="middle" font-size="17" font-weight="700" fill="#9a5b00">CO₂</text>
+            <text x="725" y="148" text-anchor="middle" font-size="12" fill="#5c6b7a">1 mol · 44 g</text>
+            <text x="725" y="205" text-anchor="middle" font-size="13" font-weight="700" fill="#9a5b00">22.4 L</text>
+          </svg>
+          <figcaption>只适用于气体；标准状况指 0 ℃、101 kPa。水在标况下是液体，不能用 22.4 L·mol⁻¹。</figcaption>
+        </figure>
+
+        <div class="struct">
+          <div class="struct-t">结构化理解</div>
+          <ul>
+            <li><b>对比：</b>M 对任何物质都成立；Vₘ = 22.4 L·mol⁻¹ 只对“气体 + 标准状况”成立。</li>
+            <li><b>判断口诀：</b>先问“是不是气体”，再问“是不是标况”，两问都过才能用 22.4。</li>
+            <li><b>运用：</b>气体体积比较题一律先化成 n，再用阿伏加德罗定律看分子数。</li>
+          </ul>
+        </div>
+
         <div class="q">
           <div class="q-meta"><span class="tag tag-q">题1</span><span class="tag tag-hot">高频</span><span class="tag tag-type">选择题</span></div>
           <div class="q-stem">下列说法正确的是（　）</div>
@@ -774,6 +1082,55 @@
           <strong>要点：</strong>
           <div class="formula">c = n / V　（V 为溶液体积，单位 L；c 单位 mol·L⁻¹）</div>
           稀释定律：c₁V₁ = c₂V₂（溶质物质的量不变）。配制步骤：计算→称量/量取→溶解→移液→洗涤→定容→摇匀。容量瓶不能配制后长期存放，不能用于稀释浓硫酸直接操作容器等。
+        </div>
+
+        <figure class="fig">
+          <div class="fig-title">配制流程与稀释<span>七步操作 + 一个守恒</span></div>
+          <svg viewBox="0 0 900 290" role="img" aria-label="配制一定物质的量浓度溶液的步骤和稀释示意图">
+            <defs>
+              <marker id="kp04-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M0,0 L10,5 L0,10 z" fill="#1a4f8b"/>
+              </marker>
+            </defs>
+            <rect x="34" y="18" width="112" height="42" rx="7" fill="#e4f2ee" stroke="#0f5c4c" stroke-width="1.2"/>
+            <text x="90" y="45" text-anchor="middle" font-size="12.5" font-weight="700" fill="#0f5c4c">① 计算</text>
+            <rect x="154" y="18" width="112" height="42" rx="7" fill="#e7eef7" stroke="#1a4f8b" stroke-width="1.2"/>
+            <text x="210" y="45" text-anchor="middle" font-size="12.5" fill="#1a4f8b">② 称量或量取</text>
+            <rect x="274" y="18" width="112" height="42" rx="7" fill="#e7eef7" stroke="#1a4f8b" stroke-width="1.2"/>
+            <text x="330" y="45" text-anchor="middle" font-size="12.5" fill="#1a4f8b">③ 溶解冷却</text>
+            <rect x="394" y="18" width="112" height="42" rx="7" fill="#e7eef7" stroke="#1a4f8b" stroke-width="1.2"/>
+            <text x="450" y="45" text-anchor="middle" font-size="12.5" fill="#1a4f8b">④ 移液</text>
+            <rect x="514" y="18" width="112" height="42" rx="7" fill="#e7eef7" stroke="#1a4f8b" stroke-width="1.2"/>
+            <text x="570" y="45" text-anchor="middle" font-size="12.5" fill="#1a4f8b">⑤ 洗涤</text>
+            <rect x="634" y="18" width="112" height="42" rx="7" fill="#e7eef7" stroke="#1a4f8b" stroke-width="1.2"/>
+            <text x="690" y="45" text-anchor="middle" font-size="12.5" fill="#1a4f8b">⑥ 定容</text>
+            <rect x="754" y="18" width="112" height="42" rx="7" fill="#e4f2ee" stroke="#0f5c4c" stroke-width="1.2"/>
+            <text x="810" y="45" text-anchor="middle" font-size="12.5" font-weight="700" fill="#0f5c4c">⑦ 摇匀</text>
+
+            <path d="M150 128 v102 h96 v-102" fill="none" stroke="#1a4f8b" stroke-width="2"/>
+            <rect x="152" y="172" width="92" height="56" fill="#dbe8f5"/>
+            <text x="198" y="112" text-anchor="middle" font-size="11.5" fill="#5c6b7a">10 mL 1 mol·L⁻¹ CuSO₄</text>
+
+            <line x1="275" y1="195" x2="422" y2="195" stroke="#1a4f8b" stroke-width="2" marker-end="url(#kp04-a)"/>
+            <text x="350" y="183" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1a4f8b">加水稀释</text>
+
+            <path d="M470 88 v142 h170 v-142" fill="none" stroke="#1a4f8b" stroke-width="2"/>
+            <rect x="472" y="146" width="166" height="82" fill="#eaf1fa"/>
+            <text x="555" y="78" text-anchor="middle" font-size="11.5" fill="#5c6b7a">100 mL 0.1 mol·L⁻¹</text>
+
+            <text x="450" y="258" text-anchor="middle" font-size="14" font-weight="700" fill="#0f5c4c">稀释定律：c₁V₁ = c₂V₂（溶质物质的量不变）</text>
+            <text x="450" y="279" text-anchor="middle" font-size="12.5" fill="#5c6b7a">1 mol·L⁻¹ × 10 mL = 0.1 mol·L⁻¹ × 100 mL</text>
+          </svg>
+          <figcaption>配制看“溶质有没有损失、水加多了还是少了”；稀释看“溶质 n 不变，体积变大，浓度变小”。</figcaption>
+        </figure>
+
+        <div class="struct">
+          <div class="struct-t">结构化理解</div>
+          <ul>
+            <li><b>两个公式一条线：</b>c = n / V 是定义式，c₁V₁ = c₂V₂ 是稀释时的守恒式。</li>
+            <li><b>七步：</b>算 → 称 → 溶 → 移 → 洗 → 定 → 摇；洗涤液要并入容量瓶。</li>
+            <li><b>易错：</b>V 是溶液体积不是溶剂体积；俯视刻度线加水偏少，浓度偏高。</li>
+          </ul>
         </div>
 
         <div class="q">
@@ -845,6 +1202,64 @@
           <strong>要点：</strong>纯净物分单质与化合物；化合物含氧化物、酸、碱、盐等。交叉分类法、树状分类法。注意：氧化物按性质可分酸性、碱性、两性、不成盐氧化物；盐含正盐、酸式盐、碱式盐。
         </div>
 
+        <figure class="fig">
+          <div class="fig-title">物质的树状分类<span>一层只用一个标准</span></div>
+          <svg viewBox="0 0 900 380" role="img" aria-label="物质的树状分类图">
+            <text x="450" y="32" text-anchor="middle" font-size="14" font-weight="700" fill="#1a4f8b">树状分类：逐层一分为二，每层只用一个标准</text>
+
+            <rect x="20" y="164" width="100" height="52" rx="8" fill="#e4f2ee" stroke="#0f5c4c" stroke-width="1.6"/>
+            <text x="70" y="196" text-anchor="middle" font-size="16" font-weight="700" fill="#0f5c4c">物质</text>
+
+            <rect x="170" y="70" width="140" height="52" rx="8" fill="#fff4e5" stroke="#9a5b00" stroke-width="1.4"/>
+            <text x="240" y="94" text-anchor="middle" font-size="15" font-weight="700" fill="#9a5b00">混合物</text>
+            <text x="240" y="112" text-anchor="middle" font-size="11" fill="#5c6b7a">空气、溶液、胶体</text>
+            <rect x="170" y="246" width="140" height="52" rx="8" fill="#e7eef7" stroke="#1a4f8b" stroke-width="1.4"/>
+            <text x="240" y="278" text-anchor="middle" font-size="15" font-weight="700" fill="#1a4f8b">纯净物</text>
+
+            <rect x="370" y="70" width="140" height="52" rx="8" fill="#e4f2ee" stroke="#0f5c4c" stroke-width="1.4"/>
+            <text x="440" y="94" text-anchor="middle" font-size="15" font-weight="700" fill="#0f5c4c">单质</text>
+            <text x="440" y="112" text-anchor="middle" font-size="11" fill="#5c6b7a">O₂、Fe、C</text>
+            <rect x="370" y="246" width="140" height="52" rx="8" fill="#e7eef7" stroke="#1a4f8b" stroke-width="1.4"/>
+            <text x="440" y="278" text-anchor="middle" font-size="15" font-weight="700" fill="#1a4f8b">化合物</text>
+
+            <rect x="590" y="120" width="150" height="46" rx="7" fill="#fff" stroke="#1a4f8b" stroke-width="1.3"/>
+            <text x="665" y="141" text-anchor="middle" font-size="14" font-weight="700" fill="#1a4f8b">氧化物</text>
+            <text x="665" y="159" text-anchor="middle" font-size="10.5" fill="#5c6b7a">酸性·碱性·两性·不成盐</text>
+            <rect x="590" y="172" width="150" height="46" rx="7" fill="#fff" stroke="#1a4f8b" stroke-width="1.3"/>
+            <text x="665" y="193" text-anchor="middle" font-size="14" font-weight="700" fill="#1a4f8b">酸</text>
+            <text x="665" y="211" text-anchor="middle" font-size="11" fill="#5c6b7a">HCl、H₂SO₄、H₂CO₃</text>
+            <rect x="590" y="224" width="150" height="46" rx="7" fill="#fff" stroke="#1a4f8b" stroke-width="1.3"/>
+            <text x="665" y="245" text-anchor="middle" font-size="14" font-weight="700" fill="#1a4f8b">碱</text>
+            <text x="665" y="263" text-anchor="middle" font-size="11" fill="#5c6b7a">NaOH、NH₃·H₂O</text>
+            <rect x="590" y="276" width="150" height="46" rx="7" fill="#fff" stroke="#1a4f8b" stroke-width="1.3"/>
+            <text x="665" y="297" text-anchor="middle" font-size="14" font-weight="700" fill="#1a4f8b">盐</text>
+            <text x="665" y="315" text-anchor="middle" font-size="11" fill="#5c6b7a">正盐·酸式盐·碱式盐</text>
+
+            <path d="M120 190 H145 V96 H170" fill="none" stroke="#5c6b7a" stroke-width="1.5"/>
+            <path d="M145 190 V272 H170" fill="none" stroke="#5c6b7a" stroke-width="1.5"/>
+            <path d="M310 272 H340 V96 H370" fill="none" stroke="#5c6b7a" stroke-width="1.5"/>
+            <path d="M340 272 H370" fill="none" stroke="#5c6b7a" stroke-width="1.5"/>
+            <path d="M510 272 H550" fill="none" stroke="#5c6b7a" stroke-width="1.5"/>
+            <path d="M550 143 V299" fill="none" stroke="#5c6b7a" stroke-width="1.5"/>
+            <path d="M550 143 H590" fill="none" stroke="#5c6b7a" stroke-width="1.5"/>
+            <path d="M550 195 H590" fill="none" stroke="#5c6b7a" stroke-width="1.5"/>
+            <path d="M550 247 H590" fill="none" stroke="#5c6b7a" stroke-width="1.5"/>
+            <path d="M550 299 H590" fill="none" stroke="#5c6b7a" stroke-width="1.5"/>
+
+            <text x="450" y="358" text-anchor="middle" font-size="12.5" fill="#5c6b7a">交叉分类：同一物质可有多个标签，如 Na₂CO₃ 既是钠盐又是碳酸盐。</text>
+          </svg>
+          <figcaption>先判“是不是纯净物”，再判“由几种元素组成”，最后按组成和性质归入酸、碱、盐、氧化物。</figcaption>
+        </figure>
+
+        <div class="struct">
+          <div class="struct-t">结构化理解</div>
+          <ul>
+            <li><b>两条分类线：</b>树状分类逐层细分；交叉分类给同一物质贴多个标签。</li>
+            <li><b>判断顺序：</b>纯净物 → 元素种类 → 组成与性质，顺序不能跳。</li>
+            <li><b>易错：</b>纯碱是盐不是碱；CO 是不成盐氧化物；酸式盐不一定显酸性。</li>
+          </ul>
+        </div>
+
         <div class="q">
           <div class="q-meta"><span class="tag tag-q">题1</span><span class="tag tag-hot">高频</span><span class="tag tag-type">选择题</span></div>
           <div class="q-stem">下列物质属于盐的是（　）</div>
@@ -901,6 +1316,56 @@
       <div class="kp-body">
         <div class="kp-brief">
           <strong>要点：</strong>按分散质粒子直径：溶液 &lt;1 nm，胶体 1–100 nm，浊液 &gt;100 nm。胶体特有丁达尔效应；可电泳、聚沉（加热、加电解质、加异电胶体）。提纯胶体用渗析（半透膜）。Fe(OH)₃ 胶体带正电。
+        </div>
+
+        <figure class="fig">
+          <div class="fig-title">按粒子直径分三类<span>1 nm 和 100 nm 是两条分界线</span></div>
+          <svg viewBox="0 0 900 285" role="img" aria-label="溶液、胶体、浊液按分散质粒子直径分类的示意图">
+            <defs>
+              <marker id="kp06-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M0,0 L10,5 L0,10 z" fill="#5c6b7a"/>
+              </marker>
+            </defs>
+            <line x1="55" y1="78" x2="845" y2="78" stroke="#5c6b7a" stroke-width="1.5" marker-end="url(#kp06-a)"/>
+            <text x="55" y="62" text-anchor="middle" font-size="11.5" fill="#5c6b7a">0</text>
+            <text x="200" y="62" text-anchor="middle" font-size="11.5" font-weight="700" fill="#0f5c4c">1 nm</text>
+            <text x="520" y="62" text-anchor="middle" font-size="11.5" font-weight="700" fill="#9a5b00">100 nm</text>
+            <text x="845" y="52" text-anchor="end" font-size="11.5" fill="#5c6b7a">分散质粒子直径</text>
+
+            <rect x="55" y="90" width="145" height="130" rx="8" fill="#e7eef7" stroke="#1a4f8b" stroke-width="1.5"/>
+            <text x="127" y="118" text-anchor="middle" font-size="16" font-weight="700" fill="#1a4f8b">溶液</text>
+            <text x="127" y="140" text-anchor="middle" font-size="12" fill="#1a4f8b">&lt; 1 nm</text>
+            <text x="127" y="168" text-anchor="middle" font-size="11.5" fill="#1c2430">均一、稳定</text>
+            <text x="127" y="188" text-anchor="middle" font-size="11.5" fill="#1c2430">透明</text>
+            <text x="127" y="208" text-anchor="middle" font-size="11.5" fill="#1c2430">无丁达尔效应</text>
+
+            <rect x="200" y="90" width="320" height="130" rx="8" fill="#e4f2ee" stroke="#0f5c4c" stroke-width="1.5"/>
+            <text x="360" y="118" text-anchor="middle" font-size="16" font-weight="700" fill="#0f5c4c">胶体</text>
+            <text x="360" y="140" text-anchor="middle" font-size="12" fill="#0f5c4c">1 – 100 nm</text>
+            <text x="360" y="168" text-anchor="middle" font-size="11.5" fill="#1c2430">较稳定，能透过滤纸</text>
+            <text x="360" y="188" text-anchor="middle" font-size="11.5" fill="#1c2430">有丁达尔效应</text>
+            <text x="360" y="208" text-anchor="middle" font-size="11.5" fill="#1c2430">Fe(OH)₃ 胶体、豆浆、雾</text>
+
+            <rect x="520" y="90" width="325" height="130" rx="8" fill="#fff4e5" stroke="#9a5b00" stroke-width="1.5"/>
+            <text x="682" y="118" text-anchor="middle" font-size="16" font-weight="700" fill="#9a5b00">浊液</text>
+            <text x="682" y="140" text-anchor="middle" font-size="12" fill="#9a5b00">&gt; 100 nm</text>
+            <text x="682" y="168" text-anchor="middle" font-size="11.5" fill="#1c2430">不稳定，静置分层</text>
+            <text x="682" y="188" text-anchor="middle" font-size="11.5" fill="#1c2430">无丁达尔效应</text>
+            <text x="682" y="208" text-anchor="middle" font-size="11.5" fill="#1c2430">泥水、油水混合物</text>
+
+            <text x="450" y="252" text-anchor="middle" font-size="14" font-weight="700" fill="#0f5c4c">分类只看一个标准：分散质粒子的直径</text>
+            <text x="450" y="274" text-anchor="middle" font-size="12.5" fill="#5c6b7a">胶体粒子能透过滤纸、不能透过半透膜 → 用渗析除去其中的离子</text>
+          </svg>
+          <figcaption>三种分散系的本质差别是粒子大小，不是“看起来浑不浑”；丁达尔效应是鉴别胶体最直接的方法。</figcaption>
+        </figure>
+
+        <div class="struct">
+          <div class="struct-t">结构化理解</div>
+          <ul>
+            <li><b>一条依据：</b>分散质粒子直径，1 nm 与 100 nm 把分散系切成三段。</li>
+            <li><b>性质差异：</b>稳定性、丁达尔效应、能否透过滤纸和半透膜，都由粒子大小推出。</li>
+            <li><b>运用：</b>鉴别胶体用丁达尔效应，提纯胶体用渗析，破坏胶体用加热或加电解质聚沉。</li>
+          </ul>
         </div>
         <div class="compare">
           <div class="box a"><strong>溶液</strong><br>均一稳定，无丁达尔效应</div>
@@ -965,6 +1430,54 @@
           <strong>要点：</strong>电解质：在水溶液中或熔融状态下能导电的化合物。非电解质：在上述条件下都不能导电的化合物（如蔗糖、酒精、多数有机物）。单质、混合物既不是电解质也不是非电解质。强电解质完全电离（强酸强碱多数盐）；弱电解质部分电离（弱酸弱碱、水）。电离方程式：强电用 =，弱电用 ⇌。
         </div>
 
+        <figure class="fig">
+          <div class="fig-title">电解质家族<span>先看是不是化合物，再看导不导电、是否完全</span></div>
+          <svg viewBox="0 0 940 345" role="img" aria-label="电解质、非电解质、强电解质与弱电解质的分类图">
+            <rect x="20" y="144" width="120" height="52" rx="8" fill="#e7eef7" stroke="#1a4f8b" stroke-width="1.6"/>
+            <text x="80" y="176" text-anchor="middle" font-size="15" font-weight="700" fill="#1a4f8b">化合物</text>
+
+            <rect x="205" y="56" width="160" height="54" rx="8" fill="#e4f2ee" stroke="#0f5c4c" stroke-width="1.4"/>
+            <text x="285" y="80" text-anchor="middle" font-size="15" font-weight="700" fill="#0f5c4c">电解质</text>
+            <text x="285" y="100" text-anchor="middle" font-size="11.5" fill="#5c6b7a">水溶液或熔融时导电</text>
+
+            <rect x="205" y="240" width="160" height="54" rx="8" fill="#fce8ee" stroke="#8f1d3a" stroke-width="1.4"/>
+            <text x="285" y="264" text-anchor="middle" font-size="15" font-weight="700" fill="#8f1d3a">非电解质</text>
+            <text x="285" y="284" text-anchor="middle" font-size="11.5" fill="#5c6b7a">两条件下都不导电</text>
+
+            <rect x="445" y="20" width="180" height="54" rx="8" fill="#fff" stroke="#0f5c4c" stroke-width="1.4"/>
+            <text x="535" y="44" text-anchor="middle" font-size="14.5" font-weight="700" fill="#0f5c4c">强电解质</text>
+            <text x="535" y="64" text-anchor="middle" font-size="11.5" fill="#5c6b7a">完全电离，写 =</text>
+
+            <rect x="445" y="130" width="180" height="54" rx="8" fill="#fff" stroke="#9a5b00" stroke-width="1.4"/>
+            <text x="535" y="154" text-anchor="middle" font-size="14.5" font-weight="700" fill="#9a5b00">弱电解质</text>
+            <text x="535" y="174" text-anchor="middle" font-size="11.5" fill="#5c6b7a">部分电离，写 ⇌</text>
+
+            <text x="665" y="76" font-size="12" fill="#1c2430">强酸、强碱、大多数盐</text>
+            <text x="665" y="96" font-size="12" fill="#5c6b7a">HCl、NaOH、NaCl</text>
+            <text x="665" y="186" font-size="12" fill="#1c2430">弱酸、弱碱、水</text>
+            <text x="665" y="206" font-size="12" fill="#5c6b7a">CH₃COOH、NH₃·H₂O</text>
+            <text x="665" y="266" font-size="12" fill="#1c2430">蔗糖、酒精、CO₂</text>
+            <text x="665" y="286" font-size="12" fill="#5c6b7a">水溶液和熔融都不导电</text>
+
+            <path d="M140 170 H175 V83 H205" fill="none" stroke="#5c6b7a" stroke-width="1.5"/>
+            <path d="M175 170 V267 H205" fill="none" stroke="#5c6b7a" stroke-width="1.5"/>
+            <path d="M365 83 H405 V47 H445" fill="none" stroke="#5c6b7a" stroke-width="1.5"/>
+            <path d="M405 83 V157 H445" fill="none" stroke="#5c6b7a" stroke-width="1.5"/>
+
+            <text x="470" y="325" text-anchor="middle" font-size="13" fill="#5c6b7a">单质、混合物既不是电解质也不是非电解质；导电的前提是有自由移动的离子。</text>
+          </svg>
+          <figcaption>判断分两步：先看是不是化合物，再看水溶液或熔融时能否导电；能导电的再分“完全”与“部分”。</figcaption>
+        </figure>
+
+        <div class="struct">
+          <div class="struct-t">结构化理解</div>
+          <ul>
+            <li><b>判断链：</b>化合物 → 水溶液或熔融能否导电 → 导电是否完全，三步定归属。</li>
+            <li><b>区分两件事：</b>“某状态是否导电”与“是不是电解质”不是一回事，液态 HCl 不导电仍是强电解质。</li>
+            <li><b>书写：</b>强电解质用 =，弱电解质用 ⇌；难溶强电解质溶解的部分完全电离。</li>
+          </ul>
+        </div>
+
         <div class="q">
           <div class="q-meta"><span class="tag tag-q">题1</span><span class="tag tag-hot">高频</span><span class="tag tag-type">选择题</span></div>
           <div class="q-stem">下列物质属于电解质的是（　）</div>
@@ -1021,6 +1534,46 @@
       <div class="kp-body">
         <div class="kp-brief">
           <strong>要点：</strong>离子反应实质是某些离子浓度减小（生成沉淀、气体、水或弱电解质等）。书写：写→拆（易溶强电解拆成离子）→删（不变化的离子）→查（原子守恒、电荷守恒）。可溶强酸强碱强盐拆，沉淀、气体、弱电、单质、氧化物不拆。
+        </div>
+
+        <figure class="fig">
+          <div class="fig-title">离子方程式四步法<span>写 → 拆 → 删 → 查</span></div>
+          <svg viewBox="0 0 900 335" role="img" aria-label="书写离子方程式的四个步骤示意图">
+            <circle cx="48" cy="49" r="20" fill="#0f5c4c"/>
+            <text x="48" y="55" text-anchor="middle" font-size="15" font-weight="700" fill="#fff">写</text>
+            <rect x="88" y="20" width="782" height="58" rx="7" fill="#fafbfc" stroke="#d4dde6" stroke-width="1.2"/>
+            <text x="106" y="55" font-size="13" fill="#1c2430">CuSO₄ + 2NaOH = Cu(OH)₂↓ + Na₂SO₄<tspan fill="#5c6b7a">　（先写正确的化学方程式）</tspan></text>
+
+            <circle cx="48" cy="111" r="20" fill="#1a4f8b"/>
+            <text x="48" y="117" text-anchor="middle" font-size="15" font-weight="700" fill="#fff">拆</text>
+            <rect x="88" y="82" width="782" height="58" rx="7" fill="#fafbfc" stroke="#d4dde6" stroke-width="1.2"/>
+            <text x="106" y="117" font-size="13" fill="#1c2430">Cu²⁺ + SO₄²⁻ + 2Na⁺ + 2OH⁻ = Cu(OH)₂↓ + 2Na⁺ + SO₄²⁻<tspan fill="#5c6b7a">　（易溶强电解质拆）</tspan></text>
+
+            <circle cx="48" cy="173" r="20" fill="#9a5b00"/>
+            <text x="48" y="179" text-anchor="middle" font-size="15" font-weight="700" fill="#fff">删</text>
+            <rect x="88" y="144" width="782" height="58" rx="7" fill="#fafbfc" stroke="#d4dde6" stroke-width="1.2"/>
+            <text x="106" y="179" font-size="13" fill="#1c2430">Cu²⁺ + 2OH⁻ = Cu(OH)₂↓<tspan fill="#5c6b7a">　（删去两边相同的离子）</tspan></text>
+
+            <circle cx="48" cy="235" r="20" fill="#8f1d3a"/>
+            <text x="48" y="241" text-anchor="middle" font-size="15" font-weight="700" fill="#fff">查</text>
+            <rect x="88" y="206" width="782" height="58" rx="7" fill="#fafbfc" stroke="#d4dde6" stroke-width="1.2"/>
+            <text x="106" y="241" font-size="13" fill="#1c2430">原子守恒 + 电荷守恒<tspan fill="#5c6b7a">　（两边原子数、电荷总数都要相等）</tspan></text>
+
+            <rect x="88" y="278" width="370" height="44" rx="7" fill="#e4f2ee" stroke="#0f5c4c" stroke-width="1.2"/>
+            <text x="273" y="305" text-anchor="middle" font-size="12.5" font-weight="700" fill="#0f5c4c">拆：强酸、强碱、可溶盐</text>
+            <rect x="478" y="278" width="392" height="44" rx="7" fill="#fce8ee" stroke="#8f1d3a" stroke-width="1.2"/>
+            <text x="674" y="305" text-anchor="middle" font-size="12.5" font-weight="700" fill="#8f1d3a">不拆：沉淀、气体、水、弱电解质、单质、氧化物</text>
+          </svg>
+          <figcaption>“拆”是得分关键：只把易溶且完全电离的物质拆成离子，其余一律保留化学式。</figcaption>
+        </figure>
+
+        <div class="struct">
+          <div class="struct-t">结构化理解</div>
+          <ul>
+            <li><b>四步：</b>写 → 拆 → 删 → 查，每一步解决一个问题，不要跳步。</li>
+            <li><b>不拆清单：</b>沉淀、气体、水、弱电解质、单质、氧化物；记清单比记定义快。</li>
+            <li><b>运用：</b>少量/过量题先判断谁不足，再按“不足者完全反应”确定产物和配比。</li>
+          </ul>
         </div>
 
         <div class="q">
@@ -1082,6 +1635,50 @@
       <div class="kp-body">
         <div class="kp-brief">
           <strong>要点：</strong>特征——元素化合价升降；本质——电子转移。口诀：<b>升失氧，降得还</b>（化合价升高→失电子→被氧化→是还原剂）。氧化剂得电子、化合价降低；还原剂失电子、化合价升高。同一元素不同价态可归中（歧化相反）。
+        </div>
+
+        <figure class="fig">
+          <div class="fig-title">电子转移的方向<span>升失氧，降得还</span></div>
+          <svg viewBox="0 0 900 300" role="img" aria-label="钠与氯气反应中电子得失与化合价变化的示意图">
+            <defs>
+              <marker id="kp09-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M0,0 L10,5 L0,10 z" fill="#8f1d3a"/>
+              </marker>
+              <marker id="kp09-b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M0,0 L10,5 L0,10 z" fill="#1a4f8b"/>
+              </marker>
+            </defs>
+
+            <path d="M120 125 C120 78, 475 78, 475 125" fill="none" stroke="#8f1d3a" stroke-width="2" marker-end="url(#kp09-a)"/>
+            <text x="300" y="42" text-anchor="middle" font-size="13" font-weight="700" fill="#8f1d3a">失 2e⁻：Na 由 0 价升到 +1 价</text>
+            <text x="300" y="62" text-anchor="middle" font-size="13" fill="#8f1d3a">化合价升高 → 被氧化 → Na 作还原剂</text>
+
+            <rect x="60" y="125" width="120" height="50" rx="8" fill="#f3f6f8" stroke="#d4dde6" stroke-width="1.4"/>
+            <text x="120" y="149" text-anchor="middle" font-size="17" font-weight="700" fill="#1c2430">2Na</text>
+            <text x="120" y="166" text-anchor="middle" font-size="11" fill="#5c6b7a">0 价</text>
+            <text x="200" y="159" text-anchor="middle" font-size="18" fill="#5c6b7a">+</text>
+            <rect x="220" y="125" width="120" height="50" rx="8" fill="#f3f6f8" stroke="#d4dde6" stroke-width="1.4"/>
+            <text x="280" y="149" text-anchor="middle" font-size="17" font-weight="700" fill="#1c2430">Cl₂</text>
+            <text x="280" y="166" text-anchor="middle" font-size="11" fill="#5c6b7a">0 价</text>
+            <text x="365" y="159" text-anchor="middle" font-size="18" fill="#5c6b7a">=</text>
+            <rect x="390" y="125" width="170" height="50" rx="8" fill="#e4f2ee" stroke="#0f5c4c" stroke-width="1.4"/>
+            <text x="475" y="149" text-anchor="middle" font-size="17" font-weight="700" fill="#0f5c4c">2NaCl</text>
+            <text x="475" y="166" text-anchor="middle" font-size="11" fill="#5c6b7a">Na +1 · Cl −1</text>
+
+            <path d="M280 175 C280 225, 475 225, 475 175" fill="none" stroke="#1a4f8b" stroke-width="2" marker-end="url(#kp09-b)"/>
+            <text x="380" y="250" text-anchor="middle" font-size="13" font-weight="700" fill="#1a4f8b">得 2e⁻：Cl 由 0 价降到 −1 价</text>
+            <text x="380" y="270" text-anchor="middle" font-size="13" fill="#1a4f8b">化合价降低 → 被还原 → Cl₂ 作氧化剂</text>
+          </svg>
+          <figcaption>本质是电子转移：失电子总数 = 得电子总数。口诀“升失氧、降得还”同时给出了价变、电子、产物和角色。</figcaption>
+        </figure>
+
+        <div class="struct">
+          <div class="struct-t">结构化理解</div>
+          <ul>
+            <li><b>一条判定线：</b>标化合价 → 看升降 → 定氧化/还原，所有氧化还原题都从这一步开始。</li>
+            <li><b>口诀：</b>升失氧（还原剂），降得还（氧化剂）；“剂”的角色与它发生的反应相反。</li>
+            <li><b>守恒：</b>失电子总数 = 得电子总数；歧化反应中同一物质既作氧化剂又作还原剂。</li>
+          </ul>
         </div>
         <div class="compare">
           <div class="box a"><strong>氧化剂</strong><br>得电子 · 价降 · 被还原<br>常见：O₂、Cl₂、HNO₃、KMnO₄、Fe³⁺ 等</div>
@@ -1166,6 +1763,55 @@
           转化：Fe → Fe²⁺ → Fe³⁺（氧化）；Fe³⁺ + Fe → Fe²⁺。氧化物：FeO、Fe₂O₃、Fe₃O₄；氢氧化物：Fe(OH)₂、Fe(OH)₃。
         </div>
 
+        <figure class="fig">
+          <div class="fig-title">铁三角<span>Fe、Fe²⁺、Fe³⁺ 之间的氧化还原路线</span></div>
+          <svg viewBox="0 0 900 340" role="img" aria-label="铁、亚铁离子、铁离子之间的转化关系图">
+            <defs>
+              <marker id="kp10-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M0,0 L10,5 L0,10 z" fill="#8f1d3a"/>
+              </marker>
+              <marker id="kp10-b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M0,0 L10,5 L0,10 z" fill="#1a4f8b"/>
+              </marker>
+            </defs>
+
+            <circle cx="190" cy="110" r="62" fill="#eaf5ec" stroke="#0f5c4c" stroke-width="1.8"/>
+            <text x="190" y="105" text-anchor="middle" font-size="21" font-weight="700" fill="#0f5c4c">Fe²⁺</text>
+            <text x="190" y="128" text-anchor="middle" font-size="11.5" fill="#5c6b7a">浅绿色 · 还原性</text>
+
+            <circle cx="710" cy="110" r="62" fill="#fff6e0" stroke="#9a5b00" stroke-width="1.8"/>
+            <text x="710" y="105" text-anchor="middle" font-size="21" font-weight="700" fill="#9a5b00">Fe³⁺</text>
+            <text x="710" y="128" text-anchor="middle" font-size="11.5" fill="#5c6b7a">棕黄色 · 氧化性</text>
+
+            <circle cx="450" cy="270" r="52" fill="#eef2f5" stroke="#5c6b7a" stroke-width="1.8"/>
+            <text x="450" y="266" text-anchor="middle" font-size="21" font-weight="700" fill="#1c2430">Fe</text>
+            <text x="450" y="288" text-anchor="middle" font-size="11.5" fill="#5c6b7a">单质</text>
+
+            <line x1="254" y1="88" x2="646" y2="88" stroke="#8f1d3a" stroke-width="2" marker-end="url(#kp10-a)"/>
+            <text x="450" y="70" text-anchor="middle" font-size="12.5" fill="#8f1d3a" stroke="#fff" stroke-width="5" paint-order="stroke">氧化剂：Cl₂、H₂O₂、酸性 KMnO₄</text>
+            <line x1="646" y1="132" x2="254" y2="132" stroke="#1a4f8b" stroke-width="2" marker-end="url(#kp10-b)"/>
+            <text x="450" y="152" text-anchor="middle" font-size="12.5" fill="#1a4f8b" stroke="#fff" stroke-width="5" paint-order="stroke">还原剂：Fe、Cu、I⁻</text>
+
+            <line x1="406" y1="243" x2="245" y2="144" stroke="#8f1d3a" stroke-width="2" marker-end="url(#kp10-a)"/>
+            <text x="300" y="224" text-anchor="middle" font-size="12.5" fill="#8f1d3a" stroke="#fff" stroke-width="5" paint-order="stroke">加稀盐酸、CuSO₄</text>
+            <text x="300" y="242" text-anchor="middle" font-size="11.5" fill="#5c6b7a" stroke="#fff" stroke-width="5" paint-order="stroke">只失 2e⁻</text>
+
+            <line x1="494" y1="243" x2="655" y2="144" stroke="#8f1d3a" stroke-width="2" marker-end="url(#kp10-a)"/>
+            <text x="610" y="224" text-anchor="middle" font-size="12.5" fill="#8f1d3a" stroke="#fff" stroke-width="5" paint-order="stroke">加 Cl₂ 等强氧化剂</text>
+            <text x="610" y="242" text-anchor="middle" font-size="11.5" fill="#5c6b7a" stroke="#fff" stroke-width="5" paint-order="stroke">可失 3e⁻</text>
+          </svg>
+          <figcaption>红色箭头是“升价、被氧化”的方向；蓝色箭头是“降价、被还原”的方向。Fe²⁺ 处在中间价，既能被氧化也能被还原。</figcaption>
+        </figure>
+
+        <div class="struct">
+          <div class="struct-t">结构化理解</div>
+          <ul>
+            <li><b>三角关系：</b>Fe 失 2e⁻ 变 Fe²⁺，遇强氧化剂继续失 1e⁻ 变 Fe³⁺；Fe³⁺ 得 1e⁻ 回到 Fe²⁺。</li>
+            <li><b>检验顺序：</b>先加 KSCN 看是否变红（判 Fe³⁺），再加氧化剂看是否变红（判 Fe²⁺）。</li>
+            <li><b>现象记忆：</b>Fe(OH)₂ 白色 → 灰绿色 → 红褐色，正是 Fe²⁺ 被空气氧化的证据。</li>
+          </ul>
+        </div>
+
         <div class="q">
           <div class="q-meta"><span class="tag tag-q">题1</span><span class="tag tag-hot">高频</span><span class="tag tag-type">选择题</span></div>
           <div class="q-stem">向某溶液中滴加 KSCN 溶液，不变色；再通入 Cl₂ 后溶液变血红色。原溶液中一定含有（　）</div>
@@ -1219,6 +1865,64 @@
       <div class="kp-body">
         <div class="kp-brief">
           <strong>要点：</strong>价态线：S(−2) → S(0) → S(+4, SO₂) → S(+6, H₂SO₄)。SO₂：漂白（与有色物质化合，可逆）、还原性（使酸性 KMnO₄、溴水褪色）、氧化性（与 H₂S）、水溶液酸性。浓硫酸：吸水性、脱水性、强氧化性（加热与 Cu、C 反应）。酸雨：主要 pH&lt;5.6，与 SO₂、NOₓ 有关。
+        </div>
+
+        <figure class="fig">
+          <div class="fig-title">硫的价态阶梯<span>中间价态两头都能变</span></div>
+          <svg viewBox="0 0 900 305" role="img" aria-label="硫元素从负二价到正六价的价态与转化方向图">
+            <defs>
+              <marker id="kp11-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M0,0 L10,5 L0,10 z" fill="#8f1d3a"/>
+              </marker>
+              <marker id="kp11-b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M0,0 L10,5 L0,10 z" fill="#1a4f8b"/>
+              </marker>
+              <marker id="kp11-c" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M0,0 L10,5 L0,10 z" fill="#5c6b7a"/>
+              </marker>
+            </defs>
+
+            <line x1="100" y1="58" x2="840" y2="58" stroke="#8f1d3a" stroke-width="2" marker-end="url(#kp11-a)"/>
+            <text x="470" y="42" text-anchor="middle" font-size="13.5" font-weight="700" fill="#8f1d3a">氧化：加氧化剂，化合价升高</text>
+            <line x1="840" y1="262" x2="100" y2="262" stroke="#1a4f8b" stroke-width="2" marker-end="url(#kp11-b)"/>
+            <text x="470" y="286" text-anchor="middle" font-size="13.5" font-weight="700" fill="#1a4f8b">还原：加还原剂，化合价降低</text>
+
+            <line x1="100" y1="150" x2="856" y2="150" stroke="#5c6b7a" stroke-width="1.5" marker-end="url(#kp11-c)"/>
+
+            <text x="160" y="100" text-anchor="middle" font-size="15" font-weight="700" fill="#1a4f8b">H₂S</text>
+            <circle cx="160" cy="150" r="26" fill="#fff" stroke="#1a4f8b" stroke-width="1.8"/>
+            <text x="160" y="156" text-anchor="middle" font-size="16" font-weight="700" fill="#1a4f8b">−2</text>
+            <text x="160" y="196" text-anchor="middle" font-size="11.5" fill="#5c6b7a">S 最低价</text>
+            <text x="160" y="214" text-anchor="middle" font-size="11.5" fill="#5c6b7a">只有还原性</text>
+
+            <text x="380" y="100" text-anchor="middle" font-size="15" font-weight="700" fill="#0f5c4c">S（单质）</text>
+            <circle cx="380" cy="150" r="26" fill="#fff" stroke="#0f5c4c" stroke-width="1.8"/>
+            <text x="380" y="156" text-anchor="middle" font-size="16" font-weight="700" fill="#0f5c4c">0</text>
+            <text x="380" y="196" text-anchor="middle" font-size="11.5" fill="#5c6b7a">中间价</text>
+            <text x="380" y="214" text-anchor="middle" font-size="11.5" fill="#5c6b7a">既有氧化性又有还原性</text>
+
+            <text x="600" y="100" text-anchor="middle" font-size="15" font-weight="700" fill="#9a5b00">SO₂ / H₂SO₃</text>
+            <circle cx="600" cy="150" r="26" fill="#fff" stroke="#9a5b00" stroke-width="1.8"/>
+            <text x="600" y="156" text-anchor="middle" font-size="16" font-weight="700" fill="#9a5b00">+4</text>
+            <text x="600" y="196" text-anchor="middle" font-size="11.5" fill="#5c6b7a">中间价</text>
+            <text x="600" y="214" text-anchor="middle" font-size="11.5" fill="#5c6b7a">既有氧化性又有还原性</text>
+
+            <text x="800" y="100" text-anchor="middle" font-size="15" font-weight="700" fill="#8f1d3a">SO₃ / H₂SO₄</text>
+            <circle cx="800" cy="150" r="26" fill="#fff" stroke="#8f1d3a" stroke-width="1.8"/>
+            <text x="800" y="156" text-anchor="middle" font-size="16" font-weight="700" fill="#8f1d3a">+6</text>
+            <text x="800" y="196" text-anchor="middle" font-size="11.5" fill="#5c6b7a">S 最高价</text>
+            <text x="800" y="214" text-anchor="middle" font-size="11.5" fill="#5c6b7a">（浓硫酸）强氧化性</text>
+          </svg>
+          <figcaption>记住“价态—性质”对应：最高价只有氧化性，最低价只有还原性，中间价态两种性质都有。</figcaption>
+        </figure>
+
+        <div class="struct">
+          <div class="struct-t">结构化理解</div>
+          <ul>
+            <li><b>价态主线：</b>−2 → 0 → +4 → +6，升价靠氧化剂，降价靠还原剂。</li>
+            <li><b>中间价态：</b>S 和 SO₂ 两头都能变，所以既有氧化性又有还原性，是推断题常客。</li>
+            <li><b>浓硫酸三性：</b>吸水性、脱水性、强氧化性；稀硫酸只表现酸性。</li>
+          </ul>
         </div>
 
         <div class="q">
@@ -1280,6 +1984,68 @@
       <div class="kp-body">
         <div class="kp-brief">
           <strong>要点：</strong>N₂ 稳定（三键）。工业合成氨：N₂+3H₂⇌2NH₃。NH₃：还原性、碱性（与酸反应）、极易溶于水。NO 遇空气变红棕色 NO₂；3NO₂+H₂O=2HNO₃+NO。硝酸：强氧化性，与金属一般不生成 H₂；见光易分解，应避光保存。汽车尾气、硝酸工业与 NOₓ 污染、光化学烟雾相关。
+        </div>
+
+        <figure class="fig">
+          <div class="fig-title">氮的转化链<span>N₂ → NH₃ → NO → NO₂ → HNO₃</span></div>
+          <svg viewBox="0 0 900 290" role="img" aria-label="氮气、氨、一氧化氮、二氧化氮、硝酸之间的转化关系图">
+            <defs>
+              <marker id="kp12-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M0,0 L10,5 L0,10 z" fill="#5c6b7a"/>
+              </marker>
+            </defs>
+
+            <rect x="30" y="80" width="140" height="52" rx="8" fill="#eef2f5" stroke="#5c6b7a" stroke-width="1.5"/>
+            <text x="100" y="105" text-anchor="middle" font-size="16" font-weight="700" fill="#1c2430">N₂</text>
+            <text x="100" y="123" text-anchor="middle" font-size="11.5" fill="#5c6b7a">0 价</text>
+            <rect x="204" y="80" width="140" height="52" rx="8" fill="#e4f2ee" stroke="#0f5c4c" stroke-width="1.5"/>
+            <text x="274" y="105" text-anchor="middle" font-size="16" font-weight="700" fill="#0f5c4c">NH₃</text>
+            <text x="274" y="123" text-anchor="middle" font-size="11.5" fill="#5c6b7a">−3 价</text>
+            <rect x="378" y="80" width="140" height="52" rx="8" fill="#e7eef7" stroke="#1a4f8b" stroke-width="1.5"/>
+            <text x="448" y="105" text-anchor="middle" font-size="16" font-weight="700" fill="#1a4f8b">NO</text>
+            <text x="448" y="123" text-anchor="middle" font-size="11.5" fill="#5c6b7a">+2 价</text>
+            <rect x="552" y="80" width="140" height="52" rx="8" fill="#fff4e5" stroke="#9a5b00" stroke-width="1.5"/>
+            <text x="622" y="105" text-anchor="middle" font-size="16" font-weight="700" fill="#9a5b00">NO₂</text>
+            <text x="622" y="123" text-anchor="middle" font-size="11.5" fill="#5c6b7a">+4 价</text>
+            <rect x="726" y="80" width="140" height="52" rx="8" fill="#fce8ee" stroke="#8f1d3a" stroke-width="1.5"/>
+            <text x="796" y="105" text-anchor="middle" font-size="16" font-weight="700" fill="#8f1d3a">HNO₃</text>
+            <text x="796" y="123" text-anchor="middle" font-size="11.5" fill="#5c6b7a">+5 价</text>
+
+            <line x1="172" y1="106" x2="200" y2="106" stroke="#5c6b7a" stroke-width="1.8" marker-end="url(#kp12-a)"/>
+            <line x1="346" y1="106" x2="374" y2="106" stroke="#5c6b7a" stroke-width="1.8" marker-end="url(#kp12-a)"/>
+            <line x1="520" y1="106" x2="548" y2="106" stroke="#5c6b7a" stroke-width="1.8" marker-end="url(#kp12-a)"/>
+            <line x1="694" y1="106" x2="722" y2="106" stroke="#5c6b7a" stroke-width="1.8" marker-end="url(#kp12-a)"/>
+
+            <text x="187" y="62" text-anchor="middle" font-size="11.5" fill="#5c6b7a">高温高压、催化剂</text>
+            <text x="361" y="62" text-anchor="middle" font-size="11.5" fill="#5c6b7a">O₂、催化剂、高温</text>
+            <text x="535" y="62" text-anchor="middle" font-size="11.5" fill="#5c6b7a">O₂（无色→红棕色）</text>
+            <text x="709" y="62" text-anchor="middle" font-size="11.5" fill="#5c6b7a">H₂O（3NO₂+H₂O）</text>
+
+            <text x="100" y="160" text-anchor="middle" font-size="11.5" fill="#1c2430">三键，很稳定</text>
+            <text x="100" y="178" text-anchor="middle" font-size="11.5" fill="#5c6b7a">放电时生成 NO</text>
+            <text x="274" y="160" text-anchor="middle" font-size="11.5" fill="#1c2430">刺激性气味</text>
+            <text x="274" y="178" text-anchor="middle" font-size="11.5" fill="#5c6b7a">极易溶于水，显碱性</text>
+            <text x="448" y="160" text-anchor="middle" font-size="11.5" fill="#1c2430">无色气体</text>
+            <text x="448" y="178" text-anchor="middle" font-size="11.5" fill="#5c6b7a">遇 O₂ 变红棕色</text>
+            <text x="622" y="160" text-anchor="middle" font-size="11.5" fill="#1c2430">红棕色气体</text>
+            <text x="622" y="178" text-anchor="middle" font-size="11.5" fill="#5c6b7a">有毒</text>
+            <text x="796" y="160" text-anchor="middle" font-size="11.5" fill="#1c2430">强氧化性</text>
+            <text x="796" y="178" text-anchor="middle" font-size="11.5" fill="#5c6b7a">见光易分解</text>
+
+            <rect x="30" y="210" width="836" height="66" rx="8" fill="#fff8e6" stroke="#e6c86a" stroke-width="1.2"/>
+            <text x="448" y="236" text-anchor="middle" font-size="13" fill="#7a5a00">氮的固定：N₂ → NH₃（人工固氮）；N₂ → NO（放电、高温）</text>
+            <text x="448" y="260" text-anchor="middle" font-size="13" fill="#7a5a00">环境问题：NOₓ 导致酸雨、光化学烟雾，硝酸工业尾气需处理</text>
+          </svg>
+          <figcaption>抓住 N 的价态变化：−3 → +2 → +4 → +5，每一步都伴随氧化还原；再记每步的试剂和现象。</figcaption>
+        </figure>
+
+        <div class="struct">
+          <div class="struct-t">结构化理解</div>
+          <ul>
+            <li><b>转化链：</b>N₂ → NH₃ → NO → NO₂ → HNO₃，主线是 N 的价态逐步升高。</li>
+            <li><b>两条固氮路：</b>人工合成氨（N₂ + H₂）与放电生成 NO，是氮循环的入口。</li>
+            <li><b>环境线：</b>NOₓ 与 SO₂ 同为酸雨元凶；硝酸见光分解，必须避光保存。</li>
+          </ul>
         </div>
 
         <div class="q">
@@ -1359,7 +2125,7 @@
 
   <footer>
     <p>教材：鲁科版（山东科技教育出版社）《普通高中教科书·化学》必修第一册（2019）</p>
-    <p style="margin-top:.3rem">12 个核心知识点 · 36 道高频题（含答案解析）· 仅供自学梳理，以教材与教师讲解为准</p>
+    <p style="margin-top:.3rem">12 个核心知识点 · 13 张结构图 · 36 道高频题（含答案解析）· 仅供自学梳理，以教材与教师讲解为准</p>
   </footer>
 
 </main>
