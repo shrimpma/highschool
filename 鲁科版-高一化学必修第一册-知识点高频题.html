@@ -270,6 +270,22 @@
     .ls-t span { display: block; margin-left: 0; margin-top: .12rem; }
   }
 
+  /* 公式的通俗翻译 */
+  .formula-trans {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: .5rem; margin: .7rem 0 .2rem;
+  }
+  .ft {
+    display: flex; flex-direction: column; gap: .1rem;
+    background: #fff; border: 1px solid var(--line);
+    border-radius: 6px; padding: .45rem .6rem;
+  }
+  .ft b { font-family: var(--mono); color: var(--accent); font-size: .9rem; }
+  .ft span { color: var(--muted); font-size: .85rem; }
+  @media screen and (max-width: 700px) {
+    .formula-trans { grid-template-columns: 1fr; }
+  }
+
   .kp-tags { display: flex; align-items: center; gap: .35rem; flex-wrap: wrap; }
   .kp-pri {
     font-size: .7rem; font-weight: 700; white-space: nowrap;
@@ -663,6 +679,21 @@
     .ls .eg { color: #333 !important; font-size: 8pt; }
     .ls .eg b { color: #000 !important; }
     .ls b { color: #000 !important; }
+
+    .formula-trans {
+      grid-template-columns: 1fr 1fr !important;
+      gap: 3pt;
+      margin: 3pt 0 1pt;
+      break-inside: avoid;
+    }
+    .ft {
+      border: 0.5pt solid #666;
+      border-radius: 0;
+      padding: 2pt 4pt;
+      background: #fff !important;
+    }
+    .ft b { color: #000 !important; font-size: 8.5pt; }
+    .ft span { color: #333 !important; font-size: 8pt; }
 
     .kp-tags { gap: 3pt; }
     .kp-pri {
@@ -1167,39 +1198,50 @@
 
         <figure class="fig">
           <div class="fig-title">以 n 为中心的换算网<span>所有换算先落到 mol</span></div>
-          <svg viewBox="0 0 900 300" role="img" aria-label="物质的量与质量、微粒数、气体体积、浓度的换算关系图">
+          <svg viewBox="0 0 900 360" role="img" aria-label="物质的量与质量、微粒数、气体体积、浓度的换算关系图，每个公式配通俗解释">
             <defs>
               <marker id="kp02-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
                 <path d="M0,0 L10,5 L0,10 z" fill="#0f5c4c"/>
               </marker>
             </defs>
-            <circle cx="450" cy="150" r="56" fill="#e4f2ee" stroke="#0f5c4c" stroke-width="2"/>
-            <text x="450" y="146" text-anchor="middle" font-size="28" font-weight="700" fill="#0f5c4c">n</text>
-            <text x="450" y="170" text-anchor="middle" font-size="12.5" fill="#5c6b7a">mol</text>
+            <circle cx="450" cy="180" r="58" fill="#e4f2ee" stroke="#0f5c4c" stroke-width="2"/>
+            <text x="450" y="174" text-anchor="middle" font-size="30" font-weight="700" fill="#0f5c4c">n</text>
+            <text x="450" y="199" text-anchor="middle" font-size="12.5" fill="#5c6b7a">mol · 箱数</text>
 
-            <rect x="40" y="20" width="200" height="54" rx="8" fill="#fff" stroke="#1a4f8b" stroke-width="1.4"/>
-            <text x="140" y="42" text-anchor="middle" font-size="14" font-weight="700" fill="#1a4f8b">质量 m（g）</text>
-            <text x="140" y="62" text-anchor="middle" font-size="12.5" fill="#5c6b7a">m = n × M</text>
+            <rect x="40" y="24" width="210" height="92" rx="8" fill="#fff" stroke="#1a4f8b" stroke-width="1.4"/>
+            <text x="145" y="48" text-anchor="middle" font-size="14" font-weight="700" fill="#1a4f8b">质量 m（g）</text>
+            <text x="145" y="71" text-anchor="middle" font-size="12.5" fill="#5c6b7a">m = n × M</text>
+            <text x="145" y="92" text-anchor="middle" font-size="11.5" fill="#5c6b7a">质量 = 箱数 × 每箱重量</text>
 
-            <rect x="660" y="20" width="200" height="54" rx="8" fill="#fff" stroke="#1a4f8b" stroke-width="1.4"/>
-            <text x="760" y="42" text-anchor="middle" font-size="14" font-weight="700" fill="#1a4f8b">微粒数 N（个）</text>
-            <text x="760" y="62" text-anchor="middle" font-size="12.5" fill="#5c6b7a">N = n × Nₐ</text>
+            <rect x="650" y="24" width="210" height="92" rx="8" fill="#fff" stroke="#1a4f8b" stroke-width="1.4"/>
+            <text x="755" y="48" text-anchor="middle" font-size="14" font-weight="700" fill="#1a4f8b">微粒数 N（个）</text>
+            <text x="755" y="71" text-anchor="middle" font-size="12.5" fill="#5c6b7a">N = n × Nₐ</text>
+            <text x="755" y="92" text-anchor="middle" font-size="11.5" fill="#5c6b7a">个数 = 箱数 × 每箱个数</text>
 
-            <rect x="40" y="226" width="200" height="54" rx="8" fill="#fff" stroke="#9a5b00" stroke-width="1.4"/>
-            <text x="140" y="248" text-anchor="middle" font-size="14" font-weight="700" fill="#9a5b00">气体体积 V（L）</text>
-            <text x="140" y="268" text-anchor="middle" font-size="12.5" fill="#5c6b7a">V = n × Vₘ（标况）</text>
+            <rect x="40" y="244" width="210" height="92" rx="8" fill="#fff" stroke="#9a5b00" stroke-width="1.4"/>
+            <text x="145" y="268" text-anchor="middle" font-size="14" font-weight="700" fill="#9a5b00">气体体积 V（L）</text>
+            <text x="145" y="291" text-anchor="middle" font-size="12.5" fill="#5c6b7a">V = n × Vₘ（标况）</text>
+            <text x="145" y="312" text-anchor="middle" font-size="11.5" fill="#5c6b7a">体积 = 箱数 × 每箱体积</text>
 
-            <rect x="660" y="226" width="200" height="54" rx="8" fill="#fff" stroke="#9a5b00" stroke-width="1.4"/>
-            <text x="760" y="248" text-anchor="middle" font-size="14" font-weight="700" fill="#9a5b00">浓度 c（mol·L⁻¹）</text>
-            <text x="760" y="268" text-anchor="middle" font-size="12.5" fill="#5c6b7a">c = n / V（溶液）</text>
+            <rect x="650" y="244" width="210" height="92" rx="8" fill="#fff" stroke="#9a5b00" stroke-width="1.4"/>
+            <text x="755" y="268" text-anchor="middle" font-size="14" font-weight="700" fill="#9a5b00">浓度 c（mol·L⁻¹）</text>
+            <text x="755" y="291" text-anchor="middle" font-size="12.5" fill="#5c6b7a">c = n / V（溶液）</text>
+            <text x="755" y="312" text-anchor="middle" font-size="11.5" fill="#5c6b7a">浓度 = 箱数 ÷ 溶液体积</text>
 
-            <line x1="397" y1="132" x2="244" y2="78" stroke="#0f5c4c" stroke-width="1.8" marker-start="url(#kp02-a)" marker-end="url(#kp02-a)"/>
-            <line x1="503" y1="132" x2="656" y2="78" stroke="#0f5c4c" stroke-width="1.8" marker-start="url(#kp02-a)" marker-end="url(#kp02-a)"/>
-            <line x1="397" y1="168" x2="244" y2="222" stroke="#0f5c4c" stroke-width="1.8" marker-start="url(#kp02-a)" marker-end="url(#kp02-a)"/>
-            <line x1="503" y1="168" x2="656" y2="222" stroke="#0f5c4c" stroke-width="1.8" marker-start="url(#kp02-a)" marker-end="url(#kp02-a)"/>
+            <line x1="395" y1="163" x2="252" y2="120" stroke="#0f5c4c" stroke-width="1.8" marker-start="url(#kp02-a)" marker-end="url(#kp02-a)"/>
+            <line x1="505" y1="163" x2="648" y2="120" stroke="#0f5c4c" stroke-width="1.8" marker-start="url(#kp02-a)" marker-end="url(#kp02-a)"/>
+            <line x1="395" y1="197" x2="252" y2="240" stroke="#0f5c4c" stroke-width="1.8" marker-start="url(#kp02-a)" marker-end="url(#kp02-a)"/>
+            <line x1="505" y1="197" x2="648" y2="240" stroke="#0f5c4c" stroke-width="1.8" marker-start="url(#kp02-a)" marker-end="url(#kp02-a)"/>
           </svg>
-          <figcaption>四条箭头都可双向使用：已知任何一种量，先除以对应常数化到 n，再乘到目标量。</figcaption>
+          <figcaption>把 n 想成“箱数”：从 n 到外乘，从外到 n 除；四条箭头都能反着用。</figcaption>
         </figure>
+
+        <div class="formula-trans">
+          <div class="ft"><b>m = n × M</b><span>质量 = 箱数 × 每箱重量</span></div>
+          <div class="ft"><b>N = n × Nₐ</b><span>个数 = 箱数 × 每箱个数</span></div>
+          <div class="ft"><b>V = n × Vₘ</b><span>体积 = 箱数 × 每箱体积（标况）</span></div>
+          <div class="ft"><b>c = n / V</b><span>浓度 = 箱数 ÷ 溶液体积</span></div>
+        </div>
 
         <div class="struct">
           <div class="struct-t">结构化理解</div>
