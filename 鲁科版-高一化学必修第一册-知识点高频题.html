@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <script>try{var q=new URLSearchParams(location.search).get("view");var m=q||localStorage.getItem("hs-view");if(m==="a4")document.documentElement.classList.add("a4")}catch(e){}</script>
-<title>鲁科版高中化学必修第一册 · 知识点 + 高频考题与解析</title>
+<title>鲁科版高中化学必修第一册 · 20→80 入门补弱版</title>
 <style>
   :root {
     --ink: #1c2430;
@@ -77,6 +77,14 @@
   h3 { font-size: 1.05rem; margin: 0 0 .55rem; color: var(--blue); }
   .muted { color: var(--muted); font-size: .9rem; }
   .lead { color: var(--muted); margin-bottom: .9rem; }
+
+  /* 锚点跳转时给固定顶栏留位置 */
+  section[id], article[id] { scroll-margin-top: 66px; }
+  html.a4 section[id], html.a4 article[id] { scroll-margin-top: 110px; }
+  @media screen and (max-width: 700px) {
+    section[id], article[id],
+    html.a4 section[id], html.a4 article[id] { scroll-margin-top: 100px; }
+  }
 
   .toc {
     display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
@@ -213,6 +221,63 @@
     content: "▸"; position: absolute; left: .1rem; top: 0; color: var(--accent);
   }
   .struct b { color: var(--accent); }
+
+  /* ===== 20→80 路线与生活类比 ===== */
+  .route-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: .6rem; margin: .8rem 0;
+  }
+  @media screen and (max-width: 760px) { .route-grid { grid-template-columns: 1fr; } }
+  .step {
+    background: #fff; border: 1px solid var(--line);
+    border-top: 3px solid var(--accent); border-radius: 7px;
+    padding: .7rem .8rem; font-size: .9rem;
+  }
+  .step .w {
+    font-family: var(--mono); font-size: .72rem;
+    font-weight: 700; color: var(--accent);
+  }
+  .step h4 { font-size: .95rem; color: var(--blue); margin: .15rem 0 .3rem; }
+  .step p { margin: 0; color: var(--muted); }
+  .step b { color: var(--ink); }
+
+  .analogy {
+    background: #fffbf2; border: 1px solid #ecd7b8; border-left: 3px solid var(--amber);
+    border-radius: 6px; padding: .6rem .8rem; margin: 0 0 .85rem; font-size: .92rem;
+  }
+  .analogy-t { font-weight: 700; color: var(--amber); font-size: .86rem; margin-bottom: .15rem; }
+  .analogy p { margin: 0; }
+  .analogy .map { color: var(--muted); font-size: .82rem; margin-top: .3rem; }
+  .analogy .map b { color: var(--accent); }
+
+  /* 化学常量 · 人话版 */
+  .lesson { display: grid; gap: .55rem; margin: .8rem 0; }
+  .ls {
+    background: #fff; border: 1px solid var(--line);
+    border-left: 3px solid var(--accent); border-radius: 7px;
+    padding: .7rem .9rem; font-size: .93rem;
+  }
+  .ls-t { font-weight: 700; color: var(--accent); margin-bottom: .25rem; }
+  .ls-t span {
+    font-family: var(--mono); font-size: .74rem;
+    color: var(--muted); margin-left: .4rem;
+  }
+  .ls p { margin: .15rem 0; }
+  .ls .eg { color: var(--muted); font-size: .86rem; margin-top: .3rem; }
+  .ls .eg b { color: var(--blue); }
+  .ls b { color: var(--ink); }
+  @media screen and (max-width: 700px) {
+    .ls-t span { display: block; margin-left: 0; margin-top: .12rem; }
+  }
+
+  .kp-tags { display: flex; align-items: center; gap: .35rem; flex-wrap: wrap; }
+  .kp-pri {
+    font-size: .7rem; font-weight: 700; white-space: nowrap;
+    padding: .12rem .45rem; border-radius: 999px;
+  }
+  .kp-pri.must { background: var(--rose-soft); color: var(--rose); }
+  .kp-pri.base { background: var(--amber-soft); color: var(--amber); }
+  .kp-pri.low { background: #eef2f5; color: var(--muted); }
 
   @media screen and (max-width: 700px) {
     .term-table thead { display: none; }
@@ -362,7 +427,7 @@
     }
 
     .toc {
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: repeat(3, 1fr);
       gap: 4pt;
       margin-bottom: 8pt;
     }
@@ -407,8 +472,9 @@
       border-radius: 0;
       margin: 0 0 8pt;
       background: #fff !important;
-      break-inside: avoid;
-      page-break-inside: avoid;
+      /* 卡片本身允许跨页，内部图示、结构化解读、题目各自保持整块 */
+      break-inside: auto;
+      page-break-inside: auto;
       overflow: visible;
     }
     .kp-head {
@@ -545,6 +611,69 @@
     .struct b { color: #000 !important; }
     .struct li::before { color: #000 !important; }
 
+    .route-grid {
+      grid-template-columns: repeat(3, 1fr) !important;
+      gap: 4pt;
+      margin: 4pt 0;
+      break-inside: avoid;
+    }
+    .step {
+      border: 0.5pt solid #666;
+      border-top: 1.5pt solid #333;
+      border-radius: 0;
+      padding: 4pt 5pt;
+      background: #fff !important;
+      font-size: 8.6pt;
+      break-inside: avoid;
+    }
+    .step .w { color: #000 !important; font-size: 7.5pt; }
+    .step h4 { color: #000 !important; font-size: 9pt; }
+    .step p { color: #333 !important; }
+    .step b { color: #000 !important; }
+
+    .analogy {
+      background: #f7f7f7 !important;
+      border: 0.5pt solid #666;
+      border-left: 2pt solid #333;
+      border-radius: 0;
+      padding: 4pt 5pt;
+      margin: 3pt 0 4pt;
+      font-size: 8.8pt;
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+    .analogy-t { color: #000 !important; font-size: 8.5pt; }
+    .analogy .map { color: #333 !important; font-size: 8pt; }
+    .analogy .map b { color: #000 !important; }
+
+    .lesson { gap: 3pt; margin: 4pt 0; }
+    .ls {
+      border: 0.5pt solid #666;
+      border-left: 2pt solid #333;
+      border-radius: 0;
+      padding: 4pt 5pt;
+      background: #fff !important;
+      font-size: 8.7pt;
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+    .ls-t { color: #000 !important; font-size: 9pt; }
+    .ls-t span { color: #333 !important; font-size: 7.5pt; }
+    .ls p { margin: 1pt 0; }
+    .ls .eg { color: #333 !important; font-size: 8pt; }
+    .ls .eg b { color: #000 !important; }
+    .ls b { color: #000 !important; }
+
+    .kp-tags { gap: 3pt; }
+    .kp-pri {
+      background: #f0f0f0 !important;
+      color: #000 !important;
+      border: 0.4pt solid #666;
+      border-radius: 0;
+      font-size: 7pt;
+      padding: 0 3pt;
+    }
+
     .muted, .lead { color: #333 !important; font-size: 9pt; }
 
     footer {
@@ -559,7 +688,7 @@
     a { color: #000 !important; text-decoration: none !important; }
 
     /* 章节尽量从新页开始，知识点尽量整块不断开 */
-    #ch1, #ch2, #ch3, #map {
+    #constants, #ch1, #ch2, #ch3, #map {
       break-before: page;
       page-break-before: always;
     }
@@ -587,6 +716,8 @@
     <div class="brand">鲁科版 · 化学必修一<small>知识点 + 高频题</small></div>
     <nav class="nav">
       <a href="index.html">← 首页</a>
+      <a href="#route">路线</a>
+      <a href="#constants">常量</a>
       <a href="#overview">总览</a>
       <a href="#toc">目录</a>
       <a href="#ch1">第1章</a>
@@ -608,13 +739,15 @@
   <p class="print-hint">屏幕默认宽屏阅读。要按纸张看，点右上角「A4 打印版」，再点「打印」。纸张选 A4 纵向，建议勾选「背景图形」。</p>
 
   <div class="hero">
-    <div class="k">普通高中教科书 · 山东科技教育出版社（鲁科版 2019）</div>
-    <h1>化学必修第一册<br />知识点梳理 · 高频考题与答案解析</h1>
-    <p>按教材三章拆解高频考点。每个知识点配一张<strong style="color:#fff">结构图 + 结构化解读</strong>，再给出要点速记与 <strong style="color:#fff">3 道高频考题</strong>（点击展开答案与解析）。题型贴近高一期中/期末与学业水平常见设问。</p>
+    <div class="k">普通高中教科书 · 鲁科版 2019 · 菏泽一中高一</div>
+    <h1>化学必修第一册<br />从 20 分到 80 分 · 入门补弱版</h1>
+    <p>按 <strong style="color:#fff">20/100</strong> 的起点重排：每个知识点先用<strong style="color:#fff">生活类比</strong>讲懂，再给最少必背和能拿分的题。不追求全学会，先把基础题和中档题拿稳，目标 <strong style="color:#fff">80/100</strong>。</p>
     <div class="chips">
       <span class="chip">第1章 认识化学科学</span>
       <span class="chip">第2章 元素与物质世界</span>
       <span class="chip">第3章 物质的性质与转化</span>
+      <span class="chip">12 节生活类比</span>
+      <span class="chip">目标 80/100</span>
     </div>
   </div>
 
@@ -624,6 +757,94 @@
     <div class="stat s3"><div class="n">3</div><div class="l">教材章节全覆盖</div></div>
     <div class="stat s4"><div class="n">13</div><div class="l">结构图与图解</div></div>
   </div>
+
+  <!-- 学情诊断 · 20 → 80 -->
+  <section id="route" class="chapter">
+    <div class="ch-head">
+      <div>
+        <h2>学情诊断 · 从 20 分到 80 分</h2>
+        <p class="muted">化学 20/100，不是“学不会”，而是化学式、物质的量、离子方程式三块地基还没连起来。先补这三块，再谈刷题。</p>
+      </div>
+      <span class="ch-tag">目标 80/100 · 6 周路线</span>
+    </div>
+
+    <div class="route-grid">
+      <div class="step">
+        <div class="w">先修 ①</div>
+        <h4>会写化学式</h4>
+        <p>H₂O、CO₂、NaCl、H₂SO₄、NaOH、Na₂CO₃ 要能默写。<b>化学式写错，后面的方程式全错。</b></p>
+      </div>
+      <div class="step">
+        <div class="w">先修 ②</div>
+        <h4>会算 n</h4>
+        <p>n = m/M = V/Vₘ = cV。所有计算题，<b>第一步都先换成 n</b>，再去找目标量。</p>
+      </div>
+      <div class="step">
+        <div class="w">先修 ③</div>
+        <h4>会判“拆不拆”</h4>
+        <p>强酸、强碱、可溶盐拆；沉淀、气体、水、弱电解质、单质、氧化物不拆。<b>离子方程式只考这一条。</b></p>
+      </div>
+    </div>
+
+    <h3 style="margin-top:1.1rem">80 分从哪里来</h3>
+    <p class="muted" style="margin-bottom:.4rem">按常见 100 分卷估算，不同试卷略有差异；目标是把基础题和中档题拿稳，压轴题不追。</p>
+    <div class="table-wrap" style="overflow-x:auto">
+      <table>
+        <thead>
+          <tr><th>板块</th><th>常见分值</th><th>目标</th><th>对应知识点</th><th>只练这些</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>物质的量</td><td>20–25</td><td>18</td><td>KP-02 ~ 04</td><td>一步换算、标况气体、稀释</td></tr>
+          <tr><td>离子反应</td><td>15–20</td><td>15</td><td>KP-07 ~ 08</td><td>拆不拆、正误判断、少量过量</td></tr>
+          <tr><td>氧化还原</td><td>10–15</td><td>10</td><td>KP-09</td><td>标化合价、升失氧降得还</td></tr>
+          <tr><td>元素化合物</td><td>20–25</td><td>20</td><td>KP-10 ~ 12</td><td>Fe²⁺/Fe³⁺、SO₂、NH₃ 与硝酸</td></tr>
+          <tr><td>分类 · 胶体 · 电解质</td><td>10–15</td><td>10</td><td>KP-05 ~ 07</td><td>俗名、丁达尔、强弱电解质</td></tr>
+          <tr><td>实验与研究方法</td><td>5–8</td><td>5</td><td>KP-01</td><td>四方法、五步程序、基本操作</td></tr>
+          <tr><td><b>合计</b></td><td><b>约 100</b></td><td><b>78–80</b></td><td>—</td><td>只保基础与中档</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 style="margin-top:1.1rem">6 周怎么走</h3>
+    <div class="route-grid">
+      <div class="step">
+        <div class="w">第 1–2 周</div>
+        <h4>先拿工具分</h4>
+        <p>物质的量、电解质、离子方程式、氧化还原。每天 1 条公式 + 3 道基础题。</p>
+      </div>
+      <div class="step">
+        <div class="w">第 3–4 周</div>
+        <h4>再背元素性质</h4>
+        <p>分类、胶体、Fe/S/N 的转化与现象。先画转化图，再背颜色和方程式。</p>
+      </div>
+      <div class="step">
+        <div class="w">第 5–6 周</div>
+        <h4>套卷与错题</h4>
+        <p>只做选择前 10 题、填空前两空、大题第一问；压轴题写公式拿步骤分。</p>
+      </div>
+    </div>
+
+    <div class="compare">
+      <div class="box a">
+        <strong>先拿稳（约 80 分）</strong><br>
+        选择题前 10 题 · 填空题前两空 · 大题第一问 · 实验题的现象与仪器
+      </div>
+      <div class="box b">
+        <strong>先放下（冲刺再说）</strong><br>
+        多步过量计算 · 复杂图像 · 陌生方程式配平 · 推断题最后一问 · 开放实验设计
+      </div>
+    </div>
+
+    <div class="struct">
+      <div class="struct-t">每天 30 分钟怎么用</div>
+      <ul>
+        <li><b>10 分钟背：</b>3 条公式，或 1 张清单（拆不拆 / 溶解性 / 颜色）。</li>
+        <li><b>15 分钟做：</b>3 道基础题，不会就先看例题，再合上答案重做。</li>
+        <li><b>5 分钟改：</b>只写一句错因（概念 / 公式 / 审题），记入错题本三栏——关键词 | 错在哪 | 正确第一步。</li>
+        <li><b>分层练习：</b>每节 3 题按 1→2→3 做；第 1 题必须对，第 2 题查概念，第 3 题写完整步骤。</li>
+      </ul>
+    </div>
+  </section>
 
   <!-- 知识结构总览 -->
   <section id="overview" class="chapter">
@@ -714,8 +935,9 @@
   <!-- TOC -->
   <section id="toc">
     <h2>全书目录</h2>
-    <p class="lead">点击跳转到对应知识点；每点含结构图、结构化解读、要点卡片与三道题。</p>
+    <p class="lead">零基础先看最前面的「化学常量 · 人话版」，把 mol、Nₐ、M、Vₘ、c 讲成人话。其余每点含生活类比、结构图、结构化解读与三道题；标「必拿分」的先学，「基础」的随后，「了解」的放到最后。</p>
     <div class="toc">
+      <a href="#constants"><div class="n">先修</div><div class="t">化学常量 · 人话版</div><div class="s">mol、Nₐ、M、Vₘ、c 一次讲懂</div></a>
       <a href="#kp01"><div class="n">1.1–1.2</div><div class="t">研究物质性质的方法与程序</div><div class="s">观察·实验·分类·比较</div></a>
       <a href="#kp02"><div class="n">1.3-A</div><div class="t">物质的量与阿伏加德罗常数</div><div class="s">n、Nₐ、微粒数换算</div></a>
       <a href="#kp03"><div class="n">1.3-B</div><div class="t">摩尔质量与气体摩尔体积</div><div class="s">M、Vₘ、标况计算</div></a>
@@ -728,6 +950,88 @@
       <a href="#kp10"><div class="n">3.1</div><div class="t">铁的多样性</div><div class="s">Fe²⁺/Fe³⁺·转化·检验</div></a>
       <a href="#kp11"><div class="n">3.2</div><div class="t">硫的转化</div><div class="s">SO₂·浓硫酸·酸雨</div></a>
       <a href="#kp12"><div class="n">3.3</div><div class="t">氮的循环</div><div class="s">NH₃·NOₓ·硝酸·环境</div></a>
+    </div>
+  </section>
+
+  <!-- 化学常量 · 人话版 -->
+  <section id="constants" class="chapter">
+    <div class="ch-head">
+      <div>
+        <h2>化学常量 · 人话版</h2>
+        <p class="muted">先搞懂“为什么要有这些数”，再去背定义和单位。这一节不做题，只把 mol、Nₐ、M、Vₘ、c 讲成人话。</p>
+      </div>
+      <span class="ch-tag">零基础先看 · 约 10 分钟</span>
+    </div>
+
+    <p>化学研究的是看不见的微粒。看不见，就数不清；数不清，就没法称、没法量、没法配溶液。于是化学家发明了一套“打包”办法：<b>先把微粒按箱数，再谈重量、体积和浓度。</b></p>
+
+    <div class="lesson">
+      <div class="ls">
+        <div class="ls-t">① 物质的量 n：把微粒按“箱”数<span>mol</span></div>
+        <p>1 滴水大约有 1.7×10²¹ 个水分子，一个个数一辈子也数不完。于是规定：一“箱”装 6.02×10²³ 个微粒，这箱叫 <b>1 mol</b>。n 就是“有几箱”。</p>
+        <p class="eg"><b>生活对照：</b>一箱鸡蛋 360 个，说“2 箱”比说“720 个”快得多。n 只回答“几箱”，不回答“多重”“多大”“多浓”。</p>
+      </div>
+
+      <div class="ls">
+        <div class="ls-t">② 阿伏加德罗常数 Nₐ：一箱到底装多少个<span>6.02×10²³ mol⁻¹</span></div>
+        <p>Nₐ 就是“每箱的个数”。规定 12 g 碳-12 中的原子数为 1 mol，测出来约 6.02×10²³ 个，所以 Nₐ ≈ 6.02×10²³ mol⁻¹。</p>
+        <p>1 mol H₂O、1 mol H⁺、1 mol e⁻ 都是 Nₐ 个微粒，但它们的质量、体积各不相同。</p>
+        <p class="eg"><b>别混：</b>Nₐ 是“每箱多少个”，不是“一箱东西”；写答案时带单位 mol⁻¹。</p>
+      </div>
+
+      <div class="ls">
+        <div class="ls-t">③ 摩尔质量 M：一箱有多重<span>g·mol⁻¹</span></div>
+        <p>M 是 1 mol 物质的质量。数值上等于相对分子（原子）质量，但 M 有单位 g·mol⁻¹，Mᵣ 没有单位。</p>
+        <p class="eg"><b>例子：</b>H₂O 的 Mᵣ = 18，M = 18 g·mol⁻¹ → 1 mol 水 18 g，2 mol 水 36 g。<b>生活对照：</b>一箱苹果 10 kg，一箱薯片 0.5 kg——箱数一样，重量不同。</p>
+      </div>
+
+      <div class="ls">
+        <div class="ls-t">④ 气体摩尔体积 Vₘ：一箱气体占多大<span>22.4 L·mol⁻¹（标况）</span></div>
+        <p>标准状况（0 ℃、101 kPa）下，1 mol 任何气体约占 22.4 L。因为同温同压下，气体分子间距离差不多，分子本身大小可以忽略。</p>
+        <p class="eg"><b>三个条件：</b>① 标况；② 气体；③ 1 mol。水在标况下是液体，不能套 22.4。<b>生活对照：</b>一箱气球，不管装氢气还是氧气，箱子大小差不多。</p>
+      </div>
+
+      <div class="ls">
+        <div class="ls-t">⑤ 物质的量浓度 c：一升溶液里有几箱<span>mol·L⁻¹</span></div>
+        <p>c = n / V，表示 1 L 溶液里溶了多少 mol 溶质。V 是<b>溶液</b>体积，不是加入的水的体积。</p>
+        <p class="eg"><b>生活对照：</b>一勺糖兑一杯水，甜不甜看“糖 / 整杯糖水”，不是看锅里总共放了多少糖。</p>
+      </div>
+    </div>
+
+    <h3 style="margin-top:1.1rem">一张表串起来</h3>
+    <div class="table-wrap" style="overflow-x:auto">
+      <table>
+        <thead>
+          <tr><th>你手里有什么</th><th>怎么变到 n</th><th>人话</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>质量 m（g）</td><td>n = m / M</td><td>称出来的重量，除以“每箱重量”</td></tr>
+          <tr><td>微粒数 N（个）</td><td>n = N / Nₐ</td><td>数出来的个数，除以“每箱个数”</td></tr>
+          <tr><td>气体体积 V（L，标况）</td><td>n = V / 22.4</td><td>量出来的体积，除以“每箱体积”</td></tr>
+          <tr><td>浓度 c（mol·L⁻¹）和溶液体积 V（L）</td><td>n = c × V</td><td>每升几箱 × 几升</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="struct">
+      <div class="struct-t">一句话记住</div>
+      <ul>
+        <li><b>摩尔是“箱”，Nₐ 是每箱个数，M 是每箱重量，Vₘ 是每箱气体的体积，c 是每升溶液里的箱数。</b></li>
+        <li><b>所有换算先落到 n：</b>见到质量、微粒数、气体体积、浓度，先想“怎么换成箱数”。</li>
+      </ul>
+    </div>
+
+    <div class="compare">
+      <div class="box a">
+        <strong>三个不要</strong><br>
+        ① 不要给“物质的量”加单位“个”，它的单位是 mol。<br>
+        ② 不要说“1 mol 氢”，要说“1 mol H”或“1 mol H₂”。<br>
+        ③ 不要拿 22.4 L·mol⁻¹ 算固体、液体或非标况气体。
+      </div>
+      <div class="box b">
+        <strong>学到什么程度算过关</strong><br>
+        能不看笔记说出：n 是什么、Nₐ 是什么、M 和 Mᵣ 差在哪、22.4 的三个条件、c 的 V 指什么。
+      </div>
     </div>
   </section>
 
@@ -745,9 +1049,15 @@
     <article class="kp" id="kp01">
       <div class="kp-head">
         <h3>研究物质性质的方法与程序</h3>
-        <span class="kp-id">KP-01</span>
+        <span class="kp-tags"><span class="kp-pri low">了解</span><span class="kp-id">KP-01</span></span>
       </div>
       <div class="kp-body">
+        <div class="analogy">
+          <div class="analogy-t">先听懂 · 生活类比</div>
+          <p>认识一种新物质，就像认识一个新同学：先看外表（颜色、状态、气味），再一起做件事（与氧气、酸、碱反应），最后总结他的性格（有哪些性质）。观察、实验、分类、比较，就是四种“打听”的办法；“提问→设计→实施→结论→交流”是一套不走弯路的流程。</p>
+          <div class="map"><b>对应考点：</b>研究方法的辨别、实验程序的排序。</div>
+        </div>
+
         <div class="kp-brief">
           <strong>要点：</strong>基本方法——观察、实验、分类、比较；基本程序——提出问题→设计实验→实施实验→获得结论→交流讨论。研究物质常从物理性质（颜色、状态、溶解性等）到化学性质（与酸、碱、氧气等反应）。
         </div>
@@ -841,9 +1151,15 @@
     <article class="kp" id="kp02">
       <div class="kp-head">
         <h3>物质的量与阿伏加德罗常数</h3>
-        <span class="kp-id">KP-02</span>
+        <span class="kp-tags"><span class="kp-pri must">必拿分</span><span class="kp-id">KP-02</span></span>
       </div>
       <div class="kp-body">
+        <div class="analogy">
+          <div class="analogy-t">先听懂 · 生活类比</div>
+          <p>数米粒太慢，于是按“袋”数：1 袋固定装 6.02×10²³ 粒。化学里这袋叫 1 mol，n 就是“几袋”。它既不是质量（几克），也不是数量（几个），只是把微粒“打包”计数。</p>
+          <div class="map"><b>对应考点：</b>n、N、Nₐ 的换算；“1 mol 氢”错在哪。</div>
+        </div>
+
         <div class="kp-brief">
           <strong>要点：</strong>物质的量 n 是基本物理量，单位 mol。阿伏加德罗常数 Nₐ ≈ 6.02×10²³ mol⁻¹。关系式：<span class="formula">N = n · Nₐ　（微粒数 = 物质的量 × Nₐ）</span>
           1 mol 任何微粒所含微粒数都约为 Nₐ。注意问的是分子、原子还是电子/质子。
@@ -976,9 +1292,15 @@
     <article class="kp" id="kp03">
       <div class="kp-head">
         <h3>摩尔质量与气体摩尔体积</h3>
-        <span class="kp-id">KP-03</span>
+        <span class="kp-tags"><span class="kp-pri must">必拿分</span><span class="kp-id">KP-03</span></span>
       </div>
       <div class="kp-body">
+        <div class="analogy">
+          <div class="analogy-t">先听懂 · 生活类比</div>
+          <p>同样一袋，薯片轻、大米重——这就是摩尔质量 M 不同。气体更特殊：同温同压下，一袋气体的“体积”几乎一样，标况下都是 22.4 L。所以固体常称质量，气体常量体积，中间都先换成 n。</p>
+          <div class="map"><b>对应考点：</b>m=nM、V=nVₘ、标况判断。</div>
+        </div>
+
         <div class="kp-brief">
           <strong>要点：</strong>
           <div class="formula">M = m / n　（单位 g·mol⁻¹，数值上等于相对分子/原子质量）</div>
@@ -1075,9 +1397,15 @@
     <article class="kp" id="kp04">
       <div class="kp-head">
         <h3>物质的量浓度</h3>
-        <span class="kp-id">KP-04</span>
+        <span class="kp-tags"><span class="kp-pri must">必拿分</span><span class="kp-id">KP-04</span></span>
       </div>
       <div class="kp-body">
+        <div class="analogy">
+          <div class="analogy-t">先听懂 · 生活类比</div>
+          <p>冲糖水甜不甜，看的是“一勺糖兑多少水”，不是锅里总共放了多少糖。c=n/V 算的就是“每升溶液里有多少 mol 溶质”；V 是整杯糖水的体积，不是加进去的水的体积。</p>
+          <div class="map"><b>对应考点：</b>c=n/V、稀释 c₁V₁=c₂V₂、配制误差。</div>
+        </div>
+
         <div class="kp-brief">
           <strong>要点：</strong>
           <div class="formula">c = n / V　（V 为溶液体积，单位 L；c 单位 mol·L⁻¹）</div>
@@ -1195,9 +1523,15 @@
     <article class="kp" id="kp05">
       <div class="kp-head">
         <h3>元素与物质分类</h3>
-        <span class="kp-id">KP-05</span>
+        <span class="kp-tags"><span class="kp-pri base">基础</span><span class="kp-id">KP-05</span></span>
       </div>
       <div class="kp-body">
+        <div class="analogy">
+          <div class="analogy-t">先听懂 · 生活类比</div>
+          <p>分物质像超市分区：先分“食品 / 日用品”（纯净物 / 混合物），食品再分“水果 / 蔬菜”（单质 / 化合物）。同一件商品可以同时贴“饮料”“含糖”“国产”几个标签——这就是交叉分类。名字会骗人：纯碱是盐，不是碱。</p>
+          <div class="map"><b>对应考点：</b>树状分类、交叉分类、俗名判断。</div>
+        </div>
+
         <div class="kp-brief">
           <strong>要点：</strong>纯净物分单质与化合物；化合物含氧化物、酸、碱、盐等。交叉分类法、树状分类法。注意：氧化物按性质可分酸性、碱性、两性、不成盐氧化物；盐含正盐、酸式盐、碱式盐。
         </div>
@@ -1311,9 +1645,15 @@
     <article class="kp" id="kp06">
       <div class="kp-head">
         <h3>分散系与胶体</h3>
-        <span class="kp-id">KP-06</span>
+        <span class="kp-tags"><span class="kp-pri base">基础</span><span class="kp-id">KP-06</span></span>
       </div>
       <div class="kp-body">
+        <div class="analogy">
+          <div class="analogy-t">先听懂 · 生活类比</div>
+          <p>把分散系想成三种大小的东西过筛：溶液像沙子，能穿过滤纸和半透膜；胶体像小米，能过滤纸、过不了半透膜；浊液像石头，连滤纸都过不去。一束光照到“小米”上，光被散开，从侧面看见一条光路——丁达尔效应。</p>
+          <div class="map"><b>对应考点：</b>粒子直径、丁达尔、渗析、聚沉。</div>
+        </div>
+
         <div class="kp-brief">
           <strong>要点：</strong>按分散质粒子直径：溶液 &lt;1 nm，胶体 1–100 nm，浊液 &gt;100 nm。胶体特有丁达尔效应；可电泳、聚沉（加热、加电解质、加异电胶体）。提纯胶体用渗析（半透膜）。Fe(OH)₃ 胶体带正电。
         </div>
@@ -1423,9 +1763,15 @@
     <article class="kp" id="kp07">
       <div class="kp-head">
         <h3>电解质与电离</h3>
-        <span class="kp-id">KP-07</span>
+        <span class="kp-tags"><span class="kp-pri must">必拿分</span><span class="kp-id">KP-07</span></span>
       </div>
       <div class="kp-body">
+        <div class="analogy">
+          <div class="analogy-t">先听懂 · 生活类比</div>
+          <p>电解质像“遇到水才上班的人”：干燥的 NaCl 是下班状态，不导电；溶于水或熔化后，离子能自由走动，才“上班”导电。强电解质一进水就全部电离，弱电解质只去一部分，所以一个写 =，一个写 ⇌。</p>
+          <div class="map"><b>对应考点：</b>电解质判断、强弱电解质、电离方程式。</div>
+        </div>
+
         <div class="kp-brief">
           <strong>要点：</strong>电解质：在水溶液中或熔融状态下能导电的化合物。非电解质：在上述条件下都不能导电的化合物（如蔗糖、酒精、多数有机物）。单质、混合物既不是电解质也不是非电解质。强电解质完全电离（强酸强碱多数盐）；弱电解质部分电离（弱酸弱碱、水）。电离方程式：强电用 =，弱电用 ⇌。
         </div>
@@ -1529,9 +1875,15 @@
     <article class="kp" id="kp08">
       <div class="kp-head">
         <h3>离子反应与离子方程式</h3>
-        <span class="kp-id">KP-08</span>
+        <span class="kp-tags"><span class="kp-pri must">必拿分</span><span class="kp-id">KP-08</span></span>
       </div>
       <div class="kp-body">
+        <div class="analogy">
+          <div class="analogy-t">先听懂 · 生活类比</div>
+          <p>离子方程式是给反应拍合照：只有真正在溶液里自由走动的离子能入镜。沉淀、气体、水、弱电解质都“宅在家里”，不能拆；易溶的强酸、强碱、可溶盐才拆成离子。拍完照，两边相同的离子删掉，再查原子和电荷。</p>
+          <div class="map"><b>对应考点：</b>拆不拆、正误判断、少量 / 过量。</div>
+        </div>
+
         <div class="kp-brief">
           <strong>要点：</strong>离子反应实质是某些离子浓度减小（生成沉淀、气体、水或弱电解质等）。书写：写→拆（易溶强电解拆成离子）→删（不变化的离子）→查（原子守恒、电荷守恒）。可溶强酸强碱强盐拆，沉淀、气体、弱电、单质、氧化物不拆。
         </div>
@@ -1630,9 +1982,15 @@
     <article class="kp" id="kp09">
       <div class="kp-head">
         <h3>氧化还原反应</h3>
-        <span class="kp-id">KP-09</span>
+        <span class="kp-tags"><span class="kp-pri must">必拿分</span><span class="kp-id">KP-09</span></span>
       </div>
       <div class="kp-body">
+        <div class="analogy">
+          <div class="analogy-t">先听懂 · 生活类比</div>
+          <p>电子像接力棒：还原剂把棒交出去，自己化合价升高、被氧化；氧化剂接棒，化合价降低、被还原。口诀“升失氧、降得还”。判断一个反应是不是氧化还原，只看有没有化合价变化。</p>
+          <div class="map"><b>对应考点：</b>氧化剂 / 还原剂判断、电子转移、歧化。</div>
+        </div>
+
         <div class="kp-brief">
           <strong>要点：</strong>特征——元素化合价升降；本质——电子转移。口诀：<b>升失氧，降得还</b>（化合价升高→失电子→被氧化→是还原剂）。氧化剂得电子、化合价降低；还原剂失电子、化合价升高。同一元素不同价态可归中（歧化相反）。
         </div>
@@ -1750,9 +2108,15 @@
     <article class="kp" id="kp10">
       <div class="kp-head">
         <h3>铁的多样性（Fe²⁺ / Fe³⁺ 及转化）</h3>
-        <span class="kp-id">KP-10</span>
+        <span class="kp-tags"><span class="kp-pri must">必拿分</span><span class="kp-id">KP-10</span></span>
       </div>
       <div class="kp-body">
+        <div class="analogy">
+          <div class="analogy-t">先听懂 · 生活类比</div>
+          <p>铁家三兄弟：Fe(0) 是原始态，交出 2 个电子变 Fe²⁺，再交 1 个变 Fe³⁺；反过来，Fe³⁺ 接 1 个电子回 Fe²⁺。Fe²⁺ 是中间站，既能被氧化，也能被还原。记住颜色：Fe²⁺ 浅绿，Fe³⁺ 棕黄。</p>
+          <div class="map"><b>对应考点：</b>转化、KSCN 检验、Fe(OH)₂ 变色。</div>
+        </div>
+
         <div class="kp-brief">
           <strong>要点：</strong>
           <table>
@@ -1860,9 +2224,15 @@
     <article class="kp" id="kp11">
       <div class="kp-head">
         <h3>硫的转化（硫·二氧化硫·硫酸·酸雨）</h3>
-        <span class="kp-id">KP-11</span>
+        <span class="kp-tags"><span class="kp-pri base">基础</span><span class="kp-id">KP-11</span></span>
       </div>
       <div class="kp-body">
+        <div class="analogy">
+          <div class="analogy-t">先听懂 · 生活类比</div>
+          <p>硫的价态像楼层：−2 在地下室（H₂S），0 在一楼（S），+4 在二楼（SO₂），+6 在顶楼（H₂SO₄）。上楼要氧化剂，下楼要还原剂；SO₂ 在二楼，上楼下楼都行，所以既有氧化性又有还原性。</p>
+          <div class="map"><b>对应考点：</b>价态判断、SO₂ 性质、浓硫酸三性。</div>
+        </div>
+
         <div class="kp-brief">
           <strong>要点：</strong>价态线：S(−2) → S(0) → S(+4, SO₂) → S(+6, H₂SO₄)。SO₂：漂白（与有色物质化合，可逆）、还原性（使酸性 KMnO₄、溴水褪色）、氧化性（与 H₂S）、水溶液酸性。浓硫酸：吸水性、脱水性、强氧化性（加热与 Cu、C 反应）。酸雨：主要 pH&lt;5.6，与 SO₂、NOₓ 有关。
         </div>
@@ -1979,9 +2349,15 @@
     <article class="kp" id="kp12">
       <div class="kp-head">
         <h3>氮的循环（氨·氮氧化物·硝酸）</h3>
-        <span class="kp-id">KP-12</span>
+        <span class="kp-tags"><span class="kp-pri base">基础</span><span class="kp-id">KP-12</span></span>
       </div>
       <div class="kp-body">
+        <div class="analogy">
+          <div class="analogy-t">先听懂 · 生活类比</div>
+          <p>氮的转化像爬楼梯：N₂(0) 可以下到 NH₃(−3)，也可以上到 NO(+2)、NO₂(+4)、HNO₃(+5)。每上一层换一部“电梯”：N₂→NH₃ 用高温高压催化剂，NH₃→NO 用 O₂ 和催化剂，NO→NO₂ 只需 O₂，NO₂→HNO₃ 用水。</p>
+          <div class="map"><b>对应考点：</b>转化条件、颜色变化、硝酸性质。</div>
+        </div>
+
         <div class="kp-brief">
           <strong>要点：</strong>N₂ 稳定（三键）。工业合成氨：N₂+3H₂⇌2NH₃。NH₃：还原性、碱性（与酸反应）、极易溶于水。NO 遇空气变红棕色 NO₂；3NO₂+H₂O=2HNO₃+NO。硝酸：强氧化性，与金属一般不生成 H₂；见光易分解，应避光保存。汽车尾气、硝酸工业与 NOₓ 污染、光化学烟雾相关。
         </div>
@@ -2125,7 +2501,7 @@
 
   <footer>
     <p>教材：鲁科版（山东科技教育出版社）《普通高中教科书·化学》必修第一册（2019）</p>
-    <p style="margin-top:.3rem">12 个核心知识点 · 13 张结构图 · 36 道高频题（含答案解析）· 仅供自学梳理，以教材与教师讲解为准</p>
+    <p style="margin-top:.3rem">12 个核心知识点 · 12 节生活类比 · 13 张结构图 · 36 道高频题（含答案解析）· 20 → 80 入门补弱版</p>
   </footer>
 
 </main>
