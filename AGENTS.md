@@ -4,7 +4,7 @@
 
 ## 项目与部署
 
-内容是高一上（数学 / 物理 / 化学 / 生物）自学课件。每一份课件是仓库根目录里的一份独立中文 HTML：样式在页面内的 `<style>`，脚本在页面内的 `<script>`。没有 `package.json`、依赖、打包器、框架，也没有共享 CSS/JS 文件。
+内容是高一上（数学 / 物理 / 化学 / 生物）自学课件。每一份课件是仓库根目录里的一份独立 HTML（内容为中文）：样式在页面内的 `<style>`，脚本在页面内的 `<script>`。没有 `package.json`、依赖、打包器、框架，也没有共享 CSS/JS 文件。
 
 线上由 GitHub Pages 发布：
 
@@ -30,21 +30,26 @@ python3 -m http.server
 
 | 文件 | 作用 |
 | --- | --- |
-| `index.html` | 总入口。卡片链到下面五份课件 |
-| `菏泽一中-高一数学必修一自学课件.html` | 数学，人教 A 版必修第一册 |
-| `人教版-高一物理必修第一册-自学文档.html` | 物理，人教版 2019 必修第一册 |
-| `鲁科版-高一化学必修第一册-知识点高频题.html` | 化学，鲁科版 2019 必修第一册 |
-| `人教版-高一生物必修1-自学课件-34到80.html` | 生物必修 1 系统自学（34→80） |
-| `人教版-高一生物必修1-专题分类突破课件.html` | 生物必修 1，13 个专题 |
+| `index.html` | 总入口。卡片链到下面 8 份课件与参考页 |
+| `math-pep-a.html` | 数学，人教 A 版必修第一册，知识梳理 |
+| `math-pep-a-diagram.html` | 数学，人教 A 版必修第一册，图示自学版 |
+| `math-pep-a-functions.html` | 数学，人教 A 版必修第一册，函数图解 |
+| `physics-pep.html` | 物理，人教版 2019 必修第一册 |
+| `chemistry-luke.html` | 化学，鲁科版 2019 必修第一册 |
+| `chemistry-luke-concepts.html` | 化学，鲁科版 2019 必修第一册，易混概念辨析 |
+| `biology-pep.html` | 生物必修 1 系统自学（34→80） |
+| `biology-pep-topics.html` | 生物必修 1，13 个专题 |
+| `career-high-paying-majors.html` | 专业与就业参考页（非学科课件） |
+| `shandong-universities.html` | 山东高校参考页（非学科课件） |
 | `README.md` | 站点地址和仓库说明 |
 | `.nojekyll` | 空文件，关闭 Jekyll |
 
-文件名是中文描述，没有额外的机器可读命名规则。现有课件都和 `index.html` 同级。新增课件沿用这个做法：根目录放一份独立 HTML，文件名用中文写清版本和科目。
+文件名统一用英文小写，格式为 `学科-教材版本[-用途].html`：`math-pep-a`、`physics-pep`、`chemistry-luke`、`biology-pep`；同一学科有多个版本时，用 `-diagram`、`-functions`、`-concepts`、`-topics` 等后缀区分。现有文件都和 `index.html` 同级，新增课件沿用这个命名。
 
 `index.html` 里和目录有关、需要跟着课件一起改的地方：
 
-- 五张卡片的 `href` 是同目录相对路径，字符必须和磁盘文件名完全一致（源码里写中文文件名，不要写成百分号编码）。
-- 顶栏徽章是 `4 科 · 5 份课件`，hero 里的统计是 `4` 学科、`5` 份课件。增删课件时一起改。
+- 课件卡片的 `href` 是同目录相对路径，字符必须和磁盘文件名完全一致（直接写文件名，不要写成百分号编码）。
+- 顶栏徽章是 `4 科 · 8 份课件`，hero 里的统计是 `4` 学科、`8` 份课件。增删课件时一起改。
 - 卡片类名决定学科色：`math`、`physics`、`chem`、`bio`、`bio2`。对应的 `:root` 变量是 `--math`、`--physics`、`--chem`、`--bio`、`--bio2` 以及各自的 `-soft`。
 
 每份课件页的共同结构：
@@ -64,10 +69,10 @@ python3 -m http.server
 脚本差异：
 
 - 数学、物理、化学：只有上面的打印展开逻辑
-- `人教版-高一生物必修1-自学课件-34到80.html`：另有 15 题诊断测验，以及勾选进度。`localStorage` 键是 `bio1-diagnostic`、`bio1-progress-v1`
-- `人教版-高一生物必修1-专题分类突破课件.html`：勾选进度。`localStorage` 键是 `bio1-topic-progress-v1`
+- `biology-pep.html`：另有 15 题诊断测验，以及勾选进度。`localStorage` 键是 `bio1-diagnostic`、`bio1-progress-v1`
+- `biology-pep-topics.html`：勾选进度。`localStorage` 键是 `bio1-topic-progress-v1`
 
-页面里的图是内联 SVG（数学页）。除 SVG 命名空间 `xmlns="http://www.w3.org/2000/svg"` 外，没有外链字体、CDN、图片或脚本。离线打开和 Pages 都能用，是因为页面自包含。
+页面里的图是内联 SVG（数学、化学页）。除 SVG 命名空间 `xmlns="http://www.w3.org/2000/svg"` 外，没有外链字体、CDN、图片或脚本。离线打开和 Pages 都能用，是因为页面自包含。
 
 ## 怎么改
 
@@ -84,20 +89,23 @@ python3 -m http.server
 - 不要删除或改名 `.nojekyll`，不要添加会让 Jekyll 处理这些 HTML 的配置。
 - 不要把页面挪进子目录，除非同时改完所有相对链接。站点前缀是 `/highschool/`。以 `/` 开头的路径（例如 `/index.html`）会指到 `shrimpma.github.io` 的域名根，在 Pages 上会 404。
 - 不要给页面加上外部 CDN、字体或脚本。新页面也保持自包含。
-- 不要把中文文件名改成英文，也不要在 `href` 里写百分号编码。
+- 不要把英文文件名改回中文，也不要在 `href` 里写百分号编码。
 - 不要在做版式或链接修改时重写题目、解析或教材表述。
 
 ## 检查
 
 仓库没有测试脚本，也没有 CI。改完用浏览器看。
 
-1. 打开 `index.html`。五张卡片都能进入对应课件，课件顶栏「首页」能回到索引。
+1. 打开 `index.html`。8 张课件卡片都能进入对应课件，课件顶栏「首页」能回到索引。
 2. 核对 `index.html` 的 `href` 和磁盘文件名一致，目前是：
-   - `菏泽一中-高一数学必修一自学课件.html`
-   - `人教版-高一物理必修第一册-自学文档.html`
-   - `鲁科版-高一化学必修第一册-知识点高频题.html`
-   - `人教版-高一生物必修1-自学课件-34到80.html`
-   - `人教版-高一生物必修1-专题分类突破课件.html`
+   - `math-pep-a.html`
+   - `math-pep-a-diagram.html`
+   - `math-pep-a-functions.html`
+   - `physics-pep.html`
+   - `chemistry-luke.html`
+   - `chemistry-luke-concepts.html`
+   - `biology-pep.html`
+   - `biology-pep-topics.html`
 3. 改了 `@media print` 或 details 脚本时，打开打印预览：折叠内容应展开，纸张为 A4 纵向。
 4. 改了生物测验或勾选时，用上面的本地静态服务器提交一次测验、勾几项，刷新后确认还在。
 5. 确认文件仍是 UTF-8，中文没有乱码。
