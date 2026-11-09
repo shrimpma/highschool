@@ -89,6 +89,8 @@ td.mono{white-space:nowrap}
 .mustbox strong{color:var(--green)}
 .pitfall{background:var(--coral-soft);border-left:4px solid var(--coral);border-radius:0 8px 8px 0;padding:.7rem .95rem;margin:.8rem 0;font-size:.93rem}
 .pitfall strong{color:var(--coral)}
+.exam-note{background:var(--blue-soft);border-left:4px solid var(--blue);border-radius:0 8px 8px 0;padding:.7rem .95rem;margin:.8rem 0;font-size:.93rem}
+.exam-note strong{color:var(--blue)}
 .life{background:#f3edf9;border:1px dashed #b79ccc;border-radius:8px;padding:.65rem .95rem;margin:.8rem 0;font-size:.9rem;color:#4a2d5e}
 .life::before{content:"生活中的数学";display:block;font-weight:700;font-size:.77rem;letter-spacing:.05em;color:var(--accent);margin-bottom:.15rem}
 
@@ -240,7 +242,7 @@ footer{border-top:1px solid var(--line);padding-top:1rem;margin-top:2rem;text-al
   .hero h1{font-size:17pt;color:#000}
   h2,h3,h4{color:#000}
   h2{border-bottom:1.2pt solid #000}
-  .notice,.plain,.mustbox,.pitfall,.life{background:#f7f7f7!important;border:0.5pt solid #888;border-left-width:2.5pt}
+  .notice,.plain,.mustbox,.pitfall,.life,.exam-note{background:#f7f7f7!important;border:0.5pt solid #888;border-left-width:2.5pt}
   .term-band{background:#fff!important;color:#000!important;border:1pt solid #333;padding:6pt 9pt}
   .term-band h2,.term-band p,.term-band .num,.term-band .range{color:#000!important}
   .term-band .range{background:#fff!important;border-color:#888!important}
@@ -415,6 +417,11 @@ footer{border-top:1px solid var(--line);padding-top:1rem;margin-top:2rem;text-al
 
     <div class="plain"><b>先说人话：</b>集合就是一个“盒子”，把确定的东西放进去。你的书包是一个集合，里面的每本书是元素。盒子里不能放重复的书，书的顺序也不重要。</div>
 
+    <div class="exam-note">
+      <strong>高频考点：</strong>选择题、填空题几乎每年都考，主要是交集、并集、补集的运算，常和数轴、区间一起出；另外常考“由 A ⊆ B 求参数范围”和子集个数 2<sup>n</sup>，分值约 5—10 分。做运算题先画数轴，做参数题先想空集。<br>
+      <strong>常见误区：</strong>最容易错的是漏掉 A = ∅ 的情况，以及把区间端点的开闭写反；求补集前没看清全集 U，也会整题丢分。
+    </div>
+
     <h4>1. 四个符号，先分清</h4>
     <div class="table-wrap">
       <table>
@@ -568,6 +575,11 @@ footer{border-top:1px solid var(--line);padding-top:1rem;margin-top:2rem;text-al
 
     <div class="plain"><b>先说人话：</b>“充分条件”就是“有它就够了”；“必要条件”就是“没它不行”。判断时只看箭头：p ⇒ q 表示“只要 p 成立，q 一定成立”。</div>
 
+    <div class="exam-note">
+      <strong>高频考点：</strong>选择题固定考“充分必要条件的判断”，题干多是两个不等式或两个几何命题；填空题常考含量词命题的否定。还会用它反求参数范围，“小范围推大范围”是通用套路，属于必拿分。<br>
+      <strong>常见误区：</strong>把“充分”和“必要”说反；写否定时只换量词、忘了否定结论，或只否结论、忘了换量词；“且”和“或”的否定也常写错。
+    </div>
+
     <h4>1. 一张表分清“充分”和“必要”</h4>
     <div class="table-wrap">
       <table>
@@ -671,6 +683,11 @@ footer{border-top:1px solid var(--line);padding-top:1rem;margin-top:2rem;text-al
     </div>
 
     <div class="plain"><b>先说人话：</b>不等式就是“谁大谁小”。解不等式，就是找出让这句话成立的所有 x。它和等式的最大区别只有一条：<strong>两边乘或除以负数，不等号要反过来</strong>。</div>
+
+    <div class="exam-note">
+      <strong>高频考点：</strong>性质判断和作差法比较大小多在选择、填空出现；基本不等式求最值是中档题的主力，常见于填空和大题第(1)问，套路就是“一正、二定、三相等”，分值约 5—10 分。<br>
+      <strong>常见误区：</strong>没说明 a、b 为正就直接套公式；算出最值却不验证等号能否取到；两边乘负数忘记变号；把“同向可加”误用成“同向可减”。
+    </div>
 
     <h4>1. 不等式性质：能做什么，不能做什么</h4>
     <div class="table-wrap">
@@ -794,6 +811,11 @@ footer{border-top:1px solid var(--line);padding-top:1rem;margin-top:2rem;text-al
     </div>
 
     <div class="plain"><b>先说人话：</b>二次函数是一条抛物线。它与 x 轴的交点，就是方程的根；抛物线在 x 轴上方或下方的部分，就是不等式的解。记住一句话：<strong>图在上方就是大于零，图在下方就是小于零</strong>。</div>
+
+    <div class="exam-note">
+      <strong>高频考点：</strong>解一元二次不等式几乎必考，常在解答题第(1)问；选择题常考 Δ 的三种情况、含参不等式和“恒成立”。闭区间上的最值问题，要比较对称轴与区间端点的位置，分值约 10—15 分。<br>
+      <strong>常见误区：</strong>二次项系数为负还直接套“大于取两边”；Δ &lt; 0 就一律写“无解”（开口向上且大于 0 时解集是 R）；求最值只算顶点、忘了比较端点。
+    </div>
 
     <h4>1. 三个“二次”其实是一件事</h4>
     <div class="table-wrap">
@@ -923,6 +945,11 @@ footer{border-top:1px solid var(--line);padding-top:1rem;margin-top:2rem;text-al
     </div>
 
     <div class="plain"><b>先说人话：</b>函数就是一台加工机器。放进一个 x，按规则 f 加工，吐出一个 y。规则可以是一句话、一个公式、一张表或一条曲线，但必须保证：<strong>同一个 x 只能加工出一个 y</strong>。</div>
+
+    <div class="exam-note">
+      <strong>高频考点：</strong>求定义域是必考点，常把分式、偶次根式、对数、零次幂组合在一起考；分段函数求值（尤其是 f(f(a))）和判断“两个函数是否相同”也常出现在选择、填空中。<br>
+      <strong>常见误区：</strong>先化简再求定义域，漏掉原来分母为零的点；多个限制条件之间用“或”而不是“且”；把“f(x+1) 的定义域”当成 x+1 的范围；分段函数从外往里算。
+    </div>
 
     <div class="diagram">
       <div class="fmachine">
@@ -1075,6 +1102,11 @@ footer{border-top:1px solid var(--line);padding-top:1rem;margin-top:2rem;text-al
     </div>
 
     <div class="plain"><b>先说人话：</b>单调性看图象是“上坡”还是“下坡”；奇偶性看图象是“左右照镜子”还是“绕原点转半圈”。所有性质都建立在同一个前提上：<strong>定义域</strong>。</div>
+
+    <div class="exam-note">
+      <strong>高频考点：</strong>单调性和奇偶性的判断是选择、填空的常客，解答题常用定义法证明单调性；常把奇偶性与单调性结合，比较大小或解不等式。幂函数的图象与性质多以选择题出现。<br>
+      <strong>常见误区：</strong>单调区间用“∪”连接；判断奇偶性不看定义域是否关于原点对称；认为奇函数一定过原点；闭区间求最值只算顶点，忘了端点。
+    </div>
 
     <h4>1. 单调性：从左往右，往上还是往下</h4>
     <div class="diagram">
@@ -1290,6 +1322,11 @@ footer{border-top:1px solid var(--line);padding-top:1rem;margin-top:2rem;text-al
 
     <div class="plain"><b>先说人话：</b>指数函数就是“每走一步，就乘同一个数”。细胞每分裂一次数量翻倍，就是 2 的幂；钱按年利率增长，也是这个道理。它长得非常快，所以叫“指数爆炸”。</div>
 
+    <div class="exam-note">
+      <strong>高频考点：</strong>指数幂的化简求值几乎必考，重点在负指数、分数指数和 0 次幂；指数函数的图象、定点 (0,1)、单调性和比较大小常在选择、填空中出现。<br>
+      <strong>常见误区：</strong>把 2<sup>−3</sup> 写成 −8；把 a<sup>0</sup> 写成 0；比较大小不看底数（底数小于 1 时指数越大反而越小）；忘记底数必须 a &gt; 0 且 a ≠ 1。
+    </div>
+
     <h4>1. 指数运算：先记这几条</h4>
     <div class="formula">a<sup>0</sup> = 1（a ≠ 0）　a<sup>−n</sup> = 1/a<sup>n</sup><br>a<sup>m/n</sup> = <sup>n</sup>√(a<sup>m</sup>)（a &gt; 0）<br>a<sup>m</sup> · a<sup>n</sup> = a<sup>m+n</sup>　a<sup>m</sup> ÷ a<sup>n</sup> = a<sup>m−n</sup><br>(a<sup>m</sup>)<sup>n</sup> = a<sup>mn</sup>　(ab)<sup>n</sup> = a<sup>n</sup>b<sup>n</sup></div>
     <p class="muted">负指数先取倒数，分数指数先想“根号”。例如 8<sup>2/3</sup> = (2³)<sup>2/3</sup> = 2² = 4。</p>
@@ -1393,6 +1430,11 @@ footer{border-top:1px solid var(--line);padding-top:1rem;margin-top:2rem;text-al
     </div>
 
     <div class="plain"><b>先说人话：</b>对数是指数的“倒着问”。2 的几次方等于 8？答案是 3，写成 log₂8 = 3。指数问“结果是多少”，对数问“要几次方”。</div>
+
+    <div class="exam-note">
+      <strong>高频考点：</strong>对数运算（三条运算法则和换底公式）是必考计算；指对互化、解对数方程、比较大小也常考。所有对数题的第一步，都是检查真数大于 0、底数合法。<br>
+      <strong>常见误区：</strong>把 log(M + N) 拆成 logM + logN；解完方程不检验真数；log<sub>a</sub>1 和 log<sub>a</sub>a 记混；底数 a = 1 还在继续算。
+    </div>
 
     <div class="formula"><b>a<sup>x</sup> = N ⇔ x = log<sub>a</sub>N</b><br>其中 a &gt; 0，a ≠ 1，N &gt; 0。<br>常用：log<sub>a</sub>1 = 0，log<sub>a</sub>a = 1，a<sup>log<sub>a</sub>N</sup> = N。</div>
 
@@ -1506,6 +1548,11 @@ footer{border-top:1px solid var(--line);padding-top:1rem;margin-top:2rem;text-al
     </div>
 
     <div class="plain"><b>先说人话：</b>函数的零点，就是让函数值等于 0 的那个 x。它不是点，是一个数；在图象上，它是曲线与 x 轴交点的横坐标。找零点，就是解方程 f(x) = 0。</div>
+
+    <div class="exam-note">
+      <strong>高频考点：</strong>零点存在定理的判断多在选择题，考“零点在哪个区间”；二分法常考“每轮区间减半”；一次、二次、指数、对数几种增长模型的比较也会以选择题出现。<br>
+      <strong>常见误区：</strong>把零点写成坐标 (x, 0)；认为 f(a)f(b) &lt; 0 就只有一个零点；忽略“图象连续”这个前提；由 f(a)f(b) &gt; 0 直接断定没有零点。
+    </div>
 
     <h4>1. 零点存在定理：看两端符号</h4>
     <div class="mustbox">
@@ -1637,6 +1684,11 @@ footer{border-top:1px solid var(--line);padding-top:1rem;margin-top:2rem;text-al
     </div>
 
     <div class="plain"><b>先说人话：</b>三角函数就是“圆上的位置”。让一个点从 (1,0) 出发，沿单位圆转一个角 α，它停下来时的横坐标是 cosα，纵坐标是 sinα。角转一圈，sin 和 cos 就循环一次。</div>
+
+    <div class="exam-note">
+      <strong>高频考点：</strong>特殊角的三角函数值必须张口就来，选择、填空必考；同角关系 sin²α + cos²α = 1 常与象限符号结合；诱导公式化简和弧长、扇形面积也常出现。<br>
+      <strong>常见误区：</strong>开平方后不按象限定正负；忘记 tanα 在 cosα = 0 时不存在；角度和弧度混用（sin30 与 sin30°）；诱导公式只背结论、不判断象限。
+    </div>
 
     <h4>1. 角度与弧度：180° = π</h4>
     <div class="table-wrap">
@@ -1795,6 +1847,11 @@ footer{border-top:1px solid var(--line);padding-top:1rem;margin-top:2rem;text-al
     </div>
 
     <div class="plain"><b>先说人话：</b>把 sin 曲线拉高、压扁、左右挪，就得到 y = A sin(ωx + φ)。<strong>A 管高矮，ω 管快慢，φ 管左右</strong>。这三件事分清了，这一章就通了一半。</div>
+
+    <div class="exam-note">
+      <strong>高频考点：</strong>y = A sin(ωx + φ) 的振幅、周期、最值和单调区间是解答题第(1)问的固定考法；图象平移（平移量是 φ/ω）和两角和差、二倍角求值也常考。<br>
+      <strong>常见误区：</strong>周期写成 2π/ω、忘了绝对值；平移量直接读 φ；把 sin(α + β) 写成 sinα + sinβ；tan 的单调区间用“∪”把两段连起来。
+    </div>
 
     <h4>1. 五点法画 y = sin x</h4>
     <div class="diagram">
