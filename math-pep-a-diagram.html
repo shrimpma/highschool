@@ -93,6 +93,9 @@ td.mono{white-space:nowrap}
 .exam-note strong{color:var(--blue)}
 .life{background:#f3edf9;border:1px dashed #b79ccc;border-radius:8px;padding:.65rem .95rem;margin:.8rem 0;font-size:.9rem;color:#4a2d5e}
 .life::before{content:"生活中的数学";display:block;font-weight:700;font-size:.77rem;letter-spacing:.05em;color:var(--accent);margin-bottom:.15rem}
+.why{background:var(--accent-soft);border-left:4px solid var(--accent);border-radius:0 8px 8px 0;padding:.7rem .95rem;margin:.55rem 0 .9rem;font-size:.93rem}
+.why b,.why strong{color:var(--accent)}
+.why .step{display:block;margin:.12rem 0 .12rem .15rem}
 
 .formula{font-family:var(--font-mono);background:#f7f4fb;border:1px dashed #c3b2d4;border-radius:6px;padding:.6rem .8rem;margin:.5rem 0 .75rem;font-size:.89rem;overflow-x:auto;line-height:1.95}
 .formula b{color:var(--accent)}
@@ -242,7 +245,7 @@ footer{border-top:1px solid var(--line);padding-top:1rem;margin-top:2rem;text-al
   .hero h1{font-size:17pt;color:#000}
   h2,h3,h4{color:#000}
   h2{border-bottom:1.2pt solid #000}
-  .notice,.plain,.mustbox,.pitfall,.life,.exam-note{background:#f7f7f7!important;border:0.5pt solid #888;border-left-width:2.5pt}
+  .notice,.plain,.mustbox,.pitfall,.life,.exam-note,.why{background:#f7f7f7!important;border:0.5pt solid #888;border-left-width:2.5pt}
   .term-band{background:#fff!important;color:#000!important;border:1pt solid #333;padding:6pt 9pt}
   .term-band h2,.term-band p,.term-band .num,.term-band .range{color:#000!important}
   .term-band .range{background:#fff!important;border-color:#888!important}
@@ -326,7 +329,7 @@ footer{border-top:1px solid var(--line);padding-top:1rem;margin-top:2rem;text-al
     <div class="grid3">
       <div class="mini">
         <h4>① 先看懂</h4>
-        <p>读每节的“先说人话”和图示，知道它在讲什么，再去看公式。看不懂的地方先跳过，做个记号。</p>
+        <p>读每节的“先说人话”和图示，知道它在讲什么，再去看公式。公式旁边的“怎么来的”是推导，看懂再背。看不懂的地方先跳过，做个记号。</p>
       </div>
       <div class="mini gold">
         <h4>② 再动手</h4>
@@ -436,6 +439,21 @@ footer{border-top:1px solid var(--line);padding-top:1rem;margin-top:2rem;text-al
     </div>
     <p>元素有三条性质：<strong>确定性</strong>（能不能明确判断）、<strong>互异性</strong>（不能重复）、<strong>无序性</strong>（不分先后）。考试最常用的是互异性，例如 <span class="mono">{1, a}</span> 中必须 <span class="mono">a ≠ 1</span>。</p>
     <div class="formula">含 n 个元素的集合：子集 <b>2<sup>n</sup></b> 个，真子集 <b>2<sup>n</sup>−1</b> 个，非空真子集 <b>2<sup>n</sup>−2</b> 个。</div>
+    <div class="why">
+      <b>怎么来的：</b>造一个子集，就是决定每个元素进不进来。每一个元素只有两种选择：<strong>选</strong>，或者<strong>不选</strong>。n 个元素各选一次，互不影响，所以总数是 2×2×⋯×2 = <b>2<sup>n</sup></b>。
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>a 的选择</th><th>b 的选择</th><th>得到的子集</th></tr></thead>
+          <tbody>
+            <tr><td>选</td><td>选</td><td class="mono">{a, b}（集合自己）</td></tr>
+            <tr><td>选</td><td>不选</td><td class="mono">{a}</td></tr>
+            <tr><td>不选</td><td>选</td><td class="mono">{b}</td></tr>
+            <tr><td>不选</td><td>不选</td><td class="mono">∅（空集）</td></tr>
+          </tbody>
+        </table>
+      </div>
+      {a, b} 有 4 = 2² 个子集，和公式一致。“全部选中”得到集合自己，真子集要去掉这 1 个，所以是 2<sup>n</sup>−1。“全部不选”得到空集，非空真子集再去掉它，所以是 2<sup>n</sup>−2。空集也算进 2<sup>n</sup> 里：它没有元素，也就没有元素会落在别的集合外面，所以空集是任何集合的子集。
+    </div>
 
     <div class="grid2">
       <div class="diagram">
@@ -528,8 +546,8 @@ footer{border-top:1px solid var(--line);padding-top:1rem;margin-top:2rem;text-al
       <p class="q"><b>例 2</b>　集合 A = {1, 2, 3} 有多少个子集？多少个真子集？</p>
       <details class="qa"><summary>看解析</summary>
         <div class="ans">
-          <span class="step">元素个数 n = 3，子集个数 2³ = <strong>8</strong> 个。</span>
-          <span class="step">真子集要去掉它自己，8 − 1 = <strong>7</strong> 个。</span>
+          <span class="step">每个元素选或不选，3 次二选一：2×2×2 = 2³ = <strong>8</strong>。</span>
+          <span class="step">真子集去掉“全都选”得到的集合自己，8 − 1 = <strong>7</strong> 个。</span>
           <span class="step">8 个子集分别是：∅，{1}，{2}，{3}，{1,2}，{1,3}，{2,3}，{1,2,3}。</span>
         </div>
       </details>
@@ -554,7 +572,7 @@ footer{border-top:1px solid var(--line);padding-top:1rem;margin-top:2rem;text-al
       <details class="qa"><summary>对答案</summary>
         <div class="ans">
           <span class="step">1. A∩B = {2,3}；A∪B = {1,2,3,4}。</span>
-          <span class="step">2. 2² = 4 个：∅，{a}，{b}，{a,b}。</span>
+          <span class="step">2. a、b 各有选或不选两种选择，2² = 4 个：∅，{a}，{b}，{a,b}。</span>
           <span class="step">3. [−2, 1)。左端含用中括号，右端不含用小括号。</span>
         </div>
       </details>
@@ -632,6 +650,11 @@ footer{border-top:1px solid var(--line);padding-top:1rem;margin-top:2rem;text-al
         <p>否定口诀：<strong>换量词，否结论</strong>。∀ 变 ∃，∃ 变 ∀，再把后面的结论反过来。</p>
       </div>
     </div>
+    <div class="why">
+      <b>怎么来的：</b>全称命题要求每一个 x 都成立。要推翻它，只要找出一个不成立的 x，所以 ∀ 的否定是 ∃，后面的结论也要反过来。“所有同学都及格”的否定是“至少有一个同学不及格”。
+      <span class="step">存在命题说至少有一个成立。要推翻它，必须每一个都不成立，所以 ∃ 的否定是 ∀。“存在一个同学不及格”的否定是“每一个同学都及格”。</span>
+      <span class="step">“又高又瘦”不成立，意味着至少缺一条：不高，或者不瘦。所以“且”的否定是“或”，“或”的否定是“且”。</span>
+    </div>
 
     <div class="example">
       <p class="q"><b>例 2</b>　写出“∀x ∈ R，x² ≥ 0”的否定。</p>
@@ -702,7 +725,11 @@ footer{border-top:1px solid var(--line);padding-top:1rem;margin-top:2rem;text-al
         </tbody>
       </table>
     </div>
-    <div class="pitfall"><strong>注意：</strong>同向不等式不能相减、不能相除。例如 5 &gt; 3、4 &gt; 1，不能推出 5−4 &gt; 3−1（1 &gt; 2 是错的）。</div>
+    <div class="why">
+      <b>怎么来的：</b>3 &gt; 1。两边乘 −1，得到 −3 和 −1。数轴上 −3 在 −1 左边，所以 −3 &lt; −1。乘负数相当于把数轴绕 0 翻面，左右顺序对调，不等号跟着反过来。乘正数只把间距拉长或缩短，左右顺序不变。
+      <span class="step">同向可加：a &gt; b 且 c &gt; d，就是 a−b &gt; 0 且 c−d &gt; 0。两个正数相加还是正数：(a+c)−(b+d) = (a−b)+(c−d) &gt; 0，所以 a+c &gt; b+d。</span>
+      <span class="step">不能相减、不能相除：相减等于加上对方的相反数，方向会被翻一次。两个正的差 (a−b)−(c−d) 可正可负。例如 5 &gt; 3、4 &gt; 1，但 5−4 = 1，并不大于 3−1 = 2。相除同样没有固定方向。</span>
+    </div>
 
     <h4>2. 比较大小：作差法</h4>
     <div class="steps"><span>作差</span><i>→</i><span>化简</span><i>→</i><span>判断符号</span><i>→</i><span>下结论</span></div>
@@ -720,6 +747,14 @@ footer{border-top:1px solid var(--line);padding-top:1rem;margin-top:2rem;text-al
 
     <h4>3. 基本不等式：求最值的“万能钥匙”</h4>
     <div class="formula">a &gt; 0，b &gt; 0 时：<b>(a+b)/2 ≥ √(ab)</b><br>当且仅当 a = b 时取等号。<br>变形：a+b ≥ 2√(ab)；ab ≤ ((a+b)/2)²</div>
+    <div class="why">
+      <b>怎么来的：</b>a &gt; 0、b &gt; 0 时，√a 和 √b 都有意义。任何实数的平方都 ≥ 0，所以
+      <span class="step">(√a − √b)² ≥ 0</span>
+      <span class="step">展开：a − 2√(ab) + b ≥ 0</span>
+      <span class="step">移项：a + b ≥ 2√(ab)，两边除以 2，得到 (a+b)/2 ≥ √(ab)</span>
+      平方等于 0，只有 √a − √b = 0，也就是 a = b。等号只在这时取到。
+      <span class="step">若和 a+b 是定值 S，则 √(ab) ≤ S/2，平方得 ab ≤ (S/2)²，积有最大值。若积 ab 是定值 P，则 a+b ≥ 2√P，和有最小值。这就是“和定积最大，积定和最小”。</span>
+    </div>
     <div class="steps"><span>一正：a、b 都是正数</span><i>→</i><span>二定：和或积是定值</span><i>→</i><span>三相等：验证 a=b 能否取到</span></div>
     <p>口诀：<strong>和定积最大，积定和最小</strong>。但“三相等”必须写出来，否则最值可能是取不到的。</p>
 
@@ -828,7 +863,17 @@ footer{border-top:1px solid var(--line);padding-top:1rem;margin-top:2rem;text-al
         </tbody>
       </table>
     </div>
-    <div class="formula">对称轴：x = <b>−b/(2a)</b>　顶点：<b>(−b/(2a), (4ac−b²)/(4a))</b><br>判别式：<b>Δ = b² − 4ac</b>　Δ &gt; 0 两个零点，Δ = 0 一个零点，Δ &lt; 0 没有零点。</div>
+    <div class="formula">对称轴：x = <b>−b/(2a)</b>　顶点：<b>(−b/(2a), (4ac−b²)/(4a))</b><br>判别式：<b>Δ = b² − 4ac</b>　Δ &gt; 0 两个零点，Δ = 0 一个零点，Δ &lt; 0 没有零点。<br>求根（Δ ≥ 0）：<b>x = (−b ± √Δ)/(2a)</b></div>
+    <div class="why">
+      <b>怎么来的：</b>把二次式配成“一个平方加一个常数”。平方在左右同样远的地方一样大，所以图象左右对称；平方等于 0 的地方就是顶点。
+      <span class="step">y = ax² + bx + c = a(x² + (b/a)x) + c</span>
+      <span class="step">括号里配上 (b/(2a))²：= a[(x + b/(2a))² − b²/(4a²)] + c</span>
+      <span class="step">= a(x + b/(2a))² + (4ac − b²)/(4a)</span>
+      平方项只跟 x 离 −b/(2a) 有多远有关，所以对称轴是 <b>x = −b/(2a)</b>。在轴上平方项是 0，顶点纵坐标就是 (4ac−b²)/(4a)。a &gt; 0 时平方项 ≥ 0，这是最小值；a &lt; 0 时平方项 ≤ 0，这是最大值。
+      <span class="step">令 y = 0，移项得到 (x + b/(2a))² = Δ/(4a²)，其中 Δ = b² − 4ac。</span>
+      <span class="step">Δ &gt; 0：右边是正数，开方得到一正一负两个根。Δ = 0：右边是 0，只有一个根。Δ &lt; 0：右边是负数，平方不会是负数，没有实数根。</span>
+      <span class="step">两个根写成 <b>x = (−b ± √Δ)/(2a)</b>。</span>
+    </div>
 
     <div class="diagram">
       <svg viewBox="0 0 690 250" role="img" aria-label="抛物线开口向上时，判别式大于零、等于零、小于零的三种情况">
@@ -863,6 +908,13 @@ footer{border-top:1px solid var(--line);padding-top:1rem;margin-top:2rem;text-al
     <h4>2. 解一元二次不等式：五步走</h4>
     <div class="steps"><span>① 二次项系数化正</span><i>→</i><span>② 算 Δ</span><i>→</i><span>③ 求根</span><i>→</i><span>④ 画抛物线</span><i>→</i><span>⑤ 写解集</span></div>
     <div class="mustbox"><strong>开口向上时的口诀：</strong>“大于取两边，小于取中间”。如果二次项系数是负数，先两边乘 −1，<strong>不等号要反过来</strong>，再套口诀。</div>
+    <div class="why">
+      <b>怎么来的：</b>a &gt; 0 且两根 x₁ &lt; x₂ 时，y = a(x − x₁)(x − x₂)，a 是正的，符号由两个括号决定。
+      <span class="step">x &gt; x₂：两个括号都是正的，乘积为正，y &gt; 0。</span>
+      <span class="step">x &lt; x₁：两个括号都是负的，负负得正，y &gt; 0。</span>
+      <span class="step">x₁ &lt; x &lt; x₂：一正一负，乘积为负，y &lt; 0。</span>
+      所以大于 0 在两根外侧，小于 0 在两根中间。a &lt; 0 时整个乘积再变一次号，大于和小于对调，所以要先乘 −1、把不等号反过来，再套口诀。
+    </div>
 
     <div class="diagram">
       <svg viewBox="0 0 660 360" role="img" aria-label="开口向上的抛物线与x轴交于x1、x2，x轴上方两侧的绿色区域是大于零的解集，两根之间下方的橙色区域是小于零的解集">
@@ -1038,6 +1090,14 @@ footer{border-top:1px solid var(--line);padding-top:1rem;margin-top:2rem;text-al
         </tbody>
       </table>
     </div>
+    <div class="why">
+      <b>怎么来的：</b>这些限制都是“这个式子在实数里必须算得出来”。
+      <span class="step">分母不能为 0：0 不能做除数，1/0 没有意义。</span>
+      <span class="step">偶次根号下 ≥ 0：任何实数的平方都 ≥ 0，负数开不出实数偶次方根。</span>
+      <span class="step">真数 &gt; 0：底数的任何次方都是正数，倒过来问“几次方”时，结果必须是正数。</span>
+      <span class="step">零次幂的底数 ≠ 0：a<sup>0</sup> = 1 的前提是 a ≠ 0。</span>
+      几条限制要同时成立，定义域是它们的交集，条件之间用“且”。f(x+1) 的定义域问的是 x 能取哪些数；x+1 是送进 f 的材料，不是定义域本身。
+    </div>
 
     <div class="example">
       <p class="q"><b>例 1</b>　求 f(x) = √(x−1) + 1/(x−3) 的定义域。</p>
@@ -1157,6 +1217,11 @@ footer{border-top:1px solid var(--line);padding-top:1rem;margin-top:2rem;text-al
       </div>
     </div>
     <div class="formula">偶函数：<b>f(−x) = f(x)</b>　奇函数：<b>f(−x) = −f(x)</b><br>前提：定义域关于原点对称，否则直接判断为“非奇非偶”。</div>
+    <div class="why">
+      <b>怎么来的：</b>点 (x, f(x)) 关于 y 轴的对称点是 (−x, f(x))。若 f(−x) = f(x)，这两个点都在图象上，图象就左右对称，这是偶函数。点 (x, f(x)) 绕原点转半圈落到 (−x, −f(x))。若 f(−x) = −f(x)，转完仍在图象上，这是奇函数。
+      <span class="step">要算 f(−x)，−x 必须也在定义域里。x 能取时 −x 也能取，定义域就关于原点对称。缺了这一条，定义式无从检查，直接是非奇非偶。</span>
+      <span class="step">若 0 在定义域里，奇函数满足 f(0) = f(−0) = −f(0)，所以 2f(0) = 0，f(0) = 0，图象过原点。y = 1/x 是奇函数，但 0 不在定义域里，就不必过原点。</span>
+    </div>
 
     <h4>3. 五个幂函数，抓住“都过 (1,1)”</h4>
     <div class="table-wrap">
@@ -1170,6 +1235,10 @@ footer{border-top:1px solid var(--line);padding-top:1rem;margin-top:2rem;text-al
           <tr><td class="mono">y = x<sup>1/2</sup></td><td>[0, +∞)</td><td>[0, +∞)</td><td>非奇非偶</td><td>增</td></tr>
         </tbody>
       </table>
+    </div>
+    <div class="why">
+      <b>怎么来的：</b>1 的任何次方都是 1，所以 y = x、x²、x³、x<sup>−1</sup>、x<sup>1/2</sup> 都经过点 (1, 1)。
+      <span class="step">单调区间不能用“∪”连起来。说“在区间 I 上递减”，是要求 I 里任意两个点都满足 x₁ &lt; x₂ ⇒ f(x₁) &gt; f(x₂)。y = 1/x 在 (−∞, 0) 和 (0, +∞) 上各自递减；可是 −1 &lt; 1，而 f(−1) = −1，并不大于 f(1) = 1。缺口两边不是同一个单调区间。</span>
     </div>
 
     <div class="power-grid">
@@ -1329,6 +1398,12 @@ footer{border-top:1px solid var(--line);padding-top:1rem;margin-top:2rem;text-al
 
     <h4>1. 指数运算：先记这几条</h4>
     <div class="formula">a<sup>0</sup> = 1（a ≠ 0）　a<sup>−n</sup> = 1/a<sup>n</sup><br>a<sup>m/n</sup> = <sup>n</sup>√(a<sup>m</sup>)（a &gt; 0）<br>a<sup>m</sup> · a<sup>n</sup> = a<sup>m+n</sup>　a<sup>m</sup> ÷ a<sup>n</sup> = a<sup>m−n</sup><br>(a<sup>m</sup>)<sup>n</sup> = a<sup>mn</sup>　(ab)<sup>n</sup> = a<sup>n</sup>b<sup>n</sup></div>
+    <div class="why">
+      <b>怎么来的：</b>先看正整数次幂。a³ 是 3 个 a 相乘，a² 是 2 个 a 相乘，乘在一起是 5 个 a，所以 a³·a² = a⁵。一般地，m 个 a 再乘 n 个 a，一共 m+n 个，这就是 a<sup>m</sup>·a<sup>n</sup> = a<sup>m+n</sup>。相除是把相同的因子约掉，指数相减。(a<sup>m</sup>)<sup>n</sup> 是“m 个 a 的积”再乘 n 遍，一共 mn 个 a。
+      <span class="step">同一条法则也要在指数是 0 或负数时成立。a<sup>n</sup>÷a<sup>n</sup> = 1，按指数相减又是 a<sup>n−n</sup> = a<sup>0</sup>，所以规定 a<sup>0</sup> = 1（a ≠ 0；0 不能当分母）。</span>
+      <span class="step">a<sup>n</sup>·a<sup>−n</sup> 应按法则等于 a<sup>0</sup> = 1，所以 a<sup>−n</sup> 是 a<sup>n</sup> 的倒数 1/a<sup>n</sup>。负指数是取倒数，不是把结果变成负数。</span>
+      <span class="step">分数指数：设 a<sup>m/n</sup> 是某个正数 t，按乘方法则 t<sup>n</sup> = a<sup>m</sup>，所以 t 是 a<sup>m</sup> 的 n 次方根。a &gt; 0 时这个根在实数里有意义。</span>
+    </div>
     <p class="muted">负指数先取倒数，分数指数先想“根号”。例如 8<sup>2/3</sup> = (2³)<sup>2/3</sup> = 2² = 4。</p>
 
     <h4>2. 指数函数的图象与性质</h4>
@@ -1363,6 +1438,11 @@ footer{border-top:1px solid var(--line);padding-top:1rem;margin-top:2rem;text-al
           </table>
         </div>
         <div class="mustbox"><strong>必背：</strong>a<sup>x</sup> 永远大于 0，图象永远在 x 轴上方，x 轴是它的渐近线。底数必须满足 a &gt; 0 且 a ≠ 1。</div>
+        <div class="why">
+          <b>怎么来的：</b>a &gt; 0 时，正数无论乘多少次还是正数，所以 a<sup>x</sup> &gt; 0，图象永远在 x 轴上方。a<sup>0</sup> = 1，所以一定过点 (0, 1)。
+          <span class="step">a &gt; 1 时，指数每加 1 就再乘一个大于 1 的数，结果变大，是增函数。0 &lt; a &lt; 1 时，指数每加 1 就再乘一个小于 1 的正数，结果变小，是减函数。比较大小之前，先看底数大于 1 还是在 0 和 1 之间。</span>
+          <span class="step">a = 1 时，1<sup>x</sup> 恒等于 1，没有增减，所以指数函数要求 a ≠ 1。a ≤ 0 时，像 (−2)<sup>1/2</sup> 这样的幂在实数里不一定有意义，底数也排除。</span>
+        </div>
       </div>
     </div>
 
@@ -1440,6 +1520,14 @@ footer{border-top:1px solid var(--line);padding-top:1rem;margin-top:2rem;text-al
 
     <h4>1. 对数运算：三条主线</h4>
     <div class="formula">log<sub>a</sub>(MN) = log<sub>a</sub>M + log<sub>a</sub>N<br>log<sub>a</sub>(M/N) = log<sub>a</sub>M − log<sub>a</sub>N<br>log<sub>a</sub>M<sup>k</sup> = k log<sub>a</sub>M<br>换底：log<sub>a</sub>b = log<sub>c</sub>b / log<sub>c</sub>a</div>
+    <div class="why">
+      <b>怎么来的：</b>对数是指数倒过来。设 log<sub>a</sub>M = p，log<sub>a</sub>N = q，按定义就是 M = a<sup>p</sup>，N = a<sup>q</sup>。
+      <span class="step">MN = a<sup>p</sup>·a<sup>q</sup> = a<sup>p+q</sup>，所以 log<sub>a</sub>(MN) = p + q = log<sub>a</sub>M + log<sub>a</sub>N。</span>
+      <span class="step">M/N = a<sup>p−q</sup>，所以相除变成指数相减。M<sup>k</sup> = (a<sup>p</sup>)<sup>k</sup> = a<sup>kp</sup>，所以方次 k 可以提到对数前面。</span>
+      <span class="step">指数相加对应的是底数相乘。a<sup>p</sup> + a<sup>q</sup> 并不是某个简单的幂，所以 log<sub>a</sub>(M + N) 不能拆成 log<sub>a</sub>M + log<sub>a</sub>N。</span>
+      <span class="step">换底：设 log<sub>a</sub>b = x，即 a<sup>x</sup> = b。两边取以 c 为底的对数：x·log<sub>c</sub>a = log<sub>c</sub>b，所以 x = log<sub>c</sub>b / log<sub>c</sub>a。</span>
+      log<sub>a</sub>1 = 0，因为 a<sup>0</sup> = 1；log<sub>a</sub>a = 1，因为 a<sup>1</sup> = a。a<sup>log<sub>a</sub>N</sup> = N，就是“先问几次方、再按这个次数乘回去”。
+    </div>
     <p class="muted">真数必须大于 0，底数必须大于 0 且不等于 1。这两条是解对数题的第一道检查。</p>
 
     <div class="grid2">
@@ -1558,6 +1646,10 @@ footer{border-top:1px solid var(--line);padding-top:1rem;margin-top:2rem;text-al
     <div class="mustbox">
       <strong>定理：</strong>如果函数 f(x) 在闭区间 [a, b] 上的图象连续不断，且 <strong>f(a)·f(b) &lt; 0</strong>，那么 f(x) 在 (a, b) 内至少有一个零点。<br>
       <span class="muted">直观理解：一端在 x 轴下方，另一端在上方，曲线要过去，就必然穿过 x 轴。</span>
+    </div>
+    <div class="why">
+      <b>怎么来的：</b>两个数相乘为负，只能是一正一负。所以 f(a)·f(b) &lt; 0 表示一个点在 x 轴下、另一个在 x 轴上。图象连续，就是笔不离纸；从下侧画到上侧，中间至少碰到 x 轴一次。曲线也可以碰两次、三次，所以只保证“至少一个”。
+      <span class="step">两端同号时，乘积为正。曲线可以一直不碰 x 轴，也可以先碰下去再碰上来，所以不能由此断定没有零点。</span>
     </div>
 
     <div class="diagram">
@@ -1700,6 +1792,13 @@ footer{border-top:1px solid var(--line);padding-top:1rem;margin-top:2rem;text-al
       </table>
     </div>
     <div class="formula">弧长 <b>l = |α| r</b>　扇形面积 <b>S = ½ l r = ½ |α| r²</b><br>其中 α 用弧度制，r 是半径。</div>
+    <div class="why">
+      <b>怎么来的：</b>整圆的圆心角是 2π，周长是 2πr。弧长和圆心角成正比，转过的角占整圆的 |α|/(2π)，弧长就是这个比例乘上周长：
+      <span class="step">l = (|α| / 2π) · 2πr = |α| r</span>
+      扇形面积占圆面积 πr² 的同一个比例：
+      <span class="step">S = (|α| / 2π) · πr² = ½ |α| r²</span>
+      把 l = |α|r 代进去，就得到 S = ½ lr。长度和面积取正数，角本身可以是负的（顺时针），所以公式里用绝对值。
+    </div>
 
     <div class="diagram">
       <svg viewBox="0 0 420 320" role="img" aria-label="半径r的圆上，弧长等于r时所对的圆心角规定为1弧度">
@@ -1771,6 +1870,14 @@ footer{border-top:1px solid var(--line);padding-top:1rem;margin-top:2rem;text-al
         <p class="muted">口诀“奇变偶不变，符号看象限”，配合单位圆理解，不要死背。</p>
       </div>
     </div>
+    <div class="why">
+      <b>怎么来的：</b>单位圆上的点是 (cosα, sinα)，它到原点的距离是 1。水平距离、垂直距离和半径组成直角三角形，勾股定理就是 <b>cos²α + sin²α = 1</b>。tanα = sinα / cosα，是纵坐标除以横坐标，也就是终边的斜率。cosα = 0 时终边竖直，斜率不存在，tanα 也就不存在。
+      <span class="step">诱导公式是在单位圆上做对称，坐标跟着变。−α 关于 x 轴对称：横坐标不变，纵坐标变号，所以 cos(−α) = cosα，sin(−α) = −sinα。</span>
+      <span class="step">π − α 关于 y 轴对称：纵坐标不变，横坐标变号，所以 sin(π − α) = sinα，cos(π − α) = −cosα。</span>
+      <span class="step">π + α 是再转半圈：横、纵坐标都变号，sin 和 cos 都加负号。</span>
+      <span class="step">π/2 − α 关于直线 y = x 对称：横、纵坐标对调，sin 和 cos 互换。</span>
+      口诀说的是同一件事：写成 k·(π/2) ± α 后，k 是奇数（如 π/2）就把 sin、cos 互换，k 是偶数（如 π = 2·π/2）函数名不变；再把这个角放进对应象限，看原来的函数在那里是正还是负。例如 sin(π − α)：k = 2 是偶数，仍是 sin；π − α 在第二象限，正弦为正，所以等于 sinα。
+    </div>
 
     <h4>3. 特殊角，必须张口就来</h4>
     <div class="table-wrap">
@@ -1782,6 +1889,42 @@ footer{border-top:1px solid var(--line);padding-top:1rem;margin-top:2rem;text-al
           <tr><td>tanα</td><td>0</td><td>√3/3</td><td>1</td><td>√3</td><td>不存在</td></tr>
         </tbody>
       </table>
+    </div>
+    <div class="why">
+      <b>怎么来的：</b>30°、60° 从边长为 2 的等边三角形来。把它对半切开，得到直角边 1、√3，斜边 2 的直角三角形。30° 所对的直角边是 1，所以 sin30° = 1/2，邻边是 √3，所以 cos30° = √3/2。60° 正好把对边、邻边换过来：sin60° = √3/2，cos60° = 1/2。tan 是对边除以邻边：tan30° = 1/√3 = √3/3，tan60° = √3。
+      <span class="step">45° 来自腰为 1 的等腰直角三角形，斜边是 √2。sin45° = cos45° = 1/√2 = √2/2，tan45° = 1/1 = 1。</span>
+      <span class="step">0° 在 x 轴正方向：(cos, sin) = (1, 0)。90° 在 y 轴正方向：(0, 1)，横坐标是 0，tan90° 不存在。</span>
+    </div>
+    <div class="grid2">
+      <div class="diagram">
+        <svg viewBox="0 0 280 240" role="img" aria-label="边长为2的等边三角形对半切开，得到30度和60度">
+          <polygon points="50,200 210,200 130,61.4" fill="rgba(107,63,140,.08)" stroke="#6b3f8c" stroke-width="2"/>
+          <line x1="130" y1="61.4" x2="130" y2="200" stroke="#a79bb4" stroke-width="1.3" stroke-dasharray="5 4"/>
+          <polyline points="130,188 142,188 142,200" fill="none" stroke="#6b6478" stroke-width="1.2"/>
+          <text x="90" y="218" text-anchor="middle" class="svg-lbl">1</text>
+          <text x="170" y="218" text-anchor="middle" class="svg-lbl">1</text>
+          <text x="138" y="140" class="svg-lbl accent">√3</text>
+          <text x="72" y="125" class="svg-lbl">2</text>
+          <text x="182" y="125" class="svg-lbl">2</text>
+          <text x="186" y="184" class="svg-lbl gold">60°</text>
+          <text x="146" y="92" class="svg-lbl gold">30°</text>
+          <text x="140" y="28" text-anchor="middle" class="svg-lbl strong">边长为 2 的等边三角形</text>
+        </svg>
+        <p class="cap">斜边 2、对边 1，所以 sin30° = 1/2。</p>
+      </div>
+      <div class="diagram">
+        <svg viewBox="0 0 280 240" role="img" aria-label="腰为1的等腰直角三角形，两个锐角都是45度">
+          <polygon points="70,200 210,200 70,60" fill="rgba(169,119,17,.10)" stroke="#a97711" stroke-width="2"/>
+          <polyline points="70,188 82,188 82,200" fill="none" stroke="#6b6478" stroke-width="1.2"/>
+          <text x="140" y="218" text-anchor="middle" class="svg-lbl">1</text>
+          <text x="52" y="135" text-anchor="end" class="svg-lbl">1</text>
+          <text x="158" y="112" class="svg-lbl gold">√2</text>
+          <text x="168" y="188" class="svg-lbl gold">45°</text>
+          <text x="82" y="78" class="svg-lbl gold">45°</text>
+          <text x="140" y="28" text-anchor="middle" class="svg-lbl strong">腰为 1 的等腰直角三角形</text>
+        </svg>
+        <p class="cap">两腰相等，所以 sin45° = cos45° = √2/2。</p>
+      </div>
     </div>
 
     <div class="example">
@@ -1892,6 +2035,11 @@ footer{border-top:1px solid var(--line);padding-top:1rem;margin-top:2rem;text-al
 
     <h4>3. y = A sin(ωx + φ)：四个参数看明白</h4>
     <div class="formula"><b>振幅 |A|</b>　<b>周期 T = 2π/|ω|</b>　频率 f = 1/T<br><b>初相 φ</b>　相位 ωx + φ　值域 [−|A|, |A|]<br>最大值 |A|，最小值 −|A|。</div>
+    <div class="why">
+      <b>怎么来的：</b>sin θ 每增加 2π 就重复一次。对 y = sin(ωx + φ)，括号里的角增加 2π，函数值才走完一圈：ω(x + T) + φ = ωx + φ + 2π，也就是 ωT = 2π。周期取正数，所以 <b>T = 2π/|ω|</b>。ω 越大，增加 2π 需要的 x 越少，曲线越挤。频率是单位时间内有多少个周期，所以 f = 1/T。
+      <span class="step">平移先把 ω 提出来：sin(ωx + φ) = sin[ω(x + φ/ω)]。和 sin(ωx) 相比，x 换成了 x + φ/ω。f(x + a) 是向左平移 a，所以向左移动的是 φ/ω，不是 φ。</span>
+      <span class="step">例如 sin(2x + π/3) = sin[2(x + π/6)]，向左平移 π/6。</span>
+    </div>
     <div class="table-wrap">
       <table>
         <thead><tr><th>变化</th><th>对图象的影响</th><th>注意</th></tr></thead>
@@ -1939,7 +2087,15 @@ footer{border-top:1px solid var(--line);padding-top:1rem;margin-top:2rem;text-al
 
     <h4>4. 恒等变换：背公式，会代入</h4>
     <div class="formula">sin(α ± β) = sinα cosβ ± cosα sinβ<br>cos(α ± β) = cosα cosβ ∓ sinα sinβ<br>tan(α ± β) = (tanα ± tanβ) / (1 ∓ tanα tanβ)<br><b>sin2α = 2 sinα cosα</b><br><b>cos2α = cos²α − sin²α = 2cos²α − 1 = 1 − 2sin²α</b></div>
-    <p class="muted">目标 80 分：先把公式背准，会做“给一个特殊角拆成两个角”的题；复杂的证明和变形可以暂时放一放。</p>
+    <div class="why">
+      <b>怎么来的：</b>先得到差角余弦，其余公式都由它变出来。考试直接用结论；记混了就按这个顺序推一遍。
+      <span class="step">单位圆上，角 α、β 的终点是 P(cosα, sinα)、Q(cosβ, sinβ)。弦长平方 (cosα − cosβ)² + (sinα − sinβ)² = 2 − 2(cosα cosβ + sinα sinβ)，因为两组 sin² + cos² 都等于 1。角 α−β 的终点到 (1, 0) 的弦长平方同样是 2 − 2cos(α−β)。圆心角相同，弦长相等，所以 cos(α−β) = cosα cosβ + sinα sinβ。</span>
+      <span class="step">把 β 换成 −β：cos(α+β) = cosα cosβ − sinα sinβ。再用 cos(π/2 − θ) = sinθ：sin(α+β) = cos(π/2 − (α+β)) = sinα cosβ + cosα sinβ。</span>
+      <span class="step">tan(α+β) = sin(α+β)/cos(α+β)。分子分母同除以 cosα cosβ，得到 (tanα + tanβ)/(1 − tanα tanβ)。分母为 0 时正切不存在。</span>
+      <span class="step">二倍角就是 β = α：sin2α = sinα cosα + cosα sinα = 2 sinα cosα。cos2α = cos²α − sin²α。再用 sin²α + cos²α = 1，换成 2cos²α − 1 和 1 − 2sin²α。</span>
+      sin(α+β) 是“把两个角接在一起再读纵坐标”，不是把两条纵坐标相加，所以不能写成 sinα + sinβ。
+    </div>
+    <p class="muted">目标 80 分：公式按上面的顺序能自己推一遍，会做“给一个特殊角拆成两个角”的题；更复杂的变形可以暂时放一放。</p>
 
     <div class="example">
       <p class="q"><b>例 1</b>　求 y = 2sin(2x − π/3) 的振幅、周期、最大值和单调递增区间。</p>
@@ -2120,7 +2276,7 @@ footer{border-top:1px solid var(--line);padding-top:1rem;margin-top:2rem;text-al
     <div class="formula-grid">
       <div class="fcard">
         <h4>集合与逻辑</h4>
-        <div class="formula">A∩B：公共部分<br>A∪B：全部合并<br>∁<sub>U</sub>A：U 里去掉 A<br>n 个元素：子集 2<sup>n</sup> 个<br>p ⇒ q：p 充分，q 必要<br>¬(∀x, p) ⇔ ∃x, ¬p</div>
+        <div class="formula">A∩B：公共部分<br>A∪B：全部合并<br>∁<sub>U</sub>A：U 里去掉 A<br>n 个元素：子集 2<sup>n</sup> 个（每个选或不选）<br>p ⇒ q：p 充分，q 必要<br>¬(∀x, p) ⇔ ∃x, ¬p</div>
       </div>
       <div class="fcard gold">
         <h4>不等式</h4>
