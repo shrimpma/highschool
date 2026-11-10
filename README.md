@@ -28,6 +28,10 @@
 - [生物必修 1 系统自学（34→80）](biology-pep.html)：含诊断测验与勾选进度。
 - [生物必修 1 专题分类突破](biology-pep-topics.html)：13 个专题，含勾选进度。
 
+## 学习方法
+
+- [学习技巧 · 各科执行方法](study-methods.html)：白纸回忆、结构图、间隔复习、错题卡点，附数学 / 物理 / 化学 / 生物各一套每日 40 分钟流程、自检清单和可打印模板。
+
 ## 仓库
 
 https://github.com/shrimpma/highschool

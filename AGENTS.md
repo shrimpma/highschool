@@ -39,6 +39,7 @@ python3 -m http.server
 | `chemistry-luke-concepts.html` | 化学，鲁科版 2019 必修第一册，易混概念辨析 |
 | `biology-pep.html` | 生物必修 1 系统自学（34→80） |
 | `biology-pep-topics.html` | 生物必修 1，13 个专题 |
+| `study-methods.html` | 学习技巧与各科执行方法（非学科课件） |
 | `career-high-paying-majors.html` | 专业与就业参考页（非学科课件） |
 | `shandong-universities.html` | 山东高校参考页（非学科课件） |
 | `README.md` | 站点地址和仓库说明 |
@@ -106,6 +107,7 @@ python3 -m http.server
    - `chemistry-luke-concepts.html`
    - `biology-pep.html`
    - `biology-pep-topics.html`
+   - `study-methods.html`（学习技巧卡片）
 3. 改了 `@media print` 或 details 脚本时，打开打印预览：折叠内容应展开，纸张为 A4 纵向。
 4. 改了生物测验或勾选时，用上面的本地静态服务器提交一次测验、勾几项，刷新后确认还在。
 5. 确认文件仍是 UTF-8，中文没有乱码。

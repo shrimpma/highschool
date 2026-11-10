@@ -29,6 +29,8 @@
     --bio-soft: #e8f3ee;
     --bio2: #b84332;
     --bio2-soft: #fceee9;
+    --study: #8a6218;
+    --study-soft: #f7efdc;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
@@ -110,6 +112,8 @@
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 1rem;
   }
+  .grid.single { grid-template-columns: 1fr; }
+  .grid.single .card .desc { max-width: 52rem; }
 
   .card {
     display: flex; flex-direction: column;
@@ -175,6 +179,7 @@
   .card.chem { --subj: var(--chem); --subj-soft: var(--chem-soft); }
   .card.bio { --subj: var(--bio); --subj-soft: var(--bio-soft); }
   .card.bio2 { --subj: var(--bio2); --subj-soft: var(--bio2-soft); }
+  .card.study { --subj: var(--study); --subj-soft: var(--study-soft); }
   .card.univ { --subj: var(--accent); --subj-soft: var(--physics-soft); }
 
   .extra {
@@ -242,6 +247,7 @@
     h2 { color: #000; border-bottom: 1.2pt solid #000; }
     .lead, .muted { color: #333 !important; }
     .grid { grid-template-columns: 1fr 1fr; gap: 6pt; }
+    .grid.single { grid-template-columns: 1fr; }
     .card {
       background: #fff !important; border: 0.75pt solid #444; border-radius: 0;
       box-shadow: none !important; break-inside: avoid; page-break-inside: avoid;
@@ -417,6 +423,27 @@
     </a>
 
   </div>
+
+  <section class="extra">
+    <h2>学习技巧</h2>
+    <p class="lead">同样的时间，为什么有人记得住、考得出？差别在方法：合书回忆、按间隔复习、把错题压缩成“卡点”。这一页给四科各一套可直接照做的每日流程。</p>
+    <div class="grid single">
+      <a class="card study" href="study-methods.html">
+        <div class="card-top">
+          <span class="subj-tag">学习方法</span>
+          <span class="edition">四科通用</span>
+        </div>
+        <h3>学习技巧 · 各科执行方法</h3>
+        <p class="desc">从“看懂”到“写出来”：白纸回忆、结构图、间隔复习与错题卡点，数学、物理、化学、生物各配 40 分钟流程和自检清单。</p>
+        <div class="meta">
+          <span>5 个底层方法</span>
+          <span>4 科执行流程</span>
+          <span>模板可打印</span>
+        </div>
+        <span class="go">打开方法页</span>
+      </a>
+    </div>
+  </section>
 
   <section class="extra">
     <h2>其他</h2>

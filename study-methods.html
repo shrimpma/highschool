@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>学习技巧 · 各科执行方法</title>
+<style>
+  :root {
+    --ink: #1a2332;
+    --muted: #5a6577;
+    --line: #d5dce6;
+    --bg: #eef1f5;
+    --card: #ffffff;
+    --accent: #1a3a5c;
+    --font: "PingFang SC", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+    --serif: "Source Han Serif SC", "Noto Serif SC", "Songti SC", SimSun, serif;
+    --mono: "JetBrains Mono", Consolas, monospace;
+
+    --math: #0d6e6e;
+    --math-soft: #e6f3f3;
+    --physics: #15468a;
+    --physics-soft: #e6edf7;
+    --chem: #0f5c4c;
+    --chem-soft: #e4f2ee;
+    --bio: #b84332;
+    --bio-soft: #fceee9;
+    --gold: #8a6218;
+    --gold-soft: #f7efdc;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--font);
+    color: var(--ink);
+    background:
+      radial-gradient(ellipse at 8% 0%, rgba(21,70,138,.08), transparent 42%),
+      radial-gradient(ellipse at 92% 6%, rgba(13,110,110,.07), transparent 40%),
+      linear-gradient(180deg, #f6f8fb 0%, var(--bg) 45%, #e8ecf2 100%);
+    line-height: 1.75;
+    font-size: 15.5px;
+    min-height: 100vh;
+  }
+  a { color: inherit; text-decoration: none; }
+
+  .topbar {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(18, 28, 42, 0.96);
+    color: #e8eef5;
+    border-bottom: 1px solid #2a3548;
+    backdrop-filter: blur(8px);
+  }
+  .topbar-inner {
+    max-width: 1100px; margin: 0 auto; padding: .62rem 1.2rem;
+    display: flex; flex-wrap: wrap; gap: .5rem .9rem; align-items: center;
+  }
+  .brand { font-weight: 700; letter-spacing: .02em; white-space: nowrap; }
+  .brand small { color: #8fb0d0; font-weight: 500; margin-left: .45rem; font-size: .82em; }
+  .nav { display: flex; flex-wrap: wrap; gap: .15rem .75rem; font-size: .82rem; }
+  .nav a { color: #c3d4e6; padding: .1rem 0; border-bottom: 1px solid transparent; }
+  .nav a:hover { color: #fff; border-bottom-color: #8fb0d0; }
+  .badge {
+    margin-left: auto; background: #1a3a5c; font-size: .72rem; font-weight: 700;
+    padding: .25rem .65rem; border-radius: 999px; white-space: nowrap;
+  }
+  .print-btn {
+    background: transparent; color: #e8eef5; border: 1px solid rgba(255,255,255,.28);
+    cursor: pointer; font-size: .75rem; font-weight: 700; padding: .28rem .7rem;
+    border-radius: 999px; font-family: inherit; white-space: nowrap;
+  }
+  .print-btn:hover { background: rgba(255,255,255,.08); }
+
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 1.4rem 1.2rem 3.5rem; }
+
+  .hero {
+    background: linear-gradient(140deg, #121c2a 0%, #1a3a5c 55%, #0d5c4c 100%);
+    color: #eef3f8; border-radius: 14px; padding: 2rem 1.7rem 1.7rem;
+    position: relative; overflow: hidden;
+  }
+  .hero::after {
+    content: ""; position: absolute; right: -50px; top: -60px;
+    width: 240px; height: 240px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(143,176,208,.22), transparent 70%);
+    pointer-events: none;
+  }
+  .hero .kicker {
+    color: #8fb0d0; font-size: .82rem; letter-spacing: .1em;
+    margin-bottom: .55rem; font-family: var(--mono);
+  }
+  .hero h1 {
+    font-family: var(--serif); font-size: clamp(1.55rem, 3.4vw, 2.1rem);
+    line-height: 1.35; margin-bottom: .6rem; position: relative; z-index: 1;
+  }
+  .hero p { color: #b8c9db; max-width: 46rem; position: relative; z-index: 1; font-size: .95rem; }
+  .chips { display: flex; flex-wrap: wrap; gap: .45rem; margin-top: 1rem; position: relative; z-index: 1; }
+  .chip {
+    background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.14);
+    padding: .25rem .65rem; border-radius: 6px; font-size: .78rem; color: #d5e2ef;
+  }
+
+  .quick {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: .65rem; margin-top: 1rem;
+  }
+  .quick a {
+    background: var(--card); border: 1px solid var(--line); border-top: 3px solid var(--sc);
+    border-radius: 8px; padding: .65rem .8rem; font-size: .88rem; font-weight: 700;
+    color: var(--sc); transition: border-color .15s, box-shadow .15s, transform .15s;
+  }
+  .quick a span { display: block; color: var(--muted); font-weight: 400; font-size: .76rem; margin-top: .1rem; }
+  .quick a:hover { box-shadow: 0 6px 20px rgba(26,35,50,.08); transform: translateY(-1px); }
+
+  .s-math { --sc: var(--math); --sc-soft: var(--math-soft); }
+  .s-physics { --sc: var(--physics); --sc-soft: var(--physics-soft); }
+  .s-chem { --sc: var(--chem); --sc-soft: var(--chem-soft); }
+  .s-bio { --sc: var(--bio); --sc-soft: var(--bio-soft); }
+
+  section { margin-top: 2.3rem; scroll-margin-top: 70px; }
+  section > h2 {
+    font-family: var(--serif); font-size: 1.3rem;
+    display: flex; align-items: baseline; gap: .55rem;
+    border-bottom: 2px solid var(--accent); padding-bottom: .35rem;
+    margin-bottom: .55rem;
+  }
+  section > h2 .num {
+    font-family: var(--mono); font-size: .8rem; font-weight: 700;
+    color: var(--accent); letter-spacing: .08em;
+  }
+  .lead { color: var(--muted); font-size: .93rem; margin-bottom: 1rem; max-width: 52rem; }
+
+  .principles {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: .7rem;
+  }
+  .principle {
+    background: var(--card); border: 1px solid var(--line); border-radius: 10px;
+    padding: .9rem 1rem; position: relative;
+  }
+  .principle .p-num {
+    font-family: var(--mono); font-size: .72rem; font-weight: 700;
+    color: var(--gold); letter-spacing: .06em;
+  }
+  .principle h3 { font-size: 1rem; margin: .15rem 0 .3rem; }
+  .principle p { font-size: .87rem; color: var(--muted); }
+  .principle .do {
+    margin-top: .5rem; padding-top: .45rem; border-top: 1px dashed var(--line);
+    font-size: .84rem; color: var(--ink);
+  }
+  .principle .do b { color: var(--gold); }
+
+  .callout {
+    border-left: 3px solid var(--gold); background: var(--gold-soft);
+    padding: .7rem .9rem; border-radius: 0 8px 8px 0;
+    font-size: .89rem; margin-top: 1rem;
+  }
+  .callout b { color: #6b4b10; }
+
+  .steps {
+    display: flex; flex-wrap: wrap; gap: .35rem; align-items: center;
+    margin-top: .9rem; font-size: .8rem;
+  }
+  .steps span {
+    background: #fff; border: 1px solid var(--line);
+    padding: .25rem .6rem; border-radius: 999px;
+  }
+  .steps i { color: var(--muted); font-style: normal; }
+
+  .tbl { width: 100%; border-collapse: collapse; font-size: .87rem; margin-top: .65rem; }
+  .tbl th, .tbl td {
+    border: 1px solid var(--line); padding: .45rem .55rem;
+    text-align: left; vertical-align: top;
+  }
+  .tbl th { background: #f2f5f8; font-weight: 700; white-space: nowrap; }
+  .tbl tbody tr:nth-child(even) { background: #fafbfc; }
+  .tbl td.time { font-family: var(--mono); white-space: nowrap; color: var(--accent); font-weight: 700; }
+
+  .subject {
+    background: var(--card); border: 1px solid var(--line);
+    border-top: 4px solid var(--sc); border-radius: 12px;
+    padding: 1.25rem 1.35rem 1.3rem; margin-top: 1.1rem;
+  }
+  .subject-head { display: flex; flex-wrap: wrap; align-items: center; gap: .55rem; margin-bottom: .25rem; }
+  .subject-head h3 { font-family: var(--serif); font-size: 1.28rem; }
+  .subject-head .snum {
+    font-family: var(--mono); font-size: .72rem; font-weight: 700;
+    color: var(--sc); letter-spacing: .08em; margin-right: .35rem;
+  }
+  .tag {
+    font-family: var(--mono); font-size: .68rem; font-weight: 700;
+    color: var(--sc); background: var(--sc-soft);
+    padding: .15rem .45rem; border-radius: 4px; letter-spacing: .04em;
+  }
+  .why { color: var(--muted); font-size: .92rem; margin-bottom: .85rem; }
+  .why b { color: var(--sc); }
+
+  .methods { display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: .65rem; }
+  .method {
+    background: #fbfcfd; border: 1px solid var(--line);
+    border-radius: 8px; padding: .75rem .85rem;
+  }
+  .method h4 { font-size: .95rem; margin-bottom: .25rem; }
+  .method p { font-size: .85rem; color: var(--muted); }
+  .method .do {
+    margin-top: .45rem; padding-top: .4rem; border-top: 1px dashed var(--line);
+    font-size: .83rem; color: var(--ink);
+  }
+  .method .do b { color: var(--sc); }
+
+  .flow {
+    background: var(--sc-soft); border-radius: 8px;
+    padding: .75rem .9rem; margin-top: .8rem;
+  }
+  .flow h4 { font-size: .9rem; color: var(--sc); margin-bottom: .25rem; }
+  .flow ol { margin-left: 1.2rem; font-size: .86rem; }
+  .flow li { margin: .1rem 0; }
+  .flow li b { font-family: var(--mono); font-size: .8rem; color: var(--sc); }
+
+  .checklist { list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: .2rem .9rem; margin-top: .55rem; }
+  .checklist li { font-size: .86rem; padding-left: 1.15rem; position: relative; }
+  .checklist li::before {
+    content: ""; position: absolute; left: 0; top: .42em;
+    width: .66em; height: .66em; border: 1px solid var(--sc, #666); border-radius: 1px;
+  }
+
+  .subject .callout { margin-top: .85rem; }
+
+  .tool {
+    background: var(--card); border: 1px solid var(--line); border-radius: 10px;
+    padding: 1rem 1.1rem; margin-top: .8rem;
+  }
+  .tool h3 { font-family: var(--serif); font-size: 1.05rem; margin-bottom: .35rem; }
+  .tool > p { font-size: .88rem; color: var(--muted); }
+  .tool .hint { font-size: .82rem; color: var(--muted); margin-top: .4rem; }
+
+  .qa { background: #fff; border: 1px solid var(--line); border-radius: 8px; padding: .65rem .9rem; margin-top: .5rem; }
+  .qa summary { cursor: pointer; font-weight: 700; font-size: .92rem; }
+  .qa p { margin-top: .4rem; color: var(--muted); font-size: .88rem; }
+
+  footer {
+    text-align: center; color: var(--muted); font-size: .8rem;
+    margin-top: 2.2rem; padding-top: 1.1rem; border-top: 1px solid var(--line);
+  }
+
+  @media (max-width: 760px) {
+    .wrap { padding: 1rem .85rem 2.5rem; }
+    .nav { display: none; }
+    .hero { padding: 1.5rem 1.15rem; }
+    .methods { grid-template-columns: 1fr; }
+    .tbl { font-size: .82rem; }
+    .tbl th, .tbl td { padding: .35rem .4rem; }
+    .subject { padding: 1rem .9rem; }
+  }
+
+  @page { size: A4 portrait; margin: 14mm 12mm 16mm 12mm; }
+
+  @media print {
+    html, body {
+      background: #fff !important; color: #000 !important;
+      font-size: 10.5pt; line-height: 1.45;
+      -webkit-print-color-adjust: exact; print-color-adjust: exact;
+    }
+    .topbar, .print-btn, .quick, .no-print { display: none !important; }
+    .wrap { max-width: none; margin: 0; padding: 0; }
+    .hero {
+      background: #fff !important; color: #000 !important;
+      border: 1.5pt solid #333; border-radius: 0; padding: 10pt;
+      margin: 0 0 10pt;
+    }
+    .hero::after { display: none !important; }
+    .hero .kicker, .hero p, .chip { color: #222 !important; }
+    .hero h1 { color: #000 !important; font-size: 16pt; }
+    .chip { background: #f5f5f5 !important; border: .5pt solid #888 !important; }
+    section { margin-top: 14pt; }
+    section > h2 { color: #000; border-bottom: 1.2pt solid #000; }
+    section > h2 .num { color: #000; }
+    .lead, .why, .method p, .principle p, .tool > p, .qa p, .hint { color: #222 !important; }
+    .subject {
+      border: .75pt solid #444; border-top: 2pt solid #000;
+      border-radius: 0; padding: 8pt; break-inside: auto;
+    }
+    .subject, #tools { break-before: page; }
+    .principle, .method, .flow, .tool, .qa, .callout { break-inside: avoid; page-break-inside: avoid; }
+    .principles, .methods { grid-template-columns: 1fr 1fr; gap: 4pt; }
+    .method, .principle { background: #fff !important; }
+    .tbl { font-size: 9pt; }
+    .tbl th { background: #f2f2f2 !important; }
+    .tbl th, .tbl td { border: .5pt solid #777; }
+    .checklist { grid-template-columns: 1fr 1fr; }
+    a { color: #000 !important; text-decoration: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">学习技巧<small>高一上 · 四科执行方法</small></div>
+    <nav class="nav" aria-label="页内导航">
+      <a href="index.html">← 首页</a>
+      <a href="#core">底层方法</a>
+      <a href="#daily">每日流程</a>
+      <a href="#math">数学</a>
+      <a href="#physics">物理</a>
+      <a href="#chem">化学</a>
+      <a href="#bio">生物</a>
+      <a href="#tools">工具模板</a>
+    </nav>
+    <button type="button" class="print-btn" onclick="window.print()" title="按 A4 纵向打印">打印</button>
+    <span class="badge">4 科 · 可打印</span>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="hero" aria-label="学习技巧说明">
+    <div class="kicker">SENIOR ONE · STUDY METHODS</div>
+    <h1>学习技巧：<br>把每天的努力，变成能写出来的分数</h1>
+    <p>同一份课件，有人看完就忘，有人合上书能讲出来。差别不在智商，而在有没有主动回忆、有没有把知识连成结构、有没有按间隔复习。这一页先讲通用规律，再给四科各一套可以直接照做的流程。</p>
+    <div class="chips">
+      <span class="chip">4 科方法</span>
+      <span class="chip">每天 40 分钟</span>
+      <span class="chip">白纸回忆</span>
+      <span class="chip">间隔复习</span>
+      <span class="chip">可打印清单</span>
+    </div>
+  </section>
+
+  <div class="quick" aria-label="快速跳转">
+    <a class="s-math" href="#math">数学<span>公式推导 · 题型对照</span></a>
+    <a class="s-physics" href="#physics">物理<span>画图建模 · 单位检查</span></a>
+    <a class="s-chem" href="#chem">化学<span>对比表 · 方程式三件套</span></a>
+    <a class="s-bio" href="#bio">生物<span>教材精读 · 概念图</span></a>
+  </div>
+
+  <section id="core">
+    <h2><span class="num">01</span>先懂规律：学习不是“看会”，是“回忆出来”</h2>
+    <p class="lead">下面五条适用于所有科目。它们不增加学习时间，只改变学习的动作：从“翻书、看懂、点头”变成“合书、回忆、写出来”。</p>
+
+    <div class="principles">
+      <div class="principle">
+        <div class="p-num">01 · 结构</div>
+        <h3>先搭骨架，再填细节</h3>
+        <p>一节课真正要记的不是每句话，而是“这节讲什么、分几块、块与块什么关系”。结构清楚了，细节才有地方挂。</p>
+        <div class="do"><b>怎么做：</b>每节结束合上书，用 3 分钟画一张图：中心词放中间，分支写小标题，箭头写关系。画不出就回去看，直到能凭记忆画完。</div>
+      </div>
+
+      <div class="principle">
+        <div class="p-num">02 · 提取</div>
+        <h3>合上书，主动回忆</h3>
+        <p>翻书看十遍，不如合上书想一遍。能自己想起来的内容才会在考场上出现；想不起来的，正是丢分点。</p>
+        <div class="do"><b>怎么做：</b>白纸分三栏：<b>能写出</b> / <b>卡住的</b> / <b>明天补</b>。先写 3 分钟不翻书，卡住 30 秒再翻，最后用红笔补。第二天先补“卡住的”。</div>
+      </div>
+
+      <div class="principle">
+        <div class="p-num">03 · 重复</div>
+        <h3>按间隔复习，不搞突击</h3>
+        <p>记忆会自然消退，重复几次才能留住。当天、第 2 天、第 7 天、第 14 天、第 28 天各碰一次，比考前熬夜有效得多。</p>
+        <div class="do"><b>怎么做：</b>每次只花 5—10 分钟，只看结构图和错题，不重新学一遍。连续四周，就能覆盖整月内容。</div>
+      </div>
+
+      <div class="principle">
+        <div class="p-num">04 · 降维</div>
+        <h3>卡住就退一步，别硬扛</h3>
+        <p>一道题卡 40 分钟，多半不是这题难，而是前面的某个概念没通。退到更低的台阶，把缺口补上，再回来会突然变简单。</p>
+        <div class="do"><b>怎么做：</b>把问题写成一句具体的话：“我不会的是____”，而不是“这章好难”。先补前置概念、看例题或图示，再重做。</div>
+      </div>
+
+      <div class="principle">
+        <div class="p-num">05 · 输出</div>
+        <h3>讲出来，才算真会</h3>
+        <p>输入（听、看）很容易造成“我懂了”的错觉；输出（讲、写）会把漏洞暴露出来。</p>
+        <div class="do"><b>怎么做：</b>每天用 60 秒，把当天最重要的一点讲给同桌听，或对着手机录音。讲不清的地方，就是明天要补的地方。</div>
+      </div>
+    </div>
+
+    <div class="callout"><b>记住这条链：</b>看懂 ≠ 记住 ≠ 会做。三者之间隔着三个动作——合上书回忆、动笔写一遍、隔几天再做一次。只完成第一步，考试时就会“看着眼熟，就是不会”。</div>
+
+    <div class="steps" aria-label="每日学习闭环">
+      <span>读一遍</span><i>→</i><span>合书回忆</span><i>→</i><span>动笔做题</span><i>→</i><span>订正卡点</span><i>→</i><span>隔天再做</span><i>→</i><span>周末回滚</span>
+    </div>
+  </section>
+
+  <section id="daily">
+    <h2><span class="num">02</span>每天怎么执行：40 分钟模板</h2>
+    <p class="lead">不用等“有时间再学”。固定一个时间段，按下面的顺序做，一科 40 分钟，结束时有三个看得见的产出：一张结构图、几道做过的题、一条错因。</p>
+
+    <table class="tbl">
+      <thead>
+        <tr><th>时间</th><th>动作</th><th>产出 / 要求</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="time">0—5 分钟</td><td>白纸回忆昨天：写下昨天学的中心词、公式或过程。</td><td>写不满就翻昨天的结构图补，红笔标出忘掉的部分。</td></tr>
+        <tr><td class="time">5—15 分钟</td><td>读今天的新内容：先看标题、黑体字和图，再读正文。</td><td>合书画出这一节的结构图，不超过一页纸。</td></tr>
+        <tr><td class="time">15—32 分钟</td><td>做题：盖住解析，限时完成 3—5 道例题或作业题。</td><td>草稿写完整步骤，不跳步；卡住超过 5 分钟先做记号跳过。</td></tr>
+        <tr><td class="time">32—38 分钟</td><td>订正：对答案，只记“卡住的那一步”，不抄整题。</td><td>错题卡上写清：卡点、正确思路、下次提醒。</td></tr>
+        <tr><td class="time">38—40 分钟</td><td>收尾：用一句话复述今天最重要的一点，并标出明天先补什么。</td><td>一句话写在结构图顶部，第二天开口就能看到。</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout"><b>时间不够时用 20 分钟版：</b>5 分钟回忆 + 10 分钟做题 + 5 分钟订正。宁可每天做一点，也不要一周只学一次、一次学三小时。</div>
+
+    <table class="tbl">
+      <thead>
+        <tr><th>节奏</th><th>做什么</th><th>时长</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>周一到周五</td><td>每天一科，按 40 分钟模板推进；当天学完当晚回忆一次。</td><td>每天 40 分钟</td></tr>
+        <tr><td>周六</td><td>周复盘：重做本周错题 5 道，把本周结构图合成一张章图。</td><td>60 分钟</td></tr>
+        <tr><td>周日</td><td>预习下周第一节的标题和黑体字，标出看不懂的 3 个地方。</td><td>30 分钟</td></tr>
+        <tr><td>每 4 周</td><td>月回顾：只看章图和错题卡，遮住答案重做一遍。</td><td>90 分钟</td></tr>
+      </tbody>
+    </table>
+
+    <div class="tool">
+      <h3>第一个月只加习惯，不加时长</h3>
+      <p>一次改太多坚持不下来。按周叠加，每周只增加一个动作：</p>
+      <table class="tbl">
+        <thead><tr><th>周次</th><th>只练这一件事</th><th>做到的标准</th></tr></thead>
+        <tbody>
+          <tr><td>第 1 周</td><td>每天结束时做 5 分钟白纸回忆。</td><td>连续 5 天，纸上能写出 3 条以上。</td></tr>
+          <tr><td>第 2 周</td><td>每天画一张当节结构图。</td><td>图能让你第二天只看图就讲出大意。</td></tr>
+          <tr><td>第 3 周</td><td>开始记错题卡，只写“卡点”。</td><td>每道错题不超过 3 行字。</td></tr>
+          <tr><td>第 4 周</td><td>加入第 2 天、第 7 天的间隔复习。</td><td>每次 10 分钟内完成，不翻整本书。</td></tr>
+        </tbody>
+      </table>
+      <p class="hint">四件事都稳定后，再把每天时长从 40 分钟加到 60 分钟。顺序不能反：先有动作，再谈时长。</p>
+    </div>
+
+    <div class="tool">
+      <h3>环境与注意力：先减干扰，再谈效率</h3>
+      <ul class="checklist">
+        <li>手机放在另一个房间或书包里，不放在桌面。</li>
+        <li>一次只开一科，桌面只留这一科的书和一张草稿纸。</li>
+        <li>用 25 分钟计时器，响之前不切窗口、不回消息。</li>
+        <li>卡住超过 5 分钟先做记号，整块时间结束后再查。</li>
+        <li>每天固定同一时间开始，减少“要不要学”的消耗。</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="math" class="subject s-math">
+    <div class="subject-head">
+      <h3><span class="snum">03</span>数学 · 人教 A 版</h3>
+      <span class="tag">条件 → 方法</span>
+    </div>
+    <p class="why">数学的差距不在“见得多”，而在<b>看到条件，能不能想到方法</b>。所以每学一块，都要同时整理三样：公式怎么来、什么条件用什么方法、哪一步最容易错。</p>
+
+    <div class="methods">
+      <div class="method">
+        <h4>① 公式推导卡</h4>
+        <p>核心公式不要只背结论。自己推一遍，才知道它成立的条件和适用场景。</p>
+        <div class="do"><b>执行：</b>每章挑 5 个公式，在卡片正面写公式，背面写“怎么推 + 什么时候用 + 易错点”。例如基本不等式，背面写“一正二定三相等”。</div>
+      </div>
+
+      <div class="method">
+        <h4>② 题型—方法对照表</h4>
+        <p>把“问法”和“第一反应”配对，考试时就不用在脑子里从零搜索。</p>
+        <div class="do"><b>执行：</b>每做完一节，加 3 行到表里：<b>条件特征 / 第一反应 / 易错点</b>。周末遮住第三列自测。</div>
+      </div>
+
+      <div class="method">
+        <h4>③ 例题三遍法</h4>
+        <p>看懂例题只是第一遍。真正提分的是后两遍：独立重做、改变条件再做。</p>
+        <div class="do"><b>执行：</b>第一遍看思路；第二遍盖住解析完整写；第三遍把题目里的一个条件改掉（如区间、符号、参数）再做一次。</div>
+      </div>
+
+      <div class="method">
+        <h4>④ 错题只记“卡点”</h4>
+        <p>抄整道题很花时间，而且下次还是不会。真正要留下的是“当时哪一步没想到”。</p>
+        <div class="do"><b>执行：</b>错题卡只写三行：卡在哪一步、正确思路是什么、下次看到什么信号要想起它。每周重做 5 道。</div>
+      </div>
+    </div>
+
+    <table class="tbl">
+      <thead><tr><th>题目条件 / 问法</th><th>第一反应</th><th>易错点</th></tr></thead>
+      <tbody>
+        <tr><td>正数、求和的最小值</td><td>基本不等式，凑“积为定值”</td><td>忘记验证“三相等”</td></tr>
+        <tr><td>二次函数在给定区间上的最值</td><td>看对称轴与区间的位置关系</td><td>直接代两个端点</td></tr>
+        <tr><td>含参数的不等式 / 方程</td><td>找分界点，分类讨论</td><td>漏掉参数为 0 或判别式的情况</td></tr>
+        <tr><td>判断零点个数</td><td>转化为两个图象的交点</td><td>画图不标关键点、不写单调性</td></tr>
+        <tr><td>抽象函数求值或单调性</td><td>赋值法：先试 0、1、−1</td><td>不写定义域就下结论</td></tr>
+      </tbody>
+    </table>
+
+    <div class="flow">
+      <h4>数学 40 分钟怎么排</h4>
+      <ol>
+        <li><b>5′</b> 白纸回忆上节的公式、定理和适用条件。</li>
+        <li><b>10′</b> 读今天的例题：先盖住答案，自己写一遍，再对照。</li>
+        <li><b>20′</b> 限时做 3—5 题，草稿写完整步骤，不跳步。</li>
+        <li><b>5′</b> 订正，只记卡点；把新题型补进“题型—方法对照表”。</li>
+      </ol>
+    </div>
+
+    <ul class="checklist">
+      <li>本周 5 个核心公式能自己推出来。</li>
+      <li>每种题型能说出“看到什么条件，先想什么方法”。</li>
+      <li>错题重做时能独立写完整步骤。</li>
+      <li>计算题不跳步，答案带单位或取值范围。</li>
+      <li>周末能只看结构图讲出本章主线。</li>
+    </ul>
+
+    <div class="callout"><b>常见误区：</b>只看答案不动笔、刷题不归类、计算跳步。数学不是“看懂”就会，必须手写到能独立复现。</div>
+  </section>
+
+  <section id="physics" class="subject s-physics">
+    <div class="subject-head">
+      <h3><span class="snum">04</span>物理 · 人教版</h3>
+      <span class="tag">对象 → 过程 → 规律</span>
+    </div>
+    <p class="why">物理题不是“套公式”，而是<b>先确定研究对象，再拆清运动过程，最后选规律</b>。图没画清楚，公式一定用错。</p>
+
+    <div class="methods">
+      <div class="method">
+        <h4>① 不画图，不列式</h4>
+        <p>受力图、运动示意图、电路图，是把文字变成关系的第一步。</p>
+        <div class="do"><b>执行：</b>每题先在草稿上画图。受力分析按“重力 → 弹力 → 摩擦力 → 其他力”的顺序，每画一个力都问：施力物体是谁？</div>
+      </div>
+
+      <div class="method">
+        <h4>② 三步建模卡</h4>
+        <p>把一道题压缩成三行：谁在动、怎么动、用什么规律。</p>
+        <div class="do"><b>执行：</b>写“研究对象 / 运动过程（分段）/ 每段用的规律”。多过程题一定分段，标清每一段的初末状态。</div>
+      </div>
+
+      <div class="method">
+        <h4>③ 已知—未知—单位清单</h4>
+        <p>先把已知量连单位抄下来，再写要求什么，最后才选公式。单位统一，是物理的第一道检查。</p>
+        <div class="do"><b>执行：</b>列式前写一行“已知 / 求 / 公式”，算完检查单位。例如 1 N = 1 kg·m/s²，结果单位不对，过程一定有问题。</div>
+      </div>
+
+      <div class="method">
+        <h4>④ 一题变三题</h4>
+        <p>同一模型换条件再做，才能真正掌握，而不是记住这道题。</p>
+        <div class="do"><b>执行：</b>做完后改一个条件：光滑改粗糙、匀速改加速、水平改斜面。每个变式只写“哪一步变了、公式怎么变”。</div>
+      </div>
+    </div>
+
+    <table class="tbl">
+      <thead><tr><th>匀变速直线运动：题目不涉及</th><th>优先选</th></tr></thead>
+      <tbody>
+        <tr><td>时间 t</td><td>v² − v₀² = 2ax</td></tr>
+        <tr><td>末速度 v</td><td>x = v₀t + ½at²</td></tr>
+        <tr><td>位移 x</td><td>v = v₀ + at</td></tr>
+        <tr><td>加速度 a</td><td>平均速度公式 x = (v₀ + v)t / 2</td></tr>
+      </tbody>
+    </table>
+
+    <div class="flow">
+      <h4>物理 40 分钟怎么排</h4>
+      <ol>
+        <li><b>5′</b> 白纸回忆上节的概念、公式和适用条件。</li>
+        <li><b>10′</b> 挑一道例题，盖住答案：画图 → 写三步建模 → 列式。</li>
+        <li><b>20′</b> 做 3 道题，每题都画图；卡住先标出“缺哪个条件”。</li>
+        <li><b>5′</b> 订正，检查单位；把一个条件改掉，口述变式怎么做。</li>
+      </ol>
+    </div>
+
+    <ul class="checklist">
+      <li>每道题都有图，图上标了方向和已知量。</li>
+      <li>能说出这道题分几段，每段用什么规律。</li>
+      <li>列式前写清已知、求、公式。</li>
+      <li>答案带单位，单位能对上。</li>
+      <li>同一模型能说出至少一个变式。</li>
+    </ul>
+
+    <div class="callout"><b>常见误区：</b>背公式套题、不画图、单位不统一、多过程题不分段。物理的分数，多半丢在“图没画”和“过程没拆”上。</div>
+  </section>
+
+  <section id="chem" class="subject s-chem">
+    <div class="subject-head">
+      <h3><span class="snum">05</span>化学 · 鲁科版</h3>
+      <span class="tag">概念 → 符号 → 现象</span>
+    </div>
+    <p class="why">化学有三套语言：<b>文字概念、化学符号、实验现象</b>。学不好常常不是不努力，而是三套语言没有对应上——会背定义，却写不出方程式；会配平，却说不出现象。</p>
+
+    <div class="methods">
+      <div class="method">
+        <h4>① 易混概念对比表</h4>
+        <p>化学的失分点高度集中在“长得像”的概念上。把它们放在一张表里，差别才看得见。</p>
+        <div class="do"><b>执行：</b>每遇到一对易混概念，做三行表：<b>定义 / 关键差别 / 一个例子</b>。每周遮住右边自测一次。</div>
+      </div>
+
+      <div class="method">
+        <h4>② 方程式三件套</h4>
+        <p>一个方程式要同时写对三样：反应物与生成物、配平、条件和现象。少一样，考试就扣分。</p>
+        <div class="do"><b>执行：</b>写完方程式，口头补一句“条件是什么、看到什么现象”。例如“点燃、发出淡蓝色火焰”。</div>
+      </div>
+
+      <div class="method">
+        <h4>③ 人话 + 考试话</h4>
+        <p>先用自己的话把概念讲明白，再背教材上的规范表述。只背规范表述，容易不理解；只讲人话，答题又不给分。</p>
+        <div class="do"><b>执行：</b>每个概念写两行：第一行“人话版”，第二行“考试怎么写”。两行都写不出，说明还没懂。</div>
+      </div>
+
+      <div class="method">
+        <h4>④ 实验题四栏</h4>
+        <p>实验题按固定结构拆，答题时就不容易漏点。</p>
+        <div class="do"><b>执行：</b>每道实验题写四栏：<b>目的 / 操作 / 现象 / 结论</b>。现象只写看得见的，结论才写推理。</div>
+      </div>
+    </div>
+
+    <table class="tbl">
+      <thead><tr><th>易混概念</th><th>一句话区分</th><th>常见错误</th></tr></thead>
+      <tbody>
+        <tr><td>物质的量 vs 摩尔质量</td><td>物质的量数“有多少个粒子”，摩尔质量是“1 mol 有多重”。</td><td>把摩尔当成质量单位</td></tr>
+        <tr><td>气体摩尔体积</td><td>标准状况下 1 mol 气体约 22.4 L。</td><td>非标准状况也套 22.4</td></tr>
+        <tr><td>氧化剂 vs 还原剂</td><td>氧化剂得电子、被还原；还原剂失电子、被氧化。</td><td>“升失氧还”四个字对不上</td></tr>
+        <tr><td>胶体 vs 溶液</td><td>胶体粒子直径 1—100 nm，能产生丁达尔效应。</td><td>只按“透明”判断</td></tr>
+      </tbody>
+    </table>
+
+    <div class="flow">
+      <h4>化学 40 分钟怎么排</h4>
+      <ol>
+        <li><b>5′</b> 白纸回忆上节的概念和 3 个方程式。</li>
+        <li><b>10′</b> 读教材：黑体字、方程式、实验现象各读一遍，合书复述。</li>
+        <li><b>20′</b> 做题；每道方程式题都检查配平、条件、现象。</li>
+        <li><b>5′</b> 订正，把新出现的易混点补进对比表。</li>
+      </ol>
+    </div>
+
+    <ul class="checklist">
+      <li>本周学过的方程式能默写并配平。</li>
+      <li>每个易混概念能说出“关键差别”和一个例子。</li>
+      <li>实验题能按“目的—操作—现象—结论”作答。</li>
+      <li>概念既能讲人话，也能写规范表述。</li>
+      <li>错题能归到具体概念，而不是“粗心”。</li>
+    </ul>
+
+    <div class="callout"><b>常见误区：</b>方程式不配平、不写条件；概念只背定义不会用；实验现象背串。化学要“三套语言”一起练，不能只背文字。</div>
+  </section>
+
+  <section id="bio" class="subject s-bio">
+    <div class="subject-head">
+      <h3><span class="snum">06</span>生物 · 人教版必修 1</h3>
+      <span class="tag">教材原话 → 概念关系</span>
+    </div>
+    <p class="why">生物的高分答案，很多就是<b>教材原话</b>。只刷题不读教材，会出现“意思懂、写不对”；只读教材不画关系，又会出现“名词都认识、过程串不起来”。</p>
+
+    <div class="methods">
+      <div class="method">
+        <h4>① 教材精读三步</h4>
+        <p>生物教材本身就是最重要的资料，尤其是黑体字、结论句和图注。</p>
+        <div class="do"><b>执行：</b>每节按顺序读：<b>黑体字 → 段末结论句 → 图注</b>。读完合书，用 3 句话复述，再回教材找原话补准确。</div>
+      </div>
+
+      <div class="method">
+        <h4>② 概念图 / 流程图</h4>
+        <p>把零散名词连成关系，才记得住、答得全。过程题尤其需要箭头和顺序。</p>
+        <div class="do"><b>执行：</b>每章画一张图：中心概念放中间，分支写结构或阶段，箭头写“变成什么 / 在哪里发生 / 需要什么”。</div>
+      </div>
+
+      <div class="method">
+        <h4>③ 自问自答卡</h4>
+        <p>把“可能考的问法”变成卡片，每天抽几张，练主动提取。</p>
+        <div class="do"><b>执行：</b>正面写问题（如“为什么说细胞是最基本的生命系统？”），背面写教材关键词。每天抽 5 张，答不全的放回“明天”那一叠。</div>
+      </div>
+
+      <div class="method">
+        <h4>④ 60 秒讲过程</h4>
+        <p>生物的过程题最怕“顺序乱、漏环节”。讲一遍，漏洞立刻暴露。</p>
+        <div class="do"><b>执行：</b>每天选一个过程，按“起点 → 经过哪些结构 → 终点 → 谁供能”讲 60 秒。讲卡了就回去补图。</div>
+      </div>
+    </div>
+
+    <div class="flow">
+      <h4>示例：把“分泌蛋白的合成与运输”讲成一条线</h4>
+      <ol>
+        <li>起点：核糖体合成肽链。</li>
+        <li>加工：内质网初步加工、折叠。</li>
+        <li>再加工：高尔基体分类、包装。</li>
+        <li>去路：囊泡运到细胞膜，分泌到细胞外。</li>
+        <li>供能：线粒体提供能量。</li>
+      </ol>
+    </div>
+
+    <div class="flow">
+      <h4>生物 40 分钟怎么排</h4>
+      <ol>
+        <li><b>5′</b> 白纸回忆上节的概念图和关键词。</li>
+        <li><b>15′</b> 读教材：黑体字、结论句、图注，合书画概念图。</li>
+        <li><b>15′</b> 做题；选择题标出每个选项错在哪个词，非选择题对照教材原话。</li>
+        <li><b>5′</b> 订正，把新问法做成问答卡。</li>
+      </ol>
+    </div>
+
+    <ul class="checklist">
+      <li>每章有一张能讲出来的概念图。</li>
+      <li>重要过程能按顺序讲清，不跳环节。</li>
+      <li>答题能用教材原话，而不是“大概意思”。</li>
+      <li>每天抽 5 张问答卡，答不全的第二天再抽。</li>
+      <li>选择题能说出每个错误选项错在哪个词。</li>
+    </ul>
+
+    <div class="callout"><b>常见误区：</b>只刷题不读教材、名词混淆、过程顺序乱。生物不是“背得多”就行，而是“教材原话 + 关系清楚 + 能按顺序写出来”。</div>
+  </section>
+
+  <section id="tools">
+    <h2><span class="num">07</span>三个模板，照抄就能用</h2>
+    <p class="lead">工具越简单越能坚持。一张 A4 纸、一支红笔、一个本子，足够。</p>
+
+    <div class="tool">
+      <h3>模板一：白纸回忆（每天 5 分钟）</h3>
+      <p>拿一张空白 A4 纸，竖着折成三栏。合上书，先写中间，再写两边。</p>
+      <table class="tbl">
+        <thead><tr><th>能写出的</th><th>卡住的</th><th>明天补</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>今天学的中心词、公式、过程，凭记忆写。</td>
+            <td>想了 30 秒还想不起来的，先空着；写完再翻书补。</td>
+            <td>从“卡住的”里挑 1—3 条，写成明天开头要做的动作。</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="hint">判断标准：第二天不看笔记，能把“卡住的”那栏讲出来，才算真的补上。</p>
+    </div>
+
+    <div class="tool">
+      <h3>模板二：错题卡（一道题三行字）</h3>
+      <p>不抄整题，只留下次能提醒自己的信息。建议用卡片或本子的一页四格。</p>
+      <table class="tbl">
+        <thead><tr><th>日期 / 来源</th><th>卡点</th><th>正确思路</th><th>下次提醒</th></tr></thead>
+        <tbody>
+          <tr><td>10/12 · 数学 3.2 例 4</td><td>没想到用基本不等式</td><td>先凑“积为定值”，再验证相等条件</td><td>看到“正数、求和的最小值”先想基本不等式</td></tr>
+        </tbody>
+      </table>
+      <p class="hint">每周六遮住“正确思路”，把 5 道错题重做一遍。做对两次的题可以移出本周清单，但不要撕掉。</p>
+    </div>
+
+    <div class="tool">
+      <h3>模板三：间隔复习表（每次 5—10 分钟）</h3>
+      <p>当天学的内容，按下面五个时间点各碰一次。只复习结构图和错题卡，不重新学一遍。</p>
+      <table class="tbl">
+        <thead><tr><th>次数</th><th>时间</th><th>做什么</th></tr></thead>
+        <tbody>
+          <tr><td>第 1 次</td><td>当天晚上</td><td>白纸回忆 + 画当节结构图。</td></tr>
+          <tr><td>第 2 次</td><td>第 2 天</td><td>先补“卡住的”，再做 1 道同类题。</td></tr>
+          <tr><td>第 3 次</td><td>第 7 天</td><td>遮住结构图复述，重做本周错题。</td></tr>
+          <tr><td>第 4 次</td><td>第 14 天</td><td>只看章图，讲出这一章的主线。</td></tr>
+          <tr><td>第 5 次</td><td>第 28 天</td><td>月回顾：错题 + 公式/方程式/概念图各过一遍。</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="tool">
+      <h3>考前 3 天：只做三件事</h3>
+      <ul class="checklist">
+        <li><b>倒数第 3 天：</b>只看章结构图和公式卡，合书复述，不刷新题。</li>
+        <li><b>倒数第 2 天：</b>重做错题卡上的题，重点看“卡点”和“下次提醒”。</li>
+        <li><b>倒数第 1 天：</b>默写公式 / 方程式 / 重要过程，早睡；不熬到深夜。</li>
+      </ul>
+      <p class="hint">考前最忌讳的是“再刷一套新题”。新题带来的陌生感会打击状态，收益也远低于把已错的内容弄懂。</p>
+    </div>
+
+    <div class="tool">
+      <h3>每周自检清单</h3>
+      <p>周日花 3 分钟打勾。有 3 项以上没做到，下周只补最前面的一项。</p>
+      <ul class="checklist">
+        <li>本周每天都有 5 分钟白纸回忆。</li>
+        <li>每科至少有 1 张当周的结构图或概念图。</li>
+        <li>错题卡记录了“卡点”，不是只抄答案。</li>
+        <li>本周错题重做过至少 5 道。</li>
+        <li>完成了一次第 2 天或第 7 天的间隔复习。</li>
+        <li>有一道题能给同学讲清楚。</li>
+        <li>做题时草稿步骤完整，没有大面积跳步。</li>
+        <li>每天开始学习前，手机不在桌面。</li>
+        <li>周末做了一次 60 分钟复盘。</li>
+        <li>下周要补的 1—3 件事已经写下来。</li>
+      </ul>
+    </div>
+
+    <h3 style="font-family:var(--serif);font-size:1.08rem;margin-top:1.4rem">常见问题</h3>
+    <details class="qa">
+      <summary>看懂了，为什么一考就错？</summary>
+      <p>因为“看懂”只是识别，不是提取。合上书回忆、限时做题、隔几天再做，才能把识别变成能独立写出的能力。先检查：这道题的完整步骤，你能不能不看答案写出来？</p>
+    </details>
+    <details class="qa">
+      <summary>作业太多，没时间按这套做怎么办？</summary>
+      <p>用 20 分钟最小版：5 分钟回忆 + 10 分钟做题 + 5 分钟订正。作业本身就是练习材料，不需要额外找题；关键是做题后留下“卡点”，而不是做完就翻篇。</p>
+    </details>
+    <details class="qa">
+      <summary>背了就忘，是不是记性差？</summary>
+      <p>多数不是记性差，而是只背了一次。按当天、第 2 天、第 7 天、第 14 天、第 28 天各碰一次，每次 5—10 分钟。重复的次数比单次时长更重要。</p>
+    </details>
+    <details class="qa">
+      <summary>某一科特别拖后腿，先补什么？</summary>
+      <p>先补前置知识，不要直接刷难题。把最近三次试卷的错题按知识点归类，找出出现最多的那个“缺口”，回到教材或课件补那一块，再做 5 道同类题。降维打透，比硬啃综合题快。</p>
+    </details>
+    <details class="qa">
+      <summary>错题本越记越厚，根本看不完？</summary>
+      <p>说明记的是“题”，不是“卡点”。一道错题只写三行：卡在哪、正确思路、下次看到什么信号要想起它。每周只重做 5 道；做对两次的移出本周清单。</p>
+    </details>
+  </section>
+
+  <footer>
+    <p>高一上 · 学习技巧与各科执行方法 · 方法依据：主动回忆、间隔重复、结构化学习 · 仅供个人学习使用</p>
+  </footer>
+
+</main>
+
+<script>
+(function () {
+  function setDetailsOpen(open) {
+    document.querySelectorAll("details").forEach(function (d) {
+      if (open) {
+        if (!("wasOpen" in d.dataset)) d.dataset.wasOpen = d.open ? "1" : "0";
+        d.open = true;
+      } else if ("wasOpen" in d.dataset) {
+        d.open = d.dataset.wasOpen === "1";
+        delete d.dataset.wasOpen;
+      }
+    });
+  }
+  window.addEventListener("beforeprint", function () { setDetailsOpen(true); });
+  window.addEventListener("afterprint", function () { setDetailsOpen(false); });
+})();
+</script>
+</body>
+</html>
