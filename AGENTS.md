@@ -39,7 +39,7 @@ python3 -m http.server
 | `chemistry-luke-concepts.html` | 化学，鲁科版 2019 必修第一册，易混概念辨析 |
 | `biology-pep.html` | 生物必修 1 系统自学（34→80） |
 | `biology-pep-topics.html` | 生物必修 1，13 个专题 |
-| `study-methods.html` | 学习技巧与各科执行方法（非学科课件） |
+| `study-methods.html` | 学习技巧 · 知识结构复现法（非学科课件） |
 | `career-high-paying-majors.html` | 专业与就业参考页（非学科课件） |
 | `shandong-universities.html` | 山东高校参考页（非学科课件） |
 | `README.md` | 站点地址和仓库说明 |
