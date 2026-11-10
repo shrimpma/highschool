@@ -30,10 +30,11 @@ python3 -m http.server
 
 | 文件 | 作用 |
 | --- | --- |
-| `index.html` | 总入口。卡片链到下面 8 份课件与参考页 |
+| `index.html` | 总入口。卡片链到下面 9 份课件与参考页 |
 | `math-pep-a.html` | 数学，人教 A 版必修第一册，知识梳理 |
 | `math-pep-a-diagram.html` | 数学，人教 A 版必修第一册，图示自学版 |
 | `math-pep-a-functions.html` | 数学，人教 A 版必修第一册，函数图解 |
+| `math-pep-a-midterm.html` | 数学，人教 A 版必修第一册，期中自测卷 |
 | `physics-pep.html` | 物理，人教版 2019 必修第一册 |
 | `chemistry-luke.html` | 化学，鲁科版 2019 必修第一册 |
 | `chemistry-luke-concepts.html` | 化学，鲁科版 2019 必修第一册，易混概念辨析 |
@@ -50,7 +51,7 @@ python3 -m http.server
 `index.html` 里和目录有关、需要跟着课件一起改的地方：
 
 - 课件卡片的 `href` 是同目录相对路径，字符必须和磁盘文件名完全一致（直接写文件名，不要写成百分号编码）。
-- 顶栏徽章是 `4 科 · 8 份课件`，hero 里的统计是 `4` 学科、`8` 份课件。增删课件时一起改。
+- 顶栏徽章是 `4 科 · 9 份课件`，hero 里的统计是 `4` 学科、`9` 份课件。增删课件时一起改。
 - 卡片类名决定学科色：`math`、`physics`、`chem`、`bio`、`bio2`。对应的 `:root` 变量是 `--math`、`--physics`、`--chem`、`--bio`、`--bio2` 以及各自的 `-soft`。
 
 每份课件页的共同结构：
@@ -69,7 +70,8 @@ python3 -m http.server
 
 脚本差异：
 
-- 数学、物理、化学：只有上面的打印展开逻辑
+- 除 `math-pep-a-midterm.html` 外，数学、物理、化学：只有上面的打印展开逻辑
+- `math-pep-a-midterm.html`：另有自评分计算、答案全部展开/收起和“只打印试卷”按钮；不写入 `localStorage`
 - `biology-pep.html`：另有 15 题诊断测验，以及勾选进度。`localStorage` 键是 `bio1-diagnostic`、`bio1-progress-v1`
 - `biology-pep-topics.html`：勾选进度。`localStorage` 键是 `bio1-topic-progress-v1`
 
@@ -97,11 +99,12 @@ python3 -m http.server
 
 仓库没有测试脚本，也没有 CI。改完用浏览器看。
 
-1. 打开 `index.html`。8 张课件卡片都能进入对应课件，课件顶栏「首页」能回到索引。
+1. 打开 `index.html`。9 张课件卡片都能进入对应课件，课件顶栏「首页」能回到索引。
 2. 核对 `index.html` 的 `href` 和磁盘文件名一致，目前是：
    - `math-pep-a.html`
    - `math-pep-a-diagram.html`
    - `math-pep-a-functions.html`
+   - `math-pep-a-midterm.html`
    - `physics-pep.html`
    - `chemistry-luke.html`
    - `chemistry-luke-concepts.html`

@@ -1,0 +1,1121 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>try{var q=new URLSearchParams(location.search).get("view");var m=q||localStorage.getItem("hs-view");if(m==="a4")document.documentElement.classList.add("a4")}catch(e){}</script>
+<meta name="description" content="人教A版高中数学必修第一册第一至三章期中自测卷：按菏泽一中高一上期中常见题型编排，8道单选、4道多选、4道填空、6道解答，附全解与考点分布。">
+<title>高一上数学期中自测卷 · 人教A版必修第一册第1—3章</title>
+<style>
+:root {
+  --ink: #182a35;
+  --muted: #5b6b76;
+  --line: #d8e2e4;
+  --paper: #ffffff;
+  --bg: #eef3f1;
+  --teal: #0b6b67;
+  --teal-deep: #084c4a;
+  --teal-soft: #e4f2ef;
+  --gold: #a8750b;
+  --gold-soft: #fbf3dd;
+  --red: #a33131;
+  --red-soft: #fbeaea;
+  --serif: "Source Han Serif SC", "Noto Serif SC", "Songti SC", "SimSun", serif;
+  --sans: "Source Han Sans SC", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+  --mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: 5.5rem; }
+body {
+  font-family: var(--sans);
+  color: var(--ink);
+  background:
+    radial-gradient(ellipse at 12% 0%, rgba(11,107,103,.07), transparent 42%),
+    radial-gradient(ellipse at 88% 6%, rgba(168,117,11,.05), transparent 38%),
+    var(--bg);
+  font-size: 16px;
+  line-height: 1.8;
+}
+a { color: var(--teal); text-decoration: none; }
+a:hover { text-decoration: underline; }
+button, input { font: inherit; }
+button { cursor: pointer; }
+sub, sup { line-height: 0; }
+[hidden] { display: none !important; }
+
+.topbar {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(18, 42, 48, .97);
+  color: #eaf4f2;
+  border-bottom: 1px solid #2a4b52;
+  backdrop-filter: blur(8px);
+}
+.bar-inner {
+  max-width: 1120px; margin: 0 auto; padding: .62rem 1.2rem;
+  display: flex; align-items: center; gap: .9rem; flex-wrap: wrap;
+}
+.brand { font-weight: 700; white-space: nowrap; }
+.brand small { color: #9bc9c2; font-weight: 400; font-size: .72rem; margin-left: .45rem; }
+.nav { display: flex; gap: .2rem; flex: 1; flex-wrap: wrap; }
+.nav a { color: #d2e3e0; font-size: .8rem; padding: .25rem .5rem; border-radius: 4px; }
+.nav a:hover { background: #28505a; color: #fff; text-decoration: none; }
+.view-switch { display: inline-flex; border: 1px solid rgba(255,255,255,.28); border-radius: 999px; overflow: hidden; flex: none; }
+.view-switch button {
+  appearance: none; background: transparent; color: #eaf4f2; border: 0;
+  font-size: .73rem; font-weight: 700; padding: .27rem .68rem; white-space: nowrap;
+}
+html:not(.a4) .view-switch [data-view="wide"],
+html.a4 .view-switch [data-view="a4"] { background: #c9a227; color: #1a2332; }
+.print-btn {
+  background: #c9a227; color: #1a2332; border: 0; font-size: .74rem;
+  font-weight: 700; padding: .3rem .72rem; border-radius: 999px; white-space: nowrap;
+}
+.print-btn.ghost { background: transparent; color: #eaf4f2; border: 1px solid rgba(255,255,255,.3); }
+.print-btn.ghost:hover { background: rgba(255,255,255,.08); }
+
+.wrap { max-width: 1120px; margin: 0 auto; padding: 1.5rem 1.2rem 3.5rem; }
+
+.hero {
+  position: relative; overflow: hidden;
+  background: linear-gradient(135deg, #122a30 0%, #0a5654 62%, #0b6b67 100%);
+  color: #eef7f4; border-radius: 14px; padding: 1.9rem 1.9rem 1.7rem;
+  margin-bottom: 1.25rem;
+}
+.hero::after {
+  content: "f(x)  ∈  ∪  ∴";
+  position: absolute; right: 1rem; top: -1.4rem;
+  font: 5.4rem var(--serif); color: rgba(255,255,255,.045);
+  transform: rotate(-7deg); pointer-events: none; white-space: nowrap;
+}
+.eyebrow { font: 600 .74rem var(--mono); letter-spacing: .12em; color: #9cd9ce; text-transform: uppercase; }
+.hero h1 { font: 700 clamp(1.55rem, 3.6vw, 2.2rem)/1.35 var(--serif); margin: .4rem 0 .55rem; position: relative; z-index: 1; }
+.hero p { color: #cfe6e1; max-width: 47rem; font-size: .93rem; position: relative; z-index: 1; }
+.chips { display: flex; flex-wrap: wrap; gap: .45rem; margin-top: 1rem; position: relative; z-index: 1; }
+.chip { border: 1px solid rgba(255,255,255,.18); background: rgba(255,255,255,.07); border-radius: 5px; padding: .2rem .62rem; font-size: .78rem; color: #e3f1ee; }
+
+.notice {
+  background: var(--gold-soft); border: 1px solid #e8d29a; border-left: 4px solid var(--gold);
+  border-radius: 8px; padding: .8rem 1rem; margin: 0 0 1.3rem; font-size: .88rem;
+}
+.notice strong { color: #7c5506; }
+
+.paper {
+  max-width: 880px; margin: 0 auto; background: var(--paper);
+  border: 1px solid var(--line); border-radius: 4px;
+  box-shadow: 0 12px 34px rgba(24,42,53,.08);
+  padding: 2.5rem 2.7rem 2.7rem;
+  position: relative;
+}
+.paper::before {
+  content: ""; position: absolute; left: 0; right: 0; top: 0; height: 5px;
+  background: linear-gradient(90deg, var(--teal-deep), var(--teal) 55%, #c9a227);
+}
+
+.paper-head { text-align: center; border-bottom: 3px double var(--ink); padding: .35rem 0 1.1rem; }
+.paper-kicker { font-size: .8rem; letter-spacing: .2em; color: var(--muted); }
+.paper-head h2 { font: 700 1.95rem/1.4 var(--serif); letter-spacing: .12em; margin: .15rem 0 .1rem; }
+.paper-sub { color: var(--muted); font-size: .9rem; }
+.exam-meta { display: flex; justify-content: center; flex-wrap: wrap; gap: .45rem 1.4rem; margin-top: .55rem; font-size: .86rem; color: var(--ink); }
+.exam-meta span { position: relative; }
+.exam-meta span + span::before { content: ""; position: absolute; left: -.72rem; top: .22em; bottom: .22em; border-left: 1px solid var(--line); }
+.candidate {
+  display: flex; flex-wrap: wrap; justify-content: center; gap: .6rem 1.4rem;
+  margin-top: 1.15rem; font-size: .88rem; color: var(--muted);
+}
+.candidate span { display: inline-flex; align-items: flex-end; gap: .4rem; }
+.candidate i { display: inline-block; width: 6.5rem; border-bottom: 1px solid var(--ink); height: 1.1rem; }
+.candidate span:last-child i { width: 4rem; }
+
+.exam-notes { margin: 1.15rem 0 .4rem; padding: .85rem 1rem; background: #f7faf9; border: 1px solid var(--line); border-radius: 6px; font-size: .84rem; color: var(--muted); }
+.exam-notes b { color: var(--ink); }
+.exam-notes ol { margin: .25rem 0 0 1.15rem; }
+.exam-notes li { margin: .15rem 0; }
+
+.exam-section { margin-top: 2.1rem; }
+.section-title { display: flex; align-items: baseline; gap: .7rem; flex-wrap: wrap; border-bottom: 2px solid var(--teal); padding-bottom: .4rem; margin-bottom: .2rem; }
+.section-title h3 { font: 700 1.2rem/1.5 var(--serif); color: var(--teal-deep); }
+.section-title span { color: var(--muted); font-size: .82rem; }
+
+.question {
+  display: grid; grid-template-columns: 2.1rem minmax(0, 1fr); gap: .72rem;
+  padding: .95rem 0; border-bottom: 1px dashed var(--line);
+  break-inside: avoid;
+}
+.question:last-child { border-bottom: 0; }
+.q-no {
+  width: 1.9rem; height: 1.9rem; border-radius: 50%;
+  background: var(--teal); color: #fff;
+  font: 700 .88rem/1.9rem var(--mono); text-align: center;
+  margin-top: .1rem;
+}
+.q-text { font-size: 1.01rem; line-height: 1.85; }
+.q-text .m { font-family: var(--mono); font-size: .95em; }
+.q-points { font-size: .75rem; color: var(--muted); font-weight: 400; margin-left: .3rem; }
+.q-hint { margin-top: .45rem; font-size: .82rem; color: var(--muted); }
+.q-hint b { color: var(--teal); }
+
+.options { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .35rem .9rem; margin-top: .5rem; }
+.options.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.option { display: flex; align-items: baseline; gap: .38rem; min-width: 0; font-size: .96rem; }
+.option b { font-family: var(--mono); font-size: .86rem; color: var(--teal); flex: none; }
+.option .m { font-family: var(--mono); font-size: .93em; }
+
+.blank { display: inline-block; min-width: 5.2rem; border-bottom: 1.4px solid var(--ink); height: 1.15em; vertical-align: baseline; }
+.frac { display: inline-flex; flex-direction: column; vertical-align: middle; text-align: center; line-height: 1.18; font-size: .9em; margin: 0 .12em; }
+.cases { display: inline-flex; align-items: stretch; gap: .3rem; vertical-align: middle; margin: .2rem 0; text-align: left; }
+.cases::before { content: "{"; font: 400 3.1em/1 var(--serif); align-self: center; transform: scaleY(1.25); }
+.cases .case-list { display: flex; flex-direction: column; gap: .12rem; }
+.frac .num { border-bottom: 1px solid currentColor; padding: 0 .18em; }
+.frac .den { padding: 0 .18em; }
+.work-space { display: none; }
+
+.score-panel {
+  margin-top: 2.2rem; padding: 1rem 1.15rem 1.1rem;
+  background: #f7faf9; border: 1px solid var(--line); border-left: 4px solid var(--teal);
+  border-radius: 8px;
+}
+.score-panel h3 { font: 700 1.05rem var(--serif); color: var(--teal-deep); margin-bottom: .2rem; }
+.score-panel p { font-size: .82rem; color: var(--muted); }
+.score-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: .7rem; margin: .7rem 0 .55rem; }
+.score-grid label { display: block; font-size: .76rem; color: var(--muted); }
+.score-grid input {
+  width: 100%; margin-top: .2rem; padding: .32rem .45rem;
+  border: 1px solid var(--line); border-radius: 5px; background: #fff; color: var(--ink);
+}
+.score-total { font-family: var(--serif); font-size: 1.25rem; color: var(--teal-deep); }
+.score-total b { font-family: var(--mono); font-size: 1.35rem; color: var(--teal); }
+.score-actions { display: flex; align-items: center; gap: .6rem; margin-top: .5rem; }
+.score-actions button { background: transparent; border: 1px solid var(--line); border-radius: 5px; padding: .22rem .6rem; font-size: .78rem; color: var(--muted); }
+
+.answer-section {
+  max-width: 880px; margin: 2rem auto 0; background: var(--paper);
+  border: 1px solid var(--line); border-top: 3px double var(--teal);
+  border-radius: 8px; padding: 1.4rem 1.5rem 1.6rem;
+}
+.answer-section > h2 { font: 700 1.45rem/1.5 var(--serif); color: var(--teal-deep); }
+.answer-section > .lead { color: var(--muted); font-size: .9rem; margin: .2rem 0 .9rem; }
+.answer-tools { display: flex; gap: .5rem; flex-wrap: wrap; margin-bottom: .8rem; }
+.answer-tools button {
+  border: 1px solid var(--line); background: #fff; color: var(--teal);
+  border-radius: 5px; padding: .24rem .65rem; font-size: .78rem; font-weight: 700;
+}
+details.solution {
+  border: 1px solid var(--line); border-radius: 7px;
+  background: #fbfdfc; margin: .5rem 0; overflow: hidden;
+}
+details.solution summary {
+  cursor: pointer; list-style: none; padding: .65rem .85rem;
+  display: flex; align-items: baseline; gap: .6rem; flex-wrap: wrap;
+  font-weight: 700; color: var(--teal-deep); font-size: .94rem;
+}
+details.solution summary::-webkit-details-marker { display: none; }
+details.solution summary::before {
+  content: "+"; display: inline-grid; place-items: center;
+  width: 1.15rem; height: 1.15rem; border-radius: 50%;
+  background: var(--teal-soft); color: var(--teal); font: 700 .82rem/1 var(--mono);
+  flex: none;
+}
+details.solution[open] summary::before { content: "−"; }
+details.solution summary .sum-note { margin-left: auto; font-weight: 400; font-size: .75rem; color: var(--muted); }
+.solution-body { padding: .15rem .9rem .95rem; border-top: 1px dashed var(--line); font-size: .92rem; }
+.solution-body p { margin: .45rem 0; }
+.answer-line {
+  background: var(--teal-soft); border-left: 3px solid var(--teal);
+  padding: .5rem .75rem; margin: .6rem 0; font-weight: 700; color: var(--teal-deep);
+}
+.plain {
+  background: var(--gold-soft); border-left: 3px solid var(--gold);
+  padding: .5rem .75rem; margin: .6rem 0; font-size: .87rem; color: #5e470d;
+}
+.plain b { color: #7c5506; }
+.warn-note {
+  background: var(--red-soft); border-left: 3px solid var(--red);
+  padding: .5rem .75rem; margin: .6rem 0; font-size: .86rem; color: #6f2020;
+}
+.warn-note b { color: var(--red); }
+
+.plan {
+  max-width: 880px; margin: 1.6rem auto 0;
+  background: #fff; border: 1px solid var(--line); border-radius: 8px;
+  padding: 1.2rem 1.4rem;
+}
+.plan h2 { font: 700 1.25rem/1.4 var(--serif); color: var(--teal-deep); border-bottom: 2px solid var(--teal); display: inline-block; padding-bottom: .25rem; margin-bottom: .7rem; }
+.plan h3 { font-size: .98rem; color: var(--teal-deep); margin: .7rem 0 .25rem; }
+.plan p, .plan li { font-size: .9rem; }
+.plan ul, .plan ol { padding-left: 1.2rem; margin: .3rem 0 .5rem; }
+.plan li { margin: .18rem 0; }
+.plan .callout { background: var(--teal-soft); border-left: 3px solid var(--teal); padding: .6rem .8rem; margin: .7rem 0; font-size: .88rem; }
+
+.table-wrap { overflow-x: auto; margin: .6rem 0; }
+table { width: 100%; border-collapse: collapse; font-size: .85rem; min-width: 560px; }
+th, td { border-bottom: 1px solid var(--line); padding: .45rem .55rem; text-align: left; vertical-align: top; }
+th { background: #edf4f2; color: var(--teal-deep); font-weight: 700; white-space: nowrap; }
+tbody tr:nth-child(even) { background: #fafcfb; }
+td.num, th.num { font-family: var(--mono); text-align: center; white-space: nowrap; }
+
+footer { max-width: 880px; margin: 2rem auto 0; padding-top: 1rem; border-top: 1px solid var(--line); text-align: center; color: var(--muted); font-size: .8rem; }
+footer a { color: var(--teal); }
+
+:focus-visible { outline: 3px solid #c9a227; outline-offset: 3px; }
+
+@media screen and (max-width: 760px) {
+  .bar-inner { padding: .55rem .8rem; gap: .45rem; }
+  .brand small, .nav, .print-btn.ghost { display: none; }
+  .view-switch, .print-btn { font-size: .68rem; }
+  .wrap { padding: 1rem .7rem 2.5rem; }
+  .hero { padding: 1.4rem 1.2rem; }
+  .paper { padding: 1.5rem 1.1rem 1.8rem; }
+  .paper-head h2 { font-size: 1.55rem; }
+  .question { grid-template-columns: 1.75rem minmax(0, 1fr); gap: .55rem; }
+  .q-no { width: 1.65rem; height: 1.65rem; font-size: .8rem; line-height: 1.65rem; }
+  .options { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .options.two { grid-template-columns: 1fr; }
+  .score-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .candidate i { width: 5rem; }
+  .answer-section { padding: 1rem 1rem 1.2rem; }
+  .sum-note { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+@page { size: A4 portrait; margin: 14mm 12mm 16mm 12mm; }
+
+@media print {
+  html, body { background: #fff !important; color: #000 !important; font-size: 10.8pt; line-height: 1.55; }
+  .sum-note { display: none !important; }
+  body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .topbar, .hero, .notice, .score-panel, .answer-tools, .no-print { display: none !important; }
+  .wrap { max-width: none; margin: 0; padding: 0; }
+  .paper { max-width: none; border: 0; border-radius: 0; box-shadow: none; padding: 0; }
+  .paper::before { display: none; }
+  .paper-head { padding-top: 0; }
+  .exam-section { margin-top: 1.35rem; }
+  .section-title { break-after: avoid; }
+  .question { padding: .55rem 0; }
+  .q-no { background: #fff !important; color: #000 !important; border: 1px solid #000; }
+  .answer-line, .plain, .warn-note, .exam-notes, .plan .callout { background: #fff !important; border: 1px solid #999; border-left: 3px solid #333; }
+  .answer-section { break-before: page; margin-top: 0; max-width: none; border: 0; border-top: 3px double #333; border-radius: 0; padding: 0; background: #fff; }
+  details.solution { break-inside: avoid; }
+  details.solution summary::before { border: 1px solid #333; background: #fff; }
+  .plan { max-width: none; border: 0; padding: 0; }
+  .plan h2 { margin-top: .8rem; }
+  table { min-width: 0; font-size: 9.5pt; }
+  .paper-print .answer-section, .paper-print .plan, .paper-print footer { display: none !important; }
+  .paper-print .work-space {
+    display: block; height: 62mm;
+    border-bottom: 1px solid #bbb;
+    background: repeating-linear-gradient(to bottom, transparent 0, transparent 8.6mm, #e4e4e4 8.6mm, #e4e4e4 8.8mm);
+  }
+  .paper-print .question { break-inside: avoid; }
+}
+
+@media screen {
+  html.a4 .wrap, html.a4 .bar-inner { max-width: 210mm; }
+  html.a4 .hero { max-width: 210mm; margin-left: auto; margin-right: auto; }
+  html.a4 .paper, html.a4 .plan, html.a4 footer { max-width: 210mm; }
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="bar-inner">
+    <div class="brand">数学 · 期中自测<small>人教 A 版 · 必修第一册</small></div>
+    <nav class="nav" aria-label="页面导航">
+      <a href="index.html">← 首页</a>
+      <a href="#paper">试卷</a>
+      <a href="#answers">参考答案</a>
+      <a href="#analysis">考点分布</a>
+    </nav>
+    <div class="view-switch" role="group" aria-label="版式">
+      <button type="button" data-view="wide">宽屏</button>
+      <button type="button" data-view="a4">A4 打印版</button>
+    </div>
+    <button type="button" class="print-btn ghost" onclick="printPaper()" title="打印空白试卷，不打印答案">只打印试卷</button>
+    <button type="button" class="print-btn" onclick="window.print()" title="打印试卷和答案，答案会自动展开">打印</button>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="hero">
+    <div class="eyebrow">Mathematics · Midterm Self-test</div>
+    <h1>高一上数学 · 期中自测卷</h1>
+    <p>紧扣人教 A 版必修第一册第一至三章，按菏泽一中高一上期中常见的题型、分值和节奏编排。先限时闭卷做完，再展开答案；解析里标出得分点、易错点和一句“人话”提醒。</p>
+    <div class="chips">
+      <span class="chip">范围：第一章—第三章</span>
+      <span class="chip">结构：8 单选 + 4 多选 + 4 填空 + 6 解答</span>
+      <span class="chip">满分 150 分 · 建议 120 分钟</span>
+      <span class="chip">附全解与考点表</span>
+    </div>
+  </section>
+
+  <div class="notice">
+    <strong>说明：</strong>本卷是依据人教 A 版教材和菏泽一中高一上期中常见结构编写的<strong>模拟自测卷</strong>，不是菏泽一中历年原卷，也不押题。用它检查前三章的基本功和答题节奏即可；学校实际进度如果已经讲到指数函数，可把本卷当作一次阶段复习。
+  </div>
+
+  <article class="paper" id="paper">
+
+    <div class="paper-head">
+      <div class="paper-kicker">高一上学期 · 数学</div>
+      <h2>期中自测卷</h2>
+      <p class="paper-sub">人教 A 版 · 必修第一册 · 第一章至第三章</p>
+      <div class="exam-meta">
+        <span>满分 150 分</span>
+        <span>时间 120 分钟</span>
+        <span>闭卷作答</span>
+      </div>
+      <div class="candidate">
+        <span>姓名 <i></i></span>
+        <span>班级 <i></i></span>
+        <span>得分 <i></i></span>
+      </div>
+    </div>
+
+    <div class="exam-notes">
+      <b>答题说明</b>
+      <ol>
+        <li>单项选择题 8 小题，每小题 5 分，共 40 分；多项选择题 4 小题，每小题 5 分，共 20 分，全部选对得 5 分，部分选对得 2 分，有选错得 0 分。</li>
+        <li>填空题 4 小题，每小题 5 分，共 20 分；解答题 6 小题，共 70 分。解答题要写出必要的文字说明、证明过程或演算步骤。</li>
+        <li>建议时间：选填 55 分钟，解答 55 分钟，检查 10 分钟。先拿稳基础分，再回头攻压轴。</li>
+      </ol>
+    </div>
+
+    <section class="exam-section" aria-labelledby="part1">
+      <div class="section-title">
+        <h3 id="part1">一、单项选择题</h3>
+        <span>本题共 8 小题，每小题 5 分，共 40 分。在每小题给出的四个选项中，只有一项符合题目要求。</span>
+      </div>
+
+      <article class="question" id="q1">
+        <div class="q-no">1</div>
+        <div>
+          <p class="q-text">已知集合 <span class="m">A={x | x<sup>2</sup>−3x+2≤0}</span>，<span class="m">B={x | x&gt;1}</span>，则 <span class="m">A∩B=</span></p>
+          <div class="options">
+            <div class="option"><b>A.</b><span class="m">[1,2]</span></div>
+            <div class="option"><b>B.</b><span class="m">(1,2]</span></div>
+            <div class="option"><b>C.</b><span class="m">[1,2)</span></div>
+            <div class="option"><b>D.</b><span class="m">(1,2)</span></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="question" id="q2">
+        <div class="q-no">2</div>
+        <div>
+          <p class="q-text">命题“<span class="m">∀x∈ℝ，x<sup>2</sup>−2x+3&gt;0</span>”的否定是</p>
+          <div class="options two">
+            <div class="option"><b>A.</b><span class="m">∀x∈ℝ，x<sup>2</sup>−2x+3≤0</span></div>
+            <div class="option"><b>B.</b><span class="m">∃x∈ℝ，x<sup>2</sup>−2x+3≤0</span></div>
+            <div class="option"><b>C.</b><span class="m">∃x∈ℝ，x<sup>2</sup>−2x+3&lt;0</span></div>
+            <div class="option"><b>D.</b><span class="m">∀x∈ℝ，x<sup>2</sup>−2x+3&lt;0</span></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="question" id="q3">
+        <div class="q-no">3</div>
+        <div>
+          <p class="q-text">“<span class="m">x<sup>2</sup>&lt;1</span>”是“<span class="m">x&lt;1</span>”的</p>
+          <div class="options two">
+            <div class="option"><b>A.</b><span>充分不必要条件</span></div>
+            <div class="option"><b>B.</b><span>必要不充分条件</span></div>
+            <div class="option"><b>C.</b><span>充要条件</span></div>
+            <div class="option"><b>D.</b><span>既不充分也不必要条件</span></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="question" id="q4">
+        <div class="q-no">4</div>
+        <div>
+          <p class="q-text">若 <span class="m">x&gt;0，y&gt;0</span>，且 <span class="m">x+2y=4</span>，则 <span class="m">xy</span> 的最大值为</p>
+          <div class="options">
+            <div class="option"><b>A.</b><span class="m">1</span></div>
+            <div class="option"><b>B.</b><span class="m">2</span></div>
+            <div class="option"><b>C.</b><span class="m">4</span></div>
+            <div class="option"><b>D.</b><span class="m">8</span></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="question" id="q5">
+        <div class="q-no">5</div>
+        <div>
+          <p class="q-text">函数 <span class="m">f(x)=<span class="frac"><span class="num">√(x+1)</span><span class="den">x−2</span></span></span> 的定义域为</p>
+          <div class="options two">
+            <div class="option"><b>A.</b><span class="m">[−1,+∞)</span></div>
+            <div class="option"><b>B.</b><span class="m">[−1,2)∪(2,+∞)</span></div>
+            <div class="option"><b>C.</b><span class="m">(−1,2)∪(2,+∞)</span></div>
+            <div class="option"><b>D.</b><span class="m">[−1,2)</span></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="question" id="q6">
+        <div class="q-no">6</div>
+        <div>
+          <p class="q-text">已知 <span class="m">f(x)</span> 是定义在 <span class="m">ℝ</span> 上的奇函数，当 <span class="m">x&gt;0</span> 时，<span class="m">f(x)=x<sup>2</sup>−2x</span>，则 <span class="m">f(−1)=</span></p>
+          <div class="options">
+            <div class="option"><b>A.</b><span class="m">−1</span></div>
+            <div class="option"><b>B.</b><span class="m">1</span></div>
+            <div class="option"><b>C.</b><span class="m">3</span></div>
+            <div class="option"><b>D.</b><span class="m">−3</span></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="question" id="q7">
+        <div class="q-no">7</div>
+        <div>
+          <p class="q-text">下列函数中，既是偶函数又在 <span class="m">(0,+∞)</span> 上单调递增的是</p>
+          <div class="options">
+            <div class="option"><b>A.</b><span class="m">y=x<sup>3</sup></span></div>
+            <div class="option"><b>B.</b><span class="m">y=x<sup>2</sup>+1</span></div>
+            <div class="option"><b>C.</b><span class="m">y=−x<sup>2</sup></span></div>
+            <div class="option"><b>D.</b><span class="m">y=<span class="frac"><span class="num">1</span><span class="den">x</span></span></span></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="question" id="q8">
+        <div class="q-no">8</div>
+        <div>
+          <p class="q-text">若不等式 <span class="m">x<sup>2</sup>−2ax+4&gt;0</span> 对任意 <span class="m">x∈[1,2]</span> 恒成立，则实数 <span class="m">a</span> 的取值范围是</p>
+          <div class="options two">
+            <div class="option"><b>A.</b><span class="m">(−∞,2)</span></div>
+            <div class="option"><b>B.</b><span class="m">(−∞,2]</span></div>
+            <div class="option"><b>C.</b><span class="m">(−∞,<span class="frac"><span class="num">5</span><span class="den">2</span></span>)</span></div>
+            <div class="option"><b>D.</b><span class="m">(−∞,<span class="frac"><span class="num">5</span><span class="den">2</span></span>]</span></div>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section class="exam-section" aria-labelledby="part2">
+      <div class="section-title">
+        <h3 id="part2">二、多项选择题</h3>
+        <span>本题共 4 小题，每小题 5 分，共 20 分。每小题有多项符合题目要求，全部选对得 5 分，部分选对得 2 分，有选错得 0 分。</span>
+      </div>
+
+      <article class="question" id="q9">
+        <div class="q-no">9</div>
+        <div>
+          <p class="q-text">已知集合 <span class="m">A={1,2}</span>，<span class="m">B={x | ax−2=0}</span>。若 <span class="m">B⊆A</span>，则实数 <span class="m">a</span> 的值可以是</p>
+          <div class="options">
+            <div class="option"><b>A.</b><span class="m">0</span></div>
+            <div class="option"><b>B.</b><span class="m">1</span></div>
+            <div class="option"><b>C.</b><span class="m">2</span></div>
+            <div class="option"><b>D.</b><span class="m">3</span></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="question" id="q10">
+        <div class="q-no">10</div>
+        <div>
+          <p class="q-text">已知 <span class="m">x&gt;0，y&gt;0</span>，且 <span class="m">x+y=1</span>，则下列结论正确的是</p>
+          <div class="options two">
+            <div class="option"><b>A.</b><span class="m">xy≤<span class="frac"><span class="num">1</span><span class="den">4</span></span></span></div>
+            <div class="option"><b>B.</b><span class="m">√x+√y≤√2</span></div>
+            <div class="option"><b>C.</b><span class="m">x<sup>2</sup>+y<sup>2</sup>≥<span class="frac"><span class="num">1</span><span class="den">2</span></span></span></div>
+            <div class="option"><b>D.</b><span class="m">x<sup>2</sup>+y<sup>2</sup>≤<span class="frac"><span class="num">1</span><span class="den">2</span></span></span></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="question" id="q11">
+        <div class="q-no">11</div>
+        <div>
+          <p class="q-text">已知函数 <span class="m">f(x)=x+<span class="frac"><span class="num">1</span><span class="den">x</span></span></span>，则下列结论正确的是</p>
+          <div class="options two">
+            <div class="option"><b>A.</b><span><span class="m">f(x)</span> 是奇函数</span></div>
+            <div class="option"><b>B.</b><span><span class="m">f(x)</span> 在 <span class="m">(0,1)</span> 上单调递减</span></div>
+            <div class="option"><b>C.</b><span><span class="m">f(x)</span> 在 <span class="m">(1,+∞)</span> 上单调递增</span></div>
+            <div class="option"><b>D.</b><span><span class="m">f(x)</span> 在定义域上的最小值为 <span class="m">2</span></span></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="question" id="q12">
+        <div class="q-no">12</div>
+        <div>
+          <p class="q-text">已知 <span class="m">f(x)</span> 是定义在 <span class="m">ℝ</span> 上的偶函数，且在 <span class="m">[0,+∞)</span> 上单调递增，<span class="m">f(1)=0</span>，则下列结论正确的是</p>
+          <div class="options two">
+            <div class="option"><b>A.</b><span class="m">f(−2)&gt;0</span></div>
+            <div class="option"><b>B.</b><span>不等式 <span class="m">f(x)&lt;0</span> 的解集为 <span class="m">(−1,1)</span></span></div>
+            <div class="option"><b>C.</b><span><span class="m">f(x)</span> 在 <span class="m">(−∞,0]</span> 上单调递减</span></div>
+            <div class="option"><b>D.</b><span>不等式 <span class="m">f(x)&gt;0</span> 的解集为 <span class="m">(1,+∞)</span></span></div>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section class="exam-section" aria-labelledby="part3">
+      <div class="section-title">
+        <h3 id="part3">三、填空题</h3>
+        <span>本题共 4 小题，每小题 5 分，共 20 分。</span>
+      </div>
+
+      <article class="question" id="q13">
+        <div class="q-no">13</div>
+        <div>
+          <p class="q-text">已知集合 <span class="m">A={x | x<sup>2</sup>−4x+3=0}</span>，<span class="m">B={1,a}</span>。若 <span class="m">A∪B=A</span>，则实数 <span class="m">a</span> 的值为 <span class="blank"></span>。</p>
+        </div>
+      </article>
+
+      <article class="question" id="q14">
+        <div class="q-no">14</div>
+        <div>
+          <p class="q-text">不等式 <span class="m"><span class="frac"><span class="num">x−1</span><span class="den">x+2</span></span>≥0</span> 的解集为 <span class="blank"></span>。</p>
+        </div>
+      </article>
+
+      <article class="question" id="q15">
+        <div class="q-no">15</div>
+        <div>
+          <p class="q-text">已知 <span class="m">f(x+1)=x<sup>2</sup>+2x</span>，则 <span class="m">f(x)=</span> <span class="blank"></span>。</p>
+        </div>
+      </article>
+
+      <article class="question" id="q16">
+        <div class="q-no">16</div>
+        <div>
+          <p class="q-text">若 <span class="m">x&gt;−1</span>，则 <span class="m">x+<span class="frac"><span class="num">4</span><span class="den">x+1</span></span></span> 的最小值为 <span class="blank"></span>。</p>
+        </div>
+      </article>
+    </section>
+
+    <section class="exam-section" aria-labelledby="part4">
+      <div class="section-title">
+        <h3 id="part4">四、解答题</h3>
+        <span>本题共 6 小题，共 70 分。解答应写出文字说明、证明过程或演算步骤。</span>
+      </div>
+
+      <article class="question" id="q17">
+        <div class="q-no">17</div>
+        <div>
+          <p class="q-text">（10 分）已知集合 <span class="m">A={x | −1≤x≤3}</span>，<span class="m">B={x | x&lt;a}</span>。</p>
+          <p class="q-text">（1）当 <span class="m">a=2</span> 时，求 <span class="m">A∪B</span> 和 <span class="m">A∩(∁<sub>ℝ</sub>B)</span>；</p>
+          <p class="q-text">（2）若 <span class="m">A⊆B</span>，求实数 <span class="m">a</span> 的取值范围。</p>
+          <p class="q-hint"><b>答题区：</b>先在草稿纸上画数轴，注意端点是实心还是空心。</p>
+          <div class="work-space" aria-hidden="true"></div>
+        </div>
+      </article>
+
+      <article class="question" id="q18">
+        <div class="q-no">18</div>
+        <div>
+          <p class="q-text">（12 分）已知关于 <span class="m">x</span> 的不等式 <span class="m">ax<sup>2</sup>−(a+1)x+1&lt;0</span>。</p>
+          <p class="q-text">（1）当 <span class="m">a=2</span> 时，求该不等式的解集；</p>
+          <p class="q-text">（2）若该不等式对任意 <span class="m">x∈[2,3]</span> 恒成立，求实数 <span class="m">a</span> 的取值范围。</p>
+          <p class="q-hint"><b>答题区：</b>先试着把左边因式分解，再讨论 <span class="m">x−1</span> 的符号。</p>
+          <div class="work-space" aria-hidden="true"></div>
+        </div>
+      </article>
+
+      <article class="question" id="q19">
+        <div class="q-no">19</div>
+        <div>
+          <p class="q-text">（12 分）已知 <span class="m">f(x)</span> 是定义在 <span class="m">ℝ</span> 上的奇函数，当 <span class="m">x&gt;0</span> 时，<span class="m">f(x)=x<sup>2</sup>−2x</span>。</p>
+          <p class="q-text">（1）求 <span class="m">f(0)</span> 与 <span class="m">f(−1)</span> 的值；</p>
+          <p class="q-text">（2）求 <span class="m">f(x)</span> 在 <span class="m">ℝ</span> 上的解析式；</p>
+          <p class="q-text">（3）写出 <span class="m">f(x)</span> 的单调递增区间（不需要证明）。</p>
+          <p class="q-hint"><b>答题区：</b>第（2）问设 <span class="m">x&lt;0</span>，把 <span class="m">−x</span> 代回已知区间。</p>
+          <div class="work-space" aria-hidden="true"></div>
+        </div>
+      </article>
+
+      <article class="question" id="q20">
+        <div class="q-no">20</div>
+        <div>
+          <p class="q-text">（12 分）某农户用总长 <span class="m">24 m</span> 的栅栏围成一个矩形羊圈，羊圈的一面利用长 <span class="m">10 m</span> 的旧墙（墙不需要栅栏），其余三面用栅栏。设垂直于墙的一边长为 <span class="m">x m</span>，羊圈的面积为 <span class="m">S m<sup>2</sup></span>。</p>
+          <p class="q-text">（1）求 <span class="m">S</span> 关于 <span class="m">x</span> 的函数解析式，并写出定义域；</p>
+          <p class="q-text">（2）求 <span class="m">S</span> 的最大值，并求此时 <span class="m">x</span> 的值。</p>
+          <p class="q-hint"><b>答题区：</b>注意墙只有 <span class="m">10 m</span>，平行于墙的那一边不能超过墙长。</p>
+          <div class="work-space" aria-hidden="true"></div>
+        </div>
+      </article>
+
+      <article class="question" id="q21">
+        <div class="q-no">21</div>
+        <div>
+          <p class="q-text">（12 分）已知 <span class="m">f(x)</span> 是定义在 <span class="m">(−1,1)</span> 上的奇函数，且在 <span class="m">(−1,1)</span> 上单调递减。解不等式 <span class="m">f(1−a)+f(1−a<sup>2</sup>)&lt;0</span>。</p>
+          <p class="q-hint"><b>答题区：</b>先用奇偶性把两个 <span class="m">f</span> 合到一起，再写定义域限制。</p>
+          <div class="work-space" aria-hidden="true"></div>
+        </div>
+      </article>
+
+      <article class="question" id="q22">
+        <div class="q-no">22</div>
+        <div>
+          <p class="q-text">（12 分）已知函数 <span class="m">f(x)=x<sup>2</sup>−2ax+3</span>。</p>
+          <p class="q-text">（1）若 <span class="m">f(x)</span> 在 <span class="m">[1,+∞)</span> 上单调递增，求 <span class="m">a</span> 的取值范围；</p>
+          <p class="q-text">（2）若 <span class="m">f(x)</span> 在 <span class="m">[0,2]</span> 上的最小值为 <span class="m">2</span>，求 <span class="m">a</span> 的值。</p>
+          <p class="q-hint"><b>答题区：</b>先配方找对称轴，再按对称轴与区间的位置分类。</p>
+          <div class="work-space" aria-hidden="true"></div>
+        </div>
+      </article>
+    </section>
+
+    <section class="score-panel no-print" aria-labelledby="score-title">
+      <h3 id="score-title">做完后自评</h3>
+      <p>把各板块得分填进去，先看总分，再看哪一块拖后腿。小分按 0.5 分计也可以。</p>
+      <div class="score-grid">
+        <label>单选 / 40<input type="number" min="0" max="40" step="0.5" data-score="40" aria-label="单选题得分"></label>
+        <label>多选 / 20<input type="number" min="0" max="20" step="0.5" data-score="20" aria-label="多选题得分"></label>
+        <label>填空 / 20<input type="number" min="0" max="20" step="0.5" data-score="20" aria-label="填空题得分"></label>
+        <label>解答 / 70<input type="number" min="0" max="70" step="0.5" data-score="70" aria-label="解答题得分"></label>
+        <div>
+          <span class="score-total">总分 <b id="score-total">0</b> / 150</span>
+        </div>
+      </div>
+      <div class="score-actions">
+        <button type="button" id="score-reset">清零</button>
+        <span id="score-comment" class="q-hint" aria-live="polite"></span>
+      </div>
+    </section>
+
+  </article>
+
+  <section class="answer-section" id="answers">
+    <h2>参考答案与解析</h2>
+    <p class="lead">建议先独立做完、自己批改，再逐题看解析。每题都标了“人话”提醒，用来把方法记成一句能复述的话。</p>
+    <div class="answer-tools no-print">
+      <button type="button" id="open-all">全部展开</button>
+      <button type="button" id="close-all">全部收起</button>
+    </div>
+
+    <details class="solution">
+      <summary><span>第 1 题 · 集合的交集</span><span class="sum-note">点击看答案</span></summary>
+      <div class="solution-body">
+        <div class="answer-line">答案：B</div>
+        <p><strong>解析：</strong>由 <span class="m">x<sup>2</sup>−3x+2≤0</span> 得 <span class="m">(x−1)(x−2)≤0</span>，所以 <span class="m">A=[1,2]</span>。又 <span class="m">B=(1,+∞)</span>，取公共部分得 <span class="m">A∩B=(1,2]</span>。</p>
+        <p class="plain"><b>人话：</b>先解不等式把集合写成区间，再在数轴上取交集；端点 1 不在 B 里，所以左端是小括号。</p>
+      </div>
+    </details>
+
+    <details class="solution">
+      <summary><span>第 2 题 · 全称量词命题的否定</span><span class="sum-note">点击看答案</span></summary>
+      <div class="solution-body">
+        <div class="answer-line">答案：B</div>
+        <p><strong>解析：</strong>全称量词命题的否定是存在量词命题，同时否定结论。<span class="m">∀x∈ℝ，x<sup>2</sup>−2x+3&gt;0</span> 的否定为 <span class="m">∃x∈ℝ，x<sup>2</sup>−2x+3≤0</span>。</p>
+        <p class="plain"><b>人话：</b>“所有都成立”的反面是“至少有一个不成立”，量词和结论要一起换。</p>
+      </div>
+    </details>
+
+    <details class="solution">
+      <summary><span>第 3 题 · 充分条件与必要条件</span><span class="sum-note">点击看答案</span></summary>
+      <div class="solution-body">
+        <div class="answer-line">答案：A</div>
+        <p><strong>解析：</strong><span class="m">x<sup>2</sup>&lt;1 ⇔ −1&lt;x&lt;1</span>，而 <span class="m">−1&lt;x&lt;1 ⇒ x&lt;1</span>，所以是充分条件。反过来，取 <span class="m">x=−2</span>，满足 <span class="m">x&lt;1</span>，但 <span class="m">x<sup>2</sup>=4&gt;1</span>，所以不是必要条件。</p>
+        <p class="plain"><b>人话：</b>小范围推大范围；“x 比 1 小”范围更大，不能反推回 <span class="m">(−1,1)</span>。</p>
+      </div>
+    </details>
+
+    <details class="solution">
+      <summary><span>第 4 题 · 基本不等式求积的最大值</span><span class="sum-note">点击看答案</span></summary>
+      <div class="solution-body">
+        <div class="answer-line">答案：B</div>
+        <p><strong>解析：</strong>因为 <span class="m">x&gt;0，y&gt;0</span>，所以</p>
+        <p class="m" style="text-align:center">xy = <span class="frac"><span class="num">1</span><span class="den">2</span></span>·x·2y ≤ <span class="frac"><span class="num">1</span><span class="den">2</span></span>·(<span class="frac"><span class="num">x+2y</span><span class="den">2</span></span>)<sup>2</sup> = <span class="frac"><span class="num">1</span><span class="den">2</span></span>×2<sup>2</sup> = 2。</p>
+        <p>当且仅当 <span class="m">x=2y</span>，结合 <span class="m">x+2y=4</span>，得 <span class="m">x=2，y=1</span> 时取等号。所以最大值为 2。</p>
+        <p class="plain"><b>人话：</b>要求和定、积最大，先把 <span class="m">x</span> 和 <span class="m">2y</span> 凑成一对，再套基本不等式；最后一定要写等号成立的条件。</p>
+      </div>
+    </details>
+
+    <details class="solution">
+      <summary><span>第 5 题 · 函数的定义域</span><span class="sum-note">点击看答案</span></summary>
+      <div class="solution-body">
+        <div class="answer-line">答案：B</div>
+        <p><strong>解析：</strong>根号内非负：<span class="m">x+1≥0</span>，得 <span class="m">x≥−1</span>；分母不为零：<span class="m">x−2≠0</span>，得 <span class="m">x≠2</span>。两者取交集，定义域为 <span class="m">[−1,2)∪(2,+∞)</span>。</p>
+        <p class="plain"><b>人话：</b>定义域就是“让式子有意义的 x 的集合”，根号管“≥0”，分母管“≠0”，两个条件都要满足。</p>
+      </div>
+    </details>
+
+    <details class="solution">
+      <summary><span>第 6 题 · 奇函数求值</span><span class="sum-note">点击看答案</span></summary>
+      <div class="solution-body">
+        <div class="answer-line">答案：B</div>
+        <p><strong>解析：</strong>先求正数处的函数值：<span class="m">f(1)=1<sup>2</sup>−2×1=−1</span>。因为 <span class="m">f(x)</span> 是奇函数，所以 <span class="m">f(−1)=−f(1)=1</span>。</p>
+        <p class="plain"><b>人话：</b>奇函数把 <span class="m">x</span> 换成 <span class="m">−x</span>，函数值变相反数；先算已知区间，再翻到负区间。</p>
+      </div>
+    </details>
+
+    <details class="solution">
+      <summary><span>第 7 题 · 奇偶性与单调性</span><span class="sum-note">点击看答案</span></summary>
+      <div class="solution-body">
+        <div class="answer-line">答案：B</div>
+        <p><strong>解析：</strong>A 中 <span class="m">y=x<sup>3</sup></span> 是奇函数；C 中 <span class="m">y=−x<sup>2</sup></span> 是偶函数，但在 <span class="m">(0,+∞)</span> 上递减；D 中 <span class="m">y=1/x</span> 是奇函数；B 中 <span class="m">y=x<sup>2</sup>+1</span> 是偶函数，且在 <span class="m">(0,+∞)</span> 上递增。</p>
+        <p class="plain"><b>人话：</b>先看定义域是否关于原点对称，再算 <span class="m">f(−x)</span>；偶函数看 y 轴对称，单调性看 x 增大时 y 是升还是降。</p>
+      </div>
+    </details>
+
+    <details class="solution">
+      <summary><span>第 8 题 · 不等式恒成立</span><span class="sum-note">点击看答案</span></summary>
+      <div class="solution-body">
+        <div class="answer-line">答案：A</div>
+        <p><strong>解析：</strong>因为 <span class="m">x∈[1,2]</span>，所以 <span class="m">x&gt;0</span>。原不等式两边同除以 <span class="m">x</span>，得</p>
+        <p class="m" style="text-align:center">x + <span class="frac"><span class="num">4</span><span class="den">x</span></span> &gt; 2a。</p>
+        <p>令 <span class="m">g(x)=x+4/x</span>。对勾函数 <span class="m">g(x)</span> 在 <span class="m">[1,2]</span> 上单调递减，所以 <span class="m">g(x)</span> 的最小值为 <span class="m">g(2)=2+2=4</span>。要使不等式恒成立，只需 <span class="m">2a&lt;4</span>，即 <span class="m">a&lt;2</span>。</p>
+        <p class="warn-note"><b>易错：</b>端点 <span class="m">x=2</span> 必须单独代入检查。若取 <span class="m">a=2</span>，则 <span class="m">x=2</span> 时左边为 <span class="m">4−8+4=0</span>，不满足“&gt;0”。</p>
+        <p class="plain"><b>人话：</b>恒成立问题先把参数孤立到一边，再求另一边的最大/最小值；这题求的是 <span class="m">g(x)</span> 的最小值，所以 <span class="m">a</span> 要比最小值还小。</p>
+      </div>
+    </details>
+
+    <details class="solution">
+      <summary><span>第 9 题 · 含参集合与子集</span><span class="sum-note">点击看答案</span></summary>
+      <div class="solution-body">
+        <div class="answer-line">答案：ABC</div>
+        <p><strong>解析：</strong>当 <span class="m">a=0</span> 时，方程 <span class="m">ax−2=0</span> 无解，<span class="m">B=∅</span>，而 <span class="m">∅⊆A</span>，符合。</p>
+        <p>当 <span class="m">a≠0</span> 时，<span class="m">B={2/a}</span>。由 <span class="m">B⊆A={1,2}</span>，得 <span class="m">2/a=1</span> 或 <span class="m">2/a=2</span>，所以 <span class="m">a=2</span> 或 <span class="m">a=1</span>。综上，<span class="m">a</span> 可以是 0，1，2。</p>
+        <p class="warn-note"><b>易错：</b>含参集合先看“空集”这种特殊情况；<span class="m">a=0</span> 时 <span class="m">B</span> 是空集，不能漏。</p>
+        <p class="plain"><b>人话：</b>看到 <span class="m">B⊆A</span>，先问一句“B 能不能是空集”；能，就先记一个答案。</p>
+      </div>
+    </details>
+
+    <details class="solution">
+      <summary><span>第 10 题 · 基本不等式与配方</span><span class="sum-note">点击看答案</span></summary>
+      <div class="solution-body">
+        <div class="answer-line">答案：ABC</div>
+        <p><strong>解析：</strong></p>
+        <p>A：<span class="m">xy≤((x+y)/2)<sup>2</sup>=(1/2)<sup>2</sup>=1/4</span>，正确，当且仅当 <span class="m">x=y=1/2</span> 时取等号。</p>
+        <p>B：<span class="m">(√x+√y)<sup>2</sup>=x+y+2√(xy)=1+2√(xy)≤1+2×1/2=2</span>，所以 <span class="m">√x+√y≤√2</span>，正确。</p>
+        <p>C：<span class="m">x<sup>2</sup>+y<sup>2</sup>=(x+y)<sup>2</sup>−2xy=1−2xy≥1−2×1/4=1/2</span>，正确。</p>
+        <p>D：取 <span class="m">x=3/4，y=1/4</span>，则 <span class="m">x<sup>2</sup>+y<sup>2</sup>=9/16+1/16=5/8&gt;1/2</span>，所以 D 错误。</p>
+        <p class="plain"><b>人话：</b>和定求积最大、平方和最小，都是基本不等式的“凑配”；看到 <span class="m">x<sup>2</sup>+y<sup>2</sup></span> 就想 <span class="m">(x+y)<sup>2</sup>−2xy</span>。</p>
+      </div>
+    </details>
+
+    <details class="solution">
+      <summary><span>第 11 题 · 对勾函数的图象与性质</span><span class="sum-note">点击看答案</span></summary>
+      <div class="solution-body">
+        <div class="answer-line">答案：ABC</div>
+        <p><strong>解析：</strong>A：定义域为 <span class="m">{x | x≠0}</span>，关于原点对称，且 <span class="m">f(−x)=−x−1/x=−f(x)</span>，所以是奇函数，正确。</p>
+        <p>B：设 <span class="m">0&lt;x<sub>1</sub>&lt;x<sub>2</sub>&lt;1</span>，则</p>
+        <p class="m" style="text-align:center">f(x<sub>1</sub>)−f(x<sub>2</sub>)=(x<sub>1</sub>−x<sub>2</sub>)(1−<span class="frac"><span class="num">1</span><span class="den">x<sub>1</sub>x<sub>2</sub></span></span>)。</p>
+        <p>因为 <span class="m">x<sub>1</sub>−x<sub>2</sub>&lt;0</span>，且 <span class="m">x<sub>1</sub>x<sub>2</sub>&lt;1</span>，所以 <span class="m">1−1/(x<sub>1</sub>x<sub>2</sub>)&lt;0</span>，乘积大于 0，即 <span class="m">f(x<sub>1</sub>)&gt;f(x<sub>2</sub>)</span>，在 <span class="m">(0,1)</span> 上递减，正确。</p>
+        <p>C：同理，当 <span class="m">1&lt;x<sub>1</sub>&lt;x<sub>2</sub></span> 时，<span class="m">x<sub>1</sub>x<sub>2</sub>&gt;1</span>，所以 <span class="m">1−1/(x<sub>1</sub>x<sub>2</sub>)&gt;0</span>；又 <span class="m">x<sub>1</sub>−x<sub>2</sub>&lt;0</span>，乘积小于 0，即 <span class="m">f(x<sub>1</sub>)&lt;f(x<sub>2</sub>)</span>，在 <span class="m">(1,+∞)</span> 上递增，正确。</p>
+        <p>D：<span class="m">f(x)</span> 在 <span class="m">(0,+∞)</span> 上的最小值是 2，但当 <span class="m">x&lt;0</span> 时 <span class="m">f(x)</span> 可以取到任意小的负数，所以在整个定义域上没有最小值，错误。</p>
+        <p class="plain"><b>人话：</b>对勾函数 <span class="m">x+1/x</span> 的图是“两段钩子”：正半轴先降后升，负半轴先升后降；不要把它当成整条曲线只有一个最低点。</p>
+      </div>
+    </details>
+
+    <details class="solution">
+      <summary><span>第 12 题 · 偶函数与单调性解不等式</span><span class="sum-note">点击看答案</span></summary>
+      <div class="solution-body">
+        <div class="answer-line">答案：ABC</div>
+        <p><strong>解析：</strong>A：<span class="m">f(−2)=f(2)</span>，而 <span class="m">2&gt;1</span>，<span class="m">f(x)</span> 在 <span class="m">[0,+∞)</span> 上递增，所以 <span class="m">f(2)&gt;f(1)=0</span>，正确。</p>
+        <p>B：由偶函数和单调性，<span class="m">f(x)&lt;0 ⇔ f(|x|)&lt;f(1) ⇔ |x|&lt;1</span>，解集为 <span class="m">(−1,1)</span>，正确。</p>
+        <p>C：设 <span class="m">x<sub>1</sub>&lt;x<sub>2</sub>≤0</span>，则 <span class="m">−x<sub>1</sub>&gt;−x<sub>2</sub>≥0</span>，由 <span class="m">[0,+∞)</span> 上递增得 <span class="m">f(−x<sub>1</sub>)&gt;f(−x<sub>2</sub>)</span>，即 <span class="m">f(x<sub>1</sub>)&gt;f(x<sub>2</sub>)</span>，所以在 <span class="m">(−∞,0]</span> 上递减，正确。</p>
+        <p>D：<span class="m">f(x)&gt;0 ⇔ f(|x|)&gt;f(1) ⇔ |x|&gt;1</span>，解集应为 <span class="m">(−∞,−1)∪(1,+∞)</span>，所以 D 错误。</p>
+        <p class="plain"><b>人话：</b>偶函数在 y 轴两边“左右对称”，正半轴怎么变，负半轴就反着变；解 <span class="m">f(x)</span> 与 0 的不等式，先换成 <span class="m">|x|</span> 与 1 比。</p>
+      </div>
+    </details>
+
+    <details class="solution">
+      <summary><span>第 13 题 · 集合的互异性与并集</span><span class="sum-note">点击看答案</span></summary>
+      <div class="solution-body">
+        <div class="answer-line">答案：3</div>
+        <p><strong>解析：</strong><span class="m">x<sup>2</sup>−4x+3=0</span> 的根为 1 和 3，所以 <span class="m">A={1,3}</span>。<span class="m">A∪B=A ⇔ B⊆A</span>，因此 <span class="m">a∈A</span>。又集合中元素互异，<span class="m">a≠1</span>，所以 <span class="m">a=3</span>。</p>
+        <p class="plain"><b>人话：</b>并集没变大，说明 B 被 A “吃掉”了；别忘了集合里的元素不能重复。</p>
+      </div>
+    </details>
+
+    <details class="solution">
+      <summary><span>第 14 题 · 分式不等式</span><span class="sum-note">点击看答案</span></summary>
+      <div class="solution-body">
+        <div class="answer-line">答案：(−∞,−2)∪[1,+∞)</div>
+        <p><strong>解析：</strong>原不等式等价于 <span class="m">(x−1)(x+2)≥0</span> 且 <span class="m">x+2≠0</span>。二次不等式 <span class="m">(x−1)(x+2)≥0</span> 的解为 <span class="m">x≤−2</span> 或 <span class="m">x≥1</span>；再去掉 <span class="m">x=−2</span>，得 <span class="m">(−∞,−2)∪[1,+∞)</span>。</p>
+        <p class="warn-note"><b>易错：</b>分母不能为 0，所以 <span class="m">−2</span> 处是开区间；分子可以为 0，所以 <span class="m">1</span> 处是闭区间。</p>
+        <p class="plain"><b>人话：</b>分式不等式先“化积”，再记住分母的位置永远取不到。</p>
+      </div>
+    </details>
+
+    <details class="solution">
+      <summary><span>第 15 题 · 换元求函数解析式</span><span class="sum-note">点击看答案</span></summary>
+      <div class="solution-body">
+        <div class="answer-line">答案：f(x)=x<sup>2</sup>−1</div>
+        <p><strong>解析：</strong>令 <span class="m">t=x+1</span>，则 <span class="m">x=t−1</span>。代入得</p>
+        <p class="m" style="text-align:center">f(t)=(t−1)<sup>2</sup>+2(t−1)=t<sup>2</sup>−1。</p>
+        <p>所以 <span class="m">f(x)=x<sup>2</sup>−1</span>。</p>
+        <p class="plain"><b>人话：</b>把括号里的整体设成 <span class="m">t</span>，把右边的 <span class="m">x</span> 全换成 <span class="m">t−1</span>，最后再把 <span class="m">t</span> 写回 <span class="m">x</span>。</p>
+      </div>
+    </details>
+
+    <details class="solution">
+      <summary><span>第 16 题 · 基本不等式求最小值</span><span class="sum-note">点击看答案</span></summary>
+      <div class="solution-body">
+        <div class="answer-line">答案：3</div>
+        <p><strong>解析：</strong>因为 <span class="m">x&gt;−1</span>，所以 <span class="m">x+1&gt;0</span>。于是</p>
+        <p class="m" style="text-align:center">x+<span class="frac"><span class="num">4</span><span class="den">x+1</span></span>=(x+1)+<span class="frac"><span class="num">4</span><span class="den">x+1</span></span>−1≥2√4−1=3。</p>
+        <p>当且仅当 <span class="m">x+1=4/(x+1)</span>，即 <span class="m">x=1</span> 时取等号，所以最小值为 3。</p>
+        <p class="plain"><b>人话：</b>分母是 <span class="m">x+1</span>，就先把 <span class="m">x</span> 凑成 <span class="m">(x+1)−1</span>，再让两项相乘为定值。</p>
+      </div>
+    </details>
+
+    <details class="solution">
+      <summary><span>第 17 题 · 集合运算与含参包含</span><span class="sum-note">点击看答案</span></summary>
+      <div class="solution-body">
+        <div class="answer-line">答案：（1）A∪B=(−∞,3]，A∩(∁<sub>ℝ</sub>B)=[2,3]；（2）a&gt;3</div>
+        <p><strong>（1）</strong>当 <span class="m">a=2</span> 时，<span class="m">B=(−∞,2)</span>。</p>
+        <p><span class="m">A∪B=[−1,3]∪(−∞,2)=(−∞,3]</span>。</p>
+        <p><span class="m">∁<sub>ℝ</sub>B=[2,+∞)</span>，所以 <span class="m">A∩(∁<sub>ℝ</sub>B)=[−1,3]∩[2,+∞)=[2,3]</span>。</p>
+        <p><strong>（2）</strong>因为 <span class="m">3∈A</span>，若 <span class="m">A⊆B</span>，则必须有 <span class="m">3∈B</span>，即 <span class="m">3&lt;a</span>。当 <span class="m">a&gt;3</span> 时，<span class="m">A</span> 中所有元素都小于 <span class="m">a</span>，所以 <span class="m">A⊆B</span> 成立。故 <span class="m">a&gt;3</span>。</p>
+        <p class="warn-note"><b>易错：</b><span class="m">B={x | x&lt;a}</span> 在 <span class="m">a=3</span> 时不包含 3，所以不能写成 <span class="m">a≥3</span>。</p>
+        <p class="plain"><b>人话：</b>子集问题抓“边界元素”：A 里最大的 3 必须进 B，而 B 的右端是开区间，所以 a 只能严格大于 3。</p>
+      </div>
+    </details>
+
+    <details class="solution">
+      <summary><span>第 18 题 · 含参二次不等式与恒成立</span><span class="sum-note">点击看答案</span></summary>
+      <div class="solution-body">
+        <div class="answer-line">答案：（1）(1/2,1)；（2）a&lt;1/3</div>
+        <p><strong>（1）</strong>当 <span class="m">a=2</span> 时，原不等式为 <span class="m">2x<sup>2</sup>−3x+1&lt;0</span>，因式分解得 <span class="m">(2x−1)(x−1)&lt;0</span>，所以解集为 <span class="m">(1/2,1)</span>。</p>
+        <p><strong>（2）</strong>先分解左边：</p>
+        <p class="m" style="text-align:center">ax<sup>2</sup>−(a+1)x+1=(x−1)(ax−1)。</p>
+        <p>当 <span class="m">x∈[2,3]</span> 时，<span class="m">x−1&gt;0</span>，所以原不等式等价于 <span class="m">ax−1&lt;0</span>，即</p>
+        <p class="m" style="text-align:center">a&lt;<span class="frac"><span class="num">1</span><span class="den">x</span></span>，对任意 <span class="m">x∈[2,3]</span> 恒成立。</p>
+        <p>函数 <span class="m">1/x</span> 在 <span class="m">[2,3]</span> 上递减，最小值为 <span class="m">1/3</span>，所以 <span class="m">a&lt;1/3</span>。</p>
+        <p class="warn-note"><b>易错：</b>若取 <span class="m">a=1/3</span>，当 <span class="m">x=3</span> 时左边等于 0，不满足严格小于 0，所以等号不能取。</p>
+        <p class="plain"><b>人话：</b>看到 <span class="m">ax<sup>2</sup>−(a+1)x+1</span> 这种结构，先试因式分解；分解后发现 <span class="m">x−1&gt;0</span>，就把它扔掉，只剩一个简单的一次不等式。</p>
+      </div>
+    </details>
+
+    <details class="solution">
+      <summary><span>第 19 题 · 奇函数解析式与单调区间</span><span class="sum-note">点击看答案</span></summary>
+      <div class="solution-body">
+        <div class="answer-line">答案：（1）f(0)=0，f(−1)=1；（2）见解析；（3）(−∞,−1] 和 [1,+∞)</div>
+        <p><strong>（1）</strong>因为 <span class="m">f(x)</span> 是定义在 <span class="m">ℝ</span> 上的奇函数，所以 <span class="m">f(0)=0</span>。<span class="m">f(1)=1<sup>2</sup>−2×1=−1</span>，所以 <span class="m">f(−1)=−f(1)=1</span>。</p>
+        <p><strong>（2）</strong>当 <span class="m">x&lt;0</span> 时，<span class="m">−x&gt;0</span>，所以</p>
+        <p class="m" style="text-align:center">f(−x)=(−x)<sup>2</sup>−2(−x)=x<sup>2</sup>+2x。</p>
+        <p>又 <span class="m">f(x)=−f(−x)</span>，所以当 <span class="m">x&lt;0</span> 时，<span class="m">f(x)=−x<sup>2</sup>−2x</span>。因此</p>
+        <p style="text-align:center"><span class="m">f(x)=</span><span class="cases"><span class="case-list"><span class="m">x<sup>2</sup>−2x，x&gt;0；</span><span class="m">0，x=0；</span><span class="m">−x<sup>2</sup>−2x，x&lt;0。</span></span></span></p>
+        <p><strong>（3）</strong>当 <span class="m">x&gt;0</span> 时，<span class="m">f(x)=(x−1)<sup>2</sup>−1</span>，在 <span class="m">[1,+∞)</span> 上递增；当 <span class="m">x&lt;0</span> 时，<span class="m">f(x)=−(x+1)<sup>2</sup>+1</span>，在 <span class="m">(−∞,−1]</span> 上递增。所以单调递增区间为 <span class="m">(−∞,−1]</span> 和 <span class="m">[1,+∞)</span>。</p>
+        <p class="warn-note"><b>易错：</b>单调区间之间用“和”连接，不要写成并集 <span class="m">(−∞,−1]∪[1,+∞)</span>；在两个区间之间函数并不是一直递增的。</p>
+        <p class="plain"><b>人话：</b>奇函数求负半轴解析式就三步：设 <span class="m">x&lt;0</span>，把 <span class="m">−x</span> 当正数代公式，最后整体加负号。</p>
+      </div>
+    </details>
+
+    <details class="solution">
+      <summary><span>第 20 题 · 二次函数的实际应用</span><span class="sum-note">点击看答案</span></summary>
+      <div class="solution-body">
+        <div class="answer-line">答案：（1）S=x(24−2x)，定义域 [7,12)；（2）x=7 m 时，S 最大为 70 m<sup>2</sup></div>
+        <p><strong>（1）</strong>垂直于墙的一边长为 <span class="m">x m</span>，则平行于墙的一边长为 <span class="m">(24−2x) m</span>。由于旧墙长 10 m，平行边不能超过墙长，且长度为正，所以</p>
+        <p class="m" style="text-align:center">0&lt;24−2x≤10，且 x&gt;0。</p>
+        <p>解得 <span class="m">7≤x&lt;12</span>。因此</p>
+        <p class="m" style="text-align:center">S=x(24−2x)=−2x<sup>2</sup>+24x，x∈[7,12)。</p>
+        <p><strong>（2）</strong>配方得</p>
+        <p class="m" style="text-align:center">S=−2(x−6)<sup>2</sup>+72。</p>
+        <p>对称轴为 <span class="m">x=6</span>，在区间 <span class="m">[7,12)</span> 的左侧。所以 <span class="m">S</span> 在 <span class="m">[7,12)</span> 上单调递减，当 <span class="m">x=7</span> 时取得最大值</p>
+        <p class="m" style="text-align:center">S<sub>max</sub>=7×(24−14)=70。</p>
+        <p>所以当 <span class="m">x=7 m</span> 时，羊圈面积最大，最大面积为 <span class="m">70 m<sup>2</sup></span>。</p>
+        <p class="warn-note"><b>易错：</b>如果不看墙长，直接按二次函数顶点算，会得到 <span class="m">x=6、S=72</span>；但 <span class="m">x=6</span> 时平行边为 12 m，超过 10 m 的墙，不符合题意。</p>
+        <p class="plain"><b>人话：</b>实际应用题先写“能取哪些 x”，再求最值；定义域常常会把顶点挡在外面，这时最值就在端点。</p>
+      </div>
+    </details>
+
+    <details class="solution">
+      <summary><span>第 21 题 · 抽象函数奇偶性与单调性解不等式</span><span class="sum-note">点击看答案</span></summary>
+      <div class="solution-body">
+        <div class="answer-line">答案：(0,1)</div>
+        <p><strong>解析：</strong>首先，两个自变量都必须在定义域 <span class="m">(−1,1)</span> 内：</p>
+        <p class="m" style="text-align:center">−1&lt;1−a&lt;1 ⇒ 0&lt;a&lt;2；<br>−1&lt;1−a<sup>2</sup>&lt;1 ⇒ 0&lt;a<sup>2</sup>&lt;2。</p>
+        <p>由第二式得 <span class="m">−√2&lt;a&lt;√2</span> 且 <span class="m">a≠0</span>，与第一式取交集得</p>
+        <p class="m" style="text-align:center">0&lt;a&lt;√2。</p>
+        <p>因为 <span class="m">f(x)</span> 是奇函数，所以</p>
+        <p class="m" style="text-align:center">f(1−a)&lt;−f(1−a<sup>2</sup>)=f(a<sup>2</sup>−1)。</p>
+        <p>又 <span class="m">f(x)</span> 在 <span class="m">(−1,1)</span> 上单调递减，所以</p>
+        <p class="m" style="text-align:center">1−a&gt;a<sup>2</sup>−1，</p>
+        <p>即 <span class="m">a<sup>2</sup>+a−2&lt;0</span>，解得 <span class="m">−2&lt;a&lt;1</span>。</p>
+        <p>与定义域条件 <span class="m">0&lt;a&lt;√2</span> 取交集，得 <span class="m">0&lt;a&lt;1</span>。所以解集为 <span class="m">(0,1)</span>。</p>
+        <p class="warn-note"><b>易错：</b>只解单调性得到的不等式、不检查定义域，是这类题最常见的丢分点；最后一定要和定义域取交集。</p>
+        <p class="plain"><b>人话：</b>抽象函数解不等式，先“脱 f”（用奇偶性和单调性），再“补定义域”；两步都写完才完整。</p>
+      </div>
+    </details>
+
+    <details class="solution">
+      <summary><span>第 22 题 · 二次函数的单调性与最值</span><span class="sum-note">点击看答案</span></summary>
+      <div class="solution-body">
+        <div class="answer-line">答案：（1）a≤1；（2）a=1</div>
+        <p><strong>（1）</strong>配方得</p>
+        <p class="m" style="text-align:center">f(x)=(x−a)<sup>2</sup>+3−a<sup>2</sup>，</p>
+        <p>对称轴为 <span class="m">x=a</span>，开口向上。要使 <span class="m">f(x)</span> 在 <span class="m">[1,+∞)</span> 上单调递增，只需对称轴在区间左侧或与左端点重合，即 <span class="m">a≤1</span>。</p>
+        <p><strong>（2）</strong>按对称轴 <span class="m">x=a</span> 与区间 <span class="m">[0,2]</span> 的位置分类：</p>
+        <p>① 当 <span class="m">a&lt;0</span> 时，<span class="m">f(x)</span> 在 <span class="m">[0,2]</span> 上递增，最小值为 <span class="m">f(0)=3</span>，不等于 2，舍去。</p>
+        <p>② 当 <span class="m">0≤a≤2</span> 时，最小值为 <span class="m">f(a)=3−a<sup>2</sup></span>。令 <span class="m">3−a<sup>2</sup>=2</span>，得 <span class="m">a=±1</span>，结合 <span class="m">0≤a≤2</span>，取 <span class="m">a=1</span>。</p>
+        <p>③ 当 <span class="m">a&gt;2</span> 时，<span class="m">f(x)</span> 在 <span class="m">[0,2]</span> 上递减，最小值为 <span class="m">f(2)=7−4a</span>。令 <span class="m">7−4a=2</span>，得 <span class="m">a=5/4</span>，不满足 <span class="m">a&gt;2</span>，舍去。</p>
+        <p>综上，<span class="m">a=1</span>。</p>
+        <p class="plain"><b>人话：</b>二次函数在闭区间上的最值，就看对称轴在区间的左边、里面还是右边；三种情况各算一次，最后别忘了检查范围。</p>
+      </div>
+    </details>
+  </section>
+
+  <section class="plan" id="analysis">
+    <h2>考点分布与复盘方法</h2>
+    <p>这张表把 22 道题对应回教材，方便你按章节补漏。分值按题目标注统计，合计 150 分。</p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th class="num">题号</th><th>考点</th><th>教材位置</th><th class="num">分值</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="num">1</td><td>集合的交集、二次不等式</td><td>1.3</td><td class="num">5</td></tr>
+          <tr><td class="num">2</td><td>全称量词命题的否定</td><td>1.5</td><td class="num">5</td></tr>
+          <tr><td class="num">3</td><td>充分条件与必要条件</td><td>1.4</td><td class="num">5</td></tr>
+          <tr><td class="num">4</td><td>基本不等式求积的最大值</td><td>2.2</td><td class="num">5</td></tr>
+          <tr><td class="num">5</td><td>函数的定义域</td><td>3.1</td><td class="num">5</td></tr>
+          <tr><td class="num">6</td><td>奇函数求值</td><td>3.2</td><td class="num">5</td></tr>
+          <tr><td class="num">7</td><td>奇偶性与单调性</td><td>3.2</td><td class="num">5</td></tr>
+          <tr><td class="num">8</td><td>不等式恒成立、对勾函数</td><td>2.3 / 3.2</td><td class="num">5</td></tr>
+          <tr><td class="num">9</td><td>含参集合、子集与空集</td><td>1.2 / 1.3</td><td class="num">5</td></tr>
+          <tr><td class="num">10</td><td>基本不等式、配方</td><td>2.2</td><td class="num">5</td></tr>
+          <tr><td class="num">11</td><td>对勾函数的图象与性质</td><td>3.2</td><td class="num">5</td></tr>
+          <tr><td class="num">12</td><td>偶函数、单调性解不等式</td><td>3.2</td><td class="num">5</td></tr>
+          <tr><td class="num">13</td><td>集合的互异性、并集</td><td>1.1 / 1.3</td><td class="num">5</td></tr>
+          <tr><td class="num">14</td><td>分式不等式</td><td>2.3</td><td class="num">5</td></tr>
+          <tr><td class="num">15</td><td>换元法求解析式</td><td>3.1</td><td class="num">5</td></tr>
+          <tr><td class="num">16</td><td>基本不等式求最小值</td><td>2.2</td><td class="num">5</td></tr>
+          <tr><td class="num">17</td><td>集合运算、含参包含关系</td><td>1.3</td><td class="num">10</td></tr>
+          <tr><td class="num">18</td><td>含参二次不等式、恒成立</td><td>2.3</td><td class="num">12</td></tr>
+          <tr><td class="num">19</td><td>奇函数解析式、单调区间</td><td>3.2</td><td class="num">12</td></tr>
+          <tr><td class="num">20</td><td>二次函数的实际应用（定义域限制）</td><td>2.3</td><td class="num">12</td></tr>
+          <tr><td class="num">21</td><td>抽象函数奇偶性、单调性解不等式</td><td>3.2</td><td class="num">12</td></tr>
+          <tr><td class="num">22</td><td>二次函数的单调性与最值</td><td>2.3 / 3.2</td><td class="num">12</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout">
+      <strong>按章节统计：</strong>第一章 35 分，第二章 61 分，第三章 54 分。第二章和第三章是这次的主战场，第一章的分主要靠“不粗心”拿满。
+    </div>
+
+    <h3>100 分路线（目标 100/150）</h3>
+    <ul>
+      <li><strong>先稳拿：</strong>第 1—7 题、第 9—10 题、第 13—15 题、第 17 题、第 19 题前两问、第 20 题第（1）问、第 22 题第（1）问。这些题方法固定，练的是熟练度和书写规范。</li>
+      <li><strong>再争取：</strong>第 8、11、12、16 题，第 18 题第（1）问，第 21 题，第 22 题第（2）问。它们的共同点是“要先判断、再计算”，把分类讨论写清楚就能拿到过程分。</li>
+      <li><strong>最后检查：</strong>集合端点开闭、空集、基本不等式等号条件、奇偶性定义域、单调区间不能并、恒成立端点能不能取。这六处每处值 5 分左右。</li>
+    </ul>
+
+    <h3>做完之后怎么用</h3>
+    <ol>
+      <li><strong>先算分，不先看解析。</strong>把各板块得分填进上面的自评框，记录总分和用时。</li>
+      <li><strong>按考点表归因。</strong>错题不要只写“粗心”，要写清楚是“概念不清”“方法没想到”还是“计算/书写错误”。</li>
+      <li><strong>二刷只做错题。</strong>隔一天再做一遍错题；如果第二次还能独立写完整，才算真正补上。</li>
+      <li><strong>回到教材对应小节。</strong>比如第 21 题卡住，就回看 3.2 节奇偶性与单调性的例题，再做课本习题中的同类题。</li>
+    </ol>
+
+    <p class="q-hint" style="margin-top:.7rem">本卷只覆盖必修第一册前三章。如果学校期中还会考指数函数与对数函数，建议另做一份第 4 章的限时小卷，把“指对数运算 + 图象性质 + 零点”单独练一遍。</p>
+  </section>
+
+  <footer>
+    <p>人教 A 版 · 数学必修第一册 · 高一上期中自测卷</p>
+    <p style="margin-top:.3rem"><a href="index.html">返回课件首页</a> · <a href="math-pep-a.html">数学知识梳理</a> · <a href="math-pep-a-functions.html">函数图解</a></p>
+    <p style="margin-top:.3rem">模拟自测卷，仅供自学使用；具体考试范围以学校教学进度为准。</p>
+  </footer>
+
+</main>
+
+<script>
+(function () {
+  function setDetailsOpen(open) {
+    document.querySelectorAll("details").forEach(function (d) {
+      if (open) {
+        if (!("wasOpen" in d.dataset)) d.dataset.wasOpen = d.open ? "1" : "0";
+        d.open = true;
+      } else if ("wasOpen" in d.dataset) {
+        d.open = d.dataset.wasOpen === "1";
+        delete d.dataset.wasOpen;
+      }
+    });
+  }
+  window.addEventListener("beforeprint", function () { setDetailsOpen(true); });
+  window.addEventListener("afterprint", function () { setDetailsOpen(false); });
+})();
+</script>
+<script>
+(function () {
+  var root = document.documentElement;
+  var buttons = document.querySelectorAll(".view-switch [data-view]");
+  function sync() {
+    var a4 = root.classList.contains("a4");
+    buttons.forEach(function (btn) {
+      btn.setAttribute("aria-pressed", String((btn.getAttribute("data-view") === "a4") === a4));
+    });
+  }
+  buttons.forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var a4 = btn.getAttribute("data-view") === "a4";
+      root.classList.toggle("a4", a4);
+      try {
+        localStorage.setItem("hs-view", a4 ? "a4" : "wide");
+        var url = new URL(location.href);
+        url.searchParams.set("view", a4 ? "a4" : "wide");
+        history.replaceState(null, "", url);
+      } catch (e) {}
+      sync();
+    });
+  });
+  sync();
+})();
+</script>
+<script>
+(function () {
+  var inputs = Array.prototype.slice.call(document.querySelectorAll("[data-score]"));
+  var totalEl = document.getElementById("score-total");
+  var commentEl = document.getElementById("score-comment");
+  var reset = document.getElementById("score-reset");
+  function clamp(v, max) {
+    if (isNaN(v)) return 0;
+    return Math.max(0, Math.min(max, v));
+  }
+  function update() {
+    var total = 0;
+    inputs.forEach(function (input) {
+      var max = Number(input.getAttribute("data-score"));
+      var v = clamp(parseFloat(input.value), max);
+      if (input.value !== "" && v !== parseFloat(input.value)) input.value = v;
+      total += v;
+    });
+    totalEl.textContent = Number.isInteger(total) ? String(total) : total.toFixed(1);
+    var msg = "";
+    if (total <= 0) msg = "";
+    else if (total >= 135) msg = "基础很稳，可以开始练综合卷和压轴题。";
+    else if (total >= 120) msg = "前三章掌握不错，重点补分类讨论和书写规范。";
+    else if (total >= 100) msg = "达到 100 分目标，回看错题对应的小节。";
+    else if (total >= 80) msg = "基础题还有漏分，先把第 1—17 题重做一遍。";
+    else msg = "建议先回到教材例题，把集合、不等式、函数性质逐节过一遍。";
+    commentEl.textContent = msg;
+  }
+  inputs.forEach(function (input) { input.addEventListener("input", update); });
+  reset.addEventListener("click", function () {
+    inputs.forEach(function (input) { input.value = ""; });
+    update();
+  });
+  update();
+
+  var openAll = document.getElementById("open-all");
+  var closeAll = document.getElementById("close-all");
+  if (openAll) openAll.addEventListener("click", function () {
+    document.querySelectorAll("details.solution").forEach(function (d) { d.open = true; });
+  });
+  if (closeAll) closeAll.addEventListener("click", function () {
+    document.querySelectorAll("details.solution").forEach(function (d) { d.open = false; });
+  });
+})();
+</script>
+<script>
+function printPaper() {
+  document.body.classList.add("paper-print");
+  function cleanup() {
+    document.body.classList.remove("paper-print");
+    window.removeEventListener("afterprint", cleanup);
+  }
+  window.addEventListener("afterprint", cleanup);
+  window.print();
+}
+</script>
+</body>
+</html>
