@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>高效自学 · 考到 80% 的完整路线</title>
+<style>
+  :root {
+    --ink: #1a2332;
+    --muted: #5a6577;
+    --line: #d5dce6;
+    --bg: #eef1f5;
+    --card: #ffffff;
+    --accent: #1a3a5c;
+    --font: "PingFang SC", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+    --serif: "Source Han Serif SC", "Noto Serif SC", "Songti SC", SimSun, serif;
+    --mono: "JetBrains Mono", Consolas, monospace;
+
+    --gold: #8a6218;
+    --gold-soft: #f7efdc;
+    --math: #0d6e6e;
+    --math-soft: #e6f3f3;
+    --chem: #0f5c4c;
+    --chem-soft: #e4f2ee;
+    --red: #b84332;
+    --red-soft: #fceee9;
+    --blue: #15468a;
+    --blue-soft: #e6edf7;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--font);
+    color: var(--ink);
+    background:
+      radial-gradient(ellipse at 8% 0%, rgba(21,70,138,.08), transparent 42%),
+      radial-gradient(ellipse at 92% 6%, rgba(13,110,110,.07), transparent 40%),
+      linear-gradient(180deg, #f6f8fb 0%, var(--bg) 45%, #e8ecf2 100%);
+    line-height: 1.75;
+    font-size: 15.5px;
+    min-height: 100vh;
+  }
+  a { color: inherit; text-decoration: none; }
+
+  .topbar {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(18, 28, 42, 0.96);
+    color: #e8eef5;
+    border-bottom: 1px solid #2a3548;
+    backdrop-filter: blur(8px);
+  }
+  .topbar-inner {
+    max-width: 1100px; margin: 0 auto; padding: .62rem 1.2rem;
+    display: flex; flex-wrap: wrap; gap: .5rem .9rem; align-items: center;
+  }
+  .brand { font-weight: 700; letter-spacing: .02em; white-space: nowrap; }
+  .brand small { color: #8fb0d0; font-weight: 500; margin-left: .45rem; font-size: .82em; }
+  .nav { display: flex; flex-wrap: wrap; gap: .15rem .75rem; font-size: .82rem; }
+  .nav a { color: #c3d4e6; padding: .1rem 0; border-bottom: 1px solid transparent; }
+  .nav a:hover { color: #fff; border-bottom-color: #8fb0d0; }
+  .badge {
+    margin-left: auto; background: #1a3a5c; font-size: .72rem; font-weight: 700;
+    padding: .25rem .65rem; border-radius: 999px; white-space: nowrap;
+  }
+  .print-btn {
+    background: transparent; color: #e8eef5; border: 1px solid rgba(255,255,255,.28);
+    cursor: pointer; font-size: .75rem; font-weight: 700; padding: .28rem .7rem;
+    border-radius: 999px; font-family: inherit; white-space: nowrap;
+  }
+  .print-btn:hover { background: rgba(255,255,255,.08); }
+
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 1.4rem 1.2rem 3.5rem; }
+
+  .hero {
+    background: linear-gradient(140deg, #121c2a 0%, #1a3a5c 55%, #0d5c4c 100%);
+    color: #eef3f8; border-radius: 14px; padding: 2rem 1.7rem 1.7rem;
+    position: relative; overflow: hidden;
+  }
+  .hero::after {
+    content: ""; position: absolute; right: -50px; top: -60px;
+    width: 240px; height: 240px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(201,162,39,.28), transparent 70%);
+    pointer-events: none;
+  }
+  .hero .kicker {
+    color: #8fb0d0; font-size: .82rem; letter-spacing: .1em;
+    margin-bottom: .55rem; font-family: var(--mono);
+  }
+  .hero h1 {
+    font-family: var(--serif); font-size: clamp(1.55rem, 3.4vw, 2.1rem);
+    line-height: 1.35; margin-bottom: .6rem; position: relative; z-index: 1;
+  }
+  .hero p { color: #b8c9db; max-width: 46rem; position: relative; z-index: 1; font-size: .95rem; }
+  .hero p b { color: #f0d98a; }
+  .chips { display: flex; flex-wrap: wrap; gap: .45rem; margin-top: 1rem; position: relative; z-index: 1; }
+  .chip {
+    background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.14);
+    padding: .25rem .65rem; border-radius: 6px; font-size: .78rem; color: #d5e2ef;
+  }
+
+  .quick {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: .6rem; margin-top: 1rem;
+  }
+  .quick a {
+    background: var(--card); border: 1px solid var(--line); border-top: 3px solid var(--sc);
+    border-radius: 8px; padding: .6rem .75rem; font-size: .87rem; font-weight: 700;
+    color: var(--sc); transition: border-color .15s, box-shadow .15s, transform .15s;
+  }
+  .quick a span { display: block; color: var(--muted); font-weight: 400; font-size: .75rem; margin-top: .1rem; }
+  .quick a:hover { box-shadow: 0 6px 20px rgba(26,35,50,.08); transform: translateY(-1px); }
+
+  .s-gold { --sc: var(--gold); --sc-soft: var(--gold-soft); }
+  .s-math { --sc: var(--math); --sc-soft: var(--math-soft); }
+  .s-blue { --sc: var(--blue); --sc-soft: var(--blue-soft); }
+  .s-red { --sc: var(--red); --sc-soft: var(--red-soft); }
+
+  section { margin-top: 2.3rem; scroll-margin-top: 70px; }
+  section > h2 {
+    font-family: var(--serif); font-size: 1.3rem;
+    display: flex; align-items: baseline; gap: .55rem;
+    border-bottom: 2px solid var(--accent); padding-bottom: .35rem;
+    margin-bottom: .55rem;
+  }
+  section > h2 .num {
+    font-family: var(--mono); font-size: .8rem; font-weight: 700;
+    color: var(--accent); letter-spacing: .08em;
+  }
+  .lead { color: var(--muted); font-size: .93rem; margin-bottom: 1rem; max-width: 52rem; }
+  .sub-h { font-family: var(--serif); font-size: 1.06rem; margin: 1.25rem 0 .4rem; }
+
+  .principles {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+    gap: .7rem;
+  }
+  .principle {
+    background: var(--card); border: 1px solid var(--line); border-radius: 10px;
+    padding: .9rem 1rem;
+  }
+  .principle .p-num {
+    font-family: var(--mono); font-size: .72rem; font-weight: 700;
+    color: var(--gold); letter-spacing: .06em;
+  }
+  .principle h3 { font-size: 1rem; margin: .15rem 0 .3rem; }
+  .principle p { font-size: .87rem; color: var(--muted); }
+  .principle .do {
+    margin-top: .5rem; padding-top: .45rem; border-top: 1px dashed var(--line);
+    font-size: .84rem; color: var(--ink);
+  }
+  .principle .do b { color: var(--gold); }
+
+  .callout {
+    border-left: 3px solid var(--gold); background: var(--gold-soft);
+    padding: .7rem .9rem; border-radius: 0 8px 8px 0;
+    font-size: .9rem; margin-top: 1rem;
+  }
+  .callout b { color: #6b4b10; }
+  .callout.red { border-left-color: var(--red); background: var(--red-soft); }
+  .callout.red b { color: #8c2f22; }
+  .callout.green { border-left-color: var(--chem); background: var(--chem-soft); }
+  .callout.green b { color: #0f5c4c; }
+  .callout.blue { border-left-color: var(--blue); background: var(--blue-soft); }
+  .callout.blue b { color: #15468a; }
+
+  .tbl { width: 100%; border-collapse: collapse; font-size: .87rem; margin-top: .65rem; }
+  .tbl th, .tbl td {
+    border: 1px solid var(--line); padding: .45rem .55rem;
+    text-align: left; vertical-align: top;
+  }
+  .tbl th { background: #f2f5f8; font-weight: 700; white-space: nowrap; }
+  .tbl tbody tr:nth-child(even) { background: #fafbfc; }
+  .tbl td.time { font-family: var(--mono); white-space: nowrap; color: var(--accent); font-weight: 700; }
+  .tbl .good { color: var(--chem); font-weight: 700; }
+  .tbl .bad { color: var(--red); font-weight: 700; }
+  .tbl .gold { color: var(--gold); font-weight: 700; }
+
+  .three {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(285px, 1fr));
+    gap: .75rem;
+  }
+  .step-card {
+    background: var(--card); border: 1px solid var(--line); border-top: 4px solid var(--gold);
+    border-radius: 10px; padding: 1rem 1.05rem;
+  }
+  .step-card .big {
+    font-family: var(--serif); font-size: 2rem; line-height: 1;
+    color: var(--gold); margin-bottom: .15rem;
+  }
+  .step-card h3 { font-size: 1.08rem; margin-bottom: .3rem; }
+  .step-card p { font-size: .87rem; color: var(--muted); }
+  .step-card ul { margin: .45rem 0 0 1.1rem; font-size: .85rem; }
+  .step-card li { margin: .15rem 0; }
+  .step-card .tagline {
+    display: inline-block; margin-top: .55rem; font-size: .8rem; font-weight: 700;
+    color: var(--gold); background: var(--gold-soft); padding: .12rem .45rem; border-radius: 4px;
+  }
+
+  .chain {
+    display: flex; flex-wrap: wrap; align-items: center; gap: .35rem;
+    margin-top: 1rem; font-size: .82rem;
+  }
+  .chain span {
+    background: #fff; border: 1px solid var(--line);
+    padding: .3rem .65rem; border-radius: 999px;
+  }
+  .chain span.on { background: var(--gold-soft); border-color: #d8c28e; color: #6b4b10; font-weight: 700; }
+  .chain i { color: var(--muted); font-style: normal; }
+
+  .score-bar {
+    display: flex; flex-wrap: wrap; gap: .5rem; margin-top: .9rem;
+  }
+  .seg {
+    flex: 1 1 150px; background: var(--card); border: 1px solid var(--line);
+    border-top: 4px solid var(--sc); border-radius: 9px; padding: .8rem .9rem;
+  }
+  .seg .k { font-size: .78rem; font-weight: 700; color: var(--sc); }
+  .seg .v { font-family: var(--serif); font-size: 1.7rem; line-height: 1.15; margin: .2rem 0 .1rem; }
+  .seg p { font-size: .8rem; color: var(--muted); }
+
+  .subject {
+    background: var(--card); border: 1px solid var(--line);
+    border-top: 4px solid var(--sc); border-radius: 12px;
+    padding: 1.2rem 1.3rem 1.25rem; margin-top: 1rem;
+  }
+  .subject-head { display: flex; flex-wrap: wrap; align-items: center; gap: .55rem; margin-bottom: .2rem; }
+  .subject-head h3 { font-family: var(--serif); font-size: 1.26rem; }
+  .subject-head .snum {
+    font-family: var(--mono); font-size: .72rem; font-weight: 700;
+    color: var(--sc); letter-spacing: .08em; margin-right: .35rem;
+  }
+  .tag {
+    font-family: var(--mono); font-size: .68rem; font-weight: 700;
+    color: var(--sc); background: var(--sc-soft);
+    padding: .15rem .45rem; border-radius: 4px; letter-spacing: .04em;
+  }
+  .why { color: var(--muted); font-size: .91rem; margin-bottom: .8rem; }
+  .why b { color: var(--sc); }
+
+  .memo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: .7rem; }
+  .memo {
+    background: #fbfcfd; border: 1px solid var(--line);
+    border-radius: 8px; padding: .7rem .8rem;
+  }
+  .memo h4 {
+    font-size: .83rem; color: var(--sc); margin-bottom: .3rem;
+    letter-spacing: .02em;
+  }
+  .memo ul { margin-left: 1rem; font-size: .84rem; }
+  .memo li { margin: .15rem 0; }
+  .memo p { font-size: .84rem; color: var(--muted); }
+  .memo p b { color: var(--ink); }
+  .memo .example {
+    margin-top: .35rem; padding-top: .35rem; border-top: 1px dashed var(--line);
+  }
+
+  .worked {
+    margin-top: 1rem; border: 1px solid var(--line); border-left: 4px solid var(--sc);
+    border-radius: 10px; background: #fbfcfd; padding: 1rem 1.1rem;
+  }
+  .worked-head { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem; margin-bottom: .3rem; }
+  .worked-head h3 { font-family: var(--serif); font-size: 1.08rem; }
+  .worked-q {
+    background: var(--sc-soft); border-radius: 6px; padding: .45rem .6rem;
+    font-size: .88rem; margin: .3rem 0 .7rem;
+  }
+  .worked-grid { display: grid; grid-template-columns: 1fr 1fr; gap: .55rem; }
+  .worked-step {
+    background: #fff; border: 1px solid var(--line);
+    border-radius: 7px; padding: .6rem .7rem;
+  }
+  .worked-step h4 { font-size: .85rem; color: var(--sc); margin-bottom: .2rem; }
+  .worked-step p, .worked-step li { font-size: .83rem; color: var(--muted); }
+  .worked-step ol, .worked-step ul { margin-left: 1rem; }
+  .worked-step li { margin: .1rem 0; }
+  .worked-step p + p { margin-top: .3rem; }
+  .worked-net {
+    margin-top: .65rem; border-top: 1px dashed var(--line);
+    padding-top: .5rem; font-size: .84rem;
+  }
+  .worked-net b { color: var(--sc); }
+
+  .rules { margin: .55rem 0 0 1.15rem; font-size: .87rem; }
+  .rules li { margin: .18rem 0; }
+  .rules li b { color: var(--gold); }
+
+  .checklist { list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: .2rem .9rem; margin-top: .55rem; }
+  .checklist li { font-size: .86rem; padding-left: 1.15rem; position: relative; }
+  .checklist li::before {
+    content: ""; position: absolute; left: 0; top: .42em;
+    width: .66em; height: .66em; border: 1px solid var(--sc, #666); border-radius: 1px;
+  }
+
+  .qa { background: #fff; border: 1px solid var(--line); border-radius: 8px; padding: .65rem .9rem; margin-top: .5rem; }
+  .qa summary { cursor: pointer; font-weight: 700; font-size: .92rem; }
+  .qa p { margin-top: .4rem; color: var(--muted); font-size: .88rem; }
+
+  footer {
+    text-align: center; color: var(--muted); font-size: .8rem;
+    margin-top: 2.2rem; padding-top: 1.1rem; border-top: 1px solid var(--line);
+  }
+
+  @media (max-width: 820px) {
+    .memo-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 760px) {
+    .wrap { padding: 1rem .85rem 2.5rem; }
+    .nav { display: none; }
+    .hero { padding: 1.5rem 1.15rem; }
+    .memo-grid { grid-template-columns: 1fr; }
+    .worked-grid { grid-template-columns: 1fr; }
+    .tbl { font-size: .82rem; }
+    .tbl th, .tbl td { padding: .35rem .4rem; }
+    .subject { padding: 1rem .9rem; }
+  }
+
+  @page { size: A4 portrait; margin: 14mm 12mm 16mm 12mm; }
+
+  @media print {
+    html, body {
+      background: #fff !important; color: #000 !important;
+      font-size: 10.5pt; line-height: 1.45;
+      -webkit-print-color-adjust: exact; print-color-adjust: exact;
+    }
+    .topbar, .print-btn, .quick, .no-print { display: none !important; }
+    .wrap { max-width: none; margin: 0; padding: 0; }
+    .hero {
+      background: #fff !important; color: #000 !important;
+      border: 1.5pt solid #333; border-radius: 0; padding: 10pt;
+      margin: 0 0 10pt;
+    }
+    .hero::after { display: none !important; }
+    .hero .kicker, .hero p, .chip { color: #222 !important; }
+    .hero p b { color: #000 !important; }
+    .hero h1 { color: #000 !important; font-size: 16pt; }
+    .chip { background: #f5f5f5 !important; border: .5pt solid #888 !important; }
+    section { margin-top: 14pt; }
+    section > h2 { color: #000; border-bottom: 1.2pt solid #000; }
+    section > h2 .num { color: #000; }
+    .lead, .why, .principle p, .step-card p, .memo p, .qa p { color: #222 !important; }
+    .subject {
+      border: .75pt solid #444; border-top: 2pt solid #000;
+      border-radius: 0; padding: 8pt; break-inside: auto;
+    }
+    #goal, #sleep, #math, #faq { break-before: page; }
+    .principle, .step-card, .memo, .callout, .qa, .worked, .seg { break-inside: avoid; page-break-inside: avoid; }
+    .principles, .three { grid-template-columns: 1fr 1fr; gap: 4pt; }
+    .memo-grid { grid-template-columns: 1fr 1fr; gap: 4pt; }
+    .principle, .step-card, .memo { background: #fff !important; }
+    .tbl { font-size: 9pt; }
+    .tbl th { background: #f2f2f2 !important; }
+    .tbl th, .tbl td { border: .5pt solid #777; }
+    .checklist { grid-template-columns: 1fr 1fr; }
+    a { color: #000 !important; text-decoration: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">高效自学<small>考到 80% 的路线</small></div>
+    <nav class="nav" aria-label="页内导航">
+      <a href="index.html">← 首页</a>
+      <a href="#goal">目标拆解</a>
+      <a href="#flow">学习流程</a>
+      <a href="#sleep">睡眠精力</a>
+      <a href="#time">时间节奏</a>
+      <a href="#exam">考试策略</a>
+      <a href="#math">数学示范</a>
+      <a href="#faq">常见问题</a>
+    </nav>
+    <button type="button" class="print-btn" onclick="window.print()" title="按 A4 纵向打印">打印</button>
+    <span class="badge">方法页 · 可打印</span>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="hero" aria-label="学习路线说明">
+    <div class="kicker">SELF-STUDY ROADMAP · HIT 80%</div>
+    <h1>高效自学不是更拼命，<br>是让「学习、睡眠、复习、考试」各就各位</h1>
+    <p>80% 不是天才才够得着的分数：150 分制就是 <b>120 分</b>，100 分制就是 <b>80 分</b>。你不需要把难题全做对，只需要把<b>会做的全部拿到手</b>。把流程走对、把睡眠保住、把精力用在刀刃上，基础一般的高一学生也能稳定逼近这个目标。下面以数学为例，讲清整套路线。</p>
+    <div class="chips">
+      <span class="chip">学习流程</span>
+      <span class="chip">睡眠精力</span>
+      <span class="chip">时间分配</span>
+      <span class="chip">考试策略</span>
+      <span class="chip">以数学为例</span>
+    </div>
+  </section>
+
+  <div class="quick" aria-label="快速跳转">
+    <a class="s-gold" href="#goal">目标拆解<span>80% 是多少分</span></a>
+    <a class="s-gold" href="#flow">学习流程<span>五步闭环</span></a>
+    <a class="s-blue" href="#sleep">睡眠精力<span>睡不够，白学</span></a>
+    <a class="s-gold" href="#time">时间节奏<span>每天怎么排</span></a>
+    <a class="s-red" href="#exam">考试策略<span>把会做的全拿到</span></a>
+    <a class="s-math" href="#math">数学示范<span>完整走一遍</span></a>
+  </div>
+
+  <section id="goal">
+    <h2><span class="num">01</span>目标拆解：80% 意味着「会做的全对」</h2>
+    <p class="lead">先把目标拆到试卷上，你才知道力气往哪使。一张高一数学卷（150 分制）大致是这样分布的，其他理科结构类似。</p>
+
+    <div class="score-bar">
+      <div class="seg s-math">
+        <div class="k">基础题 · 送分题</div>
+        <div class="v">约 75 分</div>
+        <p>概念、定义、公式直接套用。这是 80% 的地基，目标是一分不丢。</p>
+      </div>
+      <div class="seg s-gold">
+        <div class="k">中等题 · 会但易错</div>
+        <div class="v">约 45 分</div>
+        <p>思路想得到，但容易在计算、分类、等号上丢分。目标是拿稳 35—40 分。</p>
+      </div>
+      <div class="seg s-red">
+        <div class="k">难题 · 压轴</div>
+        <div class="v">约 30 分</div>
+        <p>新题型、含参、抽象函数。目标不是做全对，而是抢 10—20 分步骤分。</p>
+      </div>
+    </div>
+
+    <table class="tbl">
+      <thead>
+        <tr><th>层次</th><th>占比</th><th>分值（150 制）</th><th>目标得分</th><th>策略</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>基础题</td><td>约 50%</td><td>约 75 分</td><td class="good">72—75 分</td><td>会做就全对，不许粗心</td></tr>
+        <tr><td>中等题</td><td>约 30%</td><td>约 45 分</td><td class="good">35—40 分</td><td>稳拿大部分，易错点反复练</td></tr>
+        <tr><td>难题</td><td>约 20%</td><td>约 30 分</td><td class="gold">10—20 分</td><td>抢步骤分，不恋战</td></tr>
+        <tr><td><b>合计</b></td><td>100%</td><td>150 分</td><td class="good"><b>约 120 分</b></td><td>= 80%</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout"><b>想考 120，第一件事不是多刷难题，而是把 75 分基础题做全对。</b>很多同学卡在 80—90 分，不是因为难题不会，而是基础题东错一点、西错一点，加起来丢了 30 多分。先把「会做的」锁死，再谈向上够。</div>
+
+    <div class="callout red"><b>两个最常见的误区：</b>一是「只要刷难题就能涨分」——难题占分少、性价比低，基础不牢时刷难题只会打击信心；二是「粗心不是问题」——粗心就是熟练度和习惯不够，是丢分的头号原因，必须当成真问题去解决。</div>
+  </section>
+
+  <section id="flow">
+    <h2><span class="num">02</span>学习流程：一个五步闭环（以数学为例）</h2>
+    <p class="lead">高效自学的核心不是「学更久」，而是每一步都接到下一步，形成一个不空转的闭环。以数学为例，五步走完，一个知识点才算真正落地。</p>
+
+    <div class="three">
+      <div class="step-card">
+        <div class="big">01</div>
+        <h3>预习：5 分钟，只找「卡点」</h3>
+        <p>不追求看懂，只标记哪里看不懂。</p>
+        <ul>
+          <li>翻一遍新内容，划出定义、公式</li>
+          <li>在不懂的地方打个「？」</li>
+          <li>上课时重点听你打「？」的地方</li>
+        </ul>
+        <span class="tagline">预习 = 给大脑提前挂号</span>
+      </div>
+      <div class="step-card">
+        <div class="big">02</div>
+        <h3>听 / 学：听懂「为什么」</h3>
+        <p>重点不是记笔记，是跟上推导。</p>
+        <ul>
+          <li>盯着「这一步为什么接到下一步」</li>
+          <li>笔记只记思路链，不抄板书</li>
+          <li>没跟上的地方先标记，课后补</li>
+        </ul>
+        <span class="tagline">听懂 ≠ 记住，但听不懂就没法记</span>
+      </div>
+      <div class="step-card">
+        <div class="big">03</div>
+        <h3>当天练：盖住答案做例题</h3>
+        <p>听懂之后必须自己做一遍。</p>
+        <ul>
+          <li>先盖住答案，自己写完整步骤</li>
+          <li>卡住超过 5 分钟，看解析再重做</li>
+          <li>做完说一句「这题考的是什么」</li>
+        </ul>
+        <span class="tagline">听懂的当天不练，等于没学</span>
+      </div>
+      <div class="step-card">
+        <div class="big">04</div>
+        <h3>错题回滚：只补「为什么错」</h3>
+        <p>错题不是抄一遍，是定位错因。</p>
+        <ul>
+          <li>是没思路？还是算错？还是看错条件？</li>
+          <li>只记「错因 + 正确思路链」</li>
+          <li>一周后再做一遍同题</li>
+        </ul>
+        <span class="tagline">错题 = 你的免费提分清单</span>
+      </div>
+      <div class="step-card">
+        <div class="big">05</div>
+        <h3>白纸复现：合上书写出来</h3>
+        <p>能写出来的，才是你的。</p>
+        <ul>
+          <li>一张白纸，默写本知识点 + 一道例题思路</li>
+          <li>想不起来就画「？」，写完再翻书补红笔</li>
+          <li>每周回滚，连续四周</li>
+        </ul>
+        <span class="tagline">复习 = 合上书，先写</span>
+      </div>
+    </div>
+
+    <div class="chain" aria-label="学习闭环">
+      <span class="on">预习</span><i>→</i><span class="on">听/学</span><i>→</i><span class="on">当天练</span><i>→</i><span class="on">错题回滚</span><i>→</i><span class="on">白纸复现</span>
+    </div>
+
+    <div class="callout green"><b>以「函数单调性」为例走一遍：</b>预习时划出定义里的「任取 x₁、x₂」并打个「？」（为什么必须任意？）→ 上课听老师讲「作差、变形、定号」每一步的道理 → 当天盖住答案做一道判断单调性的题 → 错在「作差后忘了通分」，把这条错因记下来 → 白纸上默「取值→作差→变形→定号→结论」五步。这样一个知识点就真正落地了。</div>
+
+    <h3 class="sub-h">闭环里的三条铁律</h3>
+    <ul class="rules">
+      <li><b>当天不练 = 白学：</b>听懂和会做之间隔着一道「自己做一遍」的坎，当天跨不过去，第二天就凉了。</li>
+      <li><b>先懂后记：</b>能理解的先理解，再压缩成关键词和思路链；暂时不懂的先标记，回滚时补，不硬背。</li>
+      <li><b>卡点计时：</b>单个卡点最多 5 分钟，想不通就画「？」继续，别在半路耗死。</li>
+    </ul>
+  </section>
+
+  <section id="sleep">
+    <h2><span class="num">03</span>睡眠与精力：睡不够，学得再多也白费</h2>
+    <p class="lead">很多同学把睡眠当成「可以压缩的成本」，这恰恰是效率的最大漏洞。睡眠不是休息那么简单，它是<b>记忆巩固和学习效率的硬件基础</b>。</p>
+
+    <div class="principles">
+      <div class="principle">
+        <div class="p-num">01 · 记忆</div>
+        <h3>白天学的，夜里才真正「存进去」</h3>
+        <p>大脑在睡眠中（尤其是深睡阶段）会把白天学的知识从临时记忆整理、固化到长期记忆里。睡眠不足，这一步就做不完整——背过的东西第二天照样想不起来。</p>
+        <div class="do"><b>结论：</b>熬夜背的东西，往往第二天忘得比记得多；与其熬夜硬背，不如早点睡、早起再背。</div>
+      </div>
+      <div class="principle">
+        <div class="p-num">02 · 专注</div>
+        <h3>睡不够，第二天只能「假学」</h3>
+        <p>睡眠不足会明显拉低专注力和反应速度。上课走神、做题看错条件、算错数，很多都跟睡眠不足直接相关。你补回的那点时间，第二天会加倍还回去。</p>
+        <div class="do"><b>结论：</b>判断睡眠够不够，看第二天上午是否精神、是否反复看错题。</div>
+      </div>
+      <div class="principle">
+        <div class="p-num">03 · 情绪</div>
+        <h3>睡得好，才扛得住压力</h3>
+        <p>长期缺觉会让人更容易烦躁、焦虑、自我怀疑。高一科目多、压力大，稳定的睡眠是情绪的缓冲垫，也是坚持自学的底气。</p>
+        <div class="do"><b>结论：</b>稳定作息比「某天多睡」更重要，尽量每天同一时间睡、同一时间起。</div>
+      </div>
+    </div>
+
+    <table class="tbl">
+      <thead>
+        <tr><th>事项</th><th>建议</th><th>为什么</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>夜间睡眠</td><td class="good">每晚 7—8 小时，尽量固定</td><td>高中生理想是 8 小时左右，现实至少保住 7 小时</td></tr>
+        <tr><td>睡前 30 分钟</td><td>放下手机、平板</td><td>屏幕蓝光会推迟睡意，让你「躺下却睡不着」</td></tr>
+        <tr><td>午休</td><td>15—20 分钟</td><td>恢复下午精力；别超过 30 分钟，否则醒后更困</td></tr>
+        <tr><td>熬夜</td><td class="bad">尽量不熬</td><td>熬一次，第二天全天打折，得不偿失</td></tr>
+        <tr><td>考试前夜</td><td class="good">正常时间睡，不临时抱佛脚</td><td>考前靠的是「提取」，不是「再塞新东西」</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout blue"><b>精力管理的三件小事：</b>① 番茄钟 25 分钟专注 + 5 分钟起身活动，别一口气坐两小时；② 每天 20 分钟运动（跑步、跳绳都行），运动能提升专注和情绪；③ 白天多喝水、早餐吃够，血糖过低时大脑是转不动的。</div>
+
+    <div class="callout red"><b>别再拿「别人都熬夜」当理由：</b>熬夜刷题到凌晨，第二天上课打瞌睡，等于用晚上的 2 小时，换走了第二天全天的效率。这笔账是亏的。把睡眠当「学习的一部分」来对待，而不是学习的敌人。</div>
+  </section>
+
+  <section id="time">
+    <h2><span class="num">04</span>时间与节奏：每天固定，而非「有空再学」</h2>
+    <p class="lead">自学的敌人不是「没时间」，而是「等有空再学」——结果永远没空。把每天的学习固定下来，把一周的节奏排出来，才能稳定滚雪球。</p>
+
+    <h3 class="sub-h">每天 40 分钟自学闭环（以数学为例）</h3>
+    <table class="tbl">
+      <thead>
+        <tr><th>时间</th><th>动作</th><th>完成标准</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="time">0—5 分钟</td><td>回滚：合书，白纸写昨天／上周的内容</td><td>写不出的部分翻昨天的纸补，红笔标出来</td></tr>
+        <tr><td class="time">5—20 分钟</td><td>理解着记：读概念、公式和一道例题，先问「为什么、怎么来」</td><td>能用自己的话讲清，并默出知识点 + 思路链</td></tr>
+        <tr><td class="time">20—32 分钟</td><td>做：盖住解析做例题或作业，用题验证理解</td><td>草稿写完整步骤；卡点超 5 分钟画「？」跳过</td></tr>
+        <tr><td class="time">32—38 分钟</td><td>复现：空白纸画今天这一节的结构</td><td>中心词、分支、例题思路都在纸上</td></tr>
+        <tr><td class="time">38—40 分钟</td><td>收尾：翻书用红笔补缺口，写下明天先补的 1—3 条</td><td>红笔部分就是明天开头的第一件事</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout"><b>时间不够时用 20 分钟版：</b>5 分钟回滚 + 10 分钟理解着记知识点和例题思路 + 5 分钟白纸复现。宁可每天留一张纸，也不要一周只学一次、一次学三小时。</div>
+
+    <h3 class="sub-h">一周节奏表</h3>
+    <table class="tbl">
+      <thead>
+        <tr><th>时段</th><th>做什么</th><th>目的</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>周一—周五</td><td>每天 40 分钟：跟着课堂推进，当天闭环</td><td>紧跟进度，别欠账</td></tr>
+        <tr><td>周末上午</td><td>回滚本周内容：白纸复现 + 补红笔，处理本周所有「？」</td><td>把本周内容「焊牢」</td></tr>
+        <tr><td>周末下午</td><td>专项补弱：只攻你最薄弱的那个点（如函数、不等式）</td><td>集中补短板，不撒胡椒面</td></tr>
+        <tr><td>考前一周</td><td>不刷新题，只复现旧结构 + 重做错题</td><td>把「会的」再提取一遍，稳稳上场</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout blue"><b>关键不是时长，是「固定 + 每天」：</b>每天固定同一时段（比如晚饭后 7:40），到了点就坐下，别等状态。状态是「坐下来之后」才有的，不是等来的。</div>
+  </section>
+
+  <section id="exam">
+    <h2><span class="num">05</span>考试策略：把会做的全部拿到手</h2>
+    <p class="lead">同一张卷子、同一个水平，策略不同能差出十几分。考 80% 的秘诀不是「超常发挥」，而是「该拿的分，一分都不丢」。</p>
+
+    <h3 class="sub-h">120 分钟数学卷的时间分配</h3>
+    <table class="tbl">
+      <thead>
+        <tr><th>阶段</th><th>时间</th><th>做什么</th><th>原则</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>一：扫一遍</td><td class="time">前 2 分钟</td><td>快速浏览全卷，心里分出「会 / 半会 / 不会」</td><td>不急着动笔，先看全局</td></tr>
+        <tr><td>二：基础题</td><td class="time">约 45 分钟</td><td>先做所有基础题，一遍做对</td><td>会做就全对，别图快</td></tr>
+        <tr><td>三：中等题</td><td class="time">约 45 分钟</td><td>做中等题，卡住 3 分钟就标记跳过</td><td>不死磕，回头再来</td></tr>
+        <tr><td>四：难题 + 检查</td><td class="time">约 25 分钟</td><td>难题写步骤抢分；剩下的时间回头检查</td><td>写一步算一步，检查优先于硬啃</td></tr>
+      </tbody>
+    </table>
+
+    <div class="three">
+      <div class="step-card">
+        <div class="big">①</div>
+        <h3>基础题：一遍做对，别「回头检查」</h3>
+        <p>基础题靠的是「一次做对」，不是「做完再检查」。做题时手到、眼到、心到，把条件看全、把符号看清。</p>
+        <span class="tagline">粗心是丢分的头号原因</span>
+      </div>
+      <div class="step-card">
+        <div class="big">②</div>
+        <h3>中等题：卡住就跳过，回头再来</h3>
+        <p>一道中等题卡 3 分钟还没思路，先跳过。做完整卷再回来，往往有思路了——因为你已经从别处「热身」过。</p>
+        <span class="tagline">先拿能拿的，再回来攻坚</span>
+      </div>
+      <div class="step-card">
+        <div class="big">③</div>
+        <h3>难题：写步骤，抢过程分</h3>
+        <p>难题不会做，也要把能写的写出来：设什么、用哪个公式、第一步怎么走。步骤分是按点给的，写一步赚一步。</p>
+        <span class="tagline">压轴题不追求满分，只抢步骤分</span>
+      </div>
+    </div>
+
+    <div class="callout red"><b>检查时优先「回看」而不是「重算」：</b>优先检查——符号有没有写反、条件有没有看漏、单位有没有写对、答案有没有誊错。这些「低级错误」比「算错」更常见，也更好抓。</div>
+  </section>
+
+  <section id="math">
+    <h2><span class="num">06</span>以数学为例：一个知识点的完整示范</h2>
+    <p class="lead">把前面五节串起来，落到一个具体知识点上：函数单调性。从预习到考试，走完整条路线，看看 80% 是怎么一步步攒出来的。</p>
+
+    <div class="subject s-math">
+      <div class="subject-head">
+        <h3><span class="snum">数学</span>函数单调性 · 从预习到拿分</h3>
+        <span class="tag">人教 A 版</span>
+      </div>
+      <p class="why">单调性是高一数学的核心概念，直接连到<b>最值、不等式、函数图象</b>，也是考试里基础题和中等题的高频考点。把它走通，等于同时拿下好几个考点。</p>
+
+      <div class="memo-grid">
+        <div class="memo">
+          <h4>① 预习（5 分钟）</h4>
+          <ul>
+            <li>划出定义：「区间内任取 x₁ &lt; x₂，都有 f(x₁) &lt; f(x₂)」</li>
+            <li>打「？」：为什么必须「任取」？「&lt;」和「≤」差在哪？</li>
+            <li>上课重点听这两个问题</li>
+          </ul>
+        </div>
+        <div class="memo">
+          <h4>② 听 / 学（听懂为什么）</h4>
+          <p>跟着老师走「取值 → 作差 → 变形 → 定号 → 结论」五步。</p>
+          <p class="example"><b>关键：</b>作差后为什么要变形（通分、因式分解）？因为要判断差的正负，不变形看不出来。</p>
+        </div>
+        <div class="memo">
+          <h4>③ 当天练（盖答案做）</h4>
+          <p class="example"><b>例题：</b>证明 f(x) = x² 在 [0, +∞) 上单调递增。</p>
+          <p>自己写出五步；卡在「作差后 x₂² − x₁² 怎么变形」就翻书补，再重做。</p>
+        </div>
+        <div class="memo">
+          <h4>④ 错题回滚（记错因）</h4>
+          <p class="example"><b>常见错因：</b>只写「x₁ &lt; x₂」，忘了说明「x₂ + x₁ &gt; 0」这一步符号成立的原因。</p>
+          <p>记成一句：「变形到 (x₂ − x₁)(x₂ + x₁) 后，要交代每个因式的符号。」</p>
+        </div>
+      </div>
+
+      <div class="worked s-math">
+        <div class="worked-head">
+          <span class="tag">白纸复现</span>
+          <h3>合上书，一张纸写出单调性的完整结构</h3>
+        </div>
+        <div class="worked-grid">
+          <div class="worked-step">
+            <h4>定义（能默出来）</h4>
+            <p>任取 x₁、x₂，x₁ &lt; x₂，若 f(x₁) &lt; f(x₂)，则 f 在该区间<b>单调递增</b>；若 f(x₁) &gt; f(x₂)，则<b>单调递减</b>。</p>
+          </div>
+          <div class="worked-step">
+            <h4>判断步骤（能默出来）</h4>
+            <ol>
+              <li>取值：任取 x₁、x₂，设 x₁ &lt; x₂</li>
+              <li>作差：f(x₁) − f(x₂)</li>
+              <li>变形：通分 / 因式分解 / 配方</li>
+              <li>定号：判断每个因式的符号</li>
+              <li>结论：由差的正负判增减</li>
+            </ol>
+          </div>
+          <div class="worked-step">
+            <h4>易错点（红笔记下）</h4>
+            <ul>
+              <li>忘记「任取」，只举一个特例不算证明</li>
+              <li>变形后没交代符号来源</li>
+              <li>单调区间要写「区间」，不能写「点」</li>
+            </ul>
+          </div>
+          <div class="worked-step">
+            <h4>考试怎么拿分</h4>
+            <p>基础题：给函数判单调区间 → 直接套步骤，全拿；中等题：含参函数讨论单调性 → 分类讨论写清楚，拿大部分；难题：抽象函数单调性 → 先写「任取、作差、变形」框架，抢步骤分。</p>
+          </div>
+        </div>
+        <div class="worked-net"><b>连网：</b>单调性 ↔ 最值 ↔ 不等式 ↔ 函数图象。看到「比较大小」想到用单调性；看到「求最值」先看单调性；看到「证明不等式」想到移项后看函数单调性。这几条边连起来，同一个知识点就能在好几类题里反复变现——这就是 80% 的底气。</div>
+      </div>
+
+      <div class="callout green"><b>一个知识点吃透的回报：</b>单调性这一个点，连着最值、不等式、图象三大块。走通它，不是「会一道题」，而是「一类题都能拿分」。高效自学的要义，就是把这种「高杠杆知识点」优先吃透，而不是平均用力。</div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <h2><span class="num">07</span>常见问题</h2>
+    <p class="lead">下面是刚开始执行时最常遇到的问题，以及最常见的思维误区，逐个说清楚，别让它们绊住你。</p>
+
+    <h3 class="sub-h">思维误区：先拆掉这些「自我设限」</h3>
+
+    <details class="qa">
+      <summary>误区：「我脑子笨，数学天生学不好。」</summary>
+      <p>高中理科掉队，绝大多数不是智力问题，而是「断点没补、方法不对」。能考到 80%，靠的是把基础题做对、把流程走对——这些不需要天赋，只需要正确的动作和坚持。把「我笨」换成「我哪一步没接上」，问题就从「天意」变成了可以一个个解决的具体断点。</p>
+    </details>
+    <details class="qa">
+      <summary>误区：「只要多刷题，分数自然会上来。」</summary>
+      <p>只刷题、不总结、不补错因，是低效的自我感动。刷题必须有反馈：这道题为什么错、考的是什么、下次怎么避。有反馈地练 10 道题，胜过无反馈地刷 100 道。刷题是手段，不是目的。</p>
+    </details>
+    <details class="qa">
+      <summary>误区：「我看懂了，就等于会了。」</summary>
+      <p>看懂只是「认得」，离「会做」还差一步。检验标准只有一个：盖住答案，自己能完整做出来。做不出来，就说明还没会。所以每天都要有「白纸复现」这一环，用「写出来」代替「感觉会了」。</p>
+    </details>
+    <details class="qa">
+      <summary>误区：「努力了没效果，是我天赋不行。」</summary>
+      <p>努力没效果，多半是「方法错位」或「反馈太慢」——比如只重读不测试、只刷难题不打基础。先停下来看方法对不对，而不是急着否定自己。基础不牢的时候，进步本来就需要一两周的延迟，别在黎明前放弃。</p>
+    </details>
+    <details class="qa">
+      <summary>误区：「错题丢人，考不好 = 我不行。」</summary>
+      <p>错题和低分是「免费的诊断报告」，告诉你哪里没接上。把它们当敌人，你会躲着它们、越来越差；把它们当清单，你会越来越稳。分数是诊断，不是审判。真正的高手都在抢着收集自己的错题。</p>
+    </details>
+    <details class="qa">
+      <summary>误区：「时间花得越多，学得越好。」</summary>
+      <p>效率和时长是两回事。熬夜硬撑、坐两小时走神半小时，都是「假学」。真正的进步看「闭环有没有走完」，不看「坐了多久」。与其熬到凌晨，不如睡够 7—8 小时，用清醒的一小时做完整闭环。</p>
+    </details>
+    <details class="qa">
+      <summary>误区：「难题才体现水平，基础题没意思。」</summary>
+      <p>对 80% 目标来说，基础题全对才是地基。地基不牢，难题做得再多，分数也上不去——因为难题占分少、性价比低。先把「送分题」锁死，再谈向上够，这是最划算的一条路。</p>
+    </details>
+    <details class="qa">
+      <summary>误区：「我现在开始，已经晚了 / 追不上了。」</summary>
+      <p>高一上学期才刚开始，前面的内容有限，完全来得及补。真正晚的不是时间，是「因为觉得晚了而干脆不动」的心态。今天开始，永远比明天早；拖到下个月，才真的晚了。</p>
+    </details>
+
+    <h3 class="sub-h">执行问题</h3>
+
+    <details class="qa">
+      <summary>我基础很差，现在开始还来得及吗？</summary>
+      <p>来得及。80% 这个目标对基础的要求其实不高：它靠的是「基础题全对 + 中等题稳拿」，而不是难题全会。基础差反而意味着提升空间大。先从最前面的概念补起，每个知识点走完五步闭环，一个月内就能看到分数往上走。关键是别再欠新账——当天内容当天闭环。</p>
+    </details>
+    <details class="qa">
+      <summary>每天作业都做不完，哪有时间自学？</summary>
+      <p>把自学和作业合并，而不是「作业之外再加一套」。作业本身就是「当天练」那一环：盖住答案做、卡点画「？」、错题记错因。这样作业既是完成任务，也是自学闭环的一部分，不需要额外再加一小时。缺的只是「预习 5 分钟」和「白纸复现 5—10 分钟」，加起来不到 15 分钟。</p>
+    </details>
+    <details class="qa">
+      <summary>睡眠真的比多刷几道题重要吗？</summary>
+      <p>是。睡眠是记忆巩固和学习效率的硬件基础：睡不够，白天背的东西夜里存不进去，第二天专注力下降、反复出错。用熬夜换来的那点学习时间，第二天会以数倍的低效还回去。优先保证 7—8 小时睡眠，学习效率上来了，反而省时间。</p>
+    </details>
+    <details class="qa">
+      <summary>「会做的题全对」怎么练？粗心怎么改？</summary>
+      <p>粗心不是性格，是熟练度和习惯不够。三个办法：① 做题时放慢关键步骤——看条件、抄符号、算符号，一步一步落实；② 建立「易错清单」，把自己常犯的错（符号写反、漏看条件、誊错答案）记下来，考前看一遍；③ 检查时优先「回看」而不是「重算」，抓低级错误。坚持练，粗心能明显减少。</p>
+    </details>
+    <details class="qa">
+      <summary>难题到底要不要花时间？</summary>
+      <p>要，但要分阶段。80% 目标下，难题的策略是「抢步骤分」，不是「做全对」。基础题和中等题没拿稳之前，别把大量时间投进压轴题——性价比低。等基础和中档分稳定了，再每天抽一点时间碰难题，练「写出能写的步骤」这件事。</p>
+    </details>
+    <details class="qa">
+      <summary>这套路线四科都适用吗？</summary>
+      <p>都适用，只是「学什么」不同：数学背「条件 → 方法」，物理背「对象 → 过程 → 规律」，化学背「概念 → 符号 → 现象」，生物背「教材原话 → 过程顺序」。但五步闭环、睡眠精力、考试策略这些是通用的。先用数学跑通，再复制到其他三科。</p>
+    </details>
+    <details class="qa">
+      <summary>坚持不下来怎么办？</summary>
+      <p>别一次改太多。第一周只做一件事：每天固定时间坐下，用白纸写当天知识点；第二周再加「当天盖答案做例题」；第三周加「错题记错因」；第四周才开始「每周回滚」。每周只加一个动作，形成习惯后再加下一个。坚持不是靠意志力硬扛，是靠把动作变小、变固定。</p>
+    </details>
+    <details class="qa">
+      <summary>80% 之后还能再往上吗？</summary>
+      <p>能。80% 是「把会做的全拿到」的及格线，往上走靠的是把「半会的」变成「会的」——也就是把中等题拿满、难题多抢几分。到了那个阶段，再回到学习流程里，把「高杠杆知识点」和「错题」继续挖深即可。先把 80% 站稳，这是最现实的第一步。</p>
+    </details>
+  </section>
+
+  <footer>
+    <p>高一上 · 高效自学 · 考到 80% 的完整路线 · 学习流程 + 睡眠精力 + 时间节奏 + 考试策略 · 以数学为例 · 仅供个人学习使用</p>
+  </footer>
+
+</main>
+
+<script>
+(function () {
+  function setDetailsOpen(open) {
+    document.querySelectorAll("details").forEach(function (d) {
+      if (open) {
+        if (!("wasOpen" in d.dataset)) d.dataset.wasOpen = d.open ? "1" : "0";
+        d.open = true;
+      } else if ("wasOpen" in d.dataset) {
+        d.open = d.dataset.wasOpen === "1";
+        delete d.dataset.wasOpen;
+      }
+    });
+  }
+  window.addEventListener("beforeprint", function () { setDetailsOpen(true); });
+  window.addEventListener("afterprint", function () { setDetailsOpen(false); });
+})();
+</script>
+</body>
+</html>
