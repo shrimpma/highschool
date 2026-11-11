@@ -31,6 +31,8 @@
     --bio2-soft: #fceee9;
     --study: #8a6218;
     --study-soft: #f7efdc;
+    --tool: #7d2f4a;
+    --tool-soft: #f7e9ee;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
@@ -180,6 +182,7 @@
   .card.bio { --subj: var(--bio); --subj-soft: var(--bio-soft); }
   .card.bio2 { --subj: var(--bio2); --subj-soft: var(--bio2-soft); }
   .card.study { --subj: var(--study); --subj-soft: var(--study-soft); }
+  .card.tool { --subj: var(--tool); --subj-soft: var(--tool-soft); }
   .card.univ { --subj: var(--accent); --subj-soft: var(--physics-soft); }
 
   .extra {
@@ -457,6 +460,28 @@
           <span>可打印</span>
         </div>
         <span class="go">打开方法页</span>
+      </a>
+    </div>
+  </section>
+
+  <section class="extra">
+    <h2>学习工具</h2>
+    <p class="lead">理科掉队通常不是智力问题，而是断点没补、抽象没落地、卡点没人管、反馈太慢。这一页把四件事做成工具，先用数学、物理、化学。</p>
+    <div class="grid single">
+      <a class="card tool" href="study-tools.html">
+        <div class="card-top">
+          <span class="subj-tag">学习工具</span>
+          <span class="edition">数理化 · 先发</span>
+        </div>
+        <h3>数理化学习工具 · 断点诊断与每日最小任务</h3>
+        <p class="desc">不再讲一遍知识，只给四个上手就能用的工具：18 条断点自检、函数 / 矢量 / 物质的量三个互动图、5 分钟卡点急救与求助句、每天 20 分钟的最小任务与连续天数。</p>
+        <div class="meta">
+          <span>18 条断点</span>
+          <span>3 个互动图</span>
+          <span>5 分钟规则</span>
+          <span>每日 20 分钟</span>
+        </div>
+        <span class="go">打开工具页</span>
       </a>
     </div>
   </section>

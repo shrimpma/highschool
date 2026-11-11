@@ -41,6 +41,7 @@ python3 -m http.server
 | `biology-pep.html` | 生物必修 1 系统自学（34→80） |
 | `biology-pep-topics.html` | 生物必修 1，13 个专题 |
 | `study-methods.html` | 学习技巧 · 知识结构复现法（非学科课件） |
+| `study-tools.html` | 数理化学习工具 · 断点诊断、可视化、卡点急救、每日任务（非学科课件） |
 | `career-high-paying-majors.html` | 专业与就业参考页（非学科课件） |
 | `shandong-universities.html` | 山东高校参考页（非学科课件） |
 | `README.md` | 站点地址和仓库说明 |
@@ -52,7 +53,7 @@ python3 -m http.server
 
 - 课件卡片的 `href` 是同目录相对路径，字符必须和磁盘文件名完全一致（直接写文件名，不要写成百分号编码）。
 - 顶栏徽章是 `4 科 · 9 份课件`，hero 里的统计是 `4` 学科、`9` 份课件。增删课件时一起改。
-- 卡片类名决定学科色：`math`、`physics`、`chem`、`bio`、`bio2`。对应的 `:root` 变量是 `--math`、`--physics`、`--chem`、`--bio`、`--bio2` 以及各自的 `-soft`。
+- 卡片类名决定学科色：`math`、`physics`、`chem`、`bio`、`bio2`，另有 `study`（学习技巧）、`tool`（学习工具）、`univ`（升学参考）。对应的 `:root` 变量是 `--math`、`--physics`、`--chem`、`--bio`、`--bio2`、`--study`、`--tool` 以及各自的 `-soft`。
 
 每份课件页的共同结构：
 
@@ -74,6 +75,7 @@ python3 -m http.server
 - `math-pep-a-midterm.html`：另有自评分计算、答案全部展开/收起和“只打印试卷”按钮；不写入 `localStorage`
 - `biology-pep.html`：另有 15 题诊断测验，以及勾选进度。`localStorage` 键是 `bio1-diagnostic`、`bio1-progress-v1`
 - `biology-pep-topics.html`：勾选进度。`localStorage` 键是 `bio1-topic-progress-v1`
+- `study-tools.html`：断点自检、5 分钟计时、求助句生成、每日最小任务与连续天数，以及三个互动图（二次函数、矢量合成、物质的量）。`localStorage` 键是 `sci-tools-v1`。学习工具与学习技巧一样，不计入「9 份课件」
 
 页面里的图是内联 SVG（数学、化学页）。除 SVG 命名空间 `xmlns="http://www.w3.org/2000/svg"` 外，没有外链字体、CDN、图片或脚本。离线打开和 Pages 都能用，是因为页面自包含。
 
@@ -111,6 +113,7 @@ python3 -m http.server
    - `biology-pep.html`
    - `biology-pep-topics.html`
    - `study-methods.html`（学习技巧卡片）
+   - `study-tools.html`（学习工具卡片）
 3. 改了 `@media print` 或 details 脚本时，打开打印预览：折叠内容应展开，纸张为 A4 纵向。
 4. 改了生物测验或勾选时，用上面的本地静态服务器提交一次测验、勾几项，刷新后确认还在。
 5. 确认文件仍是 UTF-8，中文没有乱码。
