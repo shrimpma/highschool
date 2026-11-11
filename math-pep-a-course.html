@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>数学（A版）必修第一册 · 教学课件 | 通俗图解 + 推导 + 经典例题</title>
+<style>
+  :root {
+    --ink: #1a2332;
+    --muted: #5a6577;
+    --line: #d5dce6;
+    --bg: #f0f3f7;
+    --card: #ffffff;
+    --accent: #0d6e6e;
+    --accent-soft: #e6f3f3;
+    --warn: #b45309;
+    --warn-soft: #fef3e6;
+    --good: #166534;
+    --good-soft: #e8f5ec;
+    --bad: #9f1239;
+    --bad-soft: #fce8ee;
+    --mid: #1d4ed8;
+    --mid-soft: #e8eefc;
+    --font-display: "Source Han Serif SC", "Noto Serif SC", "Songti SC", "SimSun", serif;
+    --font-body: "Source Han Sans SC", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+    --font-mono: "JetBrains Mono", "Cascadia Code", Consolas, monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--font-body);
+    color: var(--ink);
+    background: var(--bg);
+    line-height: 1.75;
+    font-size: 16px;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  .topbar {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(26, 35, 50, 0.96);
+    color: #e8eef5;
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid #2a3548;
+  }
+  .topbar-inner {
+    max-width: 1440px; margin: 0 auto;
+    padding: 0.7rem 1.25rem;
+    display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;
+  }
+  .brand { font-weight: 700; letter-spacing: 0.02em; white-space: nowrap; }
+  .brand span { color: #7ec8c8; font-weight: 500; font-size: 0.85em; margin-left: 0.5rem; }
+  .nav-links { display: flex; gap: 0.35rem; flex-wrap: wrap; flex: 1; }
+  .nav-links a {
+    color: #c5d0de; font-size: 0.82rem; padding: 0.25rem 0.55rem;
+    border-radius: 4px; text-decoration: none;
+  }
+  .nav-links a:hover { background: #2a3548; color: #fff; }
+  .print-btn {
+    background: #c9a227; color: #1a2332; border: none; cursor: pointer;
+    font-size: 0.75rem; font-weight: 700; padding: 0.3rem 0.7rem;
+    border-radius: 999px; font-family: inherit; white-space: nowrap;
+  }
+  .print-btn:hover { filter: brightness(1.08); }
+  .badge {
+    background: #0d6e6e; color: #fff; font-size: 0.78rem;
+    padding: 0.3rem 0.7rem; border-radius: 999px; font-weight: 600;
+    white-space: nowrap;
+  }
+
+  .wrap { max-width: 1440px; margin: 0 auto; padding: 1.5rem 1.25rem 4rem; }
+
+  .hero {
+    background: linear-gradient(145deg, #1a2332 0%, #243447 55%, #1e4a4a 100%);
+    color: #eef3f8; border-radius: 12px; padding: 2.2rem 2rem 2rem;
+    margin-bottom: 1.75rem; position: relative; overflow: hidden;
+  }
+  .hero::after {
+    content: ""; position: absolute; right: -40px; top: -40px;
+    width: 220px; height: 220px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(126,200,200,0.25), transparent 70%);
+  }
+  .hero-kicker { font-size: 0.85rem; color: #7ec8c8; letter-spacing: 0.08em; margin-bottom: 0.6rem; }
+  .hero h1 {
+    font-family: var(--font-display); font-size: clamp(1.55rem, 3.5vw, 2.1rem);
+    font-weight: 700; line-height: 1.35; margin-bottom: 0.75rem; position: relative; z-index: 1;
+  }
+  .hero p { color: #b8c5d6; max-width: 52rem; position: relative; z-index: 1; }
+  .hero-meta {
+    display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.25rem; position: relative; z-index: 1;
+  }
+  .chip {
+    background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15);
+    padding: 0.35rem 0.75rem; border-radius: 6px; font-size: 0.82rem; color: #d5e0ec;
+  }
+
+  section { margin-bottom: 2rem; }
+  .card {
+    background: var(--card); border: 1px solid var(--line);
+    border-radius: 10px; padding: 1.4rem 1.5rem; margin-bottom: 1rem;
+  }
+  h2 {
+    font-family: var(--font-display); font-size: 1.45rem;
+    margin-bottom: 0.85rem; padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--accent); display: inline-block;
+  }
+  h3 { font-size: 1.1rem; margin: 1.2rem 0 0.55rem; color: var(--ink); }
+  h4 { font-size: 0.98rem; margin: 0.9rem 0 0.4rem; color: var(--accent); }
+  p, li { color: var(--ink); }
+  .muted { color: var(--muted); font-size: 0.92rem; }
+  ul, ol { padding-left: 1.3rem; margin: 0.4rem 0 0.7rem; }
+  li { margin: 0.25rem 0; }
+  .lead { font-size: 1.02rem; color: var(--muted); margin-bottom: 1rem; }
+
+  /* TOC */
+  .toc-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 0.85rem; }
+  .toc-item {
+    border: 1px solid var(--line); border-radius: 8px; padding: 0.9rem 1rem;
+    background: #fafbfc; transition: border-color 0.15s, box-shadow 0.15s;
+  }
+  .toc-item:hover { border-color: var(--accent); box-shadow: 0 2px 10px rgba(13,110,110,0.08); }
+  .toc-item a { text-decoration: none; color: inherit; display: block; }
+  .toc-num { font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent); font-weight: 700; letter-spacing: 0.04em; }
+  .toc-title { font-weight: 700; margin: 0.2rem 0 0.35rem; }
+  .toc-subs { font-size: 0.82rem; color: var(--muted); line-height: 1.55; }
+
+  /* Tables */
+  .table-wrap { overflow-x: auto; margin: 0.75rem 0 1rem; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.9rem; min-width: 480px; }
+  th, td { border: 1px solid var(--line); padding: 0.55rem 0.7rem; text-align: left; vertical-align: top; }
+  th { background: #eef2f6; font-weight: 700; white-space: nowrap; }
+  tr:nth-child(even) td { background: #fafbfc; }
+  .tag {
+    display: inline-block; font-size: 0.72rem; font-weight: 700;
+    padding: 0.1rem 0.4rem; border-radius: 3px; margin-right: 0.25rem;
+  }
+  .tag-def { background: var(--accent-soft); color: var(--accent); }
+  .tag-key { background: var(--good-soft); color: var(--good); }
+  .tag-easy { background: var(--mid-soft); color: var(--mid); }
+  .tag-hot { background: var(--warn-soft); color: var(--warn); }
+
+  /* Callouts */
+  .callout {
+    border-left: 4px solid var(--accent); background: var(--accent-soft);
+    padding: 0.85rem 1rem; border-radius: 0 8px 8px 0; margin: 0.85rem 0;
+  }
+  .callout.warn { border-color: var(--warn); background: var(--warn-soft); }
+  .callout.good { border-color: var(--good); background: var(--good-soft); }
+  .callout.bad { border-color: var(--bad); background: var(--bad-soft); }
+  .callout strong { display: block; margin-bottom: 0.2rem; }
+
+  /* Formula */
+  .formula {
+    font-family: var(--font-mono); background: #f4f6f9;
+    border: 1px dashed #b8c4d4; border-radius: 6px;
+    padding: 0.65rem 0.9rem; margin: 0.5rem 0 0.8rem;
+    overflow-x: auto; font-size: 0.92rem;
+  }
+  .formula .c { color: var(--accent); font-weight: 700; }
+
+  /* Derivation (step-by-step proof) */
+  .derive {
+    background: #f7f9fb; border: 1px solid var(--line);
+    border-left: 4px solid var(--mid); border-radius: 8px;
+    padding: 0.9rem 1rem; margin: 0.85rem 0;
+  }
+  .derive .d-title {
+    font-weight: 700; color: var(--mid); font-size: 0.9rem; margin-bottom: 0.5rem;
+  }
+  .derive ol { padding-left: 1.3rem; margin: 0; }
+  .derive ol li { margin: 0.35rem 0; }
+  .derive .why { color: var(--muted); font-size: 0.88rem; margin-top: 0.5rem; }
+
+  /* Example block */
+  .example {
+    background: #fdfbf6; border: 1px solid #eadfca;
+    border-radius: 8px; padding: 1rem 1.1rem; margin: 0.9rem 0;
+  }
+  .example .e-title {
+    font-weight: 700; color: #8a6218; font-size: 0.9rem; margin-bottom: 0.4rem;
+  }
+  .example .e-body { font-size: 0.96rem; }
+  .example details { margin-top: 0.55rem; }
+  .example summary { cursor: pointer; color: var(--accent); font-weight: 600; font-size: 0.9rem; }
+  .example details p, .example details ol { font-size: 0.92rem; color: #35404f; }
+
+  /* SVG diagrams */
+  .diagram { width: 100%; max-width: 560px; margin: 0.6rem auto; display: block; }
+  .diagram-caption { text-align: center; font-size: 0.82rem; color: var(--muted); margin-bottom: 0.8rem; }
+
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  @media (max-width: 700px) { .two-col { grid-template-columns: 1fr; } }
+  .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin: 0.85rem 0; }
+  @media (max-width: 640px) { .compare-grid { grid-template-columns: 1fr; } }
+  .compare-card { border: 1px solid var(--line); border-radius: 8px; padding: 0.9rem 1rem; }
+  .compare-card.a { border-top: 3px solid var(--accent); }
+  .compare-card.b { border-top: 3px solid var(--warn); }
+  .compare-card h4 { margin-top: 0; }
+
+  .ch-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; flex-wrap: wrap; margin-bottom: 0.5rem; }
+  .ch-meta { font-size: 0.85rem; color: var(--muted); }
+  .priority {
+    display: inline-flex; align-items: center; gap: 0.35rem;
+    background: var(--accent-soft); color: var(--accent);
+    font-size: 0.78rem; font-weight: 700; padding: 0.3rem 0.65rem; border-radius: 999px;
+  }
+
+  .legend { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 0.5rem 0 0.85rem; font-size: 0.82rem; }
+
+  footer {
+    margin-top: 2rem; padding-top: 1.25rem; border-top: 1px solid var(--line);
+    font-size: 0.85rem; color: var(--muted); text-align: center;
+  }
+
+  @media (max-width: 800px) { .nav-links { display: none; } }
+
+  @page { size: A4 portrait; margin: 14mm 12mm 16mm 12mm; }
+
+  @media print {
+    html, body {
+      background: #fff !important; color: #000 !important;
+      font-size: 10.5pt; line-height: 1.45;
+      -webkit-print-color-adjust: exact; print-color-adjust: exact;
+    }
+    .topbar, .nav-links, .badge, .print-btn { display: none !important; }
+    .wrap { max-width: none; width: 100%; margin: 0; padding: 0; }
+    .hero {
+      background: #fff !important; color: #000 !important;
+      border: 1.5pt solid #333; border-radius: 0; padding: 8pt 10pt;
+      margin: 0 0 8pt; box-shadow: none;
+      break-inside: avoid; page-break-inside: avoid;
+    }
+    .hero::after { display: none !important; }
+    .hero-kicker, .hero p, .chip { color: #222 !important; }
+    .hero h1 { color: #000 !important; font-size: 15pt; }
+    .hero h1 br { display: none; }
+    .chip { background: #f0f0f0 !important; border: 0.5pt solid #666; color: #000 !important; border-radius: 0; }
+    .card, .toc-item, .compare-card, .callout, .derive, .example {
+      background: #fff !important; color: #000 !important;
+      border: 0.5pt solid #666 !important; border-radius: 0 !important;
+      box-shadow: none !important;
+      break-inside: avoid; page-break-inside: avoid;
+    }
+    .callout.warn, .callout.good, .callout.bad, .derive { background: #f7f7f7 !important; }
+    .example { background: #fbfbfb !important; border: 0.5pt solid #666 !important; }
+    h2 { color: #000; border-bottom: 1.2pt solid #000; font-size: 13pt; break-after: avoid; page-break-after: avoid; }
+    h3, h4 { color: #000 !important; break-after: avoid; page-break-after: avoid; }
+    .tag, .priority { background: #eee !important; color: #000 !important; border: 0.4pt solid #666; border-radius: 0; }
+    table { font-size: 8.5pt; break-inside: avoid; }
+    th, td { border-color: #666 !important; }
+    th { background: #e5e5e5 !important; color: #000 !important; }
+    .formula { background: #f5f5f5 !important; border: 0.5pt dashed #666; border-radius: 0; color: #000; }
+    details { break-inside: avoid; }
+    summary { color: #000 !important; }
+    summary::before { content: "【解析】 "; }
+    .two-col, .compare-grid { grid-template-columns: 1fr 1fr; }
+    .muted, .lead, .ch-meta, .derive .why { color: #333 !important; }
+    #ch1, #ch2, #ch3, #ch4, #ch5 { break-before: page; page-break-before: always; }
+    #intro, #toc { break-before: auto; }
+    footer { border-top: 0.5pt solid #666; color: #333 !important; font-size: 8pt; }
+    a { color: #000 !important; text-decoration: none !important; }
+    .table-wrap { overflow: visible !important; }
+    svg text { fill: #000 !important; }
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">数学 · 教学课件<span>人教A版 · 必修第一册</span></div>
+    <nav class="nav-links">
+      <a href="index.html">← 首页</a>
+      <a href="#intro">怎么用</a>
+      <a href="#toc">目录</a>
+      <a href="#ch1">第1章</a>
+      <a href="#ch2">第2章</a>
+      <a href="#ch3">第3章</a>
+      <a href="#ch4">第4章</a>
+      <a href="#ch5">第5章</a>
+    </nav>
+    <button type="button" class="print-btn" onclick="window.print()" title="按 A4 纵向打印">打印</button>
+    <div class="badge">五章全解</div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-kicker">高一上学期 · 自学课件</div>
+    <h1>《普通高中教科书·数学（A版）》必修第一册<br />教学课件 · 图解 + 推导 + 经典例题</h1>
+    <p>面向<strong style="color:#fff">中等基础</strong>的高一学生。每个知识点都走三步：<strong style="color:#7ec8c8">先看懂「为什么」</strong>（图解与推导）、<strong style="color:#7ec8c8">再记住「是什么」</strong>（公式与口诀）、<strong style="color:#7ec8c8">最后会「怎么用」</strong>（经典例题）。把抽象的数学落在图上，落在一步步推导里。</p>
+    <div class="hero-meta">
+      <span class="chip">教材：人教A版 · 必修第一册（2019）</span>
+      <span class="chip">五章全解</span>
+      <span class="chip">方法：图解 + 推导 + 例题</span>
+      <span class="chip">适合：中等基础自学</span>
+    </div>
+  </div>
+
+  <!-- INTRO -->
+  <section id="intro">
+    <h2>一、怎么用这份课件</h2>
+    <p class="lead">数学靠「记结论」只能应付眼前，靠「懂来路」才能举一反三。这份课件每一节都按下面这条主线编排：</p>
+    <div class="compare-grid">
+      <div class="compare-card a">
+        <h4>① 看懂「为什么」</h4>
+        <p>先给一个直观图，再给一步不跳的<strong>推导</strong>。比如基本不等式不是背出来的，是用<strong>半圆的半径与垂线</strong>比出来的。</p>
+      </div>
+      <div class="compare-card b">
+        <h4>② 记住「是什么」</h4>
+        <p>把推导收成一句口诀、一张表、一条公式，方便快速提取。配合<strong>公式块</strong>反复默写。</p>
+      </div>
+    </div>
+    <div class="compare-grid">
+      <div class="compare-card a">
+        <h4>③ 会「怎么用」</h4>
+        <p>每节配<strong>经典例题</strong>（答案折叠在「看解析」里），先自己做，再看步骤。</p>
+      </div>
+      <div class="compare-card b">
+        <h4>④ 结构化复习</h4>
+        <p>每章末有「本章一张图 + 易错清单」，考前扫一眼就能过一遍。</p>
+      </div>
+    </div>
+    <div class="legend">
+      <span class="tag tag-def">定义</span> 概念，要准确表述
+      <span class="tag tag-key">必会</span> 高频考点，练熟能拿分
+      <span class="tag tag-easy">推导</span> 看懂「为什么」，公式才能记得牢
+      <span class="tag tag-hot">易错</span> 常见丢分点
+    </div>
+    <div class="callout good">
+      <strong>✓ 给中等基础学生的一句话</strong>
+      不要跳步，不要只背公式。每看到一个公式，先问一句「它怎么来的？」——这份课件已经把答案写在「推导」框里了。
+    </div>
+  </section>
+
+  <!-- TOC -->
+  <section id="toc">
+    <h2>二、全书目录</h2>
+    <p class="lead">人教A版必修第一册共五章。点击进入对应章节。</p>
+    <div class="toc-grid">
+      <div class="toc-item">
+        <a href="#ch1">
+          <div class="toc-num">CHAPTER 01</div>
+          <div class="toc-title">集合与常用逻辑用语</div>
+          <div class="toc-subs">集合概念与运算 · 充分必要条件 · 量词与否定</div>
+        </a>
+      </div>
+      <div class="toc-item">
+        <a href="#ch2">
+          <div class="toc-num">CHAPTER 02</div>
+          <div class="toc-title">一元二次函数、方程和不等式</div>
+          <div class="toc-subs">不等式性质 · 基本不等式 · 三个二次</div>
+        </a>
+      </div>
+      <div class="toc-item">
+        <a href="#ch3">
+          <div class="toc-num">CHAPTER 03</div>
+          <div class="toc-title">函数的概念与性质</div>
+          <div class="toc-subs">函数三要素 · 单调性与奇偶性 · 幂函数</div>
+        </a>
+      </div>
+      <div class="toc-item">
+        <a href="#ch4">
+          <div class="toc-num">CHAPTER 04</div>
+          <div class="toc-title">指数函数与对数函数</div>
+          <div class="toc-subs">指数与对数 · 图象性质 · 零点与二分法</div>
+        </a>
+      </div>
+      <div class="toc-item">
+        <a href="#ch5">
+          <div class="toc-num">CHAPTER 05</div>
+          <div class="toc-title">三角函数</div>
+          <div class="toc-subs">弧度制 · 诱导公式 · 图象性质 · 恒等变换</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CH1 ========== -->
+  <section id="ch1">
+    <div class="card">
+      <div class="ch-head">
+        <div>
+          <h2 style="border:none;padding:0;margin:0">第一章 集合与常用逻辑用语</h2>
+          <div class="ch-meta">教材 p.4–38 · 建议 4–5 天 · 以选择、填空为主</div>
+        </div>
+        <span class="priority">基础章 · 必须全对</span>
+      </div>
+
+      <div class="callout">
+        <strong>本章主线</strong>
+        集合是一堆「确定对象」装进一个袋子；逻辑用语讲「谁能推出谁」。全章最怕<strong>符号写错、端点开闭错、否定漏结论</strong>。
+      </div>
+
+      <h3>1.1 集合的概念</h3>
+      <p><span class="tag tag-def">定义</span>把<strong>确定</strong>的对象放在一起，就构成一个集合。集合有三个要素：<strong>确定性、互异性、无序性</strong>。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>三要素</th><th>含义</th><th>举例说明</th></tr></thead>
+          <tbody>
+            <tr><td>确定性</td><td>一个对象「在」或「不在」集合，必须能说清</td><td>「高个子」不是集合（多高算高？）；「身高&gt;180cm的人」是集合</td></tr>
+            <tr><td>互异性</td><td>同一元素不能重复算两次</td><td>{1,1,2} 只能写成 {1,2}</td></tr>
+            <tr><td>无序性</td><td>元素顺序无关</td><td>{1,2}={2,1}</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>元素与集合的关系用 <strong>∈（属于）/ ∉（不属于）</strong>；集合与集合的关系用 <strong>⊆（含于）</strong>。两者不要混。</p>
+
+      <h3>1.2 集合间的基本关系</h3>
+      <div class="two-col">
+        <div>
+          <div class="formula"><span class="c">子集</span> A⊆B：A 中每个元素都在 B 中<br /><span class="c">真子集</span> A⊊B：A⊆B 且 A≠B<br /><span class="c">空集</span> ∅ 是任何集合的子集</div>
+        </div>
+        <div>
+          <p><span class="tag tag-hot">易错</span>一个含 n 个元素的集合，子集有 <strong>2ⁿ</strong> 个，真子集有 <strong>2ⁿ−1</strong> 个，非空真子集有 <strong>2ⁿ−2</strong> 个。别把空集 ∅ 漏算——它也算一个子集。</p>
+        </div>
+      </div>
+
+      <h3>1.3 集合的基本运算（交、并、补）</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>运算</th><th>符号</th><th>含义</th><th>区间例子</th></tr></thead>
+          <tbody>
+            <tr><td>交集</td><td>A ∩ B</td><td>既在 A 又在 B</td><td>[1,3]∩[2,5]=[2,3]</td></tr>
+            <tr><td>并集</td><td>A ∪ B</td><td>在 A 或在 B（含两边）</td><td>[1,3]∪[2,5]=[1,5]</td></tr>
+            <tr><td>补集</td><td>∁ᵤA</td><td>在全集 U 中、不在 A</td><td>U=ℝ, A=(0,1] → ∁ᵤA=(−∞,0]∪(1,+∞)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <svg class="diagram" viewBox="0 0 520 220" xmlns="http://www.w3.org/2000/svg" aria-label="文氏图表示交集并集补集">
+        <rect x="0" y="0" width="520" height="220" fill="#fff"/>
+        <rect x="10" y="10" width="158" height="200" rx="8" fill="none" stroke="#d5dce6" stroke-dasharray="4 3"/>
+        <text x="89" y="32" text-anchor="middle" font-size="12" fill="#5a6577">全集 U</text>
+        <circle cx="90" cy="120" r="62" fill="#e6f3f3" fill-opacity="0.6" stroke="#0d6e6e" stroke-width="2"/>
+        <circle cx="140" cy="120" r="62" fill="#e8eefc" fill-opacity="0.5" stroke="#1d4ed8" stroke-width="2"/>
+        <text x="58" y="120" font-size="14" fill="#0d6e6e" font-weight="700">A</text>
+        <text x="168" y="120" font-size="14" fill="#1d4ed8" font-weight="700">B</text>
+        <text x="115" y="120" text-anchor="middle" font-size="11" fill="#9f1239" font-weight="700">A∩B</text>
+        <text x="192" y="40" text-anchor="middle" font-size="11" fill="#5a6577">交集 = 中间重叠</text>
+        <text x="192" y="58" text-anchor="middle" font-size="11" fill="#5a6577">并集 = 两圆全部</text>
+        <text x="192" y="76" text-anchor="middle" font-size="11" fill="#5a6577">补集 = 框内但圈外</text>
+        <circle cx="360" cy="120" r="62" fill="#fce8ee" fill-opacity="0.5" stroke="#9f1239" stroke-width="2"/>
+        <text x="320" y="120" font-size="14" fill="#9f1239" font-weight="700">A</text>
+        <text x="430" y="80" text-anchor="middle" font-size="11" fill="#9f1239">∁ᵤA</text>
+        <text x="430" y="98" text-anchor="middle" font-size="11" fill="#9f1239">（阴影）</text>
+      </svg>
+      <p class="diagram-caption">用「画圈」来想：交集是重叠部分，并集是全部，补集是全集里去掉 A 剩下的。</p>
+
+      <h3>1.4 充分条件与必要条件</h3>
+      <p>核心就一句：<strong>「p 推出 q」记作 p ⇒ q</strong>。看箭头方向就能定关系。</p>
+      <div class="compare-grid">
+        <div class="compare-card a">
+          <h4>充分条件（p ⇒ q）</h4>
+          <div class="formula">p 是 q 的<span class="c">充分</span>条件<br />（有 p 就够了）</div>
+          <p class="muted">口诀：箭头前是「充分」，箭头后是「必要」。</p>
+        </div>
+        <div class="compare-card b">
+          <h4>必要条件（q 是 p 的必要）</h4>
+          <div class="formula">p ⇒ q 时，q 是 p 的<span class="c">必要</span>条件<br />（没 q 不行）</div>
+        </div>
+      </div>
+      <div class="derive">
+        <div class="d-title">推导 · 四类条件怎么分</div>
+        <ol>
+          <li>先写两个命题：p 和 q。</li>
+          <li>判断 p ⇒ q 是否成立；再判断 q ⇒ p 是否成立。</li>
+          <li>都成立 → <strong>充要</strong>；只 p⇒q → <strong>充分不必要</strong>；只 q⇒p → <strong>必要不充分</strong>；都不成立 → <strong>既不充分也不必要</strong>。</li>
+        </ol>
+        <p class="why">记法：把「⇒」当成一根箭头，箭头从「充分」指向「必要」。</p>
+      </div>
+
+      <h3>1.5 全称量词与存在量词</h3>
+      <p><strong>全称量词 ∀</strong>（所有、任意）否定后变 <strong>存在 ∃</strong>；<strong>存在量词 ∃</strong> 否定后变 <strong>全称 ∀</strong>。<span class="tag tag-hot">易错</span>否定时<strong>量词要换，结论也要取反</strong>。</p>
+      <div class="formula">「∀x∈M, p(x)」的否定是「∃x∈M, ¬p(x)」<br />「∃x∈M, p(x)」的否定是「∀x∈M, ¬p(x)」</div>
+
+      <div class="example">
+        <div class="e-title">经典例题 · 1</div>
+        <p class="e-body">已知集合 A={x | x²−3x+2=0}，B={x | 0&lt;x&lt;5, x∈N}，求 A∩B。</p>
+        <details>
+          <summary>看解析</summary>
+          <p>先解 A：x²−3x+2=(x−1)(x−2)=0 → x=1 或 2，故 A={1,2}。B 是 0 到 5 之间的自然数，B={1,2,3,4}。所以 A∩B={1,2}。</p>
+        </details>
+      </div>
+
+      <div class="example">
+        <div class="e-title">经典例题 · 2</div>
+        <p class="e-body">“x&gt;1” 是 “x&gt;0” 的什么条件？</p>
+        <details>
+          <summary>看解析</summary>
+          <p>x&gt;1 ⇒ x&gt;0 成立；但 x&gt;0 时不一定 x&gt;1（如 x=0.5），即 x&gt;0 ⇏ x&gt;1。所以是<strong>充分不必要条件</strong>。</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CH2 ========== -->
+  <section id="ch2">
+    <div class="card">
+      <div class="ch-head">
+        <div>
+          <h2 style="border:none;padding:0;margin:0">第二章 一元二次函数、方程和不等式</h2>
+          <div class="ch-meta">教材约 p.39–61 · 建议 5–6 天 · 贯穿后续函数章</div>
+        </div>
+        <span class="priority">工具章 · 期中必考</span>
+      </div>
+
+      <div class="callout warn">
+        <strong>本章主线</strong>
+        三件事：<strong>不等式性质</strong>（移项、变号）、<strong>基本不等式</strong>（求最值）、<strong>三个二次</strong>（二次函数 / 二次方程 / 二次不等式是一家）。
+      </div>
+
+      <h3>2.1 不等式的基本性质</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>操作</th><th>等式</th><th>不等式</th><th><span class="tag tag-hot">易错</span></th></tr></thead>
+          <tbody>
+            <tr><td>两边加同一数</td><td>成立</td><td>成立</td><td>—</td></tr>
+            <tr><td>两边乘正数</td><td>成立</td><td>方向不变</td><td>—</td></tr>
+            <tr><td>两边乘负数</td><td>成立</td><td><strong>方向要变</strong></td><td>忘变号</td></tr>
+            <tr><td>两边平方</td><td>需讨论</td><td>只有两边非负才能平方</td><td>漏条件</td></tr>
+            <tr><td>两边取倒数</td><td>一般可</td><td>同号才可，且方向要变</td><td>乱取倒数</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>2.2 基本不等式（必会）</h3>
+      <div class="formula">若 a&gt;0, b&gt;0，则 <span class="c">(a+b)/2 ≥ √(ab)</span>，当且仅当 a=b 时取等号。</div>
+      <div class="derive">
+        <div class="d-title">推导 · 基本不等式从哪来（圆 + 半径 + 垂线，不用死记）</div>
+        <ol>
+          <li>画一个半圆，直径 <strong>AB = a + b</strong>；在直径上取一点 C，使 <strong>AC = a、CB = b</strong>。</li>
+          <li>过 C 作直径 AB 的垂线，交半圆于 D。因为直径所对的圆周角 ∠ADB = 90°，所以 △ACD 与 △DCB 相似。</li>
+          <li>由相似得 <strong>AC : CD = CD : CB</strong>，即 CD² = AC · CB = a·b，于是 <strong>高 CD = √(ab)</strong>。</li>
+          <li>半圆的半径 <strong>OD = (a+b)/2</strong>（圆心 O 是直径中点）。</li>
+          <li>半径 OD 是斜线，高 CD 是垂线段；从同一点 D 出发，<strong>斜线总是不短于垂线</strong>，所以 <strong>OD ≥ CD</strong>。</li>
+          <li>代入即得 <strong>(a+b)/2 ≥ √(ab)</strong>；当且仅当 C 与圆心 O 重合（即 a=b）时取等号。</li>
+        </ol>
+        <p class="why">左边是半圆的<strong>半径</strong>（算术平均），右边是半圆内的<strong>高</strong>（几何平均）。「半径 ≥ 垂线」一句话记住整个不等式。</p>
+      </div>
+      <svg class="diagram" viewBox="0 0 440 250" xmlns="http://www.w3.org/2000/svg" aria-label="基本不等式几何证明：半圆直径a加b，高为根号ab，半径为a加b的一半">
+        <line x1="40" y1="200" x2="400" y2="200" stroke="#94a3b8" stroke-width="2"/>
+        <path d="M 40 200 A 180 180 0 0 1 400 200" fill="none" stroke="#0d6e6e" stroke-width="2.5"/>
+        <circle cx="40" cy="200" r="4" fill="#1a2332"/>
+        <text x="40" y="224" text-anchor="middle" font-size="13" fill="#1a2332">A</text>
+        <circle cx="400" cy="200" r="4" fill="#1a2332"/>
+        <text x="400" y="224" text-anchor="middle" font-size="13" fill="#1a2332">B</text>
+        <circle cx="220" cy="200" r="4" fill="#1d4ed8"/>
+        <text x="220" y="224" text-anchor="middle" font-size="13" fill="#1d4ed8">O</text>
+        <circle cx="160" cy="200" r="4" fill="#b45309"/>
+        <text x="160" y="224" text-anchor="middle" font-size="13" fill="#b45309">C</text>
+        <text x="95" y="192" text-anchor="middle" font-size="13" fill="#b45309">a</text>
+        <text x="285" y="192" text-anchor="middle" font-size="13" fill="#b45309">b</text>
+        <line x1="160" y1="200" x2="160" y2="30" stroke="#9f1239" stroke-width="2.5"/>
+        <circle cx="160" cy="30" r="4" fill="#9f1239"/>
+        <text x="160" y="16" text-anchor="middle" font-size="13" fill="#9f1239">D</text>
+        <text x="146" y="118" text-anchor="end" font-size="12" fill="#9f1239">高 CD = √(ab)</text>
+        <line x1="220" y1="200" x2="160" y2="30" stroke="#166534" stroke-width="2" stroke-dasharray="5 3"/>
+        <text x="228" y="96" font-size="12" fill="#166534">半径 (a+b)/2</text>
+        <path d="M 160 184 L 176 184 L 176 200" fill="none" stroke="#94a3b8" stroke-width="1.5"/>
+      </svg>
+      <p class="diagram-caption">几何意义：半径 (a+b)/2 是「斜线」，半圆内的高 √(ab) 是「垂线」，斜线总不短于垂线；当 C 移到圆心 O（a=b）时两者相等。</p>
+
+      <div class="callout bad">
+        <strong>✗ 最值题最容易丢的 2 分</strong>
+        用基本不等式求最值，务必检查两件事：<strong>① a、b 是否为正；② 等号能否取到（a=b 是否成立）</strong>。少写「当且仅当 a=b」会扣分。
+      </div>
+
+      <h3>2.3 三个二次（二次函数 · 方程 · 不等式）</h3>
+      <p><span class="tag tag-key">必会</span>二次函数 y=ax²+bx+c 的图象是一条抛物线；令 y=0 得到二次方程 ax²+bx+c=0；令 y&gt;0 或 y&lt;0 得到二次不等式。三者是<strong>同一个抛物线</strong>的不同问法。</p>
+      <svg class="diagram" viewBox="0 0 500 250" xmlns="http://www.w3.org/2000/svg" aria-label="开口向上的抛物线，说明方程与不等式的解">
+        <line x1="40" y1="200" x2="470" y2="200" stroke="#94a3b8" stroke-width="1.5"/>
+        <line x1="80" y1="20" x2="80" y2="235" stroke="#94a3b8" stroke-width="1.5"/>
+        <path d="M100,50 Q250,290 400,50" fill="none" stroke="#0d6e6e" stroke-width="2.5"/>
+        <circle cx="160" cy="200" r="5" fill="#b45309"/>
+        <circle cx="340" cy="200" r="5" fill="#b45309"/>
+        <text x="160" y="222" text-anchor="middle" font-size="12" fill="#b45309">x₁</text>
+        <text x="340" y="222" text-anchor="middle" font-size="12" fill="#b45309">x₂</text>
+        <text x="250" y="245" text-anchor="middle" font-size="12" fill="#5a6577">x</text>
+        <text x="55" y="35" font-size="12" fill="#5a6577">y</text>
+        <text x="250" y="172" text-anchor="middle" font-size="12" fill="#9f1239" font-weight="700">y&lt;0（两根之间）</text>
+        <text x="120" y="92" font-size="11" fill="#166534">y&gt;0</text>
+        <text x="370" y="92" font-size="11" fill="#166534">y&gt;0</text>
+        <text x="130" y="150" font-size="11" fill="#5a6577">开口向上 a&gt;0</text>
+      </svg>
+      <p class="diagram-caption">开口向上时：<strong>大于取两边，小于取中间</strong>。这是解二次不等式的万能口诀。</p>
+      <div class="derive">
+        <div class="d-title">推导 · 解二次不等式的标准步骤</div>
+        <ol>
+          <li>移项，把不等式化为 <strong>ax²+bx+c □ 0</strong>（□ 是 &gt;、≥、&lt;、≤）。</li>
+          <li>最好让二次项系数 a&gt;0（若 a&lt;0，两边同乘 −1，<strong>不等号方向要变</strong>）。</li>
+          <li>算判别式 <strong>Δ = b²−4ac</strong>，判断图象与 x 轴交点个数。</li>
+          <li>求根（因式分解、配方或求根公式）。</li>
+          <li>结合图象写解集：开口向上时「大于取两边，小于取中间」。</li>
+        </ol>
+      </div>
+
+      <div class="example">
+        <div class="e-title">经典例题 · 3</div>
+        <p class="e-body">解不等式 x² − 3x − 4 &gt; 0。</p>
+        <details>
+          <summary>看解析</summary>
+          <p>因式分解：(x−4)(x+1)&gt;0。两根 x=−1、x=4。开口向上，大于取两边：解集为 (−∞,−1)∪(4,+∞)。</p>
+        </details>
+      </div>
+
+      <div class="example">
+        <div class="e-title">经典例题 · 4</div>
+        <p class="e-body">已知 x&gt;0，求 x + 4/x 的最小值。</p>
+        <details>
+          <summary>看解析</summary>
+          <p>x&gt;0 且 4/x&gt;0，可用基本不等式：x + 4/x ≥ 2√(x·4/x) = 2√4 = 4。等号当且仅当 x = 4/x，即 x=2 时成立。故最小值为 4。</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CH3 ========== -->
+  <section id="ch3">
+    <div class="card">
+      <div class="ch-head">
+        <div>
+          <h2 style="border:none;padding:0;margin:0">第三章 函数的概念与性质</h2>
+          <div class="ch-meta">教材约 p.62–105 · 建议 7–8 天 · 高中数学主线起点</div>
+        </div>
+        <span class="priority">核心章 · 重中之重</span>
+      </div>
+
+      <div class="callout">
+        <strong>本章主线</strong>
+        函数是「输入一个 x，按规则输出唯一一个 y」。本章学<strong>定义域、值域、单调性、奇偶性</strong>，是第 4、5 章的基础。
+      </div>
+
+      <h3>3.1 函数的概念（三要素）</h3>
+      <div class="compare-grid">
+        <div class="compare-card a">
+          <h4>三要素</h4>
+          <ul>
+            <li><strong>定义域</strong>：自变量 x 的取值集合（先求！）</li>
+            <li><strong>对应关系 f</strong>：怎么把 x 变成 y</li>
+            <li><strong>值域</strong>：所有 y 组成的集合</li>
+          </ul>
+        </div>
+        <div class="compare-card b">
+          <h4>两个函数相等 ⇔</h4>
+          <div class="formula">定义域相同 <strong>且</strong> 对应关系相同</div>
+          <p class="muted">值域相同<strong>不能</strong>说明函数相等（常见陷阱）。</p>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>结构</th><th>限制条件</th><th>例子</th></tr></thead>
+          <tbody>
+            <tr><td>分母</td><td>≠ 0</td><td>f(x)=1/(x−2) → x≠2</td></tr>
+            <tr><td>偶次根式</td><td>被开方数 ≥ 0</td><td>f(x)=√(x−1) → x≥1</td></tr>
+            <tr><td>对数</td><td>真数 &gt; 0（且底 a&gt;0,a≠1）</td><td>f(x)=log₂(x−3) → x&gt;3</td></tr>
+            <tr><td>实际问题</td><td>符合实际意义</td><td>人数是正整数</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>3.2 函数的基本性质（单调性与奇偶性）</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>性质</th><th>定义</th><th>图象特征</th><th>证明方法</th></tr></thead>
+          <tbody>
+            <tr><td>增函数</td><td>x₁&lt;x₂ ⇒ f(x₁)&lt;f(x₂)</td><td>从左到右上升</td><td>作差法</td></tr>
+            <tr><td>减函数</td><td>x₁&lt;x₂ ⇒ f(x₁)&gt;f(x₂)</td><td>从左到右下降</td><td>作差法</td></tr>
+            <tr><td>奇函数</td><td>f(−x)=−f(x)，定义域关于原点对称</td><td>关于原点对称</td><td>算 f(−x)</td></tr>
+            <tr><td>偶函数</td><td>f(−x)=f(x)，定义域关于原点对称</td><td>关于 y 轴对称</td><td>算 f(−x)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="derive">
+        <div class="d-title">推导 · 用定义证明 f(x)=x²+2x 在 (0,+∞) 上单调递增（作差法模板）</div>
+        <ol>
+          <li>设 0 &lt; x₁ &lt; x₂（在给定区间内任取两个 x）。</li>
+          <li>作差：f(x₁) − f(x₂) = (x₁²+2x₁) − (x₂²+2x₂)。</li>
+          <li>因式分解：= (x₁−x₂)(x₁+x₂+2)。</li>
+          <li>判号：因为 x₁&lt;x₂，所以 x₁−x₂&lt;0；又 x₁,x₂&gt;0，故 x₁+x₂+2&gt;0。所以 f(x₁)−f(x₂)&lt;0，即 f(x₁)&lt;f(x₂)。</li>
+          <li>结论：f(x) 在 (0,+∞) 上单调递增。</li>
+        </ol>
+        <p class="why">这套「设—作差—变形—判号—结论」五步，是解答题拿过程分的标准写法。</p>
+      </div>
+
+      <h3>3.3 幂函数 y=x^α</h3>
+      <p><span class="tag tag-key">必会</span>幂函数都过定点 <strong>(1,1)</strong>。先画第一象限，再用奇偶性补另一半。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>函数</th><th>定义域</th><th>奇偶性</th><th>在(0,+∞)上的单调性</th></tr></thead>
+          <tbody>
+            <tr><td>y=x</td><td>ℝ</td><td>奇</td><td>增</td></tr>
+            <tr><td>y=x²</td><td>ℝ</td><td>偶</td><td>增</td></tr>
+            <tr><td>y=x³</td><td>ℝ</td><td>奇</td><td>增</td></tr>
+            <tr><td>y=x^(1/2)=√x</td><td>[0,+∞)</td><td>非奇非偶</td><td>增</td></tr>
+            <tr><td>y=x^(−1)=1/x</td><td>{x|x≠0}</td><td>奇</td><td>减</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <svg class="diagram" viewBox="0 0 420 240" xmlns="http://www.w3.org/2000/svg" aria-label="常见幂函数在第一象限的图象对比">
+        <line x1="40" y1="200" x2="400" y2="200" stroke="#94a3b8" stroke-width="1.5"/>
+        <line x1="40" y1="200" x2="40" y2="20" stroke="#94a3b8" stroke-width="1.5"/>
+        <line x1="40" y1="200" x2="400" y2="20" stroke="#0d6e6e" stroke-width="2"/>
+        <path d="M40,200 Q120,198 180,170 Q300,100 360,40" fill="none" stroke="#1d4ed8" stroke-width="2"/>
+        <path d="M40,200 C80,60 120,40 200,40" fill="none" stroke="#b45309" stroke-width="2"/>
+        <path d="M40,200 C50,60 60,50 90,50 L200,44" fill="none" stroke="#9f1239" stroke-width="2"/>
+        <path d="M44,200 L120,80 L200,66 L320,54" fill="none" stroke="#166534" stroke-width="2" stroke-dasharray="5 3"/>
+        <circle cx="130" cy="70" r="4" fill="#1a2332"/>
+        <text x="140" y="70" font-size="11" fill="#1a2332">(1,1)</text>
+        <text x="300" y="60" font-size="11" fill="#0d6e6e">y=x</text>
+        <text x="250" y="130" font-size="11" fill="#1d4ed8">y=x²</text>
+        <text x="150" y="90" font-size="11" fill="#b45309">y=x³</text>
+        <text x="95" y="120" font-size="11" fill="#9f1239">y=√x</text>
+        <text x="250" y="58" font-size="11" fill="#166534">y=1/x</text>
+      </svg>
+      <p class="diagram-caption">α 越大，第一象限越陡；α 为负时（如 y=1/x）图象两支在两条坐标轴之间。</p>
+
+      <div class="example">
+        <div class="e-title">经典例题 · 5</div>
+        <p class="e-body">求函数 f(x) = √(4−x²) / (x−1) 的定义域。</p>
+        <details>
+          <summary>看解析</summary>
+          <p>两个限制：① 偶次根号下 4−x²≥0 → x²≤4 → −2≤x≤2；② 分母 x−1≠0 → x≠1。两者取交集：定义域为 [−2,1)∪(1,2]。</p>
+        </details>
+      </div>
+
+      <div class="example">
+        <div class="e-title">经典例题 · 6</div>
+        <p class="e-body">判断 f(x) = x³ + x 的奇偶性。</p>
+        <details>
+          <summary>看解析</summary>
+          <p>定义域 ℝ 关于原点对称。f(−x)=(−x)³+(−x)=−x³−x=−(x³+x)=−f(x)。所以 f(x) 是<strong>奇函数</strong>。</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CH4 ========== -->
+  <section id="ch4">
+    <div class="card">
+      <div class="ch-head">
+        <div>
+          <h2 style="border:none;padding:0;margin:0">第四章 指数函数与对数函数</h2>
+          <div class="ch-meta">教材约 p.106–169 · 建议 8–10 天 · 提分主战场</div>
+        </div>
+        <span class="priority">高分段 · 题型固定</span>
+      </div>
+
+      <div class="callout warn">
+        <strong>本章主线</strong>
+        「指数」和「对数」是一对互逆运算（像加减、乘除那样）。重点记<strong>互化、图象、运算法则</strong>三件事。
+      </div>
+
+      <h3>4.1 指数与指数幂</h3>
+      <div class="derive">
+        <div class="d-title">推导 · 分数指数幂怎么来</div>
+        <ol>
+          <li>n 次方根：若 xⁿ=a，则 x 叫做 a 的 n 次方根，记作 ⁿ√a。</li>
+          <li>规定：<strong>a^(m/n) = ⁿ√(aᵐ)</strong>（a&gt;0，m、n 为正整数）。</li>
+          <li>规定：a^(−n) = 1/aⁿ（负指数表示倒数）。</li>
+          <li>这样，整数指数幂的运算律对分数指数幂同样成立。</li>
+        </ol>
+      </div>
+      <div class="formula">aᵐ · aⁿ = aᵐ⁺ⁿ　｜　aᵐ / aⁿ = aᵐ⁻ⁿ　｜　(aᵐ)ⁿ = aᵐⁿ　｜　(ab)ⁿ = aⁿbⁿ</div>
+
+      <h3>4.2 指数函数的图象与性质</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>性质</th><th>a&gt;1</th><th>0&lt;a&lt;1</th></tr></thead>
+          <tbody>
+            <tr><td>图象走向</td><td>上升（增函数）</td><td>下降（减函数）</td></tr>
+            <tr><td>定义域</td><td>ℝ</td><td>ℝ</td></tr>
+            <tr><td>值域</td><td>(0,+∞)</td><td>(0,+∞)</td></tr>
+            <tr><td>定点</td><td colspan="2">(0,1)</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>4.3 对数与对数运算</h3>
+      <div class="derive">
+        <div class="d-title">推导 · 对数定义（互化是关键）</div>
+        <ol>
+          <li>若 aᵇ = N（a&gt;0, a≠1, N&gt;0），则把 b 记作 <strong>b = logₐ N</strong>。</li>
+          <li>于是「指数式」和「对数式」可以互相改写：<strong>aᵇ = N ⇔ logₐ N = b</strong>。</li>
+          <li>由定义立得两条恒等式：<strong>logₐ(aᵏ) = k</strong>；<strong>a^(logₐ N) = N</strong>。</li>
+        </ol>
+      </div>
+      <div class="two-col">
+        <div>
+          <h4>对数的运算性质</h4>
+          <div class="formula">logₐ(MN) = logₐM + logₐN<br />logₐ(M/N) = logₐM − logₐN<br />logₐ(Mᵏ) = k·logₐM</div>
+        </div>
+        <div>
+          <h4>换底公式</h4>
+          <div class="formula">logₐb = log_c b / log_c a<br />（常用 c=10 或 c=e）</div>
+          <p class="muted">用途：把不同底的对数化成同底，方便比大小、化简。</p>
+        </div>
+      </div>
+
+      <h3>4.4 对数函数的图象与性质</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>对比项</th><th>指数 y=aˣ</th><th>对数 y=logₐx</th></tr></thead>
+          <tbody>
+            <tr><td>底数条件</td><td>a&gt;0 且 a≠1</td><td>a&gt;0 且 a≠1</td></tr>
+            <tr><td>定义域</td><td>ℝ</td><td>(0,+∞)</td></tr>
+            <tr><td>值域</td><td>(0,+∞)</td><td>ℝ</td></tr>
+            <tr><td>定点</td><td>(0,1)</td><td>(1,0)</td></tr>
+            <tr><td>a&gt;1</td><td>增</td><td>增</td></tr>
+            <tr><td>0&lt;a&lt;1</td><td>减</td><td>减</td></tr>
+            <tr><td>关系</td><td colspan="2">互为反函数，图象关于直线 y=x 对称</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <svg class="diagram" viewBox="0 0 520 230" xmlns="http://www.w3.org/2000/svg" aria-label="指数函数与对数函数图象对比">
+        <text x="130" y="20" text-anchor="middle" font-size="13" font-weight="700">指数 y=aˣ</text>
+        <line x1="24" y1="200" x2="240" y2="200" stroke="#94a3b8"/>
+        <line x1="130" y1="30" x2="130" y2="215" stroke="#94a3b8"/>
+        <polyline points="30,196 45,190 65,182 85,172 105,158 125,140 145,116 165,88 185,60 205,40 225,30" fill="none" stroke="#0d6e6e" stroke-width="2.2"/>
+        <polyline points="30,30 45,40 65,60 85,88 105,116 125,140 145,158 165,172 185,182 205,190 225,196" fill="none" stroke="#b45309" stroke-width="2.2" stroke-dasharray="5 3"/>
+        <circle cx="130" cy="140" r="3.5" fill="#1a2332"/>
+        <text x="120" y="138" text-anchor="end" font-size="11">(0,1)</text>
+        <text x="176" y="48" font-size="11" fill="#0d6e6e">a&gt;1</text>
+        <text x="40" y="52" font-size="11" fill="#b45309">0&lt;a&lt;1</text>
+        <text x="395" y="20" text-anchor="middle" font-size="13" font-weight="700">对数 y=logₐx</text>
+        <line x1="270" y1="130" x2="512" y2="130" stroke="#94a3b8"/>
+        <line x1="286" y1="24" x2="286" y2="218" stroke="#94a3b8"/>
+        <polyline points="292,204 300,190 315,172 335,156 360,144 385,138 420,130 460,122 500,116" fill="none" stroke="#0d6e6e" stroke-width="2.2"/>
+        <polyline points="292,44 300,56 315,72 335,86 360,98 385,108 420,118 460,124 500,130" fill="none" stroke="#b45309" stroke-width="2.2" stroke-dasharray="5 3"/>
+        <circle cx="335" cy="130" r="3.5" fill="#1a2332"/>
+        <text x="345" y="120" font-size="11">(1,0)</text>
+        <text x="452" y="40" font-size="11" fill="#0d6e6e">a&gt;1</text>
+        <text x="452" y="196" font-size="11" fill="#b45309">0&lt;a&lt;1</text>
+      </svg>
+      <p class="diagram-caption">实线 a&gt;1（增），虚线 0&lt;a&lt;1（减）。指数值恒正（在 x 轴上方）；对数定义域恒在 y 轴右侧。</p>
+
+      <h3>4.5 函数的零点与二分法</h3>
+      <div class="compare-grid">
+        <div class="compare-card a">
+          <h4>零点存在定理</h4>
+          <p>f 在 [a,b] 上连续，且 f(a)·f(b)&lt;0 ⇒ (a,b) 内<strong>至少</strong>有一个零点。</p>
+          <p class="muted"><span class="tag tag-hot">易错</span>「至少」不是「恰好」；条件不满足时，不能断定没有零点。</p>
+        </div>
+        <div class="compare-card b">
+          <h4>二分法步骤</h4>
+          <ol>
+            <li>取中点 x₀=(a+b)/2</li>
+            <li>看 f(x₀) 的符号，缩小区间</li>
+            <li>重复，直到区间长度小于精度</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="example">
+        <div class="e-title">经典例题 · 7</div>
+        <p class="e-body">化简：log₂8 + log₂(1/4)。</p>
+        <details>
+          <summary>看解析</summary>
+          <p>log₂8 = log₂(2³) = 3；log₂(1/4)=log₂(2⁻²)=−2。所以 3 + (−2) = 1。</p>
+        </details>
+      </div>
+
+      <div class="example">
+        <div class="e-title">经典例题 · 8</div>
+        <p class="e-body">比较 log₂3 与 log₃2 的大小。</p>
+        <details>
+          <summary>看解析</summary>
+          <p>log₂3 &gt; log₂2 = 1；log₃2 &lt; log₃3 = 1。所以 log₂3 &gt; 1 &gt; log₃2，即 log₂3 &gt; log₃2。关键技巧：拿 <strong>1</strong> 当中间量。</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CH5 ========== -->
+  <section id="ch5">
+    <div class="card">
+      <div class="ch-head">
+        <div>
+          <h2 style="border:none;padding:0;margin:0">第五章 三角函数</h2>
+          <div class="ch-meta">教材约 p.170–末 · 建议 10–12 天 · 与第4章并列主战场</div>
+        </div>
+        <span class="priority">高分段 · 高度套路化</span>
+      </div>
+
+      <div class="callout">
+        <strong>本章主线</strong>
+        用「单位圆」把角、弧长、正弦余弦统一起来。重点记<strong>弧度换算、同角关系、诱导公式、Asin(ωx+φ)</strong>。
+      </div>
+
+      <h3>5.1 任意角与弧度制</h3>
+      <div class="derive">
+        <div class="d-title">推导 · 弧度制怎么来</div>
+        <ol>
+          <li>规定：弧长等于半径的弧，所对的圆心角是 <strong>1 弧度（1 rad）</strong>。</li>
+          <li>于是弧长 l、半径 r、圆心角 α 满足 <strong>l = |α|·r</strong>（α 用弧度表示）。</li>
+          <li>整个圆的弧长是 2πr，所以一个周角 = 2π rad = 360°。</li>
+          <li>于是 <strong>π rad = 180°</strong>。换算：1° = π/180 rad；1 rad = 180°/π ≈ 57.3°。</li>
+        </ol>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>角度</th><th>0°</th><th>30°</th><th>45°</th><th>60°</th><th>90°</th><th>180°</th><th>270°</th><th>360°</th></tr></thead>
+          <tbody><tr><td>弧度</td><td>0</td><td>π/6</td><td>π/4</td><td>π/3</td><td>π/2</td><td>π</td><td>3π/2</td><td>2π</td></tr></tbody>
+        </table>
+      </div>
+
+      <h3>5.2 三角函数的概念</h3>
+      <p>在单位圆（半径 1）上取角 α 的终边与圆交于点 P(x,y)，则定义：</p>
+      <div class="formula"><span class="c">sinα = y</span>（纵坐标）　<span class="c">cosα = x</span>（横坐标）　<span class="c">tanα = y/x</span></div>
+      <svg class="diagram" viewBox="0 0 320 300" xmlns="http://www.w3.org/2000/svg" aria-label="单位圆定义三角函数">
+        <circle cx="160" cy="150" r="95" fill="none" stroke="#94a3b8" stroke-width="2"/>
+        <line x1="45" y1="150" x2="275" y2="150" stroke="#94a3b8"/>
+        <line x1="160" y1="35" x2="160" y2="265" stroke="#94a3b8"/>
+        <line x1="160" y1="150" x2="228" y2="82" stroke="#0d6e6e" stroke-width="2"/>
+        <path d="M160,150 L203,150 A53,53 0 0 1 203,150" fill="none" stroke="#b45309" stroke-width="1.5"/>
+        <text x="183" y="140" font-size="12" fill="#b45309">α</text>
+        <circle cx="228" cy="82" r="4" fill="#9f1239"/>
+        <text x="238" y="82" font-size="12" fill="#9f1239">P(x,y)</text>
+        <line x1="228" y1="82" x2="228" y2="150" stroke="#1d4ed8" stroke-dasharray="3 2"/>
+        <line x1="160" y1="82" x2="228" y2="82" stroke="#166534" stroke-dasharray="3 2"/>
+        <text x="232" y="120" font-size="11" fill="#1d4ed8">sinα=y</text>
+        <text x="175" y="75" font-size="11" fill="#166534">cosα=x</text>
+        <text x="160" y="280" text-anchor="middle" font-size="12" fill="#5a6577">单位圆：半径 r = 1</text>
+      </svg>
+      <div class="derive">
+        <div class="d-title">推导 · 同角基本关系（直接从勾股定理来）</div>
+        <ol>
+          <li>点 P(x,y) 在单位圆上，满足 <strong>x² + y² = 1</strong>。</li>
+          <li>把 x=cosα、y=sinα 代入，得 <strong>sin²α + cos²α = 1</strong>。</li>
+          <li>两边同除以 cos²α，得 <strong>tan²α + 1 = 1/cos²α</strong>（即 1+tan²α=sec²α）。</li>
+        </ol>
+        <p class="why">这条公式不是背的，是单位圆上「勾股定理」换了个说法。</p>
+      </div>
+
+      <h3>5.3 诱导公式</h3>
+      <div class="formula"><span class="c">口诀：奇变偶不变，符号看象限</span></div>
+      <p class="muted">对 π/2±α、π±α、3π/2±α、2π±α 等：先看 k·(π/2) 中 k 的奇偶——奇则 sin↔cos 换名，偶则不变；再把 α 看成锐角，看原角所在象限的符号。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>角</th><th>sin</th><th>cos</th><th>tan</th></tr></thead>
+          <tbody>
+            <tr><td>−α</td><td>−sinα</td><td>cosα</td><td>−tanα</td></tr>
+            <tr><td>π−α</td><td>sinα</td><td>−cosα</td><td>−tanα</td></tr>
+            <tr><td>π+α</td><td>−sinα</td><td>−cosα</td><td>tanα</td></tr>
+            <tr><td>π/2−α</td><td>cosα</td><td>sinα</td><td>cotα</td></tr>
+            <tr><td>π/2+α</td><td>cosα</td><td>−sinα</td><td>−cotα</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>5.4 正弦、余弦、正切函数的图象与性质</h3>
+      <svg class="diagram" viewBox="0 0 520 200" xmlns="http://www.w3.org/2000/svg" aria-label="正弦函数与余弦函数图象">
+        <line x1="40" y1="100" x2="500" y2="100" stroke="#94a3b8"/>
+        <line x1="40" y1="20" x2="40" y2="180" stroke="#94a3b8"/>
+        <path d="M40,100 Q90,20 140,100 Q190,180 240,100 Q290,20 340,100 Q390,180 440,100 Q465,55 490,100" fill="none" stroke="#0d6e6e" stroke-width="2.2"/>
+        <path d="M40,20 Q90,100 140,180 Q190,100 240,20 Q290,100 340,180 Q390,100 440,20 Q465,65 490,100" fill="none" stroke="#b45309" stroke-width="2" stroke-dasharray="5 3"/>
+        <text x="500" y="120" font-size="12" fill="#0d6e6e">y=sinx</text>
+        <text x="460" y="160" font-size="12" fill="#b45309">y=cosx</text>
+        <text x="80" y="115" font-size="11" fill="#5a6577">π/2</text>
+        <text x="170" y="115" font-size="11" fill="#5a6577">π</text>
+        <text x="260" y="115" font-size="11" fill="#5a6577">3π/2</text>
+        <text x="350" y="115" font-size="11" fill="#5a6577">2π</text>
+      </svg>
+      <p class="diagram-caption">正弦曲线（实线）与余弦曲线（虚线）形状相同，只是沿 x 轴平移了 π/2。</p>
+
+      <h3>5.5 三角恒等变换</h3>
+      <div class="formula">两角和差：<span class="c">sin(α±β)=sinαcosβ±cosαsinβ</span>；<span class="c">cos(α±β)=cosαcosβ∓sinαsinβ</span><br />二倍角：<span class="c">sin2α=2sinαcosα</span>；<span class="c">cos2α=cos²α−sin²α=2cos²α−1=1−2sin²α</span></div>
+      <div class="derive">
+        <div class="d-title">推导 · cos(α−β) 的来路（和差角公式的源头）</div>
+        <ol>
+          <li>在单位圆上取两个角 α、β，对应点 P(cosα,sinα)、Q(cosβ,sinβ)。</li>
+          <li>用两点间距离公式算 |PQ|²，再与旋转后算出的同一段弧长距离相等。</li>
+          <li>化简即得 <strong>cos(α−β)=cosαcosβ+sinαsinβ</strong>。</li>
+          <li>把 β 换成 −β，得 cos(α+β)；再用「sinθ=cos(π/2−θ)」推出 sin 的和差公式；令 α=β 即得二倍角公式。</li>
+        </ol>
+        <p class="why">所有三角恒等式，源头都在这一个 cos(α−β) 上——记住它的来历，整章公式就串起来了。</p>
+      </div>
+
+      <h3>5.6 函数 y = A sin(ωx + φ) 的图象</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>参数</th><th>意义</th><th>怎么求</th><th>对图象的影响</th></tr></thead>
+          <tbody>
+            <tr><td>A</td><td>振幅</td><td>|A|=(y_max−y_min)/2</td><td>|A| 越大纵向拉伸</td></tr>
+            <tr><td>ω</td><td>决定周期</td><td>T=2π/|ω|</td><td>|ω| 越大周期越短（横向压缩）</td></tr>
+            <tr><td>φ</td><td>初相</td><td>由特殊点或平移得出</td><td>左加右减（对 x）</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout good">
+        <strong>✓ 五点法作图（大题步骤分）</strong>
+        令 ωx+φ 依次取 0、π/2、π、3π/2、2π，解出五个 x，列表、描点、连线。这是三角函数大题的标配。
+      </div>
+
+      <div class="example">
+        <div class="e-title">经典例题 · 9</div>
+        <p class="e-body">求 y = 2sin(2x − π/3) 的振幅、周期、初相。</p>
+        <details>
+          <summary>看解析</summary>
+          <p>振幅 A=2；ω=2，所以周期 T=2π/ω=π；初相 φ=−π/3。</p>
+        </details>
+      </div>
+
+      <div class="example">
+        <div class="e-title">经典例题 · 10</div>
+        <p class="e-body">已知 sinα = 3/5，且 α 是第二象限角，求 cosα 与 tanα。</p>
+        <details>
+          <summary>看解析</summary>
+          <p>由 sin²α+cos²α=1，得 cos²α=1−9/25=16/25。第二象限 cosα&lt;0，故 cosα=−4/5；tanα=sinα/cosα=(3/5)/(−4/5)=−3/4。</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>数学（A版）必修第一册 · 教学课件　|　教材：人民教育出版社《普通高中教科书·数学（A版）》必修第一册</p>
+    <p style="margin-top:0.35rem">图解 + 推导 + 经典例题　·　仅供自学梳理，具体以教材与教师要求为准</p>
+  </footer>
+
+</main>
+
+<script>
+  (function () {
+    function setDetailsOpen(open) {
+      document.querySelectorAll("details").forEach(function (d) {
+        if (open) {
+          if (!("wasOpen" in d.dataset)) d.dataset.wasOpen = d.open ? "1" : "0";
+          d.open = true;
+        } else if ("wasOpen" in d.dataset) {
+          d.open = d.dataset.wasOpen === "1";
+          delete d.dataset.wasOpen;
+        }
+      });
+    }
+    window.addEventListener("beforeprint", function () { setDetailsOpen(true); });
+    window.addEventListener("afterprint", function () { setDetailsOpen(false); });
+  })();
+</script>
+</body>
+</html>
